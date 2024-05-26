@@ -13,7 +13,7 @@ const Header = () => {
         </div>
           <span className="text-xs poppins text-gray-500 uppercase tracking-wider">Home</span>
           <h1 className="text-5xl md:text-8xl font-normal  mt-4 lg:w-10/12 poppins">
-            Hi<span className=" font-serif">,</span> I<span className="font-serif">'</span>m Matthew a
+            Hi<span className=" font-serif">&#44;</span> I<span className="font-serif">&#39;</span>m Matthew a
             <br /> <span className="all-text"> creative </span>developer
           </h1>
           <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-base max-w-2xl text-gray-400 mt-8">
