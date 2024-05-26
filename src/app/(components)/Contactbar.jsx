@@ -33,7 +33,7 @@ const Contactbar = () => {
             <img src='/images/top.png' alt='me' className='w-28 h-28 bg-green-400 rounded-full mb-8 lg:mb-0'/>
             <div className='flex flex-col space-y-6'>
               <p className='text-center lg:text-left text-2xl lg:text-6xl font-light'>
-               Let's work together on your next project
+               Let&#39;s work together on your next project
               </p>
               <button className='w-full md:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm'>let's-get-in-touch</button>
             </div>

@@ -146,6 +146,28 @@
     height: 400px;
   }
 
+  @media (max-width: 600px) {
+    .circle1 {
+      width: 150px;  /* Adjust the width for mobile */
+      height: 100px; /* Adjust the height for mobile */
+    }
+  
+    .circle2 {
+      width: 250px;  /* Adjust the width for mobile */
+      height: 200px; /* Adjust the height for mobile */
+    }
+  }
+  @media (max-width: 900px) {
+    .circle1 {
+      width: 150px;  /* Adjust the width for mobile */
+      height: 100px; /* Adjust the height for mobile */
+    }
+  
+    .circle2 {
+      width: 250px;  /* Adjust the width for mobile */
+      height: 200px; /* Adjust the height for mobile */
+    }
+  }
   .all-text{
     color: #8FFF86;
   }
