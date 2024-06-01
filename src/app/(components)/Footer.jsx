@@ -25,7 +25,7 @@ const Footer = () => {
              2024 Matthew Ameh | Freelance Web Developer -
             P.IVA IT03686021209
           </div>
-          <div className="flex space-x-4  sm:text-sm md:text-sm text-xs mb-2 text-gray-500">
+          <div className="flex space-x-6  sm:text-sm md:text-sm text-xs mb-2 text-gray-500">
             <a href="#privacy-policy" className="hover:text-white hover:scale-105" style={{ transition: "ease-in 0.5s" }}>
               privacy policy
             </a>

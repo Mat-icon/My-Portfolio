@@ -14,6 +14,7 @@ import {
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FiArrowUpRight } from "react-icons/fi";
 
 // Register the plugins
 if (typeof window !== "undefined") {
@@ -27,6 +28,7 @@ const Contact = () => {
   const hobbiesRef = useRef(null);
   const potraitRef = useRef(null);
   const contactRef = useRef(null);
+  const collabRef = useRef(null);
 
   useEffect(() => {
     const draggableElements = [
@@ -35,6 +37,7 @@ const Contact = () => {
       hobbiesRef,
       potraitRef,
       contactRef,
+      collabRef
     ];
 
     draggableElements.forEach((ref) => {
@@ -53,183 +56,314 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="contact-body w-full h-screen relative">
-      <div className="title text-center">
-        <h1 className="text-3xl md:text-6xl" ref={cardRef}>
-          Your <span className="text-green-400">interactive</span> developer
-        </h1>
-      </div>
-
-      <div className="about-me relative top-36 left-1/4" ref={jobRef}>
-        <div className="about-me-title p-4">
-          <p>about-me</p>
-          <div className="flex space-x-8 text-gray-500 text-sm">
-            <FontAwesomeIcon
-              icon={faMinus}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
-            <div
-              className="w-3 h-3 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            ></div>
-            <FontAwesomeIcon
-              icon={faX}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
+    <div
+      className="w-full flex flex-col items-center 
+    "
+    >
+      <div className="light2"></div>
+      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 space-y-1">
+        <div className="me md:w-full lg:w-4/5 xl:w-2/3 " ref={jobRef}>
+          <div className="about-me-title p-4 text-white">
+            <p>about-me</p>
+            <div className="flex space-x-4 text-gray-500 text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="about-me-text p-4 text-base  rounded-lg shadow">
+            <p>
+              <span className="text-gray-600">1. </span>Nice to meet you! I'm
+              <span className="text-red-500"> Matthew</span> a{" "}
+              <span className="text-blue-400">Freelance Web Developer</span>.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">2. </span>My focus is on{" "}
+              <span className="text-lime-400">creative development</span>: my
+              skills can be described as the{" "}
+              <span className="text-blue-300">meeting point</span> between{" "}
+              <span className="text-purple-400">creativity</span> and{" "}
+              <span className="text-pink-500">technical proficiency</span>.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">3. </span>I{" "}
+              <span className="text-yellow-400">integrate</span> complex but{" "}
+              <span className="text-blue-800">smooth animations</span> and{" "}
+              <span className="text-green-500">interactions</span> into my
+              projects, to present the{" "}
+              <span className="text-red-400">website information</span> in an
+              engaging way and make it a{" "}
+              <span className="text-blue-500">memorable experience</span>.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">4. </span>I strive to{" "}
+              <span className="text-cyan-500">deliver projects</span> that are{" "}
+              <span className="text-purple-400">visually compelling</span> by
+              working closely with the{" "}
+              <span className="text-yellow-600">designer</span>, but also{" "}
+              <span className="text-sky-300">technically outstanding</span> with
+              a clean{" "}
+              <span className="text-red-600">and properly structured</span>{" "}
+              code. All of this, without forgetting about{" "}
+              <span className="text-lime-500">web performances</span> and{" "}
+              <span className="text-pink-500"> technical SEO aspects.</span>
+            </p>
           </div>
         </div>
-        <div className="about-me-text p-4">
-          <p>
-            <span className="text-gray-600">1. </span>Nice to meet you! I'm
-            Matthew a{" "}
-            <span className="text-green-400">Freelance Web Developer</span>.
-          </p>
-        </div>
-      </div>
 
-      <div className="job relative top-52 left-28" ref={elementRef}>
-        <div className="about-me-title p-4">
-          <p>where-i-work</p>
-          <div className="flex space-x-8 text-gray-500 text-sm">
-            <FontAwesomeIcon
-              icon={faMinus}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
-            <div
-              className="w-3 h-3 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            ></div>
-            <FontAwesomeIcon
-              icon={faX}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
+        <div
+          className="job md:h-44  h-auto w-4/5 lg:w-1/2 xl:w-2/5"
+          ref={elementRef}
+        >
+          <div className="about-me-title p-3 text-white">
+            <p className="text-sm">where-i-work</p>
+            <div className="flex space-x-4 text-gray-500 text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="w-11/12 about-me-text p-4 rounded-lg shadow text-sm md:text-base font-normal">
+            <p>
+              <span className="text-gray-600">1. </span>Currently based in
+              Lagos, Nigeria<sub className="text-xs"> NG</sub>
+            </p>
+            <p>
+              <span className="text-gray-600">2. </span> Available for all
+              remote collaborations around the world
+            </p>
           </div>
         </div>
-        <div className="about-me-text p-4 text-base font-semibold">
-          <p>
-            <span className="text-gray-600">1. </span>Currently based in Lagos,
-            Nigeria<sub className="text-xs"> NG</sub>
-          </p>
-          <p>
-            <span className="text-gray-600">2. </span> Available for all remote
-            collaborations around the world
-          </p>
-        </div>
-      </div>
 
-      <div className="hobbies relative  left-2/3" ref={hobbiesRef}>
-        <div className="about-me-title p-4">
-          <p>hobbies</p>
-          <div className="flex space-x-8 text-gray-500">
-            <FontAwesomeIcon
-              icon={faMinus}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
-            <div
-              className="w-3 h-3 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            ></div>
-            <FontAwesomeIcon
-              icon={faX}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
+        <div className="hobbies w-4/5 h-auto lg:w-1/2 xl:w-1/3" ref={hobbiesRef}>
+          <div className="about-me-title p-3 text-white ">
+            <p className="text-sm">hobbies</p>
+            <div className="flex space-x-4 text-gray-500">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="about-me-text p-4  space-y-3">
+            <p className="text-base">
+              <span className="text-gray-600">1.</span>{" "}
+              <FontAwesomeIcon
+                icon={faSoccerBall}
+                className="text-red-400 "
+              />{" "}
+              Football
+            </p>
+            <p className="text-base">
+              <span className="text-gray-600">2. </span>
+              <FontAwesomeIcon
+                icon={faGamepad}
+                className="text-purple-400"
+              />{" "}
+              Playing games
+            </p>
+            <p className="text-base">
+              <span className="text-gray-600">3. </span>
+              <FontAwesomeIcon icon={faPlane} className="text-lime-300" />{" "}
+              Travelling
+            </p>
+            <p className="text-base">
+              <span className="text-gray-600">4. </span>{" "}
+              <FontAwesomeIcon icon={faWeight} className="text-sky-500" />{" "}
+              Exercise
+            </p>
           </div>
         </div>
-        <div className="about-me-text p-4 text-lg space-y-3">
-          <p>
-            <span className="text-gray-600">1 </span>{" "}
-            <FontAwesomeIcon icon={faSoccerBall} className="text-orange-500" />{" "}
-            football
-          </p>
-          <p>
-            <span className="text-gray-600">2 </span>
-            <FontAwesomeIcon
-              icon={faGamepad}
-              className="text-purple-500"
-            />{" "}
-            playing video games
-          </p>
-          <p>
-            <span className="text-gray-600">3 </span>
-            <FontAwesomeIcon icon={faPlane} className="text-green-500" />{" "}
-            travelling
-          </p>
-          <p>
-            <span className="text-gray-600">4 </span>{" "}
-            <FontAwesomeIcon icon={faWeight} className="text-blue-500" />{" "}
-            exercise
-          </p>
-        </div>
-      </div>
 
-      <div className="potrait relative left-2/4" ref={potraitRef}>
-        <div className="about-me-title p-4">
-          <p>potrait</p>
-          <div className="flex space-x-8 text-gray-500">
-            <FontAwesomeIcon
-              icon={faMinus}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
-            <div
-              className="w-3 h-3 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            ></div>
-            <FontAwesomeIcon
-              icon={faX}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
+        <div className="me md:w-full lg:w-4/5 xl:w-2/3 " ref={collabRef}>
+          <div className="about-me-title p-4 text-white">
+            <p>collaborations</p>
+            <div className="flex space-x-4 text-gray-500 text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="about-me-text p-4 text-base  rounded-lg shadow">
+            <p>
+              <span className="text-gray-600">1. </span>My ideal collaboration
+              are with
+              <span className="text-red-500"> web agencies</span> and
+              <span className="text-blue-400">
+                {" "}
+                digital design studios
+              </span>{" "}
+              that need
+              <span className="text-purple-400"> technical expertise</span>{" "}
+              coupled with an eye for{" "}
+              <span className="text-red-400">design</span> and{" "}
+              <span className="text-yellow-300">aesthetics</span>.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">2. </span>I can also work with
+              <span className="text-blue-300">
+                {" "}
+                independent professionals
+              </span>{" "}
+              such as
+              <span className="text-purple-400"> designers</span> and
+              <span className="text-pink-500"> developers</span> to complement
+              their skills and bring{" "}
+              <span className="text-lime-400">additional value</span> to their
+              project.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">3. </span>I achieve my
+              <span className="text-yellow-400"> best results</span> in
+              paternships that are based on
+              <span className="text-cyan-400"> mutual understanding</span> and
+              <span className="text-green-500"> close collaborations</span>{" "}
+              between all parties, especially design and development.
+            </p>
           </div>
         </div>
-        <div className="potrait-img bg-green-400"></div>
-      </div>
 
-      <div
-        className="contact-links translate-x-14 relative bottom-20"
-        ref={contactRef}
-      >
-        <div className="about-me-title p-4">
-          <p>contact-me</p>
-          <div className="flex space-x-8 text-gray-500">
-            <FontAwesomeIcon
-              icon={faMinus}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
-            <div
-              className="w-3 h-3 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            ></div>
-            <FontAwesomeIcon
-              icon={faX}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
+        <div
+          className="potrait w-11/12 h-80 lg:w-1/2 xl:w-1/4 "
+          ref={potraitRef}
+        >
+          <div className="about-me-title p-3  text-white">
+            <p className="text-sm">potrait</p>
+            <div className="flex space-x-4 text-gray-500 text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
           </div>
         </div>
-        <div className="potrait-img text-md flex flex-col space-y-3 p-6">
-          <a href="/home" className="hover:text-green-400 decoration-inherit">
-            linkedin
-          </a>
-          <a href="/home" className="hover:text-green-400">
-            facebook
-          </a>
-          <a href="/home" className="hover:text-green-400">
-            x
-          </a>
-          <a href="/home" className="hover:text-green-400">
-            Whatsapp
-          </a>
-          <a href="/home" className="hover:text-green-400">
-            github
-          </a>
+
+        <div className="contact-links w-4/5 lg:w-1/2 xl:w-1/4" ref={contactRef}>
+          <div className="about-me-title p-3 text-white">
+            <p className="text-sm">me-online</p>
+            <div className="flex space-x-4 text-gray-500 text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="potrait-img text-md flex flex-col space-y-3 p-6 shadow">
+            <div className="flex">
+              <span className="text-gray-600">1.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-blue-400 decoration-inherit flex items-center"
+                style={{transition:"0.4s ease-in"}}
+              >
+                linkedin <FiArrowUpRight className="text-lg"/>
+              </a>
+            </div>
+            <div className="flex">
+              <span className="text-gray-600">2.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-blue-400 decoration-inherit flex items-center"
+                style={{transition:"0.4s ease-in"}}
+              >
+                instagram <FiArrowUpRight className="text-lg"/>
+              </a>
+            </div>
+            <div className="flex">
+              <span className="text-gray-600">3.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-blue-400 decoration-inherit flex items-center"
+                style={{transition:"0.4s ease-in"}}
+              >
+                github <FiArrowUpRight className="text-lg"/>
+              </a>
+            </div>
+            <div className="flex">
+              <span className="text-gray-600">4.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-blue-400 decoration-inherit flex items-center"
+                style={{transition:"0.4s ease-in"}}
+              >
+                x <FiArrowUpRight className="text-lg"/>
+              </a>
+            </div>
+            <div className="flex">
+              <span className="text-gray-600">5.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-blue-400 decoration-inherit flex items-center"
+                style={{transition:"0.4s ease-in"}}
+              >
+                facebook
+                <FiArrowUpRight className="text-lg"/>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

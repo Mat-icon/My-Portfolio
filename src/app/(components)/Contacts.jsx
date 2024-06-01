@@ -16,20 +16,19 @@ import {
   VscChromeMaximize,
   VscChromeClose,
 } from "react-icons/vsc";
-import Header from "./Header";
-import Contactbar from "./Contactbar";
+
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import AnimatedLetters from "./AnimatedLetters";
+
 import Link from "next/link";
-
-
-  
-
+import ContactForm from "./ContactForm";
+import Contactbar from "./Contactbar";
 
 const NavItem = ({ number, label, isActive }) => (
   <div
     className={`flex items-center space-x-4 p-4 ${
-      isActive ? "text-green-400" : "hover:all-text"
+      isActive ? "text-yellow-400" : "hover:text-yellow-500"
     }`}
   >
     <span className="text-3xl text-gray-500">{number}</span>
@@ -49,20 +48,46 @@ const FullScreenNav = ({ isOpen, toggleNav }) => (
       onClick={toggleNav}
     />
    
-    <Link href='/'><NavItem number="01" label="home/" isActive /></Link>
-     <Link href='/About'><NavItem number="02" label="about/" /></Link>
-    <Link href='/ProjectsPage'> <NavItem number="03" label="work/" /></Link>
-     <Link href='/contact'><NavItem number="04" label="contact/" /></Link>
+    <Link href="/">
+      <NavItem number="01" label="home/"  />
+    </Link>
+    <Link href="/About">
+      <NavItem number="02" label="about/" />
+    </Link>
+    <Link href="/ProjectsPage">
+      {" "}
+      <NavItem number="03" label="work/" />
+    </Link>
+    <Link href="/contact">
+      <NavItem number="04" label="contact/" isActive />
+    </Link>
   </div>
 );
 
-export default function Home() {
+export default function Contacts() {
+  const [letterClass, setLetterClass] = useState("text-animate");
+  const nameArray = [
  
+    " ",
+    "d",
+    "r",
+    "o",
+    "p",
+    " ",
+    "a",
+    " ",
+    "l",
+    "i",
+    "n",
+    "e"
+   
+  ];
+
+
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
-
 
   const toggleNav = () => setIsNavOpen(!isNavOpen);
 
@@ -71,19 +96,18 @@ export default function Home() {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
 
-   
-
     return () => {
       clearInterval(interval);
     };
   }, []);
 
- 
-
   return (
     <div className="flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden">
       {/* Header */}
-      <header className="flex justify-between items-center p-2 border-b border-gray-500" style={{background:"#0000001f"}}>
+      <header
+        className="flex justify-between items-center p-2 border-b border-gray-500"
+        style={{ background: "#0000001f" }}
+      >
         <div className="flex items-center">
           <FiMenu
             className="text-lg md:text-2xl cursor-pointer  md:hidden"
@@ -93,16 +117,22 @@ export default function Home() {
         <div className="flex items-center">
           <span className="text-lg font-medium text-center fonts">
             matthew
-            <span className="text-lg all-text">&lt;ameh&gt;</span>
+            <span className="text-lg text-yellow-500">&lt;ameh&gt;</span>
           </span>
         </div>
         <div className="flex items-center space-x-2 ">
-          <VscChromeMinimize className="text-base text-gray-400" />
-          <div
+          <VscChromeMinimize
+            className="text-sm text-gray-400 hover:text-white"
+            style={{ transition: "ease-in 0.5s" }}
+          />
+              <div
               className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
               style={{ transition: "ease-in 0.5s" }}
             ></div>
-          <VscChromeClose className="text-base text-gray-400" />
+          <VscChromeClose
+            className="text-sm text-gray-400 hover:text-white"
+            style={{ transition: "ease-in 0.5s" }}
+          />
         </div>
       </header>
 
@@ -111,36 +141,72 @@ export default function Home() {
       {/* Main Content */}
       <div className="flex">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center md:justify-center md:space-y-6 md:border-r md:border-gray-500 md:p-3" style={{background:"#0000001f"}}>
+        <aside className="nav-color hidden md:flex md:flex-col md:items-center md:justify-center md:space-y-6 md:border-r md:border-gray-500 md:p-3 ">
           <div className="icon-container">
-            <Link href='/'><FiHome className="text-base hover:all-text cursor-pointer" /></Link>
+            <Link href="/">
+              <FiHome className="text-base hover:text-yellow-500 cursor-pointer" />
+            </Link>
             <span className="badge">home</span>
           </div>
           <div className="icon-container">
-            <Link href='/ProjectsPage'><FiCode className="text-base hover:all-text cursor-pointer" /></Link>
+            <Link href="/ProjectsPage">
+              <FiCode className="text-base hover:text-yellow-500 cursor-pointer" />
+            </Link>
             <span className="badge">projects</span>
           </div>
           <div className="icon-container">
-          <Link href='/About'><FiUser className="text-base hover:all-text cursor-pointer" /></Link>
+            <Link href="/About">
+              <FiUser className="text-base hover:text-yellow-500 cursor-pointer" />
+            </Link>
             <span className="badge">about</span>
           </div>
           <div className="icon-container">
-          <Link href='/contact'><FiMail className="text-base hover:all-text cursor-pointer" /></Link>
+            <FiMail className="text-base hover:text-yellow-500 cursor-pointer" />
             <span className="badge">contact</span>
           </div>
         </aside>
 
         {/* Content */}
-        <div className="test2 flex flex-col" >
-          <Header />
-          <Contactbar />
+        <div className="test4 test5 flex flex-col">
+          <main className="w-full header">
+            <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
+              {" "}
+              <div className="words-container">
+                <div className="word flex">
+                  <p>&lt;contact&gt;</p>
+                  <p>&lt;me&gt;</p>
+                </div>
+              </div>
+              <span className="text-xs poppins text-gray-500 uppercase tracking-wider">
+                Contact
+              </span>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal  mt-4 md:w-full lg:w-10/12 poppins g">
+                Let<span className=" font-serif">&#39;</span>s book a virtual<br/> space or
+               <span className=" text-yellow-500"> <AnimatedLetters
+                  letterClass={letterClass}
+                  strArray={nameArray}
+                  idx={15}
+                />
+                 </span>
+              </h1>
+              <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-sm max-w-2xl text-gray-400 mt-8 our-text">
+                Whether you have a project you want to work on together or just want to have a chat, you are in the right place:
+                Let's get in touch
+              </p>
+            </div>
+          </main>
+          <ContactForm />
+          <Contactbar/>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="flex justify-between items-center p-4 h-28 border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
+      <footer
+        className="flex justify-between items-center p-4 h-28 border-t border-gray-500 text-gray-600"
+        style={{ background: "#0000001f" }}
+      >
         <div className="flex items-center space-x-2">
-          <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+          <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
         </div>
         <span className="hidden md:block text-sm">Based in Nigeria</span>
         <div className="hidden md:block text-sm local">
