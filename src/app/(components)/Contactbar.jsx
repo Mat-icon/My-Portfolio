@@ -29,19 +29,19 @@ const Contactbar = () => {
           </div>
         </div>
         <div className="w-full h-4/5 about-me-text p-6 poppins flex flex-col lg:flex-row items-center justify-center lg:space-x-12">
-          <div className="w-44 h-32  rounded-full relative overflow-hidden">
+          <div className="w-44 h-32 rounded-full relative overflow-hidden">
             <img
               src="/images/top.jpg"
               alt="me"
-              className=" mb-8 lg:mb-0 object-cover absolute top-0 left-0 w-full h-full"
+              className="mb-8 lg:mb-0 object-cover absolute top-0 left-0 w-full h-full"
             />
           </div>
           <div className="flex flex-col space-y-6">
             <p className="text-center lg:text-left text-2xl lg:text-6xl font-normal">
               Let&#39;s work together on your next project
             </p>
-            <button className="w-full md:w-full lg:w-4/12  p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm">
-              let's-get-in-touch
+            <button className="w-full md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm">
+              let&#39;s-get-in-touch
             </button>
           </div>
         </div>

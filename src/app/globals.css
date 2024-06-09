@@ -19,7 +19,7 @@
     position: sticky;
   }
 
-  html {
+  .test2 ,.test3 ,.test4 ,.test5 {
     scroll-behavior: smooth;
   }
 
@@ -31,7 +31,7 @@
   }
   .test {
     width: 98%;
-    height: 98%;
+    height: 97%;
     margin: 10px auto;
   }
 
@@ -94,7 +94,7 @@
     font-weight: bolder;
     opacity: 0.2;
     color: rgba(22, 19, 19, 0.795);
-    animation: animateWord 60s linear infinite;
+    animation: animateWord 100s linear infinite;
     font-size: 600px;
     letter-spacing: 30px;
   }
@@ -108,11 +108,11 @@
       transform: translateX(130%);
     }
     100% {
-      transform: translateX(-200%);
+      transform: translateX(-400%);
     }
   }
   .light {
-    width: 1px;
+    width: 2px;
     height: 400px;
     margin-top: 70px;
     position: relative;
@@ -122,15 +122,15 @@
   .light::after {
     content: "";
     width: 117px;
-    height: 300px;
-    background: rgb(175, 58, 58);
+    height: 400px;
+    background: rgb(189, 51, 51);
     filter: blur(10px);
     border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0%;
     z-index: 20;
-    animation: animateLight 12s linear infinite;
+    animation: animateLight 22s linear infinite;
   }
 
   .light2 {
@@ -291,6 +291,24 @@
       width: 250px;
       height: 200px;
     }
+    .circle5 {
+      width: 150px;
+      height: 100px;
+    }
+
+    .circle6 {
+      width: 250px;
+      height: 200px;
+    }
+    .circle7 {
+      width: 150px;
+      height: 100px;
+    }
+
+    .circle8 {
+      width: 250px;
+      height: 200px;
+    }
   }
   @media (max-width: 900px) {
     .circle1 {
@@ -324,25 +342,10 @@
   color: white;
   transition: 0.5s ease-in;
 }
-::-webkit-scrollbar {
-  width: 5px;
-}
 
-.loader {
-  border: 3px solid #0f0f0f8c;
-  border-radius: 50%;
-  border-top: 3px solid #8fff86;
-  width: 30px;
-  height: 30px;
-  animation: spin 2s linear infinite;
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+
+::-webkit-scrollbar {
+  width: 6px;
 }
 
 .test2::-webkit-scrollbar-thumb {
@@ -356,16 +359,15 @@
   background-color: #243492;
 }
 .test5::-webkit-scrollbar-thumb {
-  background-color: #9fb812;
-}
-.test2::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: #d3d606;
 }
 
-::-webkit-scrollbar-button {
-  background-color: #f3fcf3;
-  height: 5px;
-}
+
+::-webkit-scrollbar-button{
+  background: rgba(245, 245, 245, 0.527);
+ }
+
+
 .nav-color{
   background: #00000049;
 }
@@ -462,6 +464,7 @@
   border: 0.5px solid #333;
   background: #101010d3;
   border-radius: 3px;
+  padding: 8px;
 }
 
 .footer-content {
@@ -492,6 +495,7 @@
   background: #101010d3;
   border-radius: 3px;
 }
+
 .about-me-title {
   border-bottom: 0.5px solid #333;
   text-align: center;
@@ -520,8 +524,8 @@
 }
 
 .testimonial-swiper .swiper-slide:not(.swiper-slide-active) {
- opacity: 0.7;
-  transform: scale(0.8);
+ opacity: 0.5;
+  transform: scale(0.9);
 }
 
 @media (max-width : 800px) {
@@ -535,7 +539,9 @@
 }
 
 .testimonial-card {
-  background: #0e0d0dd5;
+  height: 500px;
+  
+  background: #0e0d0da2;
   border-radius: 5px;
   color: #fff;
   border: 1px solid rgba(128, 128, 128, 0.651);

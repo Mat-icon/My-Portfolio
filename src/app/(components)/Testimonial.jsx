@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules'; // Add Autoplay here
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
-// Import Swiper styles
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -52,11 +52,11 @@ const testimonials = [
     position: "Digital Designer & Founder @ Vool",
     image: "/images/top.jpg"
   },
-  // Add more testimonials as needed
+
 ];
 
 const TestimonialCard = ({ tech, content, author, position, image }) => (
-  <div className=" mt-8 testimonial-card w-72 md:w-96 h-96">
+  <div className=" mt-8 testimonial-card w-72 md:w-full ">
     <div className="about-me-title p-3">
       <p className="text-sm font-semibold">{tech}</p>
       <div className="flex space-x-4 text-gray-500 text-xs">
@@ -76,10 +76,10 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
         />
       </div>
     </div>
-    <div className="testimonial-content p-3">
+    <div className="testimonial-content p-5">
       <img src={image} alt={author} className="author-image" />
       <p className="testimonial-text">{content}</p>
-      <p className="testimonial-author">{author} // {position}</p>
+      <p className="testimonial-author">{author} &#123;&#125; {position}</p>
     </div>
   </div>
 );
@@ -87,25 +87,32 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
 const Testimonial = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const slidesPerView = 3;
+
+  const isMiddleSlide = (index) => {
+    const midIndex = (slidesPerView - 1) / 2;
+    return index === activeIndex + midIndex;
+  };
+
   return (
     <>
-      <h1 className="poppins text-5xl md:text-6xl text-center">
+      <h1 className="poppins text-4xl md:text-6xl text-center">
         Nice things <span className="text-blue-600">people say</span>
         <br />about my work
       </h1>
 
-      <div className="relative w-full h-screen flex justify-center items-center p-6">
+      <div className="relative w-full h-screen flex justify-center items-center p-4">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]} 
-          spaceBetween={40}
-          slidesPerView={2.5}
+          spaceBetween={0}
+          slidesPerView={2}
           loop={true} 
-          autoplay={{ delay: 3000, disableOnInteraction: false }} 
+          autoplay={{ delay: 5000, disableOnInteraction: true }} 
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           className=" cursor-grab testimonial-swiper"
         >
           {testimonials.map(({ id, tech, content, author, position, image }, index) => (
-            <SwiperSlide key={id} className={index === activeIndex ? 'active-slide' : ''}>
+            <SwiperSlide key={id} className={isMiddleSlide(index) ? 'active-slide' : ''}>
               <TestimonialCard
                 tech={tech}
                 content={content}

@@ -4,8 +4,8 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="w-full h-96 top-full absolute mt-4 footer-content">
-      <div className="w-11/12 flex flex-col space-y-52 relative top-1/4 left-12">
-        <div className="flex flex-col text-xs md:text-sm sm:flex-col sm:flex md:flex justify-between items-center md:flex-row md:items-center md:space-x-4  w-10/12">
+      <div className="w-full flex flex-col space-y-52 relative top-1/4  items-center">
+        <div className="flex flex-col text-xs md:text-sm sm:flex-col sm:flex md:flex justify-between items-center md:flex-row md:items-center md:space-x-4  w-11/12">
           <span className="text-lg font-normal ">
             matthew 
              <span className="" style={{ color: "#8FFF86" }}>
@@ -19,7 +19,7 @@ const Footer = () => {
             <a href="/" className="hover:text-white hover:scale-105" style={{ transition: "ease-in 0.5s" }}>contact</a>
           </div>
         </div>
-        <div className="w-10/12 flex flex-col md:flex-row md:justify-between items-center md:items-center">
+        <div className="w-11/12 flex flex-col md:flex-row md:justify-between items-center md:items-center">
          
           <div className="text-center sm:text-sm md:text-sm text-xs text-gray-500">
              2024 Matthew Ameh | Freelance Web Developer -

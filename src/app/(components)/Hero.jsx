@@ -81,7 +81,7 @@ export default function Home() {
  
 
   return (
-    <div className="flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden">
+    <div className="flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-lime-400 selection:text-white">
       {/* Header */}
       <header className="flex justify-between items-center p-2 border-b border-gray-500" style={{background:"#0000001f"}}>
         <div className="flex items-center">
@@ -138,7 +138,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="flex justify-between items-center p-4 h-28 border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
+      <footer className="flex justify-between items-center p-2 px-3 h-28 border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
         <div className="flex items-center space-x-2">
           <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
         </div>

@@ -1,4 +1,3 @@
-// components/Contact.js
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -16,7 +15,6 @@ import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
 
-// Register the plugins
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
 }
@@ -37,7 +35,7 @@ const Contact = () => {
       hobbiesRef,
       potraitRef,
       contactRef,
-      collabRef
+      collabRef,
     ];
 
     draggableElements.forEach((ref) => {
@@ -56,14 +54,11 @@ const Contact = () => {
   }, []);
 
   return (
-    <div
-      className="w-full flex flex-col items-center 
-    "
-    >
+    <div className="w-full flex flex-col items-center">
       <div className="light2"></div>
-      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 space-y-1">
-        <div className="me md:w-full lg:w-4/5 xl:w-2/3 " ref={jobRef}>
-          <div className="about-me-title p-4 text-white">
+      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 space-y-3">
+        <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={jobRef}>
+          <div className="about-me-title p-2 text-white">
             <p>about-me</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
               <FontAwesomeIcon
@@ -77,12 +72,12 @@ const Contact = () => {
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer text-xs"
+                className="hover:text-white cursor-pointer"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
           </div>
-          <div className="about-me-text p-4 text-base  rounded-lg shadow">
+          <div className="about-me-text p-4 text-base rounded-lg shadow">
             <p>
               <span className="text-gray-600">1. </span>Nice to meet you! I'm
               <span className="text-red-500"> Matthew</span> a{" "}
@@ -122,10 +117,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div
-          className="job md:h-44  h-auto w-4/5 lg:w-1/2 xl:w-2/5"
-          ref={elementRef}
-        >
+        <div className="job md:h-44 h-auto w-4/5 lg:w-1/2 xl:w-2/5" ref={elementRef}>
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">where-i-work</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -158,7 +150,7 @@ const Contact = () => {
         </div>
 
         <div className="hobbies w-4/5 h-auto lg:w-1/2 xl:w-1/3" ref={hobbiesRef}>
-          <div className="about-me-title p-3 text-white ">
+          <div className="about-me-title p-3 text-white">
             <p className="text-sm">hobbies</p>
             <div className="flex space-x-4 text-gray-500">
               <FontAwesomeIcon
@@ -177,21 +169,15 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="about-me-text p-4  space-y-3">
+          <div className="about-me-text p-4 space-y-3">
             <p className="text-base">
               <span className="text-gray-600">1.</span>{" "}
-              <FontAwesomeIcon
-                icon={faSoccerBall}
-                className="text-red-400 "
-              />{" "}
+              <FontAwesomeIcon icon={faSoccerBall} className="text-red-400" />{" "}
               Football
             </p>
             <p className="text-base">
               <span className="text-gray-600">2. </span>
-              <FontAwesomeIcon
-                icon={faGamepad}
-                className="text-purple-400"
-              />{" "}
+              <FontAwesomeIcon icon={faGamepad} className="text-purple-400" />{" "}
               Playing games
             </p>
             <p className="text-base">
@@ -207,8 +193,8 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="me md:w-full lg:w-4/5 xl:w-2/3 " ref={collabRef}>
-          <div className="about-me-title p-4 text-white">
+        <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={collabRef}>
+          <div className="about-me-title p-2 text-white">
             <p>collaborations</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
               <FontAwesomeIcon
@@ -227,15 +213,12 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="about-me-text p-4 text-base  rounded-lg shadow">
+          <div className="about-me-text p-4 text-base rounded-lg shadow">
             <p>
               <span className="text-gray-600">1. </span>My ideal collaboration
               are with
               <span className="text-red-500"> web agencies</span> and
-              <span className="text-blue-400">
-                {" "}
-                digital design studios
-              </span>{" "}
+              <span className="text-blue-400"> digital design studios</span>{" "}
               that need
               <span className="text-purple-400"> technical expertise</span>{" "}
               coupled with an eye for{" "}
@@ -244,10 +227,7 @@ const Contact = () => {
             </p>
             <p className="mt-2">
               <span className="text-gray-600">2. </span>I can also work with
-              <span className="text-blue-300">
-                {" "}
-                independent professionals
-              </span>{" "}
+              <span className="text-blue-300"> independent professionals</span>{" "}
               such as
               <span className="text-purple-400"> designers</span> and
               <span className="text-pink-500"> developers</span> to complement
@@ -266,11 +246,8 @@ const Contact = () => {
           </div>
         </div>
 
-        <div
-          className="potrait w-11/12 h-80 lg:w-1/2 xl:w-1/4 "
-          ref={potraitRef}
-        >
-          <div className="about-me-title p-3  text-white">
+        <div className="potrait w-11/12 lg:w-1/2 xl:w-1/4" ref={potraitRef}>
+          <div className="about-me-title p-3 text-white">
             <p className="text-sm">potrait</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
               <FontAwesomeIcon
@@ -288,6 +265,9 @@ const Contact = () => {
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
+          </div>
+          <div className="w-full h-64 bg-lime-400">
+            <img src="/images/top.png" alt="img-face" className="h-64 w-4/5" />
           </div>
         </div>
 
@@ -317,9 +297,9 @@ const Contact = () => {
               <a
                 href="/home"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{transition:"0.4s ease-in"}}
+                style={{ transition: "0.4s ease-in" }}
               >
-                linkedin <FiArrowUpRight className="text-lg"/>
+                linkedin <FiArrowUpRight className="text-lg" />
               </a>
             </div>
             <div className="flex">
@@ -327,9 +307,9 @@ const Contact = () => {
               <a
                 href="/home"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{transition:"0.4s ease-in"}}
+                style={{ transition: "0.4s ease-in" }}
               >
-                instagram <FiArrowUpRight className="text-lg"/>
+                instagram <FiArrowUpRight className="text-lg" />
               </a>
             </div>
             <div className="flex">
@@ -337,9 +317,9 @@ const Contact = () => {
               <a
                 href="/home"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{transition:"0.4s ease-in"}}
+                style={{ transition: "0.4s ease-in" }}
               >
-                github <FiArrowUpRight className="text-lg"/>
+                github <FiArrowUpRight className="text-lg" />
               </a>
             </div>
             <div className="flex">
@@ -347,9 +327,9 @@ const Contact = () => {
               <a
                 href="/home"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{transition:"0.4s ease-in"}}
+                style={{ transition: "0.4s ease-in" }}
               >
-                x <FiArrowUpRight className="text-lg"/>
+                x &#123;twitter&#125;<FiArrowUpRight className="text-lg" />
               </a>
             </div>
             <div className="flex">
@@ -357,10 +337,10 @@ const Contact = () => {
               <a
                 href="/home"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{transition:"0.4s ease-in"}}
+                style={{ transition: "0.4s ease-in" }}
               >
                 facebook
-                <FiArrowUpRight className="text-lg"/>
+                <FiArrowUpRight className="text-lg" />
               </a>
             </div>
           </div>
@@ -371,3 +351,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

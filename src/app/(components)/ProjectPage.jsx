@@ -101,7 +101,7 @@ export default function Project() {
   }, []);
 
   return (
-    <div className="flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden">
+    <div className="flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-red-500 selection:text-white">
       {/* Header */}
       <header className="flex justify-between items-center p-2 border-b border-gray-500" style={{background:"#0000001f"}}>
         <div className="flex items-center">
@@ -187,12 +187,12 @@ export default function Project() {
       </div>
 
       {/* Footer */}
-      <footer className="flex justify-between items-center p-4 h-28 border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
+      <footer className="flex justify-between items-center p-2 px-3 h-28 border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
         <div className="flex items-center space-x-2">
           <div className="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
         </div>
-        <span className="hidden md:block text-sm">Based in Nigeria</span>
-        <div className="hidden md:block text-sm local">
+        <span className="hidden md:block text-sm ">Based in Nigeria</span>
+        <div className="hidden md:block text-sm local ">
           Local time <span className="time">{currentTime}</span>
         </div>
         <div className="flex space-x-4 items-center ">
