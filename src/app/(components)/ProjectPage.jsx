@@ -101,7 +101,7 @@ export default function Project() {
   }, []);
 
   return (
-    <div className="flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-red-500 selection:text-white">
+    <div className="h-full flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-red-500 selection:text-white">
       {/* Header */}
       <header className="flex justify-between items-center p-2 border-b border-gray-500" style={{background:"#0000001f"}}>
         <div className="flex items-center">
