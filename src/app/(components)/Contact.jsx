@@ -79,7 +79,7 @@ const Contact = () => {
           </div>
           <div className="about-me-text p-4 text-base rounded-lg shadow">
             <p>
-              <span className="text-gray-600">1. </span>Nice to meet you! I'm
+              <span className="text-gray-600">1. </span>Nice to meet you! I&apos;m
               <span className="text-red-500"> Matthew</span> a{" "}
               <span className="text-blue-400">Freelance Web Developer</span>.
             </p>
