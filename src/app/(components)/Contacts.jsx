@@ -13,11 +13,14 @@ import {
 } from "react-icons/fi";
 import {
   VscChromeMinimize,
+  VscChromeMaximize,
   VscChromeClose,
 } from "react-icons/vsc";
+
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import AnimatedLetters from "./AnimatedLetters";
+
 import Link from "next/link";
 import ContactForm from "./ContactForm";
 import Contactbar from "./Contactbar";
@@ -35,22 +38,24 @@ const NavItem = ({ number, label, isActive }) => (
 
 const FullScreenNav = ({ isOpen, toggleNav }) => (
   <div
-    className={`fixed top-0 left-0 w-full h-full bg-black flex flex-col justify-center space-y-10 transform transition-transform ${
+    className={`fixed top-0 left-0 w-full h-full bg-black flex flex-col  justify-center space-y-10 transform transition-transform ${
       isOpen ? "translate-y-0" : "-translate-y-full"
     } z-20 md:hidden`}
     style={{ transition: "1s" }}
   >
     <FiX
-      className="absolute top-4 right-4 text-3xl cursor-pointer"
+      className="absolute top-4 right-4 text-3xl  cursor-pointer"
       onClick={toggleNav}
     />
+   
     <Link href="/">
-      <NavItem number="01" label="home/" />
+      <NavItem number="01" label="home/"  />
     </Link>
     <Link href="/About">
       <NavItem number="02" label="about/" />
     </Link>
     <Link href="/ProjectsPage">
+      {" "}
       <NavItem number="03" label="work/" />
     </Link>
     <Link href="/contact">
@@ -61,8 +66,27 @@ const FullScreenNav = ({ isOpen, toggleNav }) => (
 
 export default function Contacts() {
   const [letterClass, setLetterClass] = useState("text-animate");
-  const nameArray = [" ", "d", "r", "o", "p", " ", "a", " ", "l", "i", "n", "e"];
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+  const nameArray = [
+ 
+    " ",
+    "d",
+    "r",
+    "o",
+    "p",
+    " ",
+    "a",
+    " ",
+    "l",
+    "i",
+    "n",
+    "e"
+   
+  ];
+
+
+  const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleTimeString()
+  );
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => setIsNavOpen(!isNavOpen);
@@ -78,15 +102,15 @@ export default function Contacts() {
   }, []);
 
   return (
-    <div className="flex flex-col text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-yellow-400 selection:text-white">
+    <div className="flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-yellow-400 selection:text-white">
       {/* Header */}
       <header
-        className="flex justify-between items-center p-2 border-b border-gray-500"
+        className="flex justify-between items-center p-2 border-b border-gray-500 "
         style={{ background: "#0000001f" }}
       >
         <div className="flex items-center">
           <FiMenu
-            className="text-lg md:text-2xl cursor-pointer md:hidden"
+            className="text-lg md:text-2xl cursor-pointer  md:hidden"
             onClick={toggleNav}
           />
         </div>
@@ -96,15 +120,15 @@ export default function Contacts() {
             <span className="text-lg text-yellow-500">&lt;ameh&gt;</span>
           </span>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 ">
           <VscChromeMinimize
             className="text-sm text-gray-400 hover:text-white"
             style={{ transition: "ease-in 0.5s" }}
           />
-          <div
-            className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-            style={{ transition: "ease-in 0.5s" }}
-          ></div>
+              <div
+              className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+              style={{ transition: "ease-in 0.5s" }}
+            ></div>
           <VscChromeClose
             className="text-sm text-gray-400 hover:text-white"
             style={{ transition: "ease-in 0.5s" }}
@@ -117,7 +141,7 @@ export default function Contacts() {
       {/* Main Content */}
       <div className="flex">
         {/* Sidebar */}
-        <aside className="nav-color hidden md:flex md:flex-col md:items-center md:justify-center md:space-y-6 md:border-r md:border-gray-500 md:p-3">
+        <aside className="nav-color hidden md:flex md:flex-col md:items-center md:justify-center md:space-y-6 md:border-r md:border-gray-500 md:p-3 ">
           <div className="icon-container">
             <Link href="/">
               <FiHome className="text-base hover:text-yellow-500 cursor-pointer" />
@@ -143,9 +167,10 @@ export default function Contacts() {
         </aside>
 
         {/* Content */}
-        <div className="flex flex-col">
+        <div className="test4 test5 flex flex-col">
           <main className="w-full header">
-            <div className="relative z-10 flex flex-col text-center items-center mt-32">
+            <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
+              {" "}
               <div className="words-container">
                 <div className="word flex">
                   <p>&lt;contact&gt;</p>
@@ -155,42 +180,40 @@ export default function Contacts() {
               <span className="text-xs poppins text-gray-500 uppercase tracking-wider">
                 Contact
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal mt-4 md:w-full lg:w-10/12 poppins">
-                Let<span className="font-mono">&#39;</span>s book a virtual<br />space or
-                <span className="text-yellow-500">
-                  {" "}
-                  <AnimatedLetters
-                    letterClass={letterClass}
-                    strArray={nameArray}
-                    idx={15}
-                  />
-                </span>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal  mt-4 md:w-full lg:w-10/12 poppins g">
+                Let<span className=" font-mono">&#39;</span>s book a virtual<br/> space or
+               <span className=" text-yellow-500"> <AnimatedLetters
+                  letterClass={letterClass}
+                  strArray={nameArray}
+                  idx={15}
+                />
+                 </span>
               </h1>
-              <p className="w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-sm max-w-2xl text-gray-400 mt-8">
-                Whether you have a project you want to work on together or just want to have a chat, you are in the right place: Let&#39;s get in touch
+              <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-sm max-w-2xl text-gray-400 mt-8 our-text">
+                Whether you have a project you want to work on together or just want to have a chat, you are in the right place:
+                Let's get in touch
               </p>
             </div>
           </main>
           <ContactForm />
-          <Contactbar />
+          <Contactbar/>
         </div>
       </div>
 
       {/* Footer */}
       <footer
-        className="flex justify-between items-center px-3 p-2 h-28 border-t border-gray-500 text-gray-600"
+        className="flex justify-between items-center px-3 p-2 h-48 border-t border-gray-500 text-gray-600"
         style={{ background: "#0000001f" }}
       >
-        <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
-        <span className="hidden md:block text-sm">
-          Based in Nigeria<sub className="font-semibold text-gray-300"> NG</sub>
-        </span>
-        <div className="hidden md:block text-sm">
-          Local time <span>{currentTime}</span>
+          <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+      
+        <span className="hidden md:block text-sm base">Based in Nigeria<sub className="font-semibold text-gray-300 sub"> NG</sub></span>
+        <div className="hidden md:block text-sm local">
+          Local time <span className="time">{currentTime}</span>
         </div>
-        <div className="flex space-x-4 items-center">
+        <div className="flex space-x-4 items-center ">
           <FaLinkedin
-            className="text-lg hover:text-white cursor-pointer hover:scale-105"
+            className="text-lg hover:text-white cursor-pointer  hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
           />
           <FiInstagram

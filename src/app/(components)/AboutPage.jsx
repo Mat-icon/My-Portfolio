@@ -186,7 +186,7 @@ export default function AboutPage() {
       </div>
 
       {/* Footer */}
-      <footer className="flex justify-between items-center px-3 p-2 h-28 border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
+      <footer className="flex justify-between items-center px-3 p-2 h-48  border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
         <div className="flex items-center space-x-2">
           <div className="w-2.5 h-2.5 bg-blue-500 rounded-full"></div>
         </div>
