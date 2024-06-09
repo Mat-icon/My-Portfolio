@@ -191,7 +191,7 @@ export default function Contacts() {
               </h1>
               <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-sm max-w-2xl text-gray-400 mt-8 our-text">
                 Whether you have a project you want to work on together or just want to have a chat, you are in the right place:
-                Let's get in touch
+                Let&#39;s get in touch
               </p>
             </div>
           </main>
