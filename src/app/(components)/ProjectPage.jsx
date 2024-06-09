@@ -187,7 +187,7 @@ export default function Project() {
       </div>
 
       {/* Footer */}
-      <footer className="flex justify-between items-center p-2 px-3 h-48  border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
+      <footer className="flex justify-between items-center p-2 px-3 h-12 border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
         <div className="flex items-center space-x-2">
           <div className="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
         </div>
