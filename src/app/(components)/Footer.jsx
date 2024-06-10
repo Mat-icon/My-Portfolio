@@ -14,9 +14,9 @@ const Footer = () => {
           </span>
           <div className=" space-x-6 text-gray-600 ">
             <a href="/" className="hover:text-white hover:scale-105" style={{ transition: "ease-in 0.5s" }}>home</a>
-            <a href="/" className="hover:text-white hover:scale-105" style={{ transition: "ease-in 0.5s" }}>projects</a>
-            <a href="/" className="hover:text-white hover:scale-105" style={{ transition: "ease-in 0.5s" }}>about</a>
-            <a href="/" className="hover:text-white hover:scale-105" style={{ transition: "ease-in 0.5s" }}>contact</a>
+            <a href="/ProjectsPage" className="hover:text-white hover:scale-105" style={{ transition: "ease-in 0.5s" }}>projects</a>
+            <a href="/About" className="hover:text-white hover:scale-105" style={{ transition: "ease-in 0.5s" }}>about</a>
+            <a href="/contact" className="hover:text-white hover:scale-105" style={{ transition: "ease-in 0.5s" }}>contact</a>
           </div>
         </div>
         <div className="w-11/12 flex flex-col md:flex-row md:justify-between items-center md:items-center">
