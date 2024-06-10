@@ -110,7 +110,7 @@ const TestimonialHighlight = () => {
       <div className="relative w-full h-screen flex justify-center items-center p-4">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-          spaceBetween={80}
+          spaceBetween={100}
           slidesPerView={2}
           loop={true}
           autoplay={{ delay: 5000, disableOnInteraction: true }}

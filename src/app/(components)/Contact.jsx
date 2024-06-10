@@ -180,23 +180,23 @@ const Contact = () => {
           <div className="about-me-text p-4 space-y-3">
             <p className="text-base">
               <span className="text-gray-600">1.</span>{" "}
-              <FontAwesomeIcon icon={faSoccerBall} className="text-red-400" />{" "}
-              Football
+            
+              ⚽ Football
             </p>
             <p className="text-base">
               <span className="text-gray-600">2. </span>
-              <FontAwesomeIcon icon={faGamepad} className="text-purple-400" />{" "}
-              Playing games
+              
+              🎮 Playing games
             </p>
             <p className="text-base">
               <span className="text-gray-600">3. </span>
-              <FontAwesomeIcon icon={faPlane} className="text-lime-300" />{" "}
-              Travelling
+             
+              ✈️ Travelling
             </p>
             <p className="text-base">
               <span className="text-gray-600">4. </span>{" "}
-              <FontAwesomeIcon icon={faWeight} className="text-sky-500" />{" "}
-              Exercise
+              
+              🏋️ Exercise
             </p>
           </div>
         </div>
