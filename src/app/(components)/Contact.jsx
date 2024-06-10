@@ -38,20 +38,26 @@ const Contact = () => {
       collabRef,
     ];
 
-    draggableElements.forEach((ref) => {
-      if (ref.current) {
-        Draggable.create(ref.current, {
-          type: "x,y",
-          edgeResistance: 0.92,
-          bounds: ".contact-body",
-          inertia: true,
-          onDragStart: () => console.log("Drag started"),
-          onDrag: () => console.log("Dragging"),
-          onDragEnd: () => console.log("Drag ended"),
-        });
-      }
-    });
+    if (typeof window !== "undefined" && !isMobileDevice()) {
+      draggableElements.forEach((ref) => {
+        if (ref.current) {
+          Draggable.create(ref.current, {
+            type: "x,y",
+            edgeResistance: 0.92,
+            bounds: ".contact-body",
+            inertia: true,
+            onDragStart: () => console.log("Drag started"),
+            onDrag: () => console.log("Dragging"),
+            onDragEnd: () => console.log("Drag ended"),
+          });
+        }
+      });
+    }
   }, []);
+
+  function isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+  }
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -351,4 +357,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
