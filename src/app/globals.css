@@ -239,6 +239,7 @@
     width: 300px;
     height: 200px;
     background-color: #3e683b;
+    animation: animateScale 15s infinite ease-in-out;
   }
 
   .circle2 {
@@ -247,6 +248,7 @@
     background-color: #3e683b;
     width: 500px;
     height: 400px;
+    animation: animateScale 20s infinite ease-in-out;
   }
 
   .circle3 {
@@ -255,6 +257,7 @@
     width: 300px;
     height: 300px;
     background-color: #6b3434;
+    animation: animateScale 20s infinite ease-in-out;
   }
 
   .circle4 {
@@ -263,6 +266,7 @@
     background-color: #64323681;
     width: 450px;
     height: 520px;
+    animation: animateScale 16s infinite ease-in-out;
   }
 
   .circle5 {
@@ -271,6 +275,7 @@
     width: 300px;
     height: 300px;
     background-color: #34456b;
+    animation: animateScale 30s infinite ease-in-out;
   }
 
   .circle6 {
@@ -279,6 +284,7 @@
     background-color: #32426481;
     width: 450px;
     height: 520px;
+    animation: animateScale 20s infinite ease-in-out;
   }
   .circle7 {
     top: 44%;
@@ -286,6 +292,7 @@
     width: 300px;
     height: 300px;
     background-color: #717223;
+    animation: animateScale 24s infinite ease-in-out;
   }
 
   .circle8 {
@@ -294,17 +301,22 @@
     background-color: #61643281;
     width: 450px;
     height: 520px;
+    animation: animateScale 20s infinite ease-in-out;
   }
 
   @media (max-width: 600px) {
     .circle1 {
       width: 150px;
       height: 100px;
+      top: 74%;
+      left: 10%;
     }
 
     .circle2 {
       width: 250px;
       height: 200px;
+      bottom: 64%;
+      right: 4%;
     }
     .circle3 {
       width: 150px;
@@ -459,6 +471,24 @@
   100% {
     opacity: 1;
     scale: 1;
+  }
+}
+
+@keyframes animateScale {
+  0% {
+    scale: 0.9;
+  }
+  25% {
+    scale: 1.0;
+  }
+  50% {
+    scale: 1.05;
+  }
+  75% {
+    scale: 1.0;
+  }
+  100% {
+    scale: 1.1;
   }
 }
 
