@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import React, {useState} from "react";
+import React, { useEffect,useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
@@ -17,6 +17,327 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
+import { gsap } from "gsap";
+import { Draggable } from "gsap/Draggable";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FiArrowUpRight } from "react-icons/fi";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, Draggable);
+}
+
+const ContactHighlight = () => {
+  const cardRef = useRef(null);
+  const elementRef = useRef(null);
+  const jobRef = useRef(null);
+  const hobbiesRef = useRef(null);
+  const potraitRef = useRef(null);
+  const contactRef = useRef(null);
+  const collabRef = useRef(null);
+
+  useEffect(() => {
+    const draggableElements = [
+      elementRef,
+      jobRef,
+      hobbiesRef,
+      potraitRef,
+      contactRef,
+      collabRef,
+    ];
+
+    draggableElements.forEach((ref) => {
+      if (ref.current) {
+        Draggable.create(ref.current, {
+          type: "x,y",
+          edgeResistance: 0.92,
+          bounds: ".contact-body",
+          inertia: true,
+          onDragStart: () => console.log("Drag started"),
+          onDrag: () => console.log("Dragging"),
+          onDragEnd: () => console.log("Drag ended"),
+        });
+      }
+    });
+  }, []);
+
+  
+
+  return (
+    <div className="w-full flex flex-col items-center mb-20">
+      <h1 className="text-4xl md:text-6xl poppins text-center">Your interactive<span className="all-text"> developer</span></h1>
+      <div className="light4"></div>
+      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 space-y-3">
+        <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={jobRef}>
+          <div className="about-me-title p-2 text-white">
+            <p>about-me</p>
+            <div className="flex space-x-4 text-gray-500 text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="about-me-text p-4 text-base rounded-lg shadow">
+            <p>
+              <span className="text-gray-600">1. </span>Nice to meet you! I&apos;m
+              <span className="text-red-500"> Matthew</span> a{" "}
+              <span className="text-blue-400">Freelance Web Developer</span>.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">2. </span>My focus is on{" "}
+              <span className="text-lime-400">creative development</span>: my
+              skills can be described as the{" "}
+              <span className="text-blue-300">meeting point</span> between{" "}
+              <span className="text-purple-400">creativity</span> and{" "}
+              <span className="text-pink-500">technical proficiency</span>.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">3. </span>I{" "}
+              <span className="text-yellow-400">integrate</span> complex but{" "}
+              <span className="text-blue-800">smooth animations</span> and{" "}
+              <span className="text-green-500">interactions</span> into my
+              projects, to present the{" "}
+              <span className="text-red-400">website information</span> in an
+              engaging way and make it a{" "}
+              <span className="text-blue-500">memorable experience</span>.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">4. </span>I strive to{" "}
+              <span className="text-cyan-500">deliver projects</span> that are{" "}
+              <span className="text-purple-400">visually compelling</span> by
+              working closely with the{" "}
+              <span className="text-yellow-600">designer</span>, but also{" "}
+              <span className="text-sky-300">technically outstanding</span> with
+              a clean{" "}
+              <span className="text-red-600">and properly structured</span>{" "}
+              code. All of this, without forgetting about{" "}
+              <span className="text-lime-500">web performances</span> and{" "}
+              <span className="text-pink-500"> technical SEO aspects.</span>
+            </p>
+          </div>
+        </div>
+
+       
+        <div className="hobbies w-4/5 h-auto lg:w-1/2 xl:w-1/3" ref={hobbiesRef}>
+          <div className="about-me-title p-3 text-white">
+            <p className="text-sm">hobbies</p>
+            <div className="flex space-x-4 text-gray-500">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="about-me-text p-4 space-y-3">
+            <p className="text-base">
+              <span className="text-gray-600">1.</span>{" "}
+            
+              ⚽ Football
+            </p>
+            <p className="text-base">
+              <span className="text-gray-600">2. </span>
+              
+              🎮 Playing games
+            </p>
+            <p className="text-base">
+              <span className="text-gray-600">3. </span>
+             
+              ✈️ Travelling
+            </p>
+            <p className="text-base">
+              <span className="text-gray-600">4. </span>{" "}
+              
+              🏋️ Exercise
+            </p>
+          </div>
+        </div>
+        
+        <div className="contact-links w-4/5 lg:w-1/2 xl:w-1/4" ref={contactRef}>
+          <div className="about-me-title p-3 text-white">
+            <p className="text-sm">me-online</p>
+            <div className="flex space-x-4 text-gray-500 text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="potrait-img text-md flex flex-col space-y-3 p-6 shadow">
+            <div className="flex">
+              <span className="text-gray-600">1.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-lime-400 decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+              >
+                linkedin <FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+            <div className="flex">
+              <span className="text-gray-600">2.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-lime-400 decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+              >
+                instagram <FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+            <div className="flex">
+              <span className="text-gray-600">3.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-lime-400 decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+              >
+                github <FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+            <div className="flex">
+              <span className="text-gray-600">4.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-lime-400 decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+              >
+                x &#123;twitter&#125;<FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+            <div className="flex">
+              <span className="text-gray-600">5.</span>{" "}
+              <a
+                href="/home"
+                className="hover:text-lime-400 decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+              >
+                facebook
+                <FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={collabRef}>
+          <div className="about-me-title p-2 text-white">
+            <p>collaborations</p>
+            <div className="flex space-x-4 text-gray-500 text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="about-me-text p-4 text-base rounded-lg shadow">
+            <p>
+              <span className="text-gray-600">1. </span>My ideal collaboration
+              are with
+              <span className="text-red-500"> web agencies</span> and
+              <span className="text-blue-400"> digital design studios</span>{" "}
+              that need
+              <span className="text-purple-400"> technical expertise</span>{" "}
+              coupled with an eye for{" "}
+              <span className="text-red-400">design</span> and{" "}
+              <span className="text-yellow-300">aesthetics</span>.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">2. </span>I can also work with
+              <span className="text-blue-300"> independent professionals</span>{" "}
+              such as
+              <span className="text-purple-400"> designers</span> and
+              <span className="text-pink-500"> developers</span> to complement
+              their skills and bring{" "}
+              <span className="text-lime-400">additional value</span> to their
+              project.
+            </p>
+            <p className="mt-2">
+              <span className="text-gray-600">3. </span>I achieve my
+              <span className="text-yellow-400"> best results</span> in
+              paternships that are based on
+              <span className="text-cyan-400"> mutual understanding</span> and
+              <span className="text-green-500"> close collaborations</span>{" "}
+              between all parties, especially design and development.
+            </p>
+          </div>
+        </div>
+
+        <div className="potrait w-11/12 lg:w-1/2 xl:w-1/4" ref={potraitRef}>
+          <div className="about-me-title p-3 text-white">
+            <p className="text-sm">potrait</p>
+            <div className="flex space-x-4 text-gray-500 text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white cursor-pointer text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="w-full h-64 bg-lime-400">
+            <img src="/images/top.png" alt="img-face" className="h-64 w-4/5" />
+          </div>
+        </div>
+
+      </div>
+      <Link
+            href='/ProjectsPage'
+            style={{ background: "#101010d3" }}
+            className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 p-4 lg:px-4 rounded-md mt-5  border border-gray-600 text-center lg:text-center text-sm flex items-center  justify-center"
+          >
+           about-me
+          </Link>
+    </div>
+  );
+};
+
+
 
 const testimonials = [
   {
@@ -217,6 +538,7 @@ const ProjectHighlight = () => {
         Project <span className="all-text">higlights</span>
       </h1>
       <AllProjects />
+      <ContactHighlight/>
      <TestimonialHighlight/>
     </div></>
   );
