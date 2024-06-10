@@ -77,9 +77,9 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
       </div>
     </div>
     <div className="testimonial-content p-5">
-      <img src={image} alt={author} className="author-image" />
+  
       <p className="testimonial-text">{content}</p>
-      <p className="testimonial-author">{author} &#123;&#125; {position}</p>
+      <p className="testimonial-author">{author} &#123;&#125; {position}</p>    <img src={image} alt={author} className="author-image" />
     </div>
   </div>
 );
@@ -104,7 +104,7 @@ const Testimonial = () => {
       <div className="relative w-full h-screen flex justify-center items-center p-4">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]} 
-          spaceBetween={0}
+          spaceBetween={80}
           slidesPerView={2}
           loop={true} 
           autoplay={{ delay: 5000, disableOnInteraction: true }} 

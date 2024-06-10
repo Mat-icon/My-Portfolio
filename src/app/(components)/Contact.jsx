@@ -140,11 +140,11 @@ const Contact = () => {
           <div className="w-11/12 about-me-text p-4 rounded-lg shadow text-sm md:text-base font-normal">
             <p>
               <span className="text-gray-600">1. </span>Currently based in
-              Lagos, Nigeria<sub className="text-xs"> NG</sub>
+              Lagos, Nigeria<sub className="text-xs"> NG</sub>🟩⬜🟩
             </p>
             <p>
               <span className="text-gray-600">2. </span> Available for all
-              remote collaborations around the world
+              remote collaborations around the world🌍
             </p>
           </div>
         </div>
