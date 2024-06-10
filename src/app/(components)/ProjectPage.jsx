@@ -196,10 +196,12 @@ export default function Project() {
           Local time <span className="time">{currentTime}</span>
         </div>
         <div className="flex space-x-4 items-center ">
+        <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
           <FaLinkedin
             className="text-lg hover:text-white cursor-pointer  hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
           />
+          </Link>
           <FiInstagram
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
@@ -208,10 +210,13 @@ export default function Project() {
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
           />
-          <FiGithub
-            className="text-lg hover:text-white cursor-pointer hover:scale-105"
-            style={{ transition: "ease-in 0.5s" }}
-          />
+             <Link href="https://github.com/Mat-icon?tab=repositories">
+            {" "}
+            <FiGithub
+              className="text-lg hover:text-white cursor-pointer hover:scale-105"
+              style={{ transition: "ease-in 0.5s" }}
+            />
+          </Link>
           <FaXTwitter
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
