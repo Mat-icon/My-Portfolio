@@ -53,13 +53,7 @@ const Contact = () => {
     });
   }, []);
 
-  function isMobileDevice(){
-    return /Mobi|Andriod/i.test(navigator.userAgent);
-  }
-
-  if(isMobileDevice()){
-    draggableElements.disable();
-  }
+  
 
   return (
     <div className="w-full flex flex-col items-center">
