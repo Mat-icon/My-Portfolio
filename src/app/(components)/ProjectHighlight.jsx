@@ -327,7 +327,7 @@ const ContactHighlight = () => {
 
       </div>
       <Link
-            href='/ProjectsPage'
+            href='/About'
             style={{ background: "#101010d3" }}
             className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 p-4 lg:px-4 rounded-md mt-5  border border-gray-600 text-center lg:text-center text-sm flex items-center  justify-center"
           >

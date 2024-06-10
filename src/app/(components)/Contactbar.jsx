@@ -4,6 +4,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
+import Link from "next/link";
 
 const Contactbar = () => {
   return (
@@ -40,9 +41,9 @@ const Contactbar = () => {
             <p className="text-center lg:text-left text-2xl lg:text-6xl font-normal">
               Let&#39;s work together on your next project
             </p>
-            <button className="w-full md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm">
+            <Link href="/contact" className="w-full material-bubble4 md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm">
               let&#39;s-get-in-touch
-            </button>
+            </Link>
           </div>
         </div>
       </div>
