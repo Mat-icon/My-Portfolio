@@ -38,25 +38,27 @@ const Contact = () => {
       collabRef,
     ];
 
-    if (typeof window !== "undefined" && !isMobileDevice()) {
-      draggableElements.forEach((ref) => {
-        if (ref.current) {
-          Draggable.create(ref.current, {
-            type: "x,y",
-            edgeResistance: 0.92,
-            bounds: ".contact-body",
-            inertia: true,
-            onDragStart: () => console.log("Drag started"),
-            onDrag: () => console.log("Dragging"),
-            onDragEnd: () => console.log("Drag ended"),
-          });
-        }
-      });
-    }
+    draggableElements.forEach((ref) => {
+      if (ref.current) {
+        Draggable.create(ref.current, {
+          type: "x,y",
+          edgeResistance: 0.92,
+          bounds: ".contact-body",
+          inertia: true,
+          onDragStart: () => console.log("Drag started"),
+          onDrag: () => console.log("Dragging"),
+          onDragEnd: () => console.log("Drag ended"),
+        });
+      }
+    });
   }, []);
 
-  function isMobileDevice() {
-    return /Mobi|Android/i.test(navigator.userAgent);
+  function isMobileDevice(){
+    return /Mobi|Andriod/i.test(navigator.userAgent);
+  }
+
+  if(isMobileDevice()){
+    draggableElements.disable();
   }
 
   return (
@@ -357,3 +359,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

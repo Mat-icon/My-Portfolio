@@ -181,13 +181,13 @@ const AllProjects = () => {
                   <h2 className="text-3xl mb-2 font-medium">{project.title}</h2>
                   <p className="text-sm text-gray-600 mb-4 fonts">2023</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className=" border border-gray-700 bg-black px-4 py-2 rounded-3xl text-sm">
+                    <span className=" border border-gray-700 px-4 py-2 rounded-3xl text-sm" style={{background:"#00000037"}}>
                       webflow
                     </span>
-                    <span className=" border border-gray-700 bg-black px-4 py-2 rounded-3xl text-sm">
+                    <span className=" border border-gray-700 px-4 py-2 rounded-3xl text-sm" style={{background:"#00000037"}}>
                       css
                     </span>
-                    <span className=" border border-gray-700 bg-black px-4 py-2 rounded-3xl text-sm">
+                    <span className=" border border-gray-700  px-4 py-2 rounded-3xl text-sm" style={{background:"#00000037"}}>
                       javascript
                     </span>
                   </div>

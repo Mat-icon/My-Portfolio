@@ -36,6 +36,7 @@
   }
 
 
+ 
 
   .test2 {
     width: 100%;
@@ -234,7 +235,7 @@
   }
 
   .circle1 {
-    top: 54%;
+    top: 37%;
     left: 10%;
     width: 300px;
     height: 200px;
@@ -243,8 +244,8 @@
   }
 
   .circle2 {
-    bottom: 54%;
-    right: 14%;
+    bottom: 44%;
+    right: 10%;
     background-color: #3e683b;
     width: 500px;
     height: 400px;
@@ -252,8 +253,8 @@
   }
 
   .circle3 {
-    top: 44%;
-    left: 1%;
+    top: 34%;
+    left: 10%;
     width: 300px;
     height: 300px;
     background-color: #6b3434;
@@ -262,7 +263,7 @@
 
   .circle4 {
     bottom: 8%;
-    right: 0%;
+    right: 5%;
     background-color: #64323681;
     width: 450px;
     height: 520px;
@@ -270,25 +271,25 @@
   }
 
   .circle5 {
-    top: 44%;
-    left: 1%;
+    top: 35%;
+    left: 8%;
     width: 300px;
     height: 300px;
     background-color: #34456b;
-    animation: animateScale 30s infinite ease-in-out;
+    animation: animateScale 16s infinite ease-in-out;
   }
 
   .circle6 {
     bottom: 8%;
-    right: 0%;
+    right: 5%;
     background-color: #32426481;
     width: 450px;
     height: 520px;
-    animation: animateScale 20s infinite ease-in-out;
+    animation: animateScale 36s infinite ease-in-out;
   }
   .circle7 {
-    top: 44%;
-    left: 1%;
+    top: 30%;
+    left: 8%;
     width: 300px;
     height: 300px;
     background-color: #717223;
@@ -297,7 +298,7 @@
 
   .circle8 {
     bottom: 8%;
-    right: 0%;
+    right: 5%;
     background-color: #61643281;
     width: 450px;
     height: 520px;
@@ -447,7 +448,7 @@
   height: 80vh;
 }
 .project-glass {
-  background: #00000081;
+  background: #0000004d;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(192, 192, 192, 0.219);
  
