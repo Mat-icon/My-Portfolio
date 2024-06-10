@@ -2,7 +2,9 @@
 
 
 $offwhite: darken(rgb(238, 223, 11), 10%);
+$offgreen: darken(rgb(64, 238, 11), 10%);
 $darkblue: rgb(50,50,60);
+$darkgreen: rgb(16, 16, 17);
 
 *, *::after, *::before{
   box-sizing: border-box
@@ -119,3 +121,55 @@ $darkblue: rgb(50,50,60);
         animation-delay: #{$i/10}s;
       }
     }
+
+
+
+
+
+    .material-bubble3{
+      background-color: transparent;
+      color: darken($darkgreen, 40%);
+    
+      overflow: hidden;
+      box-shadow: none;
+      position: relative;
+      color: white;
+      
+      &:hover{
+        color: $offgreen;
+      }
+      
+      &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.3s;
+      }
+      &:hover::before{
+        opacity: 0;
+      }
+      &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 200px;
+        background-color: lighten($offgreen, 10%);
+       
+        border-radius: 50%;
+        transform: translate(40px, -70px) scale(0.1);
+        opacity: 0;
+        z-index: -1;
+        transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+      }
+      &:hover::after{
+        opacity: 1;
+        transform-origin: 100px 100px;
+        transform: scale(1) translate(10px, -70px);
+      }
+      }
+    

@@ -21,6 +21,7 @@ import Contactbar from "./Contactbar";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
+import ProjectHighlight from "./ProjectHighlight";
 
 
   
@@ -133,6 +134,7 @@ export default function Home() {
         {/* Content */}
         <div className="test2 flex flex-col" >
           <Header />
+          <ProjectHighlight/>
           <Contactbar />
         </div>
       </div>
