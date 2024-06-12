@@ -66,7 +66,7 @@ const testimonials = [
 
 const TestimonialCard = ({ tech, content, author, position, image }) => (
   <div className=" mt-8 testimonial-card w-72 md:w-full ">
-    <div className="about-me-title p-3">
+    <div className="about-me-title test-color p-3">
       <p className="text-sm font-semibold">{tech}</p>
       <div className="flex space-x-4 text-gray-500 text-xs">
         <FontAwesomeIcon

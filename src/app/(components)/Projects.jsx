@@ -49,8 +49,8 @@ const Projects = () => {
             
             <div className="project-glass rounded-md  shadow-lg max-w-5xl mx-auto text-white p-2" key={project.id}>
             <div className="flex flex-col md:flex-row">
-                <img src={project.image} alt="Project Image" className="w-full md:w-1/2 h-auto project-img rounded-md" />
-                <div className="p-4 md:w-1/2">
+                <img src={project.image} alt="Project Image" className="w-full md:w-1/2  project-img rounded-md" />
+                <div className="p-4 md:w-1/2 mt-5">
                     <h2 className="text-3xl mb-2 font-medium">{project.title}</h2>
                     <p className="text-sm text-gray-600 mb-4 fonts">2023</p>
                     <div className="flex flex-wrap gap-2 mb-4">

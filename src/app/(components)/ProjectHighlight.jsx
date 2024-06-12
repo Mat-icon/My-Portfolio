@@ -519,7 +519,7 @@ const AllProjects = () => {
                   alt="Project Image"
                   className="w-full md:w-1/2 h-auto project-img rounded-md"
                 />
-                <div className="p-4 md:w-1/2">
+                <div className="p-4 md:w-1/2 mt-5">
                   <h2 className="text-3xl mb-2 font-medium">{project.title}</h2>
                   <p className="text-sm text-gray-600 mb-4 fonts">2023</p>
                   <div className="flex flex-wrap gap-2 mb-4">
