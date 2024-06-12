@@ -38,19 +38,35 @@ const Contact = () => {
       collabRef,
     ];
 
-    draggableElements.forEach((ref) => {
+    const isMobileDevice = () => /Mobi|Android/i.test(navigator.userAgent);
+
+    const draggableInstances = draggableElements.map((ref) => {
       if (ref.current) {
-        Draggable.create(ref.current, {
-          type: "x,y",
+        return Draggable.create(ref.current, {
+          type: 'x,y',
           edgeResistance: 0.92,
-          bounds: ".contact-body",
+          bounds: '.contact-body',
           inertia: true,
-          onDragStart: () => console.log("Drag started"),
-          onDrag: () => console.log("Dragging"),
-          onDragEnd: () => console.log("Drag ended"),
-        });
+          onDragStart: () => console.log('Drag started'),
+          onDrag: () => console.log('Dragging'),
+          onDragEnd: () => console.log('Drag ended'),
+        })[0];
       }
+      return null;
     });
+
+    if (isMobileDevice()) {
+      draggableInstances.forEach((instance) => {
+        if (instance) instance.disable();
+      });
+    }
+
+    // Cleanup
+    return () => {
+      draggableInstances.forEach((instance) => {
+        if (instance) instance.kill();
+      });
+    };
   }, []);
 
   
