@@ -1,6 +1,6 @@
-'use client'
+"use client";
 import Link from "next/link";
-import React, { useEffect,useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
@@ -34,7 +34,6 @@ const ContactHighlight = () => {
   const potraitRef = useRef(null);
   const contactRef = useRef(null);
   const collabRef = useRef(null);
-
   useEffect(() => {
     const draggableElements = [
       elementRef,
@@ -45,9 +44,11 @@ const ContactHighlight = () => {
       collabRef,
     ];
 
-    draggableElements.forEach((ref) => {
+    const isMobileDevice = () => /Mobi|Android/i.test(navigator.userAgent);
+
+    const draggableInstances = draggableElements.map((ref) => {
       if (ref.current) {
-        Draggable.create(ref.current, {
+        return Draggable.create(ref.current, {
           type: "x,y",
           edgeResistance: 0.92,
           bounds: ".contact-body",
@@ -55,16 +56,30 @@ const ContactHighlight = () => {
           onDragStart: () => console.log("Drag started"),
           onDrag: () => console.log("Dragging"),
           onDragEnd: () => console.log("Drag ended"),
-        });
+        })[0];
       }
+      return null;
     });
-  }, []);
 
-  
+    if (isMobileDevice()) {
+      draggableInstances.forEach((instance) => {
+        if (instance) instance.disable();
+      });
+    }
+
+    // Cleanup
+    return () => {
+      draggableInstances.forEach((instance) => {
+        if (instance) instance.kill();
+      });
+    };
+  }, []);
 
   return (
     <div className="w-full flex flex-col items-center mb-20">
-      <h1 className="text-4xl md:text-6xl poppins text-center">Your interactive<span className="all-text"> developer</span></h1>
+      <h1 className="text-4xl md:text-6xl poppins text-center">
+        Your interactive<span className="all-text"> developer</span>
+      </h1>
       <div className="light4"></div>
       <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 space-y-3">
         <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={jobRef}>
@@ -89,7 +104,8 @@ const ContactHighlight = () => {
           </div>
           <div className="about-me-text p-4 text-base rounded-lg shadow">
             <p>
-              <span className="text-gray-600">1. </span>Nice to meet you! I&apos;m
+              <span className="text-gray-600">1. </span>Nice to meet you!
+              I&apos;m
               <span className="text-red-500"> Matthew</span> a{" "}
               <span className="text-blue-400">Freelance Web Developer</span>.
             </p>
@@ -127,8 +143,10 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-       
-        <div className="hobbies w-4/5 h-auto lg:w-1/2 xl:w-1/3" ref={hobbiesRef}>
+        <div
+          className="hobbies w-4/5 h-auto lg:w-1/2 xl:w-1/3"
+          ref={hobbiesRef}
+        >
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">hobbies</p>
             <div className="flex space-x-4 text-gray-500">
@@ -150,28 +168,22 @@ const ContactHighlight = () => {
           </div>
           <div className="about-me-text p-4 space-y-3">
             <p className="text-base">
-              <span className="text-gray-600">1.</span>{" "}
-            
-              ⚽ Football
+              <span className="text-gray-600">1.</span> ⚽ Football
             </p>
             <p className="text-base">
               <span className="text-gray-600">2. </span>
-              
               🎮 Playing games
             </p>
             <p className="text-base">
               <span className="text-gray-600">3. </span>
-             
               ✈️ Travelling
             </p>
             <p className="text-base">
-              <span className="text-gray-600">4. </span>{" "}
-              
-              🏋️ Exercise
+              <span className="text-gray-600">4. </span> 🏋️ Exercise
             </p>
           </div>
         </div>
-        
+
         <div className="contact-links w-4/5 lg:w-1/2 xl:w-1/4" ref={contactRef}>
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">me-online</p>
@@ -230,7 +242,8 @@ const ContactHighlight = () => {
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >
-                x &#123;twitter&#125;<FiArrowUpRight className="text-lg" />
+                x &#123;twitter&#125;
+                <FiArrowUpRight className="text-lg" />
               </a>
             </div>
             <div className="flex">
@@ -272,7 +285,10 @@ const ContactHighlight = () => {
               <span className="text-gray-600">1. </span>My ideal collaboration
               are with
               <span className="text-red-500"> web agencies</span> and
-              <span className="text-blue-400"> digital design studios</span>{" "}
+              <span className="text-blue-400">
+                {" "}
+                digital design studios
+              </span>{" "}
               that need
               <span className="text-purple-400"> technical expertise</span>{" "}
               coupled with an eye for{" "}
@@ -281,7 +297,10 @@ const ContactHighlight = () => {
             </p>
             <p className="mt-2">
               <span className="text-gray-600">2. </span>I can also work with
-              <span className="text-blue-300"> independent professionals</span>{" "}
+              <span className="text-blue-300">
+                {" "}
+                independent professionals
+              </span>{" "}
               such as
               <span className="text-purple-400"> designers</span> and
               <span className="text-pink-500"> developers</span> to complement
@@ -324,20 +343,17 @@ const ContactHighlight = () => {
             <img src="/images/top.png" alt="img-face" className="h-64 w-4/5" />
           </div>
         </div>
-
       </div>
       <Link
-            href='/About'
-            style={{ background: "#101010d3" }}
-            className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 p-4 lg:px-4 rounded-md mt-5  border border-gray-600 text-center lg:text-center text-sm flex items-center  justify-center"
-          >
-           about-me
-          </Link>
+        href="/About"
+        style={{ background: "#101010d3" }}
+        className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 p-4 lg:px-4 rounded-md mt-5  border border-gray-600 text-center lg:text-center text-sm flex items-center  justify-center"
+      >
+        about-me
+      </Link>
     </div>
   );
 };
-
-
 
 const testimonials = [
   {
@@ -376,10 +392,15 @@ const testimonials = [
     position: "Digital Designer & Founder @ Vool",
     image: "/images/top.jpg",
   },
-  
 ];
 
-const TestimonialCardhighlight = ({ tech, content, author, position, image }) => (
+const TestimonialCardhighlight = ({
+  tech,
+  content,
+  author,
+  position,
+  image,
+}) => (
   <div className=" mt-8 testimonial-card w-72 md:w-full ">
     <div className="about-me-title p-3">
       <p className="text-sm font-semibold">{tech}</p>
@@ -502,28 +523,37 @@ const AllProjects = () => {
                   <h2 className="text-3xl mb-2 font-medium">{project.title}</h2>
                   <p className="text-sm text-gray-600 mb-4 fonts">2023</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className=" border border-gray-700 px-4 py-2 rounded-3xl text-sm" style={{background:"#00000037"}}>
+                    <span
+                      className=" border border-gray-700 px-4 py-2 rounded-3xl text-sm"
+                      style={{ background: "#00000037" }}
+                    >
                       webflow
                     </span>
-                    <span className=" border border-gray-700 px-4 py-2 rounded-3xl text-sm" style={{background:"#00000037"}}>
+                    <span
+                      className=" border border-gray-700 px-4 py-2 rounded-3xl text-sm"
+                      style={{ background: "#00000037" }}
+                    >
                       css
                     </span>
-                    <span className=" border border-gray-700  px-4 py-2 rounded-3xl text-sm" style={{background:"#00000037"}}>
+                    <span
+                      className=" border border-gray-700  px-4 py-2 rounded-3xl text-sm"
+                      style={{ background: "#00000037" }}
+                    >
                       javascript
                     </span>
                   </div>
                 </div>
               </div>
             </div>
-          ))} <Link
-            href='/ProjectsPage'
+          ))}{" "}
+          <Link
+            href="/ProjectsPage"
             style={{ background: "#101010d3" }}
             className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 p-4 lg:px-4 rounded-md   border border-gray-600 text-center lg:text-center text-sm flex items-center  justify-center"
           >
-           all-projects
+            all-projects
           </Link>
         </div>
-       
       </div>
     </>
   );
@@ -532,15 +562,17 @@ const AllProjects = () => {
 const ProjectHighlight = () => {
   return (
     <>
-    
-    <div className="flex flex-col items-center"> <div className="light4"></div>
-      <h1 className="text-4xl md:text-6xl text-center poppins">
-        Project <span className="all-text">higlights</span>
-      </h1>
-      <AllProjects />
-      <ContactHighlight/>
-     <TestimonialHighlight/>
-    </div></>
+      <div className="flex flex-col items-center">
+        {" "}
+        <div className="light4"></div>
+        <h1 className="text-4xl md:text-6xl text-center poppins">
+          Project <span className="all-text">higlights</span>
+        </h1>
+        <AllProjects />
+        <ContactHighlight />
+        <TestimonialHighlight />
+      </div>
+    </>
   );
 };
 
