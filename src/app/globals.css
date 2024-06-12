@@ -305,7 +305,7 @@
     animation: animateScale 20s infinite ease-in-out;
   }
 
-  @media (max-width: 600px) {
+ p
     .circle1 {
       width: 150px;
       height: 100px;
@@ -374,7 +374,7 @@
   .all-text-p {
     color: rgb(187, 4, 4);
   }
-}
+
 .local:hover .time {
   color: white;
   transition: 0.5s ease-in;
@@ -448,10 +448,15 @@
   height: 80vh;
 }
 .project-glass {
-  background: #0000004d;
+  background: #0000001a;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(192, 192, 192, 0.219);
  
+}
+@media (max-width: 600px) {
+  .project-glass{
+    height: 400px;
+  }
 }
 
 .project-img {
