@@ -443,7 +443,7 @@ const TestimonialHighlight = () => {
 
   return (
     <>
-      <h1 className="poppins text-4xl md:text-6xl text-center">
+      <h1 className="poppins text-3xl md:text-6xl text-center">
         Nice things <span className="all-text">people say</span>
         <br />
         about my work
@@ -509,9 +509,10 @@ const AllProjects = () => {
       >
         <div className="w-full flex flex-col items-center space-y-4  mt-30 poppins">
           {projects.map((project) => (
-            <div
+            <Link
               className="project-glass rounded-md  shadow-lg max-w-5xl mx-auto text-white p-2"
               key={project.id}
+              href={project.link}
             >
               <div className="flex flex-col md:flex-row">
                 <img
@@ -544,7 +545,7 @@ const AllProjects = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}{" "}
           <Link
             href="/ProjectsPage"

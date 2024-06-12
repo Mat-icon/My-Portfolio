@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 
@@ -47,7 +48,8 @@ const Projects = () => {
         <div className="w-full flex flex-col items-center space-y-4  mt-30 poppins">
           {projects.map((project) => (
             
-            <div className="project-glass rounded-md  shadow-lg max-w-5xl mx-auto text-white p-2" key={project.id}>
+            <Link className="project-glass rounded-md  shadow-lg max-w-5xl mx-auto text-white p-2" key={project.id} href= {project.link}>
+             
             <div className="flex flex-col md:flex-row">
                 <img src={project.image} alt="Project Image" className="w-full md:w-1/2  project-img rounded-md" />
                 <div className="p-4 md:w-1/2 mt-5">
@@ -62,7 +64,7 @@ const Projects = () => {
                     
                 </div>
             </div>
-        </div>
+        </Link>
           ))}
         </div>
       </div>

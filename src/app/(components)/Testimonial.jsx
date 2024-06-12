@@ -107,7 +107,7 @@ const Testimonial = () => {
 
   return (
     <>
-      <h1 className="poppins text-4xl md:text-6xl text-center">
+      <h1 className="poppins text-3xl md:text-6xl text-center">
         Nice things <span className="text-blue-600">people say</span>
         <br />
         about my work

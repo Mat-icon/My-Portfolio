@@ -21,7 +21,7 @@ const Header = () => {
           <span className="text-xs poppins text-gray-500 uppercase tracking-wider">
             Home
           </span>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal  mt-4 lg:w-10/12 poppins g">
+          <h1 className=" text-5xl md:text-7xl lg:text-8xl font-normal  mt-4 lg:w-10/12 poppins g">
             Hi<span className=" font-serif">&#44;</span> I
             <span className="font-serif">&#39;</span>
             <AnimatedLetters
