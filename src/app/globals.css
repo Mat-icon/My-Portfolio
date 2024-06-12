@@ -638,3 +638,52 @@
   color: #999;
 }
 
+
+.xi{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border:0.5px solid rgb(47, 230, 101);
+ 
+}
+
+.xi:hover{
+  background: rgba(10, 247, 89, 0.459);
+}
+
+.xi2{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border:0.5px solid rgb(230, 47, 77);
+ 
+}
+
+.xi2:hover{
+  background: rgba(230, 47, 77, 0.459);
+}
+
+.xi3{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border:0.5px solid rgb(47, 96, 230);
+ 
+}
+
+.xi3:hover{
+  background: rgba(47, 96, 230, 0.459);
+}
+
+.xi4{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border:0.5px solid rgb(227, 230, 47);
+ 
+}
+
+.xi5:hover{
+  background: rgba(227, 230, 47, 0.459);
+}
+

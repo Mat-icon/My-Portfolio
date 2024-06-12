@@ -42,10 +42,10 @@ const FullScreenNav = ({ isOpen, toggleNav }) => (
     } z-20 md:hidden`}
     style={{ transition: "1s" }}
   >
-    <FiX
-      className="absolute top-4 right-4 text-3xl  cursor-pointer"
-      onClick={toggleNav}
-    />
+    <div
+      className="absolute top-4 right-4 text-2xl xi2  cursor-pointer text-center"
+      onClick={toggleNav}>x</div>
+    
     
     <Link href='/'><NavItem number="01" label="home/"  /></Link>
      <Link href='/About'><NavItem number="02" label="about/" /></Link>
