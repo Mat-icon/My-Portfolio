@@ -26,7 +26,7 @@ import ProjectHighlight from "./ProjectHighlight";
 const NavItem = ({ number, label, isActive }) => (
   <div
     className={`flex items-center space-x-4 p-4 ${
-      isActive ? "text-green-400" : "hover:all-text"
+      isActive ? "text-green-400" : "hover:text-green-600"
     }`}
   >
     <span className="text-3xl text-gray-500">{number}</span>
