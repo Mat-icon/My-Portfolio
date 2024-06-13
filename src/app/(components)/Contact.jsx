@@ -313,7 +313,7 @@ const Contact = () => {
             <div className="flex">
               <span className="text-gray-600">1.</span>{" "}
               <a
-                href="/home"
+                href="https://www.linkedin.com/in/rex-technologies-759965238/"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >
@@ -333,7 +333,7 @@ const Contact = () => {
             <div className="flex">
               <span className="text-gray-600">3.</span>{" "}
               <a
-                href="/home"
+                 href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >
@@ -343,7 +343,7 @@ const Contact = () => {
             <div className="flex">
               <span className="text-gray-600">4.</span>{" "}
               <a
-                href="/home"
+                 href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >
@@ -353,7 +353,7 @@ const Contact = () => {
             <div className="flex">
               <span className="text-gray-600">5.</span>{" "}
               <a
-                href="/home"
+                 href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >

@@ -208,7 +208,7 @@ const ContactHighlight = () => {
             <div className="flex">
               <span className="text-gray-600">1.</span>{" "}
               <a
-                href="/home"
+                href="https://www.linkedin.com/in/rex-technologies-759965238/"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >
@@ -218,7 +218,7 @@ const ContactHighlight = () => {
             <div className="flex">
               <span className="text-gray-600">2.</span>{" "}
               <a
-                href="/home"
+                href="https://www.linkedin.com/in/rex-technologies-759965238/"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >
@@ -228,7 +228,7 @@ const ContactHighlight = () => {
             <div className="flex">
               <span className="text-gray-600">3.</span>{" "}
               <a
-                href="/home"
+               href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >
@@ -238,7 +238,7 @@ const ContactHighlight = () => {
             <div className="flex">
               <span className="text-gray-600">4.</span>{" "}
               <a
-                href="/home"
+               href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >
@@ -249,7 +249,7 @@ const ContactHighlight = () => {
             <div className="flex">
               <span className="text-gray-600">5.</span>{" "}
               <a
-                href="/home"
+                href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
               >
@@ -360,7 +360,7 @@ const testimonials = [
     id: 1,
     tech: "testimonials",
     content:
-      "Stefano is an experienced professional, curious and always looking for new ideas and inspirations. He has an excellent aptitude for teamwork and discussion, and it was a pleasure to work with him both for his approach and his skills.",
+      "Matthew is an experienced professional, curious and always looking for new ideas and inspirations. He has an excellent aptitude for teamwork and discussion, and it was a pleasure to work with him both for his approach and his skills.",
     author: "Alessandro Tunno",
     position: "Independent Creative Director",
     image: "/images/top.jpg",
@@ -369,7 +369,7 @@ const testimonials = [
     id: 2,
     tech: "testimonials",
     content:
-      "Stefano takes the development process seriously. His knowledge is inspiring and always appreciated. I highly recommend Stefano.",
+      "Matthew takes the development process seriously. His knowledge is inspiring and always appreciated. I highly recommend Stefano.",
     author: "Riccardo Marconato",
     position: "Independent Creative Director",
     image: "/images/top.jpg",
@@ -378,7 +378,7 @@ const testimonials = [
     id: 3,
     tech: "testimonials",
     content:
-      "Absolute pleasure working with Stefano. He has a knack for accurate implementations and state-of-the-art technical solutions.",
+      "Absolute pleasure working with Matthew. He has a knack for accurate implementations and state-of-the-art technical solutions.",
     author: "Giuseppe Capizzi",
     position: "Digital Designer & Founder @ Vool",
     image: "/images/top.jpg",
@@ -387,7 +387,7 @@ const testimonials = [
     id: 4,
     tech: "testimonials",
     content:
-      "Absolute pleasure working with Stefano. He has a knack for accurate implementations and state-of-the-art technical solutions.",
+      "Absolute pleasure working with Matthew. He has a knack for accurate implementations and state-of-the-art technical solutions.",
     author: "Giuseppe Capizzi",
     position: "Digital Designer & Founder @ Vool",
     image: "/images/top.jpg",
@@ -488,7 +488,7 @@ const projects = [
     year: "2023",
     technologies: ["sass", "next.js", "html"],
     image: "/images/telg.png",
-    link: "https://tegalchain.org/",
+    link: "https://tegalchaMatthew",
   },
   {
     id: 2,
