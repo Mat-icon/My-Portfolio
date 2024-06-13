@@ -484,18 +484,18 @@ const TestimonialHighlight = () => {
 const projects = [
   {
     id: 1,
-    title: "Heartfelt Academy",
+    title: "Telgachain",
     year: "2023",
     technologies: ["sass", "next.js", "html"],
-    image: "/images/top.jpg",
+    image: "/images/telg.png",
     link: "/",
   },
   {
     id: 2,
-    title: "Music App",
+    title: "Cartlo",
     year: "2023",
     technologies: ["sass", "next.js", "html"],
-    image: "/images/top.jpg",
+    image: "/images/cartlo.png",
     link: "/",
   },
 ];

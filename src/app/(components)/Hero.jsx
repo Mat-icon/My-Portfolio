@@ -120,25 +120,25 @@ export default function Home() {
         >
           <div className="icon-container">
             <Link href="/">
-              <FiHome className="text-base hover:all-text cursor-pointer" />
+              <FiHome className="text-base hover:text-green-300 cursor-pointer" />
             </Link>
             <span className="badge">home</span>
           </div>
           <div className="icon-container">
             <Link href="/ProjectsPage">
-              <FiCode className="text-base hover:all-text cursor-pointer" />
+              <FiCode className="text-base hover:text-green-300 cursor-pointer" />
             </Link>
             <span className="badge">projects</span>
           </div>
           <div className="icon-container">
             <Link href="/About">
-              <FiUser className="text-base hover:all-text cursor-pointer" />
+              <FiUser className="text-base hover:text-green-300 cursor-pointer" />
             </Link>
             <span className="badge">about</span>
           </div>
           <div className="icon-container">
             <Link href="/contact">
-              <FiMail className="text-base hover:all-text cursor-pointer" />
+              <FiMail className="text-base hover:text-green-300 cursor-pointer" />
             </Link>
             <span className="badge">contact</span>
           </div>
