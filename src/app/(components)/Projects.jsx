@@ -8,7 +8,7 @@ const projects = [{
     year: "2023",
     technologies: ["react","css", 'gsap'],
     image: "/images/poise body.png",
-    link : "/"
+    link : "https://pgcsf.org/"
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const projects = [{
     year: "2023",
     technologies: ["gsap", "javascript", "css"],
     image: "/images/telg.png",
-    link : "/"
+    link : "https://tegalchain.org/"
   },
   
   {
@@ -25,15 +25,31 @@ const projects = [{
     year: "2023",
     technologies: ["sass", "react.js", "html"],
     image: "/images/heartflet.png",
-    link : "/"
+    link : "https://heartfelt.netlify.app/"
   },
   {
     id: 4,
     title: "Music App",
     year: "2023",
     technologies: ["sass", "next.js", "html"],
-    image: "/images/music.png",
-    link : "/"
+    image: "/images/lyrics.png",
+    link : "https://web-rex-lyrics.netlify.app/"
+  },
+  {
+    id: 5,
+    title: "Cartlo",
+    year: "2023",
+    technologies: ["sass", "next.js", "html"],
+    image: "/images/cartlo.png",
+    link : "https://cartclo.com/"
+  },
+  {
+    id: 6,
+    title: "Biacademy",
+    year: "2023",
+    technologies: ["sass", "next.js", "html"],
+    image: "/images/biacademy.png",
+    link : "https://biacademy.info/"
   },
 ];
 

@@ -488,7 +488,7 @@ const projects = [
     year: "2023",
     technologies: ["sass", "next.js", "html"],
     image: "/images/telg.png",
-    link: "/",
+    link: "https://tegalchain.org/",
   },
   {
     id: 2,
@@ -496,7 +496,7 @@ const projects = [
     year: "2023",
     technologies: ["sass", "next.js", "html"],
     image: "/images/cartlo.png",
-    link: "/",
+    link: "https://cartclo.com/",
   },
 ];
 
