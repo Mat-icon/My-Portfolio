@@ -316,6 +316,7 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/rex-technologies-759965238/"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 linkedin <FiArrowUpRight className="text-lg" />
               </a>
@@ -326,6 +327,7 @@ const Contact = () => {
                 href="/home"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 instagram <FiArrowUpRight className="text-lg" />
               </a>
@@ -336,6 +338,7 @@ const Contact = () => {
                  href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 github <FiArrowUpRight className="text-lg" />
               </a>
@@ -346,6 +349,7 @@ const Contact = () => {
                  href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 x &#123;twitter&#125;<FiArrowUpRight className="text-lg" />
               </a>
@@ -356,6 +360,7 @@ const Contact = () => {
                  href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 facebook
                 <FiArrowUpRight className="text-lg" />

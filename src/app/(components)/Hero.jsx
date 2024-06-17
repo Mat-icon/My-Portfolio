@@ -16,12 +16,12 @@ import {
   VscChromeMaximize,
   VscChromeClose,
 } from "react-icons/vsc";
-import Header from "./Header";
-import Contactbar from "./Contactbar";
+
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
-import ProjectHighlight from "./ProjectHighlight";
+import HeroBody from "./HeroBody";
+
 
 const NavItem = ({ number, label, isActive }) => (
   <div
@@ -63,6 +63,9 @@ const FullScreenNav = ({ isOpen, toggleNav }) => (
 );
 
 export default function Home() {
+
+ 
+
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
   );
@@ -75,6 +78,7 @@ export default function Home() {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
 
+   
     return () => {
       clearInterval(interval);
     };
@@ -145,11 +149,7 @@ export default function Home() {
         </aside>
 
         {/* Content */}
-        <div className="test2 flex flex-col">
-          <Header />
-          <ProjectHighlight />
-          <Contactbar />
-        </div>
+        <HeroBody/>
       </div>
 
       {/* Footer */}

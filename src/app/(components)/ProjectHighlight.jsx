@@ -21,6 +21,7 @@ import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -211,6 +212,7 @@ const ContactHighlight = () => {
                 href="https://www.linkedin.com/in/rex-technologies-759965238/"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 linkedin <FiArrowUpRight className="text-lg" />
               </a>
@@ -221,6 +223,7 @@ const ContactHighlight = () => {
                 href="https://www.linkedin.com/in/rex-technologies-759965238/"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 instagram <FiArrowUpRight className="text-lg" />
               </a>
@@ -228,9 +231,10 @@ const ContactHighlight = () => {
             <div className="flex">
               <span className="text-gray-600">3.</span>{" "}
               <a
-               href="https://github.com/Mat-icon?tab=repositories"
+                href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 github <FiArrowUpRight className="text-lg" />
               </a>
@@ -238,9 +242,10 @@ const ContactHighlight = () => {
             <div className="flex">
               <span className="text-gray-600">4.</span>{" "}
               <a
-               href="https://github.com/Mat-icon?tab=repositories"
+                href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 x &#123;twitter&#125;
                 <FiArrowUpRight className="text-lg" />
@@ -252,6 +257,7 @@ const ContactHighlight = () => {
                 href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-lime-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
+                target="_blank"
               >
                 facebook
                 <FiArrowUpRight className="text-lg" />
@@ -486,15 +492,15 @@ const projects = [
     id: 1,
     title: "Telgachain",
     year: "2023",
-    technologies: ["sass", "next.js", "html"],
+    technologies: ["css", "react", "node.js"],
     image: "/images/telg.png",
-    link: "https://tegalchaMatthew",
+    link: "https://tegalchain.org/",
   },
   {
     id: 2,
     title: "Cartlo",
     year: "2023",
-    technologies: ["sass", "next.js", "html"],
+    technologies: ["tailwind", "next.js", "node.js"],
     image: "/images/cartlo.png",
     link: "https://cartclo.com/",
   },
@@ -513,35 +519,36 @@ const AllProjects = () => {
               className="project-glass rounded-md  shadow-lg max-w-5xl mx-auto text-white p-2"
               key={project.id}
               href={project.link}
+              target="_blank"
             >
               <div className="flex flex-col md:flex-row">
-                <img
-                  src={project.image}
-                  alt="Project Image"
-                  className="w-full md:w-1/2 h-auto project-img rounded-md"
-                />
+              <div className="w-full md:w-1/2">
+                  <Image
+                    src={project.image}
+                    alt="Project Image"
+                    width={800} // Set appropriate width
+                    height={600} // Set appropriate height to maintain the aspect ratio
+                    layout="responsive"
+                    priority
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,..."
+                    loading="eager"
+                    className="project-img rounded-sm"
+                  />
+                </div>
                 <div className="p-4 md:w-1/2 mt-5">
                   <h2 className="text-3xl mb-2 font-medium">{project.title}</h2>
                   <p className="text-sm text-gray-600 mb-4 fonts">2023</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span
-                      className=" border border-gray-700 px-4 py-2 rounded-3xl text-sm"
-                      style={{ background: "#00000037" }}
-                    >
-                      webflow
-                    </span>
-                    <span
-                      className=" border border-gray-700 px-4 py-2 rounded-3xl text-sm"
-                      style={{ background: "#00000037" }}
-                    >
-                      css
-                    </span>
-                    <span
-                      className=" border border-gray-700  px-4 py-2 rounded-3xl text-sm"
-                      style={{ background: "#00000037" }}
-                    >
-                      javascript
-                    </span>
+                    {project.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="border border-gray-700 px-4 py-2 rounded-3xl text-sm"
+                        style={{ background: "#00000037" }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
