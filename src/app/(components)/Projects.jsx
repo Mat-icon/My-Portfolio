@@ -52,6 +52,14 @@ const projects = [
     image: "/images/biacademy.png",
     link: "https://biacademy.info/",
   },
+  {
+    id: 7,
+    title: "Cloud Mall",
+    year: "2023",
+    technologies: ["node.js", "next.js", "tailwind"],
+    image: "/images/mall.png",
+    link: "https://cloudmall.netlify.app/",
+  },
 ];
 
 const Projects = () => {

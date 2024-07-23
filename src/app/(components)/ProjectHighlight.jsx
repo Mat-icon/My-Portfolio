@@ -498,11 +498,11 @@ const projects = [
   },
   {
     id: 2,
-    title: "Cartlo",
+    title: "Cloud Mall",
     year: "2023",
-    technologies: ["tailwind", "next.js", "node.js"],
-    image: "/images/cartlo.png",
-    link: "https://cartclo.com/",
+    technologies: ["node.js", "next.js", "tailwind"],
+    image: "/images/mall.png",
+    link: "https://cloudmall.netlify.app/",
   },
 ];
 
