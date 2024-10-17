@@ -162,7 +162,7 @@ export default function AboutPage() {
               <span className="text-xs poppins text-gray-500 uppercase tracking-wider">
                 About
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal  mt-4 lg:w-10/12 poppins g">
+              <h1 className="text-5xl md:text-7xl lg:text-[110px] font-normal  mt-4 lg:w-10/12 poppins g">
               Let<span className=" font-serif">&#39;</span>s get to <br/>
                 <AnimatedLetters
                   letterClass={letterClass}

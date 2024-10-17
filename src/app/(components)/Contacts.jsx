@@ -180,7 +180,7 @@ export default function Contacts() {
               <span className="text-xs poppins text-gray-500 uppercase tracking-wider">
                 Contact
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal  mt-4 md:w-full lg:w-10/12 poppins g">
+              <h1 className="text-5xl md:text-7xl lg:text-[110px] font-normal  mt-4 md:w-full lg:w-10/12 poppins g">
                 Let<span className=" font-mono">&#39;</span>s book a virtual<br/> space or
                <span className=" text-yellow-500"> <AnimatedLetters
                   letterClass={letterClass}

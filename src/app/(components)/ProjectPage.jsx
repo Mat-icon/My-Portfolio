@@ -21,6 +21,7 @@ import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Projects from "../(components)/Projects";
 import AnimatedLetters from "./AnimatedLetters";
+import Services from '../(components)/Programs/Service'
 import Contactbar from "./Contactbar";
 import Link from "next/link";
 
@@ -165,7 +166,7 @@ export default function Project() {
               <span className="text-xs poppins text-gray-500 uppercase tracking-wider">
                 Work
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-normal  mt-4 lg:w-10/12 poppins g">
+              <h1 className="text-5xl md:text-7xl lg:text-[110px] font-normal  mt-4 lg:w-10/12 poppins g">
                 A <AnimatedLetters strArray={collection} letterClass={letterClass} idx={10}/> of <br/>
                 <AnimatedLetters
                   letterClass={letterClass}
@@ -181,7 +182,8 @@ export default function Project() {
               </p>
             </div>
           </main>
-          <Projects />
+          {/* <Projects /> */}
+          <Services />
           <Contactbar/>
         </div>
       </div>

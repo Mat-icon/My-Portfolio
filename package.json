@@ -13,6 +13,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@studio-freight/lenis": "^1.0.42",
     "animate.css": "^4.1.1",
+    "framer-motion": "^11.11.9",
     "gsap": "^3.12.5",
     "imagesloaded": "^5.0.0",
     "locomotive-scroll": "^4.1.4",
@@ -28,6 +29,7 @@
     "swiper": "^11.1.4"
   },
   "devDependencies": {
+    "@types/react": "18.3.11",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
