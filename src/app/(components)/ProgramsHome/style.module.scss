@@ -4,7 +4,7 @@
     // padding-left: 200px;
     // padding-right: 200px;
     flex-direction: column;
-    margin-top: 300px;
+    margin-top: 130px;
 
     .body{
         max-width: 1400px;
@@ -13,7 +13,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-bottom: 100px;
+        margin-bottom: 40px;
     }
     
     .modalContainer{
@@ -49,7 +49,7 @@
         width: 70px;
         height: 70px;
         border-radius: 50%;
-        background:linear-gradient(rgb(240, 113, 134),rgb(241, 107, 107));
+        background:linear-gradient(#3b9935,#3dc734);
         color: white;
         position: fixed;
         z-index:3;

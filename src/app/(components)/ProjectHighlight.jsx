@@ -22,6 +22,7 @@ import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
 import Image from "next/image";
+import Services from '../(components)/ProgramsHome/Service'
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -432,7 +433,7 @@ const TestimonialCardhighlight = ({
       <p className="testimonial-author">
         {author} &#123;&#125; {position}
       </p>{" "}
-      <img src={image} alt={author} className="author-image" />
+      <Image width={300} height={300} src={image} alt={author} className="author-image" />
     </div>
   </div>
 );
@@ -576,7 +577,17 @@ const ProjectHighlight = () => {
         <h1 className="text-4xl md:text-6xl text-center poppins">
           Project <span className="all-text">higlights</span>
         </h1>
-        <AllProjects />
+        <div className="w-full">
+        <Services />
+        </div>
+       
+       <Link
+            href="/ProjectsPage"
+            style={{ background: "#101010d3" }}
+            className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 mb-[50px] p-4 lg:px-4 rounded-md   border border-gray-600 text-center lg:text-center text-sm flex items-center  justify-center"
+          >
+            all-projects
+          </Link>
         <ContactHighlight />
         <TestimonialHighlight />
       </div>

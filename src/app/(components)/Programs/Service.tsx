@@ -28,7 +28,7 @@ const projects: ProjectType[] = [
     src: "1.png",
     color: "#706D63",
     time: "2024",
-    link: "/projects/delve-learn"
+    link: " https://delve.fun/"
   },
   {
     title: "HNG BoilerPlate",
@@ -45,11 +45,26 @@ const projects: ProjectType[] = [
     link: "/projects/poise-academy"
   },
   {
+    title: "Homework AI",
+    src: "event6.jpg",
+    color: "whitesmoke",
+    time: "2024",
+    link: "/projects/hng-boilerplate",
+  },
+  
+  {
+    title: "HSR Ministry",
+    src: "telg.png",
+    color: "#333",
+    time: "2024",
+    link: " https://hsrministry.netlify.app/",
+  },
+  {
     title: "CloudMall",
     src: "mall.png",
     color: "#EFE8D3",
     time: "2024",
-    link: "/projects/cloudmall"
+    link: "https://cloudmall.netlify.app/products"
   },
   {
     title: "Telgachain",
@@ -139,7 +154,7 @@ export default function Home() {
     <main onMouseMove={(e: MouseEvent) => moveItems(e.clientX, e.clientY)} className={`lg:px-[200px] md:px-[100px] poppins px-0 ${styles.projects}`}>
       <div className={styles.body}>
         {projects.map((project, idx) => (
-          <Project date={project.time} key={idx} index={idx} title={project.title} manageModal={manageModal} />
+          <Project date={project.time} link={project.link} key={idx} index={idx} title={project.title} manageModal={manageModal} />
         ))}
       </div>
 
@@ -149,7 +164,7 @@ export default function Home() {
           variants={scaleAnimation}
           initial="initial"
           animate={active ? 'enter' : 'closed'}
-          className={`w-[200px] h-[250px] md:h-[350px] md:w-[400px] ${styles.modalContainer}`}
+          className={`w-[200px] h-[250px] md:h-[300px] rounded-md md:w-[350px] ${styles.modalContainer}`}
         >
           <div style={{ top: `${index * -100}%` }} className={styles.modalSlider}>
             {projects.map((project, idx) => {
