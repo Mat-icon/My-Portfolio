@@ -32,29 +32,29 @@ const projects: ProjectType[] = [
   },
   {
     title: "HNG BoilerPlate",
-    src: "event6.jpg",
+    src: "hng.png",
     color: "#706D63",
     time: "2024",
-    link: "/projects/hng-boilerplate"
+    link: "https://nextjs.boilerplate.hng.tech/"
   },
   {
     title: "Poise Academy",
     src: "poise body.png",
     color: "#8C8C8C",
     time: "2023",
-    link: "/projects/poise-academy"
+    link: "https://pgcsf.org/"
   },
   {
     title: "Homework AI",
-    src: "event6.jpg",
+    src: "ai.png",
     color: "whitesmoke",
     time: "2024",
-    link: "/projects/hng-boilerplate",
+    link: "https://aiforhomework.com/",
   },
   
   {
     title: "HSR Ministry",
-    src: "telg.png",
+    src: "hsr.png",
     color: "#333",
     time: "2024",
     link: " https://hsrministry.netlify.app/",
@@ -71,28 +71,28 @@ const projects: ProjectType[] = [
     src: "telg.png",
     color: "#706D63",
     time: "2023",
-    link: "/projects/telgachain"
+    link: "https://tegalchain.org/"
   },
   {
     title: "Bi Academy",
     src: "biacademy.png",
     color: "#706D63",
     time: "2024",
-    link: "/projects/bi-academy"
+    link: "https://biacademy.info/"
   },
   {
     title: "Cartlo",
     src: "cartlo.png",
     color: "#706D63",
     time: "2023",
-    link: "/projects/cartlo"
+    link: "https://cartclo.com/"
   },
   {
     title: "Lyrics",
     src: "lyrics.png",
     color: "#706D63",
     time: "2023",
-    link: "/projects/lyrics"
+    link: " https://web-rex-lyrics.netlify.app/"
   },
 ];
 

@@ -45,8 +45,8 @@
     height: 82vh;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-bottom: 20%;
     scroll-behavior: smooth;
+    padding-bottom: 20%;
   }
 
   .test3 {

@@ -18,6 +18,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 import { gsap } from "gsap";
+import { motion } from 'framer-motion';
 import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
@@ -569,29 +570,120 @@ const AllProjects = () => {
 };
 
 const ProjectHighlight = () => {
+  const [isVisible, setIsVisible] = useState({
+    light4: false,
+    heading: false,
+    services: false,
+    link: false,
+    contact: false,
+  });
+
+  const light4Ref = useRef(null);
+  const headingRef = useRef(null);
+  const servicesRef = useRef(null);
+  const linkRef = useRef(null);
+  const contactRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const targetName = entry.target.getAttribute('data-name');
+          if (entry.isIntersecting) {
+            setIsVisible((prev) => ({ ...prev, [targetName]: true }));
+          } else {
+            setIsVisible((prev) => ({ ...prev, [targetName]: false }));
+          }
+        });
+      },
+      { threshold: 0.1 } // Adjust as needed
+    );
+
+    const elements = [
+      { ref: light4Ref, name: 'light4' },
+      { ref: headingRef, name: 'heading' },
+      { ref: servicesRef, name: 'services' },
+      { ref: linkRef, name: 'link' },
+      { ref: contactRef, name: 'contact' },
+    ];
+
+    elements.forEach(({ ref, name }) => {
+      if (ref.current) {
+        ref.current.setAttribute('data-name', name);
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => {
+      elements.forEach(({ ref }) => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      });
+    };
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <>
-      <div className="flex flex-col items-center">
-        {" "}
-        <div className="light4"></div>
-        <h1 className="text-4xl md:text-6xl text-center poppins">
-          Project <span className="all-text">higlights</span>
-        </h1>
-        <div className="w-full">
+    <div className="flex flex-col items-center">
+      <motion.div
+        ref={light4Ref}
+        initial="hidden"
+        animate={isVisible.light4 ? 'visible' : 'hidden'}
+        variants={containerVariants}
+        className="light4"
+      ></motion.div>
+
+      <motion.h1
+        ref={headingRef}
+        initial="hidden"
+        animate={isVisible.heading ? 'visible' : 'hidden'}
+        variants={containerVariants}
+        className="text-4xl md:text-6xl text-center poppins"
+      >
+        Project <span className="all-text">highlights</span>
+      </motion.h1>
+
+      <motion.div
+        ref={servicesRef}
+        initial="hidden"
+        animate={isVisible.services ? 'visible' : 'hidden'}
+        variants={containerVariants}
+        className="w-full"
+      >
         <Services />
-        </div>
-       
-       <Link
-            href="/ProjectsPage"
-            style={{ background: "#101010d3" }}
-            className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 mb-[50px] p-4 lg:px-4 rounded-md   border border-gray-600 text-center lg:text-center text-sm flex items-center  justify-center"
-          >
-            all-projects
-          </Link>
+      </motion.div>
+
+      <motion.div
+      className="w-full flex items-center justify-center"
+        ref={linkRef}
+        initial="hidden"
+        animate={isVisible.link ? 'visible' : 'hidden'}
+        variants={containerVariants}
+      >
+        <Link
+          href="/ProjectsPage"
+          style={{ background: "#101010d3" }}
+          className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 mb-[50px] p-4 lg:px-4 rounded-md border border-gray-600 text-center text-sm flex items-center justify-center"
+        >
+          all-projects
+        </Link>
+      </motion.div>
+
+      <motion.div
+        ref={contactRef}
+        initial="hidden"
+        animate={isVisible.contact ? 'visible' : 'hidden'}
+        variants={containerVariants}
+      >
         <ContactHighlight />
-        <TestimonialHighlight />
-      </div>
-    </>
+      </motion.div>
+      <TestimonialHighlight />
+    </div>
   );
 };
 

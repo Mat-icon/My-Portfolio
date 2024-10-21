@@ -41,9 +41,22 @@ const Contactbar = () => {
             <p className="text-center lg:text-left text-2xl lg:text-6xl font-normal">
               Let&#39;s work together on your next project
             </p>
-            <Link href="/contact" className="w-full material-bubble4 md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm">
-              let&#39;s-get-in-touch
-            </Link>
+            <div className="flex space-x-2">
+              <Link
+                href="/contact"
+                className="w-full material-bubble4 md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm"
+              >
+                let&#39;s-get-in-touch
+              </Link>
+              <Link
+                href="/cv.pdf"
+                download
+                target="_blank"
+                className="w-full material-bubble4 md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm"
+              >
+                Download CV
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ interface ProjectType {
   src: string;
   color: string;
   time: string;
-  link: string; // Added link property for each project
+  link: string;
 }
 
 const projects: ProjectType[] = [
@@ -33,15 +33,15 @@ const projects: ProjectType[] = [
 
   {
     title: "Homework AI",
-    src: "cartlo.png",
+    src: "ai.png",
     color: "whitesmoke",
     time: "2024",
-    link: "/projects/hng-boilerplate",
+    link: "https://aiforhomework.com/",
   },
   
   {
     title: "HSR Ministry",
-    src: "telg.png",
+    src: "hsr.png",
     color: "#333",
     time: "2024",
     link: "https://hsrministry.netlify.app/",

@@ -181,7 +181,7 @@ export default function Contacts() {
                 Contact
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-[110px] font-normal  mt-4 md:w-full lg:w-10/12 poppins g">
-                Let<span className=" font-mono">&#39;</span>s book a virtual<br/> space or
+                Let&#39;s book a virtual<br/> space or
                <span className=" text-yellow-500"> <AnimatedLetters
                   letterClass={letterClass}
                   strArray={nameArray}
@@ -207,7 +207,7 @@ export default function Contacts() {
       >
           <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
       
-        <span className="hidden md:block text-sm base">Based in Nigeria<sub className="font-semibold text-gray-300 sub"> NG</sub></span>
+        <span className="hidden md:block text-sm base">Based in Nigeria</span>
         <div className="hidden md:block text-sm local">
           Local time <span className="time">{currentTime}</span>
         </div>
