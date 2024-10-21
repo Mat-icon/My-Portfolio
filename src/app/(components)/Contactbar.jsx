@@ -41,7 +41,7 @@ const Contactbar = () => {
             <p className="text-center lg:text-left text-2xl lg:text-6xl font-normal">
               Let&#39;s work together on your next project
             </p>
-            <div className="flex space-x-2">
+            <div className="flex flex-col items-center md:flex-row md:space-x-2 ">
               <Link
                 href="/contact"
                 className="w-full material-bubble4 md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm"
@@ -52,7 +52,7 @@ const Contactbar = () => {
                 href="/cv.pdf"
                 download
                 target="_blank"
-                className="w-full material-bubble4 md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm"
+                className="w-full mt-2 md:mt-0 material-bubble4 md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-default-text bg-black border text-center lg:text-center text-sm"
               >
                 Download CV
               </Link>
