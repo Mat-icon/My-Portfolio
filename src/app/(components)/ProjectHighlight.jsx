@@ -18,12 +18,12 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 import { gsap } from "gsap";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
 import Image from "next/image";
-import Services from '../(components)/ProgramsHome/Service'
+import Services from "../(components)/ProgramsHome/Service";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -347,8 +347,8 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="w-full h-64 bg-lime-400">
-            <img src="/images/top.png" alt="img-face" className="h-64 w-4/5" />
+          <div className="w-full h-auto bg-lime-400">
+            <img src="/images/portrait3.jpg" alt="img-face" className="h-[275px] w-full object-cover" />
           </div>
         </div>
       </div>
@@ -368,37 +368,46 @@ const testimonials = [
     id: 1,
     tech: "testimonials",
     content:
-      "Matthew is an experienced professional, curious and always looking for new ideas and inspirations. He has an excellent aptitude for teamwork and discussion, and it was a pleasure to work with him both for his approach and his skills.",
+      "Stefano is an experienced professional, curious and always looking for new ideas and inspirations. He has an excellent aptitude for teamwork and discussion, and it was a pleasure to work with him both for his approach and his skills.",
     author: "Alessandro Tunno",
     position: "Independent Creative Director",
-    image: "/images/top.jpg",
+    image: "/images/potrait2.jpg",
   },
   {
     id: 2,
     tech: "testimonials",
     content:
-      "Matthew takes the development process seriously. His knowledge is inspiring and always appreciated. I highly recommend Stefano.",
+      "Stefano takes the development process seriously. His knowledge is inspiring and always appreciated. I highly recommend Stefano.",
     author: "Riccardo Marconato",
     position: "Independent Creative Director",
-    image: "/images/top.jpg",
+    image: "/images/portrait3.jpg",
   },
   {
     id: 3,
     tech: "testimonials",
     content:
-      "Absolute pleasure working with Matthew. He has a knack for accurate implementations and state-of-the-art technical solutions.",
+      "Absolute pleasure working with Stefano. He has a knack for accurate implementations and state-of-the-art technical solutions.",
     author: "Giuseppe Capizzi",
     position: "Digital Designer & Founder @ Vool",
-    image: "/images/top.jpg",
+    image: "/images/portrait.jpg",
   },
   {
     id: 4,
     tech: "testimonials",
     content:
-      "Absolute pleasure working with Matthew. He has a knack for accurate implementations and state-of-the-art technical solutions.",
+      "Absolute pleasure working with Stefano. He has a knack for accurate implementations and state-of-the-art technical solutions.",
     author: "Giuseppe Capizzi",
     position: "Digital Designer & Founder @ Vool",
-    image: "/images/top.jpg",
+    image: "/images/potrait2.jpg",
+  },
+  {
+    id: 5,
+    tech: "testimonials",
+    content:
+      "Absolute pleasure working with Stefano. He has a knack for accurate implementations and state-of-the-art technical solutions.",
+    author: "Giuseppe Capizzi",
+    position: "Digital Designer & Founder @ Vool",
+    image: "/images/potrait2.jpg",
   },
 ];
 
@@ -434,7 +443,13 @@ const TestimonialCardhighlight = ({
       <p className="testimonial-author">
         {author} &#123;&#125; {position}
       </p>{" "}
-      <Image width={300} height={300} src={image} alt={author} className="author-image" />
+      <Image
+        width={500}
+        height={500}
+        src={image}
+        alt={author}
+        className="w-[60px] h-[60px] rounded-full mt-4  object-cover"
+      />
     </div>
   </div>
 );
@@ -524,7 +539,7 @@ const AllProjects = () => {
               target="_blank"
             >
               <div className="flex flex-col md:flex-row">
-              <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2">
                   <Image
                     src={project.image}
                     alt="Project Image"
@@ -588,7 +603,7 @@ const ProjectHighlight = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const targetName = entry.target.getAttribute('data-name');
+          const targetName = entry.target.getAttribute("data-name");
           if (entry.isIntersecting) {
             setIsVisible((prev) => ({ ...prev, [targetName]: true }));
           } else {
@@ -600,16 +615,16 @@ const ProjectHighlight = () => {
     );
 
     const elements = [
-      { ref: light4Ref, name: 'light4' },
-      { ref: headingRef, name: 'heading' },
-      { ref: servicesRef, name: 'services' },
-      { ref: linkRef, name: 'link' },
-      { ref: contactRef, name: 'contact' },
+      { ref: light4Ref, name: "light4" },
+      { ref: headingRef, name: "heading" },
+      { ref: servicesRef, name: "services" },
+      { ref: linkRef, name: "link" },
+      { ref: contactRef, name: "contact" },
     ];
 
     elements.forEach(({ ref, name }) => {
       if (ref.current) {
-        ref.current.setAttribute('data-name', name);
+        ref.current.setAttribute("data-name", name);
         observer.observe(ref.current);
       }
     });
@@ -633,7 +648,7 @@ const ProjectHighlight = () => {
       <motion.div
         ref={light4Ref}
         initial="hidden"
-        animate={isVisible.light4 ? 'visible' : 'hidden'}
+        animate={isVisible.light4 ? "visible" : "hidden"}
         variants={containerVariants}
         className="light4"
       ></motion.div>
@@ -641,7 +656,7 @@ const ProjectHighlight = () => {
       <motion.h1
         ref={headingRef}
         initial="hidden"
-        animate={isVisible.heading ? 'visible' : 'hidden'}
+        animate={isVisible.heading ? "visible" : "hidden"}
         variants={containerVariants}
         className="text-4xl md:text-6xl text-center poppins"
       >
@@ -651,7 +666,7 @@ const ProjectHighlight = () => {
       <motion.div
         ref={servicesRef}
         initial="hidden"
-        animate={isVisible.services ? 'visible' : 'hidden'}
+        animate={isVisible.services ? "visible" : "hidden"}
         variants={containerVariants}
         className="w-full"
       >
@@ -659,10 +674,10 @@ const ProjectHighlight = () => {
       </motion.div>
 
       <motion.div
-      className="w-full flex items-center justify-center"
+        className="w-full flex items-center justify-center"
         ref={linkRef}
         initial="hidden"
-        animate={isVisible.link ? 'visible' : 'hidden'}
+        animate={isVisible.link ? "visible" : "hidden"}
         variants={containerVariants}
       >
         <Link
@@ -677,7 +692,7 @@ const ProjectHighlight = () => {
       <motion.div
         ref={contactRef}
         initial="hidden"
-        animate={isVisible.contact ? 'visible' : 'hidden'}
+        animate={isVisible.contact ? "visible" : "hidden"}
         variants={containerVariants}
       >
         <ContactHighlight />

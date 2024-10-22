@@ -15,6 +15,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -24,7 +25,7 @@ const testimonials = [
       "Stefano is an experienced professional, curious and always looking for new ideas and inspirations. He has an excellent aptitude for teamwork and discussion, and it was a pleasure to work with him both for his approach and his skills.",
     author: "Alessandro Tunno",
     position: "Independent Creative Director",
-    image: "/images/top.jpg",
+    image: "/images/potrait2.jpg",
   },
   {
     id: 2,
@@ -33,7 +34,7 @@ const testimonials = [
       "Stefano takes the development process seriously. His knowledge is inspiring and always appreciated. I highly recommend Stefano.",
     author: "Riccardo Marconato",
     position: "Independent Creative Director",
-    image: "/images/top.jpg",
+    image: "/images/portrait3.jpg",
   },
   {
     id: 3,
@@ -42,7 +43,7 @@ const testimonials = [
       "Absolute pleasure working with Stefano. He has a knack for accurate implementations and state-of-the-art technical solutions.",
     author: "Giuseppe Capizzi",
     position: "Digital Designer & Founder @ Vool",
-    image: "/images/top.jpg",
+    image: "/images/portrait.jpg",
   },
   {
     id: 4,
@@ -51,7 +52,7 @@ const testimonials = [
       "Absolute pleasure working with Stefano. He has a knack for accurate implementations and state-of-the-art technical solutions.",
     author: "Giuseppe Capizzi",
     position: "Digital Designer & Founder @ Vool",
-    image: "/images/top.jpg",
+    image: "/images/potrait2.jpg",
   },
   {
     id: 5,
@@ -60,7 +61,7 @@ const testimonials = [
       "Absolute pleasure working with Stefano. He has a knack for accurate implementations and state-of-the-art technical solutions.",
     author: "Giuseppe Capizzi",
     position: "Digital Designer & Founder @ Vool",
-    image: "/images/top.jpg",
+    image: "/images/potrait2.jpg",
   },
 ];
 
@@ -90,7 +91,7 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
       <p className="testimonial-author">
         {author} &#123;&#125; {position}
       </p>{" "}
-      <img src={image} alt={author} className="author-image" />
+      <Image width={500} height={500} src={image} alt={author} className="w-[60px] h-[60px] rounded-full mt-4  object-cover" />
     </div>
   </div>
 );
