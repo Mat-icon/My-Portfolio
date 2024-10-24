@@ -29,7 +29,7 @@ const Contactbar = () => {
             />
           </div>
         </div>
-        <div className="w-full h-4/5 about-me-text p-6 poppins flex flex-col lg:flex-row items-center justify-center lg:space-x-12">
+        <div className="w-full h-auto about-me-text p-6 poppins flex flex-col lg:flex-row items-center justify-center lg:space-x-12">
           <div className="w-24 h-24 md:w-28 md:h-24 rounded-full relative overflow-hidden md:p-6 bg-green-400 hi">
             <img
               src="/images/bg.png"

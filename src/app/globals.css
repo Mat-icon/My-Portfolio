@@ -504,7 +504,8 @@
 
 .about-me {
   width: 80%;
-  height: 400px;
+  min-height: 400px;
+  height: auto;
   border: 0.5px solid #333;
   background: #00000081;
   border-radius: 5px;

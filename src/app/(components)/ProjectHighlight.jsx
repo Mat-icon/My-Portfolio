@@ -348,7 +348,11 @@ const ContactHighlight = () => {
             </div>
           </div>
           <div className="w-full h-auto bg-lime-400">
-            <img src="/images/portrait3.jpg" alt="img-face" className="h-[275px] w-full object-cover" />
+            <img
+              src="/images/portrait3.jpg"
+              alt="img-face"
+              className="h-[275px] w-full object-cover"
+            />
           </div>
         </div>
       </div>
@@ -466,10 +470,9 @@ const TestimonialHighlight = () => {
 
   return (
     <>
-      <h1 className="poppins text-3xl md:text-6xl text-center">
+      <h1 className="w-[96%] poppins text-3xl md:text-6xl text-center">
         Nice things <span className="all-text">people say</span>
-        <br />
-        about my work
+        <br className="hidden md:block" /> about my work
       </h1>
 
       <div className="relative w-full h-screen flex justify-center items-center p-4">
