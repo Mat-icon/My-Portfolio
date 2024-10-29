@@ -184,6 +184,9 @@ const ContactHighlight = () => {
             <p className="text-base">
               <span className="text-gray-600">4. </span> 🏋️ Exercise
             </p>
+            <p className="text-base">
+              <span className="text-gray-600">5. </span> 🎧 Music
+            </p>
           </div>
         </div>
 
@@ -349,7 +352,7 @@ const ContactHighlight = () => {
           </div>
           <div className="w-full h-auto bg-lime-400">
             <img
-              src="/images/portrait3.jpg"
+              src="/images/crop.jpg"
               alt="img-face"
               className="h-[275px] w-full object-cover"
             />

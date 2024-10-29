@@ -43,13 +43,13 @@ const Contact = () => {
     const draggableInstances = draggableElements.map((ref) => {
       if (ref.current) {
         return Draggable.create(ref.current, {
-          type: 'x,y',
+          type: "x,y",
           edgeResistance: 0.92,
-          bounds: '.contact-body',
+          bounds: ".contact-body",
           inertia: true,
-          onDragStart: () => console.log('Drag started'),
-          onDrag: () => console.log('Dragging'),
-          onDragEnd: () => console.log('Drag ended'),
+          onDragStart: () => console.log("Drag started"),
+          onDrag: () => console.log("Dragging"),
+          onDragEnd: () => console.log("Drag ended"),
         })[0];
       }
       return null;
@@ -68,8 +68,6 @@ const Contact = () => {
       });
     };
   }, []);
-
-  
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -97,7 +95,8 @@ const Contact = () => {
           </div>
           <div className="about-me-text p-4 text-base rounded-lg shadow">
             <p>
-              <span className="text-gray-600">1. </span>Nice to meet you! I&apos;m
+              <span className="text-gray-600">1. </span>Nice to meet you!
+              I&apos;m
               <span className="text-red-500"> Matthew</span> a{" "}
               <span className="text-blue-400">Freelance Web Developer</span>.
             </p>
@@ -135,7 +134,10 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="job md:h-44 h-auto w-4/5 lg:w-1/2 xl:w-2/5" ref={elementRef}>
+        <div
+          className="job md:h-44 h-auto w-4/5 lg:w-1/2 xl:w-2/5"
+          ref={elementRef}
+        >
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">where-i-work</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -167,7 +169,10 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="hobbies w-4/5 h-auto lg:w-1/2 xl:w-1/3" ref={hobbiesRef}>
+        <div
+          className="hobbies w-4/5 h-auto lg:w-1/2 xl:w-1/3"
+          ref={hobbiesRef}
+        >
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">hobbies</p>
             <div className="flex space-x-4 text-gray-500">
@@ -189,24 +194,21 @@ const Contact = () => {
           </div>
           <div className="about-me-text p-4 space-y-3">
             <p className="text-base">
-              <span className="text-gray-600">1.</span>{" "}
-            
-              ⚽ Football
+              <span className="text-gray-600">1.</span> ⚽ Football
             </p>
             <p className="text-base">
               <span className="text-gray-600">2. </span>
-              
               🎮 Playing games
             </p>
             <p className="text-base">
               <span className="text-gray-600">3. </span>
-             
               ✈️ Travelling
             </p>
             <p className="text-base">
-              <span className="text-gray-600">4. </span>{" "}
-              
-              🏋️ Exercise
+              <span className="text-gray-600">4. </span> 🏋️ Exercise
+            </p>
+            <p className="text-base">
+              <span className="text-gray-600">5. </span> 🎧 Music
             </p>
           </div>
         </div>
@@ -236,7 +238,10 @@ const Contact = () => {
               <span className="text-gray-600">1. </span>My ideal collaboration
               are with
               <span className="text-red-500"> web agencies</span> and
-              <span className="text-blue-400"> digital design studios</span>{" "}
+              <span className="text-blue-400">
+                {" "}
+                digital design studios
+              </span>{" "}
               that need
               <span className="text-purple-400"> technical expertise</span>{" "}
               coupled with an eye for{" "}
@@ -245,7 +250,10 @@ const Contact = () => {
             </p>
             <p className="mt-2">
               <span className="text-gray-600">2. </span>I can also work with
-              <span className="text-blue-300"> independent professionals</span>{" "}
+              <span className="text-blue-300">
+                {" "}
+                independent professionals
+              </span>{" "}
               such as
               <span className="text-purple-400"> designers</span> and
               <span className="text-pink-500"> developers</span> to complement
@@ -284,8 +292,12 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="w-full h-64 bg-lime-400">
-            <img src="/images/top.png" alt="img-face" className="h-64 w-4/5" />
+          <div className="w-full h-auto bg-lime-400">
+            <img
+              src="/images/crop.jpg"
+              alt="img-face"
+              className="h-[275px] w-full object-cover"
+            />
           </div>
         </div>
 
@@ -335,7 +347,7 @@ const Contact = () => {
             <div className="flex">
               <span className="text-gray-600">3.</span>{" "}
               <a
-                 href="https://github.com/Mat-icon?tab=repositories"
+                href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
@@ -346,18 +358,19 @@ const Contact = () => {
             <div className="flex">
               <span className="text-gray-600">4.</span>{" "}
               <a
-                 href="https://github.com/Mat-icon?tab=repositories"
+                href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
               >
-                x &#123;twitter&#125;<FiArrowUpRight className="text-lg" />
+                x &#123;twitter&#125;
+                <FiArrowUpRight className="text-lg" />
               </a>
             </div>
             <div className="flex">
               <span className="text-gray-600">5.</span>{" "}
               <a
-                 href="https://github.com/Mat-icon?tab=repositories"
+                href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-blue-400 decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
@@ -374,4 +387,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

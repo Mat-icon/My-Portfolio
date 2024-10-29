@@ -1,5 +1,7 @@
 import React from "react";
 import { Rings } from "react-loader-spinner";
+
+
 const Loader = () => {
   return (
     <div className="w-full h-screen  flex justify-center items-center ">
