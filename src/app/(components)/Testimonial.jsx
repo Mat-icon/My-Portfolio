@@ -121,7 +121,7 @@ const Testimonial = () => {
         <br className="hidden md:block" /> about my work
       </h1>
 
-      <div className="relative w-[90%] flex justify-center items-center p-4">
+      <div className="relative w-[95%] md:w-[90%] flex justify-center items-center p-4">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
           spaceBetween={100}
