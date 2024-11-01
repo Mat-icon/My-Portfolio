@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Contactbar = () => {
   return (
-    <div className="w-full h-screen flex justify-center items-center lg:items-start relative top-32">
+    <div className="w-full  flex  justify-center   relative top-32">
       <div className="about-me">
         <div className="about-me-title p-4">
           <p className="text-sm">collaboration</p>
@@ -29,12 +29,12 @@ const Contactbar = () => {
             />
           </div>
         </div>
-        <div className="w-full h-auto about-me-text p-6 poppins flex flex-col lg:flex-row items-center justify-center lg:space-x-12">
-          <div className="w-24 h-24 md:w-28 md:h-24 rounded-full relative overflow-hidden md:p-6 bg-green-400 hi">
+        <div className="w-full h-auto md:mt-8 mt-4  p-6 poppin flex flex-col lg:flex-row items-center justify-center lg:space-x-12">
+          <div className="w-24 h-24 md:w-36 md:h-28 rounded-full relative overflow-hidden md:p-6 bg-green-400 hi">
             <img
               src="/images/bg.png"
               alt="me"
-              className="mb-8 lg:mb-0 object-cover absolute top-0 left-0 w-full h-full"
+              className="mb-8 lg:mb-0 object-cover absolute -rotate-12 top-0 left-0 w-full h-full"
             />
           </div>
           <div className="flex flex-col space-y-6">

@@ -45,11 +45,13 @@ const FullScreenNav = ({ isOpen, toggleNav }) => (
   >
     <div
       className="absolute top-4 right-4 text-2xl text-center xi4  cursor-pointer"
-      onClick={toggleNav}>x</div>
-    
-   
+      onClick={toggleNav}
+    >
+      x
+    </div>
+
     <Link href="/">
-      <NavItem number="01" label="home/"  />
+      <NavItem number="01" label="home/" />
     </Link>
     <Link href="/About">
       <NavItem number="02" label="about/" />
@@ -67,7 +69,6 @@ const FullScreenNav = ({ isOpen, toggleNav }) => (
 export default function Contacts() {
   const [letterClass, setLetterClass] = useState("text-animate");
   const nameArray = [
- 
     " ",
     "d",
     "r",
@@ -79,10 +80,8 @@ export default function Contacts() {
     "l",
     "i",
     "n",
-    "e"
-   
+    "e",
   ];
-
 
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
@@ -93,7 +92,13 @@ export default function Contacts() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
+      setCurrentTime(
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        })
+      );
     }, 1000);
 
     return () => {
@@ -125,10 +130,10 @@ export default function Contacts() {
             className="text-sm text-gray-400 hover:text-white"
             style={{ transition: "ease-in 0.5s" }}
           />
-              <div
-              className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            ></div>
+          <div
+            className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+            style={{ transition: "ease-in 0.5s" }}
+          ></div>
           <VscChromeClose
             className="text-sm text-gray-400 hover:text-white"
             style={{ transition: "ease-in 0.5s" }}
@@ -181,22 +186,26 @@ export default function Contacts() {
                 Contact
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-[110px] font-normal  mt-4 md:w-full lg:w-10/12 poppins g">
-                Let&#39;s book a virtual<br/> space or
-               <span className=" text-yellow-500"> <AnimatedLetters
-                  letterClass={letterClass}
-                  strArray={nameArray}
-                  idx={15}
-                />
-                 </span>
+                Let&#39;s book a virtual
+                <br /> space or
+                <span className=" text-yellow-500">
+                  {" "}
+                  <AnimatedLetters
+                    letterClass={letterClass}
+                    strArray={nameArray}
+                    idx={15}
+                  />
+                </span>
               </h1>
               <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-sm max-w-2xl text-gray-400 mt-8 our-text">
-                Whether you have a project you want to work on together or just want to have a chat, you are in the right place:
-                Let&#39;s get in touch
+                Whether you have a project you want to work on together or just
+                want to have a chat, you are in the right place: Let&#39;s get
+                in touch
               </p>
             </div>
           </main>
           <ContactForm />
-          <Contactbar/>
+          <Contactbar />
         </div>
       </div>
 
@@ -205,18 +214,18 @@ export default function Contacts() {
         className="flex justify-between items-center px-3 p-2 h-12 border-t border-gray-500 text-gray-600"
         style={{ background: "#0000001f" }}
       >
-          <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
-      
+        <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+
         <span className="hidden md:block text-sm base">Based in Nigeria</span>
         <div className="hidden md:block text-sm local">
-          Local time <span className="time">{currentTime}</span>
+          Local time <span className="time font-[700]">{currentTime}</span>
         </div>
         <div className="flex space-x-4 items-center ">
-        <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
-          <FaLinkedin
-            className="text-lg hover:text-white cursor-pointer  hover:scale-105"
-            style={{ transition: "ease-in 0.5s" }}
-          />
+          <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
+            <FaLinkedin
+              className="text-lg hover:text-white cursor-pointer  hover:scale-105"
+              style={{ transition: "ease-in 0.5s" }}
+            />
           </Link>
           <FiInstagram
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
@@ -226,7 +235,7 @@ export default function Contacts() {
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
           />
-            <Link href="https://github.com/Mat-icon?tab=repositories">
+          <Link href="https://github.com/Mat-icon?tab=repositories">
             {" "}
             <FiGithub
               className="text-lg hover:text-white cursor-pointer hover:scale-105"

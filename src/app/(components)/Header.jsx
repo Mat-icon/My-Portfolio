@@ -4,7 +4,7 @@ import './App.scss';
 
 const Header = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
-  const nameArray = ["m", " ", "M", "a", "t", "t", "h", "e", "w", " ", "a"];
+  const nameArray = ["m", " ", "M", "a", "t", "t", "h", "e", "w"];
 
   return (
     <>
@@ -17,22 +17,23 @@ const Header = () => {
               <p>&lt;div&gt;</p>
             </div>
           </div>
-          <span className="text-xs poppins text-gray-500 uppercase tracking-wider">
+          <span className="text-xs md:text-[13px] poppin  text-gray-500 uppercase tracking-wider">
             Home
           </span>
-          <h1 className="w-[93%] text-[46px] md:text-7xl lg:text-[110px] font-normal mt-4 lg:w-10/12 poppins g">
+          <h1 className="w-[93%] text-[46px] md:text-7xl lg:text-[100px] font-light mt-4 lg:w-10/12 poppins">
             Hi<span className="font-serif">&#44;</span> I
             <span className="font-serif">&#39;</span>
             <AnimatedLetters
               letterClass={letterClass}
               strArray={nameArray}
               idx={15}
-            />
+             
+            /><span className="font-serif">&#44;</span> a
             {/* Use Tailwind to hide/show the <br /> tag on different screen sizes */}
             <br className="hidden md:block" /> {/* Only visible on medium screens and larger */}
             <span className="all-text"> creative </span>developer
           </h1>
-          <p className="w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 md:text-base text-[13px] max-w-2xl text-gray-400 mt-8 our-text">
+          <p className="w-11/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 md:text-[14px] text-[13px] max-w-2xl text-gray-400 mt-8 our-text">
             I bring value to web development projects by merging technical
             expertise with creativity and aesthetics.
           </p>

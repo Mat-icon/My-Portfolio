@@ -21,7 +21,7 @@ import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import AnimatedLetters from "./AnimatedLetters";
 import Contactbar from "./Contactbar";
-import Contact from "./Contact"
+import Contact from "./Contact";
 import Link from "next/link";
 import Tech from "./Tech";
 import Testimonial from "./Testimonial";
@@ -43,33 +43,34 @@ const FullScreenNav = ({ isOpen, toggleNav }) => (
     className={`fixed top-0 left-0 w-full h-full flex flex-col justify-center space-y-10 transform transition-transform ${
       isOpen ? "translate-y-0" : "-translate-y-full"
     } z-20 md:hidden`}
-    style={{ transition: "1s", background:"#101010" }}
-   
+    style={{ transition: "1s", background: "#101010" }}
   >
     <div
       className="absolute top-4 right-4 text-2xl xi3 text-center cursor-pointer"
-      onClick={toggleNav}>x</div>
-    
-    
-    <Link href='/'><NavItem number="01" label="home/"  /></Link>
-     <Link href='/About'><NavItem number="02" label="about/" isActive/></Link>
-    <Link href='/ProjectsPage'> <NavItem number="03" label="work/" /></Link>
-     <Link href='/contact'><NavItem number="04" label="contact/" /></Link>
+      onClick={toggleNav}
+    >
+      x
+    </div>
+
+    <Link href="/">
+      <NavItem number="01" label="home/" />
+    </Link>
+    <Link href="/About">
+      <NavItem number="02" label="about/" isActive />
+    </Link>
+    <Link href="/ProjectsPage">
+      {" "}
+      <NavItem number="03" label="work/" />
+    </Link>
+    <Link href="/contact">
+      <NavItem number="04" label="contact/" />
+    </Link>
   </div>
 );
 
 export default function AboutPage() {
   const [letterClass, setLetterClass] = useState("text-animate");
-  const nameArray = [
- 
-    " ",
-    "k",
-    "n",
-    "o",
-    "w",
-    " ",
-   
-  ];
+  const nameArray = [" ", "k", "n", "o", "w", " "];
 
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
@@ -80,7 +81,13 @@ export default function AboutPage() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
+      setCurrentTime(
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        })
+      );
     }, 1000);
 
     return () => {
@@ -91,7 +98,10 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col test  text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-blue-500 selection:text-white">
       {/* Header */}
-      <header className="flex justify-between items-center p-2 border-b border-gray-500" style={{background:"#0000001f"}}>
+      <header
+        className="flex justify-between items-center p-2 border-b border-gray-500"
+        style={{ background: "#0000001f" }}
+      >
         <div className="flex items-center">
           <FiMenu
             className="text-lg md:text-2xl cursor-pointer  md:hidden"
@@ -109,10 +119,10 @@ export default function AboutPage() {
             className="text-sm text-gray-400 hover:text-white"
             style={{ transition: "ease-in 0.5s" }}
           />
-           <div
-              className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            ></div>
+          <div
+            className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+            style={{ transition: "ease-in 0.5s" }}
+          ></div>
           <VscChromeClose
             className="text-sm text-gray-400 hover:text-white"
             style={{ transition: "ease-in 0.5s" }}
@@ -133,7 +143,9 @@ export default function AboutPage() {
             <span className="badge">home</span>
           </div>
           <div className="icon-container">
-          <Link href='/ProjectsPage'><FiCode className="text-base hover:text-blue-500 cursor-pointer" /></Link>
+            <Link href="/ProjectsPage">
+              <FiCode className="text-base hover:text-blue-500 cursor-pointer" />
+            </Link>
             <span className="badge">projects</span>
           </div>
           <div className="icon-container">
@@ -143,7 +155,9 @@ export default function AboutPage() {
             <span className="badge">about</span>
           </div>
           <div className="icon-container">
-            <Link href='/contact'><FiMail className="text-base hover:text-blue-500 cursor-pointer" /></Link>
+            <Link href="/contact">
+              <FiMail className="text-base hover:text-blue-500 cursor-pointer" />
+            </Link>
             <span className="badge">contact</span>
           </div>
         </aside>
@@ -163,7 +177,7 @@ export default function AboutPage() {
                 About
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-[110px] font-normal  mt-4 lg:w-10/12 poppins g">
-              Let<span className=" font-serif">&#39;</span>s get to <br/>
+                Let<span className=" font-serif">&#39;</span>s get to <br />
                 <AnimatedLetters
                   letterClass={letterClass}
                   strArray={nameArray}
@@ -177,29 +191,32 @@ export default function AboutPage() {
               </p>
             </div>
           </main>
-          <Contact/>
-          <Tech/>
-          <Testimonial/>
+          <Contact />
+          <Tech />
+          <Testimonial />
           <Contactbar />
-          <Footer/>
+          <Footer />
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="flex justify-between items-center px-3 p-2 h-12 border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
+      <footer
+        className="flex justify-between items-center px-3 p-2 h-12 border-t border-gray-500 text-gray-600"
+        style={{ background: "#0000001f" }}
+      >
         <div className="flex items-center space-x-2">
           <div className="w-2.5 h-2.5 bg-blue-500 rounded-full"></div>
         </div>
         <span className="hidden md:block text-sm  ">Based in Nigeria</span>
         <div className="hidden md:block text-sm local ">
-          Local time <span className="time">{currentTime}</span>
+          Local time <span className="time font-[700]">{currentTime}</span>
         </div>
         <div className="flex space-x-4 items-center ">
-        <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
-          <FaLinkedin
-            className="text-lg hover:text-white cursor-pointer  hover:scale-105"
-            style={{ transition: "ease-in 0.5s" }}
-          />
+          <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
+            <FaLinkedin
+              className="text-lg hover:text-white cursor-pointer  hover:scale-105"
+              style={{ transition: "ease-in 0.5s" }}
+            />
           </Link>
           <FiInstagram
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
@@ -209,7 +226,7 @@ export default function AboutPage() {
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
           />
-            <Link href="https://github.com/Mat-icon?tab=repositories">
+          <Link href="https://github.com/Mat-icon?tab=repositories">
             {" "}
             <FiGithub
               className="text-lg hover:text-white cursor-pointer hover:scale-105"

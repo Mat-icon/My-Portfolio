@@ -6,6 +6,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/Montreal-Regular.ttf') format('truetype');
+  font-weight: normal;  /* Use 'bold' for bold variations */
+  font-style: normal;   /* Use 'italic' for italic variations */
+}
+
+
 @layer components {
   .icon {
     @apply w-8 h-8 text-white p-4 cursor-pointer hover:text-green-400;
@@ -27,6 +36,10 @@
     font-family: "Space Mono", monospace;
   }
   .poppins {
+    font-family: "CustomFont", sans-serif;
+  }
+
+  .poppin {
     font-family: "Poppins", sans-serif;
   }
   .test {
@@ -184,7 +197,7 @@
   }
 
   .light3 {
-    width: 2px;
+    width: 1px;
     height: 300px;
     margin-top: 30px;
     position: relative;
@@ -526,9 +539,9 @@
 
 
 .me{
-  border: 0.5px solid #333;
-  background: #101010d3;
-  border-radius: 3px;
+  border: 0.8px solid #5a5959;
+  background: #101010a2;
+  border-radius: 4px;
   padding: 8px;
 }
 
@@ -537,32 +550,32 @@
   background: #00000027;
 }
 .job {
-  border: 0.5px solid #333;
-  background: #101010d3;
-  border-radius: 3px;
+  border: 0.5px solid #5a5959;
+  background: #101010a2;
+  border-radius: 4px;
 }
 
 .hobbies {
-  border: 0.5px solid #333;
-  background: #101010d3;
-  border-radius: 3px;
+  border: 0.5px solid #5a5959;
+  background: #101010a2;
+  border-radius: 4px;
 }
 .potrait {
-  border: 0.5px solid #333;
-  background: #101010d3;
-  border-radius: 3px;
+  border: 0.5px solid #5a5959;
+  background: #101010a2;
+  border-radius: 4px;
 }
 
 
 
 .contact-links {
-  border: 0.5px solid #333;
-  background: #101010d3;
-  border-radius: 3px;
+  border: 0.5px solid #5a5959;
+  background: #101010a2;
+  border-radius: 4px;
 }
 
 .about-me-title {
-  border-bottom: 0.5px solid #333;
+  border-bottom: 0.5px solid #5a5959;
   text-align: center;
   width: 100%;
   display: flex;
@@ -580,10 +593,10 @@
   align-items: center;
 }
 
-.g{
+/* .g{
   letter-spacing: -2px;
   word-spacing: -3px;
-}
+} */
 
 .testimonial-swiper .swiper-slide {
   transition: all 0.3s ease-in-out;
@@ -605,8 +618,8 @@
 }
 
 .testimonial-card {
-  height: 500px;
-  
+  height: auto;
+  min-height: 300px;
   background: #0e0d0db4;
   border-radius: 5px;
   color: #fff;
@@ -621,7 +634,7 @@
 
 .testimonial-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
   text-align: center;
 }

@@ -7,7 +7,7 @@ const Tech = () => {
   return (
     <div className=" w-screen flex flex-col justify-center items-center mt-36 ">
       <div>
-        <h1 className="text-3xl md:text-6xl text-center poppins">
+        <h1 className="text-3xl md:text-[64px] md:leading-[55px] text-center poppins">
           Some of the techs I 
           <br />like to
           <span className="text-blue-500"> work with</span>

@@ -21,7 +21,7 @@ import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Projects from "../(components)/Projects";
 import AnimatedLetters from "./AnimatedLetters";
-import Services from '../(components)/Programs/Service'
+import Services from "../(components)/Programs/Service";
 import Contactbar from "./Contactbar";
 import Link from "next/link";
 
@@ -45,44 +45,32 @@ const FullScreenNav = ({ isOpen, toggleNav }) => (
   >
     <div
       className="absolute top-4 right-4 text-2xl xi2  cursor-pointer text-center"
-      onClick={toggleNav}>x</div>
-    
-    
-    <Link href='/'><NavItem number="01" label="home/"  /></Link>
-     <Link href='/About'><NavItem number="02" label="about/" /></Link>
-    <Link href='/ProjectsPage'> <NavItem number="03" label="work/" isActive/></Link>
-     <Link href='/contact'><NavItem number="04" label="contact/" /></Link>
+      onClick={toggleNav}
+    >
+      x
+    </div>
+
+    <Link href="/">
+      <NavItem number="01" label="home/" />
+    </Link>
+    <Link href="/About">
+      <NavItem number="02" label="about/" />
+    </Link>
+    <Link href="/ProjectsPage">
+      {" "}
+      <NavItem number="03" label="work/" isActive />
+    </Link>
+    <Link href="/contact">
+      <NavItem number="04" label="contact/" />
+    </Link>
   </div>
 );
 
 export default function Project() {
   const [letterClass, setLetterClass] = useState("text-animate");
-  const nameArray = [
-   
-    " ",
-    "m",
-    "y",
-    " ",
-    "b",
-    "e",
-    "s",
-    "t",
-    " ",
-  ];
+  const nameArray = [" ", "m", "y", "  "," ", "b", "e", "s", "t", " "];
 
-  const collection =[
-    " ",
-    "c",
-    "o",
-    "l",
-    "l",
-    "e",
-    "t",
-    "i",
-    "o",
-    "n",
-  ]
-
+  const collection = [ "c", "o", "l", "l", "e", "t", "i", "o", "n"];
 
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
@@ -93,7 +81,13 @@ export default function Project() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
+      setCurrentTime(
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        })
+      );
     }, 1000);
 
     return () => {
@@ -104,7 +98,10 @@ export default function Project() {
   return (
     <div className=" flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-red-500 selection:text-white">
       {/* Header */}
-      <header className="flex justify-between items-center p-2 border-b border-gray-500" style={{background:"#0000001f"}}>
+      <header
+        className="flex justify-between items-center p-2 border-b border-gray-500"
+        style={{ background: "#0000001f" }}
+      >
         <div className="flex items-center">
           <FiMenu
             className="text-lg md:text-2xl cursor-pointer  md:hidden"
@@ -114,16 +111,21 @@ export default function Project() {
         <div className="flex items-center">
           <span className="text-lg font-medium text-center fonts">
             matthew<span className="text-lg text-red-500 ">&lt;ameh&gt;</span>
-             
           </span>
         </div>
         <div className="flex items-center space-x-2 ">
-          <VscChromeMinimize className="text-sm text-gray-400 hover:text-white"  style={{ transition: "ease-in 0.5s" }}/>
+          <VscChromeMinimize
+            className="text-sm text-gray-400 hover:text-white"
+            style={{ transition: "ease-in 0.5s" }}
+          />
           <div
-              className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            ></div>
-          <VscChromeClose className="text-sm text-gray-400 hover:text-white"  style={{ transition: "ease-in 0.5s" }}/>
+            className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+            style={{ transition: "ease-in 0.5s" }}
+          ></div>
+          <VscChromeClose
+            className="text-sm text-gray-400 hover:text-white"
+            style={{ transition: "ease-in 0.5s" }}
+          />
         </div>
       </header>
 
@@ -134,7 +136,9 @@ export default function Project() {
         {/* Sidebar */}
         <aside className="nav-color hidden md:flex md:flex-col md:items-center md:justify-center md:space-y-6 md:border-r md:border-gray-500 md:p-3 ">
           <div className="icon-container">
-            <Link href='/'><FiHome className="text-base hover:text-red-500 cursor-pointer" /></Link>
+            <Link href="/">
+              <FiHome className="text-base hover:text-red-500 cursor-pointer" />
+            </Link>
             <span className="badge">home</span>
           </div>
           <div className="icon-container">
@@ -142,11 +146,15 @@ export default function Project() {
             <span className="badge">projects</span>
           </div>
           <div className="icon-container">
-            <Link href='/About'><FiUser className="text-base hover:text-red-500 cursor-pointer" /></Link>
+            <Link href="/About">
+              <FiUser className="text-base hover:text-red-500 cursor-pointer" />
+            </Link>
             <span className="badge">about</span>
           </div>
           <div className="icon-container">
-          <Link href='/contact'><FiMail className="text-base hover:text-red-500 cursor-pointer" /></Link>
+            <Link href="/contact">
+              <FiMail className="text-base hover:text-red-500 cursor-pointer" />
+            </Link>
             <span className="badge">contact</span>
           </div>
         </aside>
@@ -160,14 +168,19 @@ export default function Project() {
                 <div className="word flex">
                   <p>&lt;h5&gt;</p>
                   <p>&lt;br&gt;</p>
-                  
                 </div>
               </div>
-              <span className="text-xs poppins text-gray-500 uppercase tracking-wider">
+              <span className="text-xs poppin text-gray-500 uppercase tracking-wider">
                 Work
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-[110px] font-normal  mt-4 lg:w-10/12 poppins g">
-                A <AnimatedLetters strArray={collection} letterClass={letterClass} idx={10}/> of <br/>
+                A{" "}
+                <AnimatedLetters
+                  strArray={collection}
+                  letterClass={letterClass}
+                  idx={10}
+                />{" "}
+                of <br />
                 <AnimatedLetters
                   letterClass={letterClass}
                   strArray={nameArray}
@@ -175,7 +188,7 @@ export default function Project() {
                 />
                 <span className=" text-red-400"> projects </span>
               </h1>
-              <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-sm max-w-2xl text-gray-400 mt-8 our-text">
+              <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-[13px] max-w-2xl text-gray-400 mt-8 our-text">
                 With many years in web development, I acquired extensive
                 experience working on projects across multiple industries and
                 technologies. Let me show you my best creations.
@@ -184,25 +197,28 @@ export default function Project() {
           </main>
           {/* <Projects /> */}
           <Services />
-          <Contactbar/>
+          <Contactbar />
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="flex justify-between items-center p-2 px-3 h-12 border-t border-gray-500 text-gray-600" style={{background:"#0000001f"}}>
+      <footer
+        className="flex justify-between items-center p-2 px-3 h-12 border-t border-gray-500 text-gray-600"
+        style={{ background: "#0000001f" }}
+      >
         <div className="flex items-center space-x-2">
           <div className="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
         </div>
         <span className="hidden md:block text-sm ">Based in Nigeria</span>
         <div className="hidden md:block text-sm local ">
-          Local time <span className="time">{currentTime}</span>
+          Local time <span className="time font-[700]">{currentTime}</span>
         </div>
         <div className="flex space-x-4 items-center ">
-        <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
-          <FaLinkedin
-            className="text-lg hover:text-white cursor-pointer  hover:scale-105"
-            style={{ transition: "ease-in 0.5s" }}
-          />
+          <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
+            <FaLinkedin
+              className="text-lg hover:text-white cursor-pointer  hover:scale-105"
+              style={{ transition: "ease-in 0.5s" }}
+            />
           </Link>
           <FiInstagram
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
@@ -212,7 +228,7 @@ export default function Project() {
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
           />
-             <Link href="https://github.com/Mat-icon?tab=repositories">
+          <Link href="https://github.com/Mat-icon?tab=repositories">
             {" "}
             <FiGithub
               className="text-lg hover:text-white cursor-pointer hover:scale-105"

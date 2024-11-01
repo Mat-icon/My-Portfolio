@@ -24,6 +24,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
 import Image from "next/image";
 import Services from "../(components)/ProgramsHome/Service";
+import { FaChevronRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa6";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -80,12 +82,12 @@ const ContactHighlight = () => {
 
   return (
     <div className="w-full flex flex-col items-center mb-20">
-      <h1 className="text-4xl md:text-6xl poppins text-center">
-        Your interactive<span className="all-text"> developer</span>
+      <h1 className="text-4xl md:text-7xl poppins text-center">
+        Your <span className="all-text">creative</span>  web developer
       </h1>
       <div className="light4"></div>
-      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 space-y-3">
-        <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={jobRef}>
+      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
+        <div className="me md:w-full lg:w-4/5 xl:w-[60%]" ref={jobRef}>
           <div className="about-me-title p-2 text-white">
             <p>about-me</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -105,7 +107,7 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="about-me-text p-4 text-base rounded-lg shadow">
+          <div className="about-me-text p-4 text-[15px] rounded-lg shadow">
             <p>
               <span className="text-gray-600">1. </span>Nice to meet you!
               I&apos;m
@@ -147,7 +149,7 @@ const ContactHighlight = () => {
         </div>
 
         <div
-          className="hobbies w-4/5 h-auto lg:w-1/2 xl:w-1/3"
+          className="hobbies w-4/5 lg:w-1/2 xl:w-1/3 h-64"
           ref={hobbiesRef}
         >
           <div className="about-me-title p-3 text-white">
@@ -190,7 +192,7 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="contact-links w-4/5 lg:w-1/2 xl:w-1/4" ref={contactRef}>
+        <div className="contact-links w-4/5 lg:w-1/2 xl:w-1/4 h-64" ref={contactRef}>
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">me-online</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -210,7 +212,7 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="potrait-img text-md flex flex-col space-y-3 p-6 shadow">
+          <div className="potrait-img text-md flex flex-col space-y-3  p-4 shadow">
             <div className="flex">
               <span className="text-gray-600">1.</span>{" "}
               <a
@@ -271,7 +273,7 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={collabRef}>
+        <div className="me md:w-full lg:w-4/5 xl:w-[60%] h-auto" ref={collabRef}>
           <div className="about-me-title p-2 text-white">
             <p>collaborations</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -291,7 +293,7 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="about-me-text p-4 text-base rounded-lg shadow">
+          <div className="about-me-text p-4 text-[15px]  rounded-lg shadow">
             <p>
               <span className="text-gray-600">1. </span>My ideal collaboration
               are with
@@ -350,9 +352,9 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="w-full h-auto bg-lime-400">
+          <div className="w-full h-auto bg-[#4af36f] overflow-hidden ">
             <img
-              src="/images/crop.jpg"
+              src="/images/ee.jpg"
               alt="img-face"
               className="h-[275px] w-full object-cover"
             />
@@ -361,14 +363,21 @@ const ContactHighlight = () => {
       </div>
       <Link
         href="/About"
-        style={{ background: "#101010d3" }}
-        className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 p-4 lg:px-4 rounded-md mt-5  border border-gray-600 text-center lg:text-center text-sm flex items-center  justify-center"
+        style={{ background: "#101010e1" }}
+        className="material-bubble3 w-3/5 md:w-4/12 poppin lg:w-[12%] p-4 lg:px-4 rounded-[4px] mt-5  border-[0.3px] border-[#5a5959] text-center lg:text-center text-sm flex items-center justify-center"
       >
-        about-me
+        <p className="flex items-center">about-me <FaArrowRight  className="ml-2"/></p>
       </Link>
     </div>
   );
 };
+
+
+
+
+
+
+
 
 const testimonials = [
   {
@@ -426,7 +435,7 @@ const TestimonialCardhighlight = ({
   image,
 }) => (
   <div className=" mt-8 testimonial-card w-72 md:w-full ">
-    <div className="about-me-title p-3">
+    <div className="about-me-title test-color p-3">
       <p className="text-sm font-semibold">{tech}</p>
       <div className="flex space-x-4 text-gray-500 text-xs">
         <FontAwesomeIcon
@@ -445,11 +454,13 @@ const TestimonialCardhighlight = ({
         />
       </div>
     </div>
-    <div className="testimonial-content p-5">
-      <p className="testimonial-text">{content}</p>
-      <p className="testimonial-author">
-        {author} &#123;&#125; {position}
-      </p>{" "}
+    <div className="flex md:flex-row-reverse flex-col md:items-start items-center md:gap-4  p-5">
+      <div className="flex flex-col text-center  items-center">
+        <p className="testimonial-text">{content}</p>
+        <p className="testimonial-author">
+          {author} &#123;&#125; {position}
+        </p>
+      </div>
       <Image
         width={500}
         height={500}
@@ -472,13 +483,13 @@ const TestimonialHighlight = () => {
   };
 
   return (
-    <>
-      <h1 className="w-[96%] poppins text-3xl md:text-6xl text-center">
+    <div className="w-[100%] h-auto flex-col flex items-center">
+      <h1 className="w-[96%] poppins text-3xl md:text-[64px] md:leading-[60px] text-center">
         Nice things <span className="all-text">people say</span>
         <br className="hidden md:block" /> about my work
       </h1>
 
-      <div className="relative w-full h-screen flex justify-center items-center p-4">
+      <div className="relative w-[90%] flex justify-center items-center p-4">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
           spaceBetween={100}
@@ -486,7 +497,7 @@ const TestimonialHighlight = () => {
           loop={true}
           autoplay={{ delay: 5000, disableOnInteraction: true }}
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-          className=" cursor-grab testimonial-swiper"
+          className="cursor-grab testimonial-swiper"
         >
           {testimonials.map(
             ({ id, tech, content, author, position, image }, index) => (
@@ -506,89 +517,22 @@ const TestimonialHighlight = () => {
           )}
         </Swiper>
       </div>
-    </>
-  );
-};
 
-const projects = [
-  {
-    id: 1,
-    title: "Telgachain",
-    year: "2023",
-    technologies: ["css", "react", "node.js"],
-    image: "/images/telg.png",
-    link: "https://tegalchain.org/",
-  },
-  {
-    id: 2,
-    title: "Cloud Mall",
-    year: "2023",
-    technologies: ["node.js", "next.js", "tailwind"],
-    image: "/images/mall.png",
-    link: "https://cloudmall.netlify.app/",
-  },
-];
-
-const AllProjects = () => {
-  return (
-    <>
-      <div
-        className="w-full flex flex-col items-center mt-10 mb-28
-      "
-      >
-        <div className="w-full flex flex-col items-center space-y-4  mt-30 poppins">
-          {projects.map((project) => (
-            <Link
-              className="project-glass rounded-md  shadow-lg max-w-5xl mx-auto text-white p-2"
-              key={project.id}
-              href={project.link}
-              target="_blank"
-            >
-              <div className="flex flex-col md:flex-row">
-                <div className="w-full md:w-1/2">
-                  <Image
-                    src={project.image}
-                    alt="Project Image"
-                    width={800} // Set appropriate width
-                    height={600} // Set appropriate height to maintain the aspect ratio
-                    layout="responsive"
-                    priority
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,..."
-                    loading="eager"
-                    className="project-img rounded-sm"
-                  />
-                </div>
-                <div className="p-4 md:w-1/2 mt-5">
-                  <h2 className="text-3xl mb-2 font-medium">{project.title}</h2>
-                  <p className="text-sm text-gray-600 mb-4 fonts">2023</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="border border-gray-700 px-4 py-2 rounded-3xl text-sm"
-                        style={{ background: "#00000037" }}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}{" "}
-          <Link
-            href="/ProjectsPage"
-            style={{ background: "#101010d3" }}
-            className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 p-4 lg:px-4 rounded-md   border border-gray-600 text-center lg:text-center text-sm flex items-center  justify-center"
-          >
-            all-projects
-          </Link>
-        </div>
+     
+      <div className="relative mt-4 w-1/2 h-[1px] bg-gray-400 rounded ">
+        <div
+          className={`absolute h-full bg-[#38eb5f] transition-all duration-300`}
+          style={{
+            width: `${(activeIndex / (testimonials.length - 1)) * 100}%`,
+            filter: 'blur(2px)', 
+          }}
+        />
       </div>
-    </>
+    </div>
   );
 };
+
+
 
 const ProjectHighlight = () => {
   const [isVisible, setIsVisible] = useState({
@@ -664,7 +608,7 @@ const ProjectHighlight = () => {
         initial="hidden"
         animate={isVisible.heading ? "visible" : "hidden"}
         variants={containerVariants}
-        className="text-4xl md:text-6xl text-center poppins"
+        className="text-4xl md:text-[64px] text-center poppins"
       >
         Project <span className="all-text">highlights</span>
       </motion.h1>
@@ -688,10 +632,10 @@ const ProjectHighlight = () => {
       >
         <Link
           href="/ProjectsPage"
-          style={{ background: "#101010d3" }}
-          className="material-bubble3 w-3/5 md:w-4/12 lg:w-3/12 mb-[50px] p-4 lg:px-4 rounded-md border border-gray-600 text-center text-sm flex items-center justify-center"
+          style={{ background: "#101010e1" }}
+          className="material-bubble3 w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm flex items-center justify-center"
         >
-          all-projects
+          <p className="flex items-center justify-center">all-projects <FaArrowRight  className="ml-2"/></p>
         </Link>
       </motion.div>
 

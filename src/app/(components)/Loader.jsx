@@ -10,11 +10,11 @@ const Loader = () => {
         <div className="circle circle2"></div>
       </div>
 
-      <div className="w-11/12 md:w-5/12  border border-[#81808079] bg-[#00000027] rounded-[4px] h-12 md:h-14 relative z-10 flex items-center ">
+      <div className="w-11/12 md:w-[38%]  border border-[#81808079] bg-[#00000027] rounded-[4px] h-10 md:h-12 relative z-10 flex items-center ">
        <div className="w-[15%] md:w-[10%] font-bold flex items-center justify-center">M</div>
        <div className="w-[1px] bg-[#81808079] h-full"></div>
        <div className="w-[70%] md:w-[80%] flex items-center justify-center">
-          <span className="text-base md:text-lg font-medium text-center fonts">
+          <span className="text-base  font-medium text-center fonts">
             matthew
             <span className="text-base md:text-lg all-text">&lt;ameh&gt;</span>
           </span>

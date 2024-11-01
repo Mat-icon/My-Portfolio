@@ -72,7 +72,7 @@ const Contact = () => {
   return (
     <div className="w-full flex flex-col items-center">
       <div className="light2"></div>
-      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 space-y-3">
+      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap gap-6 space-x-1 space-y-3">
         <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={jobRef}>
           <div className="about-me-title p-2 text-white">
             <p>about-me</p>

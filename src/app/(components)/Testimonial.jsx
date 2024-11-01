@@ -86,12 +86,20 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
         />
       </div>
     </div>
-    <div className="testimonial-content p-5">
-      <p className="testimonial-text">{content}</p>
-      <p className="testimonial-author">
-        {author} &#123;&#125; {position}
-      </p>{" "}
-      <Image width={500} height={500} src={image} alt={author} className="w-[60px] h-[60px] rounded-full mt-4  object-cover" />
+    <div className="flex md:flex-row-reverse flex-col items-center md:gap-4  p-5">
+      <div className="flex flex-col text-center  items-center">
+        <p className="testimonial-text">{content}</p>
+        <p className="testimonial-author">
+          {author} &#123;&#125; {position}
+        </p>
+      </div>
+      <Image
+        width={500}
+        height={500}
+        src={image}
+        alt={author}
+        className="w-[60px] h-[60px] rounded-full mt-4  object-cover"
+      />
     </div>
   </div>
 );
@@ -107,22 +115,21 @@ const Testimonial = () => {
   };
 
   return (
-    <>
-      <h1 className="poppins text-3xl md:text-6xl text-center">
-        Nice things <span className="text-blue-600">people say</span>
-        <br />
-        about my work
+    <div className="w-[100%] h-auto flex-col flex items-center">
+      <h1 className="w-[96%] poppins text-3xl md:text-[64px] md:leading-[60px] text-center">
+        Nice things <span className="text-blue-700">people say</span>
+        <br className="hidden md:block" /> about my work
       </h1>
 
-      <div className="relative w-full h-screen flex justify-center items-center p-4">
+      <div className="relative w-[90%] flex justify-center items-center p-4">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-          spaceBetween={80}
+          spaceBetween={100}
           slidesPerView={2}
           loop={true}
           autoplay={{ delay: 5000, disableOnInteraction: true }}
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-          className=" cursor-grab testimonial-swiper"
+          className="cursor-grab testimonial-swiper"
         >
           {testimonials.map(
             ({ id, tech, content, author, position, image }, index) => (
@@ -142,7 +149,18 @@ const Testimonial = () => {
           )}
         </Swiper>
       </div>
-    </>
+
+     
+      <div className="relative mt-4 w-1/2 h-[1px] bg-gray-400 rounded ">
+        <div
+          className={`absolute h-full bg-[blue] transition-all duration-300`}
+          style={{
+            width: `${(activeIndex / (testimonials.length - 1)) * 100}%`,
+            filter: 'blur(2px)', 
+          }}
+        />
+      </div>
+    </div>
   );
 };
 

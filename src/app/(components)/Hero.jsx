@@ -75,7 +75,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
+      setCurrentTime(new Date().toLocaleTimeString([], {hour: "2-digit", minute: "2-digit", hour12: false}));
     }, 1000);
 
    
@@ -103,13 +103,13 @@ export default function Home() {
             <span className="text-lg all-text">&lt;ameh&gt;</span>
           </span>
         </div>
-        <div className="flex items-center space-x-2 ">
-          <VscChromeMinimize className="text-base text-gray-400" />
+        <div className="flex items-center space-x-3 ">
+          <VscChromeMinimize className="text-base text-gray-600" />
           <div
-            className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+            className="w-2.5 h-2.5 border border-gray-600 rounded-sm hover:border-white cursor-pointer"
             style={{ transition: "ease-in 0.5s" }}
           ></div>
-          <VscChromeClose className="text-base text-gray-400" />
+          <VscChromeClose className="text-base text-gray-600" />
         </div>
       </header>
 
@@ -162,7 +162,7 @@ export default function Home() {
         </div>
         <span className="hidden md:block text-sm">Based in Nigeria</span>
         <div className="hidden md:block text-sm local">
-          Local time <span className="time">{currentTime}</span>
+          Local time <span className="time font-[800]">{currentTime}</span>
         </div>
         <div className="flex space-x-4 items-center ">
         <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
