@@ -223,7 +223,7 @@ export default function Contacts() {
           className="material-bubble hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
         >
           <p className="flex items-center justify-center">
-            let's-get-in-touch
+            let&apos;s-get-in-touch
             <FaArrowRight className="ml-2" />
           </p>
         </Link>
