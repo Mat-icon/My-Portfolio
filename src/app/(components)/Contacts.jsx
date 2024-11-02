@@ -17,7 +17,7 @@ import {
   VscChromeClose,
 } from "react-icons/vsc";
 
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaArrowRight, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import AnimatedLetters from "./AnimatedLetters";
 
@@ -185,7 +185,7 @@ export default function Contacts() {
               <span className="text-xs poppins text-gray-500 uppercase tracking-wider">
                 Contact
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-[110px] font-normal  mt-4 md:w-full lg:w-10/12 poppins g">
+              <h1 className=" text-5xl w-[93%] md:text-7xl lg:text-[100px] font-normal  mt-4 md:w-full lg:w-10/12 poppins g">
                 Let&#39;s book a virtual
                 <br /> space or
                 <span className=" text-yellow-500">
@@ -197,7 +197,7 @@ export default function Contacts() {
                   />
                 </span>
               </h1>
-              <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-sm max-w-2xl text-gray-400 mt-8 our-text">
+              <p className=" w-11/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 md:text-[14px] text-[13px] max-w-2xl text-gray-400 mt-8 our-text">
                 Whether you have a project you want to work on together or just
                 want to have a chat, you are in the right place: Let&#39;s get
                 in touch
@@ -211,14 +211,29 @@ export default function Contacts() {
 
       {/* Footer */}
       <footer
-        className="flex justify-between items-center px-3 p-2 h-12 border-t border-gray-500 text-gray-600"
+        className="flex justify-between items-center pl-2 py-2 pr-3 h-12 border-t border-gray-500 text-gray-600"
         style={{ background: "#0000001f" }}
       >
-        <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
-
-        <span className="hidden md:block text-sm base">Based in Nigeria</span>
-        <div className="hidden md:block text-sm local">
-          Local time <span className="time font-[700]">{currentTime}</span>
+        <div className="w-[12%] md:w-[2.5%] h-full bg-yellow-300 rounded-sm flex items-center justify-center space-x-2">
+          <div className="w-2.5 h-2.5 bg-[#101010e1] rounded-full"></div>
+        </div>
+        <Link
+          href="/contact"
+          style={{ background: "#101010e1" }}
+          className="material-bubble hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
+        >
+          <p className="flex items-center justify-center">
+            let's-get-in-touch
+            <FaArrowRight className="ml-2" />
+          </p>
+        </Link>
+        <div className="flex space-x-16">
+          <span className="hidden md:block poppin text-[15px] leading-[24px] text-[#979595cc]">
+            Based in Nigeria
+          </span>
+          <div className="hidden md:block text-[15px] poppin text-[#979595cc] local ">
+            Local time <span className="time font-[600]">{currentTime}</span>
+          </div>
         </div>
         <div className="flex space-x-4 items-center ">
           <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
@@ -242,6 +257,7 @@ export default function Contacts() {
               style={{ transition: "ease-in 0.5s" }}
             />
           </Link>
+
           <FaXTwitter
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}

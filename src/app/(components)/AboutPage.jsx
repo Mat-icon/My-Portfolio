@@ -17,7 +17,7 @@ import {
   VscChromeClose,
 } from "react-icons/vsc";
 
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaArrowRight, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import AnimatedLetters from "./AnimatedLetters";
 import Contactbar from "./Contactbar";
@@ -201,15 +201,26 @@ export default function AboutPage() {
 
       {/* Footer */}
       <footer
-        className="flex justify-between items-center px-3 p-2 h-12 border-t border-gray-500 text-gray-600"
+        className="flex justify-between items-center pl-2 py-2 pr-3 h-12 border-t border-gray-500 text-gray-600"
         style={{ background: "#0000001f" }}
       >
-        <div className="flex items-center space-x-2">
-          <div className="w-2.5 h-2.5 bg-blue-500 rounded-full"></div>
+        <div className="w-[12%] md:w-[2.5%] h-full bg-blue-400 rounded-sm flex items-center justify-center space-x-2">
+          <div className="w-2.5 h-2.5 bg-[#101010e1] rounded-full"></div>
         </div>
-        <span className="hidden md:block text-sm  ">Based in Nigeria</span>
-        <div className="hidden md:block text-sm local ">
-          Local time <span className="time font-[700]">{currentTime}</span>
+        <Link
+          href="/contact"
+          style={{ background: "#101010e1" }}
+          className="material-bubble7 hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
+        >
+          <p className="flex items-center justify-center">let's-get-in-touch<FaArrowRight  className="ml-2"/></p>
+        </Link>
+        <div className="flex space-x-16">
+          <span className="hidden md:block poppin text-[15px] leading-[24px] text-[#979595cc]">
+            Based in Nigeria
+          </span>
+          <div className="hidden md:block text-[15px] poppin text-[#979595cc] local ">
+            Local time <span className="time font-[600]">{currentTime}</span>
+          </div>
         </div>
         <div className="flex space-x-4 items-center ">
           <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
@@ -233,6 +244,7 @@ export default function AboutPage() {
               style={{ transition: "ease-in 0.5s" }}
             />
           </Link>
+
           <FaXTwitter
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
