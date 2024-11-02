@@ -214,7 +214,7 @@ export default function Project() {
           style={{ background: "#101010e1" }}
           className="material-bubble5 hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
         >
-          <p className="flex items-center justify-center">let&apos;s-get-in-touch<FaArrowRight  className="ml-2"/></p>
+          <p className="flex items-center justify-center">Let&apos;s-get-in-touch<FaArrowRight  className="ml-2"/></p>
         </Link>
         <div className="flex space-x-16">
           <span className="hidden md:block poppin text-[15px] leading-[24px] text-[#979595cc]">

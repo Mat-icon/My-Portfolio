@@ -246,7 +246,7 @@
   .circle {
     position: absolute;
     border-radius: 50%;
-    filter: blur(200px);
+    filter: blur(100px);
   }
 
   .circle1 {
@@ -255,7 +255,7 @@
     width: 400px;
     height: 400px;
     background-color: #3e683b;
-    animation: animateScale 15s infinite ease-in-out;
+    animation: animateScale2 15s infinite ease-in-out;
   }
 
   .circle2 {
@@ -264,7 +264,7 @@
     background-color: #3e683b;
     width: 500px;
     height: 400px;
-    animation: animateScale 20s infinite ease-in-out;
+    animation: animateScale2 20s infinite ease-in-out;
   }
 
   .circle3 {
@@ -273,7 +273,7 @@
     width: 300px;
     height: 300px;
     background-color: #6b3434;
-    animation: animateScale 20s infinite ease-in-out;
+    animation: animateScale2 20s infinite ease-in-out;
   }
 
   .circle4 {
@@ -282,7 +282,7 @@
     background-color: #64323681;
     width: 450px;
     height: 520px;
-    animation: animateScale 16s infinite ease-in-out;
+    animation: animateScale2 16s infinite ease-in-out;
   }
 
   .circle5 {
@@ -291,7 +291,7 @@
     width: 300px;
     height: 300px;
     background-color: #34456b;
-    animation: animateScale 16s infinite ease-in-out;
+    animation: animateScale2 16s infinite ease-in-out;
   }
 
   .circle6 {
@@ -300,7 +300,7 @@
     background-color: #32426481;
     width: 450px;
     height: 520px;
-    animation: animateScale 36s infinite ease-in-out;
+    animation: animateScale2 36s infinite ease-in-out;
   }
   .circle7 {
     top: 30%;
@@ -308,7 +308,7 @@
     width: 300px;
     height: 300px;
     background-color: #717223;
-    animation: animateScale 24s infinite ease-in-out;
+    animation: animateScale2 24s infinite ease-in-out;
   }
 
   .circle8 {
@@ -317,7 +317,7 @@
     background-color: #61643281;
     width: 450px;
     height: 520px;
-    animation: animateScale 20s infinite ease-in-out;
+    animation: animateScale2 20s infinite ease-in-out;
   }
 
  p
@@ -381,13 +381,50 @@
     }
 
     .circle3 {
-      width: 150px;
-      height: 100px;
+      width: 250px; /* Adjust the width for mobile */
+      height: 340px;
+      top: 33%;
+      left: -30%;
+      animation: animateScale2 15s infinite ease-in-out;
     }
 
     .circle4 {
-      width: 250px;
-      height: 200px;
+      width: 200px; /* Adjust the width for mobile */
+      height: 300px;
+      bottom: 37%;
+      right: -28%; 
+      animation: animateScale2 15s infinite ease-in-out;
+    }
+    .circle5 {
+      width: 250px; /* Adjust the width for mobile */
+      height: 340px;
+      top: 33%;
+      left: -30%;
+      animation: animateScale2 15s infinite ease-in-out;
+    }
+
+    .circle6 {
+      width: 200px; /* Adjust the width for mobile */
+      height: 300px;
+      bottom: 37%;
+      right: -28%; 
+      animation: animateScale2 15s infinite ease-in-out;
+    }
+
+    .circle7 {
+      width: 250px; /* Adjust the width for mobile */
+      height: 340px;
+      top: 33%;
+      left: -30%;
+      animation: animateScale2 15s infinite ease-in-out;
+    }
+
+    .circle8 {
+      width: 200px; /* Adjust the width for mobile */
+      height: 300px;
+      bottom: 37%;
+      right: -28%; 
+      animation: animateScale2 15s infinite ease-in-out;
     }
 
     .circle {
