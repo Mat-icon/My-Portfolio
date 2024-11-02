@@ -4,7 +4,7 @@ import { Rings } from "react-loader-spinner";
 
 const Loader = () => {
   return (
-    <div className="w-full h-screen  flex justify-center items-center ">
+    <div className="w-full h-screen  flex justify-center items-center overflow-hidden">
       <div className="gradient-effect w-full h-screen">
         <div className="circle circle1"></div>
         <div className="circle circle2"></div>
