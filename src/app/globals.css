@@ -682,10 +682,17 @@
   
 }
 
+.testimonial-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust columns responsively */
+  gap: 1rem; /* Space between cards */
+}
+
+
 .testimonial-card {
   height: auto;
   min-height: 400px;
-  background: #0e0d0d8e;
+  background: #0e0d0da9;
   border-radius: 5px;
   color: #fff;
   border: 1px solid rgba(128, 128, 128, 0.651);
