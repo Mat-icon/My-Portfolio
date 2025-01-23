@@ -23,8 +23,8 @@ const Loader = () => {
         <header className="w-[15%] md:w-[10%]  h-12 flex justify-center items-center  relative z-10">
         <Rings
           visible={true}
-          height="60"
-          width="60"
+          height="53"
+          width="53"
           color="#4fa94d"
           ariaLabel="rings-loading"
           wrapperStyle={{}}

@@ -13,41 +13,49 @@ interface ProjectType {
   color: string;
   time: string;
   link: string;
+  lang : string[];
+  description: string;
 }
 
 const projects: ProjectType[] = [
   {
     title: "Delve Learn",
     src: "1.png",
+    lang: ['tailwindcss', 'next.js','php'],
     color: "#706D63",
     time: "2024",
     link: " https://delve.fun/",
+    description: "A comprehensive learning platform offering interactive courses and resources for skill development.",
   },
   {
     title: "Devlinks",
     src: "2.png",
+    lang: ['css', 'next.js', 'tailwindcss', 'firebase'],
     color: "#000000",
     time: "2024",
     link: "https://mathewlinktree.netlify.app/ ",
+    description: "A personalized link-sharing tool to connect all your social media and portfolio links in one place.",
   },
-
   {
     title: "Homework AI",
     src: "ai.png",
+    lang: ['tailwindcss', 'next.js',],
     color: "whitesmoke",
     time: "2024",
     link: "https://aiforhomework.com/",
+    description: "An AI-powered solution to assist students with homework by providing step-by-step guidance.",
   },
-  
   {
     title: "HSR Ministry",
     src: "hsr.png",
+    lang: ['tailwindcss', 'next.js', 'sass', 'firebase'],
     color: "#333",
     time: "2024",
     link: "https://hsrministry.netlify.app/",
+    description: "A ministry website showcasing services, events, with database and bulk sms for birthday messages and church updates.",
   },
- 
 ];
+
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -153,9 +161,11 @@ export default function Home() {
           <Project
             date={project.time}
             key={idx}
+            lang = {project.lang}
             link={project.link}
             index={idx}
             title={project.title}
+            description={project.description}
             manageModal={manageModal}
           />
         ))}
