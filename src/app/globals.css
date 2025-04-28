@@ -240,6 +240,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    overflow: hidden;
     background: rgba(2, 7, 0, 0.932);
     z-index: 1;
   }

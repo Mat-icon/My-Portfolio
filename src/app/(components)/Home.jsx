@@ -25,8 +25,8 @@ const Home = () => {
  
 
   return (
-    <div className="w-full h-auto flex justify-center">
-      <div className="gradient-effect w-full h-[100dvh] overflow-hidden ">
+    <div className="w-full flex justify-center h-[100dvh] overflow-hidden">
+      <div className="gradient-effect w-full h-full overflow-hidden ">
         <div className="circle circle1"></div>
         <div className="circle circle2"></div>
       </div>
