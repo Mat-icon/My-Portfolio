@@ -9,15 +9,18 @@ import {
   FiUser,
   FiCode,
   FiMail,
-  FiX,
 } from "react-icons/fi";
 import {
   VscChromeMinimize,
-  VscChromeMaximize,
   VscChromeClose,
 } from "react-icons/vsc";
 
-import { FaArrowRight, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaFacebook,
+  FaLinkedin,
+  FaTwitter,
+} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import AnimatedLetters from "./AnimatedLetters";
 import Contactbar from "./Contactbar";
@@ -200,10 +203,7 @@ export default function AboutPage() {
       </div>
 
       {/* Footer */}
-      <footer
-        className="flex justify-between items-center pl-2 py-2 pr-3 h-12 border-t border-gray-500 text-gray-600"
-        style={{ background: "#0000001f" }}
-      >
+      <footer className="flex justify-between md:bg-[#0000001f] bg-black/90 h-[48px] w-full z-[99999] absolute bottom-0  items-center pl-2 py-2 pr-3 border-t border-gray-500 text-gray-600">
         <div className="w-[12%] md:w-[2.5%] h-full bg-blue-400 rounded-sm flex items-center justify-center space-x-2">
           <div className="w-2.5 h-2.5 bg-[#101010e1] rounded-full"></div>
         </div>
@@ -212,7 +212,10 @@ export default function AboutPage() {
           style={{ background: "#101010e1" }}
           className="material-bubble7 hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
         >
-          <p className="flex items-center justify-center">Let&apos;s-get-in-touch<FaArrowRight  className="ml-2"/></p>
+          <p className="flex items-center justify-center">
+            Let&apos;s-get-in-touch
+            <FaArrowRight className="ml-2" />
+          </p>
         </Link>
         <div className="flex space-x-16">
           <span className="hidden md:block poppin text-[15px] leading-[24px] text-[#979595cc]">

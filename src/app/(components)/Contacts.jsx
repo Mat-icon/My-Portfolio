@@ -211,7 +211,7 @@ export default function Contacts() {
 
       {/* Footer */}
       <footer
-        className="flex justify-between items-center pl-2 py-2 pr-3 h-12 border-t border-gray-500 text-gray-600"
+        className="flex md:bg-[#0000001f] bg-black/90 h-[48px] w-full z-[99999] absolute bottom-0  justify-between items-center pl-2 py-2 pr-3  border-t border-gray-500 text-gray-600"
         style={{ background: "#0000001f" }}
       >
         <div className="w-[12%] md:w-[2.5%] h-full bg-yellow-300 rounded-sm flex items-center justify-center space-x-2">
