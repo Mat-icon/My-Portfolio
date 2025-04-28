@@ -13,7 +13,7 @@ const Tech = () => {
           <span className="text-blue-500"> work with</span>
         </h1>
       </div>
-      <div className="light2"></div>
+      <div className="light2" />
       <div className="tech">
         <div className="about-me-title p-3">
           <p className="text-sm font-semibold">techs</p>
@@ -69,7 +69,7 @@ const Tech = () => {
             </div>
         </div>
       </div>
-      <div className="light2"></div>
+      <div className="light2"/>
     </div>
   );
 };

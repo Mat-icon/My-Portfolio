@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       
       <body className={inter.className}>
-       <div className='flex flex-col h-screen max-h-screen fonts'>
+       <div className='flex flex-col fonts'>
         <div className='overflow-y-auto flex-grow bg-page text-default-text'>{children}</div></div> 
       </body>
     </html>

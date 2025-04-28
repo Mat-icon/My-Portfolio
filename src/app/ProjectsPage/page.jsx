@@ -4,9 +4,9 @@ import ProjectHome from '../(components)/ProjectHome'
 
 const page = () => {
   return (
-    <div>
+    <>
       <ProjectHome/>
-    </div>
+    </>
   )
 }
 

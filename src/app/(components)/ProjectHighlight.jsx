@@ -354,7 +354,7 @@ const ContactHighlight = () => {
           </div>
           <div className="w-full h-auto bg-[#4af36f] overflow-hidden ">
             <img
-              src="/images/ee.png"
+              src="/images/matthew.png"
               alt="img-face"
               className="h-[275px] w-full object-cover"
             />

@@ -3,9 +3,9 @@ import Home from "../(components)/Home";
 
 const Portfolio = () => {
   return (
-    <div className="">
+    <>
       <Home />
-    </div>
+    </>
   );
 };
 
