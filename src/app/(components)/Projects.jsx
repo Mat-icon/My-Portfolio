@@ -5,14 +5,32 @@ import Image from "next/image";
 const projects = [
   {
     id: 1,
-    title: "Poise Academy",
-    year: "2023",
-    technologies: ["react", "css", "email.js"],
-    image: "/images/poise body.png",
-    link: "https://pgcsf.org/",
+    title: "BwinTech",
+    year: "2025",
+    technologies: ["nextjs", "tailwind", "node.js"],
+    image: "/images/",
+    link: "https://bwintech.com.au/",
   },
-  {
+   {
     id: 2,
+    title: "Home Loan Hub App",
+    year: "2025",
+    technologies: ["nextjs", "AI", "node.js"],
+    image: "/images/",
+    link: "https://home-loan-hub.netlify.app/",
+  },
+
+  {
+    id: 3,
+    title: "Adelehamza Resources",
+    year: "2025",
+    technologies: ["nextjs", "tailwind", "node.js"],
+    image: "/images/",
+    link: "https://adelehamzaresources.com/",
+  },
+
+  {
+    id: 4,
     title: "TelgaChain",
     year: "2023",
     technologies: ["node.js", "react", "css"],
@@ -21,23 +39,23 @@ const projects = [
   },
 
   {
-    id: 3,
+    id: 5,
     title: "Heartfelt Academy",
-    year: "2023",
+    year: "2022",
     technologies: ["sass", "react.js"],
     image: "/images/heartflet.png",
     link: "https://heartfeltacademy.netlify.app/",
   },
   {
-    id: 4,
+    id: 6,
     title: "Music App",
-    year: "2023",
+    year: "2022",
     technologies: ["css", "react.js", "rapidAPI"],
     image: "/images/lyrics.png",
     link: "https://web-rex-lyrics.netlify.app/",
   },
   {
-    id: 5,
+    id: 7,
     title: "Cartlo",
     year: "2023",
     technologies: ["node.js", "next.js", "css", "ant design"],
@@ -45,15 +63,23 @@ const projects = [
     link: "https://cartclo.com/",
   },
   {
-    id: 6,
+    id: 8,
     title: "Biacademy",
     year: "2023",
     technologies: ["node.js", "next.js", "css"],
     image: "/images/biacademy.png",
     link: "https://biacademy.info/",
   },
+     {
+    id: 9,
+    title: "Poise Academy",
+    year: "2023",
+    technologies: ["react", "css", "email.js"],
+    image: "/images/poise body.png",
+    link: "https://pgcsf.org/",
+  },
   {
-    id: 7,
+    id: 10,
     title: "Cloud Mall",
     year: "2023",
     technologies: ["node.js", "next.js", "tailwind"],

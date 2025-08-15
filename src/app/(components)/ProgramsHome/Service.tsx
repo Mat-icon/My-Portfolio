@@ -13,49 +13,83 @@ interface ProjectType {
   color: string;
   time: string;
   link: string;
-  lang : string[];
+  lang: string[];
   description: string;
 }
 
 const projects: ProjectType[] = [
   {
+    title: "BwinTech",
+    time: "2025",
+    lang: ["nextjs", "tailwind", "node.js"],
+    color: "#706D63",
+    src: "5.png",
+    description:
+      "Bwintech is a boutique data consultancy based in Australia, focused on helping growing businesses make smarter decisions with their data. With a nimble, global team of professionals and freelancers, Bwintech delivers fast, customized, and effective data-driven solutions without the red tape that slows down larger firms. As part of their push to scale operations and streamline collaboration, I was brought in to design and develop a web platform that automates task management between clients, managers, and data analysts in a secure, efficient way.The primary goal of this project was to build a seamless platform where clients could securely submit data tasks and track progress—while giving managers and staff the tools to efficiently handle requests, store files, and deliver results. The system needed to support user role management, automate notifications, and ensure safe handling of sensitive data files",
+    link: "https://bwintech.com.au/",
+  },
+  {
+    title: "Home Loan Hub App",
+    time: "2025",
+    lang: ["nextjs", "AI", "node.js"],
+    color: "#706D63",
+    src: "5.png",
+    description:
+      "HOME-LOAN-HUB is an AI-powered loan eligibility chatbot built for Bwintech as part of its mission to create smarter, more human-like digital experiences. The platform helps users determine their loan eligibility through a dynamic and conversational interface that mimics a real human assistant. This was more than just a form-based calculator—it was designed to feel personal, intuitive, and responsive. The core goal was to remove friction from the loan application journey by using AI to engage users and guide them toward meaningful results.The aim of this project was to develop a loan eligibility tool that doesn't feel like a boring form. The client wanted a solution that was fast, friendly, and intelligent—something that could ask the right questions, adapt in real time, and deliver a clear eligibility decision with minimal user effort. Just as important was making sure the experience felt conversational, while still handling logic, flow control, and API integration behind the scenes.",
+    link: "https://home-loan-hub.netlify.app/",
+  },
+
+  {
+    title: "Adelehamza Resources",
+    time: "2025",
+    lang: ["nextjs", "tailwind", "node.js"],
+    link: "https://adelehamzaresources.com/",
+    color: "#706D63",
+    src: "5.png",
+    description:
+      "AdeleHamza Resource is a specialized consultancy that helps individuals and organizations navigate Nigeria’s building construction regulations. With a focus on legal compliance, the company offers digital and physical documentation services that streamline the permitting process and remove delays and legal risks from construction projects. I was brought in to design and develop a digital platform that reflects the brand’s trust-based mission while enabling a smooth, user-friendly experience for clients needing professional guidance and documentation.The main goal of this project was to build a platform that communicates clarity, professionalism, and trust—core values that AdeleHamza stands for. The site needed to simplify the process of requesting legal building documents, provide important service information, and position the brand as a reliable partner for construction-related consultancy. Additionally, the platform had to be easy to manage internally and capable of scaling with the brand’s growth.",
+  },
+  {
     title: "Delve Learn",
     src: "1.png",
-    lang: ['tailwindcss', 'next.js','php'],
+    lang: ["tailwindcss", "next.js", "php"],
     color: "#706D63",
     time: "2024",
     link: " https://delve.fun/",
-    description: "A comprehensive learning platform offering interactive courses and resources for skill development.",
+    description:
+      "A comprehensive learning platform offering interactive courses and resources for skill development.",
   },
   {
     title: "Devlinks",
     src: "2.png",
-    lang: ['css', 'next.js', 'tailwindcss', 'firebase'],
+    lang: ["css", "next.js", "tailwindcss", "firebase"],
     color: "#000000",
     time: "2024",
     link: "https://mathewlinktree.netlify.app/ ",
-    description: "A personalized link-sharing tool to connect all your social media and portfolio links in one place.",
+    description:
+      "A personalized link-sharing tool to connect all your social media and portfolio links in one place.",
   },
   {
     title: "Homework AI",
     src: "ai.png",
-    lang: ['tailwindcss', 'next.js',],
+    lang: ["tailwindcss", "next.js"],
     color: "whitesmoke",
     time: "2024",
     link: "https://aiforhomework.com/",
-    description: "An AI-powered solution to assist students with homework by providing step-by-step guidance.",
+    description:
+      "An AI-powered solution to assist students with homework by providing step-by-step guidance.",
   },
   {
     title: "HSR Ministry",
     src: "hsr.png",
-    lang: ['tailwindcss', 'next.js', 'sass', 'firebase'],
+    lang: ["tailwindcss", "next.js", "sass", "firebase"],
     color: "#333",
     time: "2024",
     link: "https://hsrministry.netlify.app/",
-    description: "A ministry website showcasing services, events, with database and bulk sms for birthday messages and church updates.",
+    description:
+      "A ministry website showcasing services, events, with database and bulk sms for birthday messages and church updates.",
   },
 ];
-
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -161,7 +195,7 @@ export default function Home() {
           <Project
             date={project.time}
             key={idx}
-            lang = {project.lang}
+            lang={project.lang}
             link={project.link}
             index={idx}
             title={project.title}
