@@ -85,7 +85,7 @@ const projects: ProjectType[] = [
     lang: ["tailwindcss", "next.js", "sass", "firebase"],
     color: "#333",
     time: "2024",
-    link: "https://hsrministry.netlify.app/",
+    link: "https://hsr.netlify.app/",
     description:
       "A ministry website showcasing services, events, with database and bulk sms for birthday messages and church updates.",
   },
