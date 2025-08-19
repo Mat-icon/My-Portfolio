@@ -4,7 +4,6 @@ import styles from "./style.module.scss";
 import Project from "./components/project";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import Link from "next/link";
 
 interface ProjectType {
   title: string;
