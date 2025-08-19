@@ -8,27 +8,25 @@ const projects = [
     title: "BwinTech",
     year: "2025",
     technologies: ["nextjs", "tailwind", "node.js"],
-    image: "/images/",
+    image: "/images/lyrics.png",
     link: "https://bwintech.com.au/",
   },
-   {
+  {
     id: 2,
     title: "Home Loan Hub App",
     year: "2025",
     technologies: ["nextjs", "AI", "node.js"],
-    image: "/images/",
+    image: "/images/lyrics.png",
     link: "https://home-loan-hub.netlify.app/",
   },
-
   {
     id: 3,
     title: "Adelehamza Resources",
     year: "2025",
     technologies: ["nextjs", "tailwind", "node.js"],
-    image: "/images/",
+    image: "/images/lyrics.png",
     link: "https://adelehamzaresources.com/",
   },
-
   {
     id: 4,
     title: "TelgaChain",
@@ -37,7 +35,6 @@ const projects = [
     image: "/images/telg.png",
     link: "https://tegalchain.org/",
   },
-
   {
     id: 5,
     title: "Heartfelt Academy",
@@ -70,7 +67,7 @@ const projects = [
     image: "/images/biacademy.png",
     link: "https://biacademy.info/",
   },
-     {
+  {
     id: 9,
     title: "Poise Academy",
     year: "2023",
@@ -90,56 +87,51 @@ const projects = [
 
 const Projects = () => {
   return (
-    <>
-      <div
-        className="w-full flex flex-col items-center 
-    "
-      >
-        <div className="light"></div>
-        <div className="w-full flex flex-col items-center space-y-4  mt-30 poppins">
-          {projects.map((project) => (
-            <Link
-              className="project-glass rounded-md  shadow-lg max-w-5xl mx-auto text-white p-2 hover:bg-transparent"
-              key={project.id}
-              href={project.link}
-              target="_blank"
-            >
-              <div className="flex flex-col md:flex-row">
-                <div className="w-full md:w-1/2">
-                  <Image
-                    src={project.image}
-                    alt="Project Image"
-                    width={800} // Set appropriate width
-                    height={600} // Set appropriate height to maintain the aspect ratio
-                    layout="responsive"
-                    priority
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,..."
-                    loading="eager"
-                    className="project-img rounded-sm"
-                  />
-                </div>
-                <div className="p-4 md:w-1/2 mt-5">
-                  <h2 className="text-3xl mb-2 font-medium">{project.title}</h2>
-                  <p className="text-sm text-gray-600 mb-4 fonts">2023</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="border border-gray-700 px-4 py-2 rounded-3xl text-sm"
-                        style={{ background: "#00000037" }}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+    <div className="w-full flex flex-col items-center">
+      <div className="light" />
+      <div className="w-full flex flex-col items-center space-y-8 mt-20 poppins">
+        {projects.map((project) => (
+          <Link
+            className="project-glass rounded-md shadow-lg max-w-5xl mx-auto text-white p-2 hover:bg-transparent transition"
+            key={project.id}
+            href={project.link}
+            target="_blank"
+          >
+            <div className="flex flex-col md:flex-row">
+              {/* Project Image */}
+              <div className="w-full md:w-1/2">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} screenshot`}
+                  width={800}
+                  height={600}
+                  className="project-img rounded-sm object-cover"
+                  priority
+                />
+              </div>
+
+              {/* Project Details */}
+              <div className="p-4 md:w-1/2 mt-5">
+                <h2 className="text-3xl mb-2 font-medium">{project.title}</h2>
+                {/* ✅ use project.year instead of hardcoded 2023 */}
+                <p className="text-sm text-gray-600 mb-4">{project.year}</p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="border border-gray-700 px-4 py-2 rounded-3xl text-sm bg-black/20"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </Link>
-          ))}
-        </div>
+            </div>
+          </Link>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 
