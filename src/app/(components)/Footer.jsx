@@ -3,12 +3,12 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-full h-96 top-full absolute mt-4 footer-content">
+    <div className="w-full h-96 tracking-tighter top-full absolute mt-4 footer-content">
       <div className="w-full flex flex-col space-y-52 relative top-1/4  items-center">
         <div className="flex flex-col text-xs md:text-sm sm:flex-col sm:flex md:flex justify-between items-center md:flex-row md:items-center md:space-x-4  w-11/12">
           <span className="text-lg font-normal ">
             matthew 
-             <span className="" style={{ color: "#8FFF86" }}>
+             <span style={{ color: "#8FFF86" }}>
                 {''}&lt;ameh&gt;
             </span>
           </span>
@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="w-11/12 flex flex-col md:flex-row md:justify-between items-center md:items-center">
          
           <div className="text-center sm:text-sm md:text-sm text-xs text-gray-500">
-             2024 Matthew Ameh | Freelance Web Developer -
+             2025 Matthew Ameh | Freelance Web Developer -
             P.IVA IT03686021209
           </div>
           <div className="flex space-x-6  sm:text-sm md:text-sm text-xs mb-2 text-gray-500">

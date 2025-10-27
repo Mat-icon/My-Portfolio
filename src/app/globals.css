@@ -133,7 +133,7 @@
   }
   .light {
     width: 2px;
-    height: 400px;
+    height: 100px;
     margin-top: 70px;
     position: relative;
     overflow: hidden;
@@ -155,7 +155,7 @@
 
   .light2 {
     width: 1px;
-    height: 200px;
+    height: 100px;
     margin-top: 30px;
     position: relative;
     overflow: hidden;
@@ -177,8 +177,8 @@
 
   .light4 {
     width: 1px;
-    height: 200px;
-    margin-top: 30px;
+    height: 100px;
+    margin-top: 20px;
     position: relative;
     overflow: hidden;
   }
@@ -187,9 +187,9 @@
     content: "";
     width: 117px;
     height: 150px;
-    background: rgb(156, 255, 43);
+    background: rgb(139, 248, 14);
     filter: blur(60px);
-    border-radius: 10px;
+    border-radius: 20px;
     position: absolute;
     top: 0;
     left: 0%;
@@ -199,7 +199,7 @@
 
   .light3 {
     width: 1px;
-    height: 300px;
+    height: 100px;
     margin-top: 30px;
     position: relative;
     overflow: hidden;
@@ -272,16 +272,16 @@
   .circle3 {
     top: 34%;
     left: 10%;
-    width: 300px;
+    width: 350px;
     height: 300px;
-    background-color: #6b3434;
+    background-color: #fa9595;
     animation: animateScale2 20s infinite ease-in-out;
   }
 
   .circle4 {
     bottom: 8%;
     right: 5%;
-    background-color: #64323681;
+    background-color: #fa959596;
     width: 450px;
     height: 520px;
     animation: animateScale2 16s infinite ease-in-out;
@@ -383,10 +383,11 @@
     }
 
     .circle3 {
-      width: 250px; /* Adjust the width for mobile */
+      width: 200px; /* Adjust the width for mobile */
       height: 340px;
       top: 33%;
       left: -30%;
+      background-color: #fa959596;
       animation: animateScale2 15s infinite ease-in-out;
     }
 
@@ -395,6 +396,7 @@
       height: 300px;
       bottom: 37%;
       right: -28%; 
+      background-color: #fa95957e;
       animation: animateScale2 15s infinite ease-in-out;
     }
     .circle5 {
@@ -592,9 +594,8 @@
 }
 
 .tech {
-  width: 75%;
   border: 0.5px solid #646262da;
-  background: #101010d3;
+  background: #10101048;
   border-radius: 5px;
 }
 .tech2 {
@@ -671,7 +672,7 @@
 
 .testimonial-swiper .swiper-slide:not(.swiper-slide-active) {
  opacity: 0.5;
-  transform: scale(0.9);
+  transform: scale(1);
 }
 
 @media (max-width : 800px) {
@@ -687,14 +688,13 @@
 .testimonial-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust columns responsively */
-  gap: 1rem; /* Space between cards */
 }
 
 
 .testimonial-card {
   height: auto;
   min-height: 400px;
-  background: #0e0d0da9;
+  background: #10101070;
   border-radius: 5px;
   color: #fff;
   border: 1px solid rgba(128, 128, 128, 0.651);

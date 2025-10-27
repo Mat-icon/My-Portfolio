@@ -63,7 +63,7 @@ const HeroBody = () => {
           <ProjectHighlight />
         </motion.div>
       </div>
-
+     
       <Contactbar />
     </div>
   );

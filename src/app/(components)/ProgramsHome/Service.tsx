@@ -16,9 +16,9 @@ interface ProjectType {
 
 const projects: ProjectType[] = [
     {
-    title: "Brabik SmartHomes",
+    title: "Brabik Smarthomes",
     time: "2025",
-    lang: ["Next.js", "Tailwind.css", "Zustand", "Three.js", "Typescript"],  
+    lang: ["Next.js", "Zustand", "Three.js","Tailwind.css", "Typescript"],  
     color: "#706D63",
     description:
       "A minimalist e-commerce platform for smart home devices and automation solutions.",

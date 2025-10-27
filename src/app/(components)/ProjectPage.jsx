@@ -115,7 +115,7 @@ export default function Project() {
         </div>
         <div className="flex items-center">
           <span className="text-lg font-medium text-center fonts">
-            matthew<span className="text-lg text-red-500 ">&lt;ameh&gt;</span>
+            matthew<span className="text-lg text-[#fa9595] ">&lt;ameh&gt;</span>
           </span>
         </div>
         <div className="flex items-center space-x-2 ">
@@ -178,7 +178,7 @@ export default function Project() {
               <span className="text-xs poppin text-gray-500 uppercase tracking-wider">
                 Work
               </span>
-              <h1 className="text-5xl md:text-7xl lg:text-[110px] font-normal  mt-4 lg:w-10/12 poppins g">
+              <h1 className="text-5xl tracking-tight md:text-7xl lg:text-[110px] font-normal  mt-4 lg:w-10/12 poppins g">
                 A{" "}
                 <AnimatedLetters
                   strArray={collection}
@@ -191,7 +191,7 @@ export default function Project() {
                   strArray={nameArray}
                   idx={15}
                 />
-                <span className=" text-red-400"> projects </span>
+                <span className=" text-[#fa9595]"> projects </span>
               </h1>
               <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-[13px] max-w-2xl text-gray-400 mt-8 our-text">
                 With many years in web development, I acquired extensive

@@ -100,10 +100,10 @@ export default function Home() {
             onClick={toggleNav}
           />
         </div>
-        <div className="flex items-center">
-          <span className="text-lg font-medium text-center fonts">
+        <div className="flex  items-center">
+          <span className="text-lg tracking-tighter font-medium text-center fonts">
             matthew
-            <span className="text-lg all-text">&lt;ameh&gt;</span>
+            <span className="text-lg tracking-tighter all-text">&lt;ameh&gt;</span>
           </span>
         </div>
         <div className="flex items-center space-x-3 ">
@@ -153,6 +153,7 @@ export default function Home() {
 
         {/* Content */}
         <HeroBody />
+        
       </div>
 
       {/* Footer */}
@@ -165,16 +166,16 @@ export default function Home() {
         </div>
         <Link
           href="/contact"
-          style={{ background: "#101010e1" }}
-          className="material-bubble3 hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
+          style={{background:"#10101080"}}
+          className="bg-[#10101080] material-bubble3 hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
         >
-          <p className="flex items-center justify-center">Let&apos;s-get-in-touch<FaArrowRight  className="ml-2"/></p>
+          <p className="flex items-center justify-center tracking-tighter">Let&apos;s-get-in-touch<FaArrowRight  className="ml-2"/></p>
         </Link>
         <div className="flex space-x-16 items-center">
-          <span className="hidden md:block poppin text-[15px] leading-[24px] text-[#979595cc]">
+          <span className="hidden md:block tracking-tighter text-[15px] leading-[24px] text-[#979595cc]">
             Based in Nigeria
           </span>
-          <div className="hidden md:block text-[15px] poppin text-[#979595cc] local ">
+          <div className="hidden md:block text-[15px] tracking-tighter  text-[#979595cc] ">
             Local time <span className="time font-[600]">{currentTime}</span>
           </div>
         </div>

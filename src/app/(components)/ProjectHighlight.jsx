@@ -80,15 +80,15 @@ const ContactHighlight = () => {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center mb-20">
-      <h1 className="text-4xl md:text-7xl poppins text-center">
+    <div className="w-full flex flex-col items-center mb-0">
+      <h1 className="text-4xl md:text-7xl tracking-tight poppins text-center">
         Your <span className="all-text">creative</span>  web developer
       </h1>
       <div className="light4"></div>
       <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
         <div className="me md:w-full lg:w-4/5 xl:w-[60%]" ref={jobRef}>
           <div className="about-me-title p-2 text-white">
-            <p>about-me</p>
+            <p className="text-base tracking-tighter">about-me</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -106,7 +106,7 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="about-me-text p-4 text-[15px] rounded-lg shadow">
+          <div className="about-me-text tracking-tighter p-4 text-[15px] rounded-lg shadow">
             <p>
               <span className="text-gray-600">1. </span>Nice to meet you!
               I&apos;m
@@ -148,7 +148,7 @@ const ContactHighlight = () => {
         </div>
 
         <div
-          className="hobbies w-4/5 lg:w-1/2 xl:w-1/3 h-64"
+          className="hobbies w-4/5 tracking-tighter lg:w-1/2 xl:w-1/3 h-64"
           ref={hobbiesRef}
         >
           <div className="about-me-title p-3 text-white">
@@ -191,7 +191,7 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="contact-links w-4/5 lg:w-1/2 xl:w-1/4 h-64" ref={contactRef}>
+        <div className="contact-links w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64" ref={contactRef}>
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">me-online</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -211,7 +211,7 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="potrait-img text-md flex flex-col space-y-3  p-4 shadow">
+          <div className="potrait-img tracking-tighter text-md flex flex-col space-y-3  p-4 shadow">
             <div className="flex">
               <span className="text-gray-600">1.</span>{" "}
               <a
@@ -272,7 +272,7 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="me md:w-full lg:w-4/5 xl:w-[60%] h-auto" ref={collabRef}>
+        <div className="me md:w-full tracking-tighter lg:w-4/5 xl:w-[60%] h-auto" ref={collabRef}>
           <div className="about-me-title p-2 text-white">
             <p>collaborations</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -331,7 +331,7 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="potrait w-11/12 lg:w-1/2 xl:w-1/4" ref={potraitRef}>
+        <div className="potrait w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4" ref={potraitRef}>
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">potrait</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -363,7 +363,7 @@ const ContactHighlight = () => {
       <Link
         href="/About"
         style={{ background: "#101010e1" }}
-        className="material-bubble3 w-3/5 md:w-4/12 poppin lg:w-[12%] p-4 lg:px-4 rounded-[4px] mt-5  border-[0.3px] border-[#5a5959] text-center lg:text-center text-sm flex items-center justify-center"
+        className="material-bubble3 w-3/5 tracking-tighter md:w-4/12 poppin lg:w-[12%] p-4 lg:px-4 rounded-[4px] mt-5  border-[0.3px] border-[#5a5959] text-center lg:text-center text-sm flex items-center justify-center"
       >
         <p className="flex items-center">about-me <FaArrowRight  className="ml-2"/></p>
       </Link>
@@ -433,7 +433,7 @@ const TestimonialCardhighlight = ({
   position,
   image,
 }) => (
-  <div className=" mt-8 testimonial-card w-72 md:w-full ">
+  <div className=" mt-8 testimonial-card b  tracking-tighter w-full md:w-full ">
     <div className="about-me-title test-color p-3">
       <p className="text-sm font-semibold">{tech}</p>
       <div className="flex space-x-4 text-gray-500 text-xs">
@@ -453,20 +453,21 @@ const TestimonialCardhighlight = ({
         />
       </div>
     </div>
-    <div className="flex md:flex-row-reverse flex-col md:items-start items-center md:gap-4  p-5">
-      <div className="flex flex-col text-center  items-center">
-        <p className="testimonial-text">{content}</p>
-        <p className="testimonial-author">
-          {author} &#123;&#125; {position}
-        </p>
+    <div className=" flex md:flex-row-reverse flex-col md:items-start items-center md:gap-4  p-5">
+      <div className="flex flex-col  text-left items-center">
+        <p className=" text-sm">{content}</p>
+       
       </div>
       <Image
         width={500}
         height={500}
         src={image}
         alt={author}
-        className="w-[60px] h-[60px] rounded-full mt-4  object-cover"
+        className="w-[40px] h-[40px] rounded-full mt-4  object-cover"
       />
+       <p className="w-4/5 mx-auto text-center absolute bottom-4 testimonial-author">
+          {author} &#123;&#125; {position}
+        </p>
     </div>
   </div>
 );
@@ -482,28 +483,37 @@ const TestimonialHighlight = () => {
   };
 
   return (
-    <div className="w-[100%] h-auto flex-col flex items-center">
+    
+  
+    <div className="relative w-full flex flex-col items-center overflow-hidden">
+      {/* BLUR OVERLAYS */}
+
       <h1 className="w-[96%] poppins text-3xl md:text-[64px] md:leading-[60px] text-center">
         Nice things <span className="all-text">people say</span>
         <br className="hidden md:block" /> about my work
       </h1>
 
-      <div className="relative w-[95%] md:w-[90%] flex justify-center items-center p-4">
+      <div className="relative w-full flex justify-center items-center">
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-          spaceBetween={100}
-          slidesPerView={2}
+          modules={[Autoplay]}
+          spaceBetween={0}
+          slidesPerView={1}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
           loop={true}
-          autoplay={{ delay: 5000, disableOnInteraction: true }}
-          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-          className="cursor-grab testimonial-swiper"
+          speed={4000} // Smooth continuous speed
+          autoplay={{
+            delay: 0, // no delay between slides
+            disableOnInteraction: false,
+          }}
+          allowTouchMove={false} // prevent drag interruption
+          className="cursor-default testimonial-swiper"
         >
           {testimonials.map(
-            ({ id, tech, content, author, position, image }, index) => (
-              <SwiperSlide
-                key={id}
-                className={isMiddleSlide(index) ? "active-slide" : ""}
-              >
+            ({ id, tech, content, author, position, image }) => (
+              <SwiperSlide key={id} className="flex justify-center">
                 <TestimonialCardhighlight
                   tech={tech}
                   content={content}
@@ -517,19 +527,19 @@ const TestimonialHighlight = () => {
         </Swiper>
       </div>
 
-     
-      <div className="relative mt-4 w-1/2 h-[1px] bg-gray-400 rounded ">
+      <div className="relative mt-4 w-1/2 h-[1px] bg-gray-700 rounded ">
         <div
-          className={`absolute h-full bg-[#38eb5f] transition-all duration-300`}
+          className="absolute z-10 h-1 bg-[#1afc4b] transition-all duration-300"
           style={{
             width: `${(activeIndex / (testimonials.length - 1)) * 100}%`,
-            filter: 'blur(2px)', 
+            filter: "blur(12px)",
           }}
         />
       </div>
     </div>
   );
 };
+
 
 
 
@@ -540,13 +550,19 @@ const ProjectHighlight = () => {
     services: false,
     link: false,
     contact: false,
+    testimonial: false,
+    tech: false,
   });
 
-  const light4Ref = useRef(null);
-  const headingRef = useRef(null);
-  const servicesRef = useRef(null);
-  const linkRef = useRef(null);
-  const contactRef = useRef(null);
+  const sections = {
+    light4: useRef(null),
+    heading: useRef(null),
+    services: useRef(null),
+    link: useRef(null),
+    contact: useRef(null),
+    testimonial: useRef(null),
+    tech: useRef(null),
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -555,23 +571,13 @@ const ProjectHighlight = () => {
           const targetName = entry.target.getAttribute("data-name");
           if (entry.isIntersecting) {
             setIsVisible((prev) => ({ ...prev, [targetName]: true }));
-          } else {
-            setIsVisible((prev) => ({ ...prev, [targetName]: false }));
           }
         });
       },
-      { threshold: 0.1 } // Adjust as needed
+      { threshold: 0.1 }
     );
 
-    const elements = [
-      { ref: light4Ref, name: "light4" },
-      { ref: headingRef, name: "heading" },
-      { ref: servicesRef, name: "services" },
-      { ref: linkRef, name: "link" },
-      { ref: contactRef, name: "contact" },
-    ];
-
-    elements.forEach(({ ref, name }) => {
+    Object.entries(sections).forEach(([name, ref]) => {
       if (ref.current) {
         ref.current.setAttribute("data-name", name);
         observer.observe(ref.current);
@@ -579,74 +585,125 @@ const ProjectHighlight = () => {
     });
 
     return () => {
-      elements.forEach(({ ref }) => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
-        }
+      Object.values(sections).forEach((ref) => {
+        if (ref.current) observer.unobserve(ref.current);
       });
     };
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  // ✨ Motion Variants
+  const fadeUpVariant = {
+    hidden: { opacity: 0, y: 60, scale: 0.98 },
+    visible: (delay = 0) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        delay,
+        ease: [0.25, 0.1, 0.25, 1], // smooth cubic-bezier
+      },
+    }),
+  };
+
+  const staggerContainer = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
   };
 
   return (
     <div className="flex flex-col items-center">
+      {/* Animated container for staggered children */}
       <motion.div
-        ref={light4Ref}
         initial="hidden"
-        animate={isVisible.light4 ? "visible" : "hidden"}
-        variants={containerVariants}
-        className="light4"
-      ></motion.div>
-
-      <motion.h1
-        ref={headingRef}
-        initial="hidden"
-        animate={isVisible.heading ? "visible" : "hidden"}
-        variants={containerVariants}
-        className="text-4xl md:text-[64px] text-center poppins"
+        animate="visible"
+        variants={staggerContainer}
+        className="flex flex-col items-center w-full"
       >
-        Project <span className="all-text">highlights</span>
-      </motion.h1>
+        {/* Light element */}
+        <motion.div
+          ref={sections.light4}
+          custom={0.1}
+          initial="hidden"
+          animate={isVisible.light4 ? "visible" : "hidden"}
+          variants={fadeUpVariant}
+          className="light4"
+        ></motion.div>
 
-      <motion.div
-        ref={servicesRef}
-        initial="hidden"
-        animate={isVisible.services ? "visible" : "hidden"}
-        variants={containerVariants}
-        className="w-full"
-      >
-        <Services />
-      </motion.div>
-
-      <motion.div
-        className="w-full flex items-center justify-center"
-        ref={linkRef}
-        initial="hidden"
-        animate={isVisible.link ? "visible" : "hidden"}
-        variants={containerVariants}
-      >
-        <Link
-          href="/ProjectsPage"
-          style={{ background: "#101010e1" }}
-          className="material-bubble3 w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm flex items-center justify-center"
+        {/* Heading */}
+        <motion.h1
+          ref={sections.heading}
+          custom={0.2}
+          initial="hidden"
+          animate={isVisible.heading ? "visible" : "hidden"}
+          variants={fadeUpVariant}
+          className="text-4xl md:text-[64px] tracking-tight text-center poppins"
         >
-          <p className="flex items-center justify-center">all-projects <FaArrowRight  className="ml-2"/></p>
-        </Link>
-      </motion.div>
+          Project <span className="all-text">highlights</span>
+        </motion.h1>
 
-      <motion.div
-        ref={contactRef}
-        initial="hidden"
-        animate={isVisible.contact ? "visible" : "hidden"}
-        variants={containerVariants}
-      >
-        <ContactHighlight />
+        {/* Services */}
+        <motion.div
+          ref={sections.services}
+          custom={0.3}
+          initial="hidden"
+          animate={isVisible.services ? "visible" : "hidden"}
+          variants={fadeUpVariant}
+          className="w-full"
+        >
+          <Services />
+        </motion.div>
+
+        {/* Link */}
+        <motion.div
+          ref={sections.link}
+          custom={0.4}
+          initial="hidden"
+          animate={isVisible.link ? "visible" : "hidden"}
+          variants={fadeUpVariant}
+          className="w-full flex items-center justify-center"
+        >
+          <Link
+            href="/ProjectsPage"
+            style={{ background: "#101010e1" }}
+            className="material-bubble3 w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm flex items-center justify-center"
+          >
+            <p className="flex items-center justify-center tracking-tighter">
+              all-projects <FaArrowRight className="ml-2" />
+            </p>
+          </Link>
+        </motion.div>
+
+        {/* Contact */}
+        <motion.div
+          ref={sections.contact}
+          custom={0.5}
+          initial="hidden"
+          animate={isVisible.contact ? "visible" : "hidden"}
+          variants={fadeUpVariant}
+        >
+          <ContactHighlight />
+        </motion.div>
+
+        {/* Tech */}
+        <motion.div
+          ref={sections.tech}
+          custom={0.6}
+          initial="hidden"
+          animate={isVisible.tech ? "visible" : "hidden"}
+          variants={fadeUpVariant}
+        >
+          <Tech />
+        </motion.div>
+
+     
+          <TestimonialHighlight />
+      
       </motion.div>
-      <Tech />
     </div>
   );
 };

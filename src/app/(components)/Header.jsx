@@ -20,7 +20,7 @@ const Header = () => {
           <span className="text-xs md:text-[13px] poppin  text-gray-500 uppercase tracking-wider">
             Home
           </span>
-          <h1 className="w-[93%] text-[46px] leading-[50px] scale-[1.07] md:text-7xl lg:text-[100px] font-light mt-4 lg:w-10/12 poppins">
+          <h1 className="w-[93%] text-[46px] tracking-tight leading-[50px] scale-[1.07] md:text-7xl lg:text-[100px] font-light mt-4 lg:w-10/12 poppins">
             Hi<span className="font-serif">&#44;</span> I
             <span className="font-serif">&#39;</span>
             <AnimatedLetters
@@ -33,7 +33,7 @@ const Header = () => {
             <br className="hidden md:block" /> {/* Only visible on medium screens and larger */}
             <span className="all-text"> creative </span>developer
           </h1>
-          <p className="w-8/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 md:text-[14px] text-[16px] text-center max-w-2xl text-gray-400 mt-8 our-text">
+          <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-tighter md:text-[16px] text-[14px] text-center max-w-2xl text-gray-400 mt-8 our-text">
             I bring value to web development projects by merging technical
             expertise with creativity and aesthetics.
           </p>

@@ -23,8 +23,8 @@ const Tech = () => {
   return (
     <div className="w-screen flex flex-col justify-center items-center mt-36">
       <div>
-        <h1 className="text-3xl md:text-[64px] md:leading-[55px] text-center poppins">
-          Some of the techs I <br /> like to{" "}
+        <h1 className="text-4xl tracking-tight md:text-[64px] md:leading-[55px] text-center poppins">
+          Some of the techs i<br /> like to{" "}
           <span className={`${spanColor}`}>work with</span>
         </h1>
       </div>
@@ -32,9 +32,9 @@ const Tech = () => {
       {/* 🔹 Dynamic light background */}
       <div className={lightClass} />
 
-      <div className="tech">
+      <div className="tech md:w-4/5 w-10/12">
         <div className="about-me-title p-3">
-          <p className="text-sm font-semibold">techs</p>
+          <p className="text-sm md:text-base tracking-tighter font-semibold">techs</p>
           <div className="flex space-x-4 text-gray-500 text-xs">
             <FontAwesomeIcon
               icon={faMinus}
@@ -65,10 +65,10 @@ const Tech = () => {
           ].map(({ icon, label }) => (
             <div
               key={label}
-              className="text-7xl text-gray-200 flex items-center flex-col"
+              className="text-4xl md:text-6xl text-gray-200 flex items-center flex-col"
             >
               {icon}
-              <span className="text-xl">{label}</span>
+              <span className="text-sm text-gray-300 md:text-base mt-2 tracking-tighter">{label}</span>
             </div>
           ))}
         </div>
