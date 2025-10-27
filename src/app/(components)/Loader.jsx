@@ -1,7 +1,6 @@
 import React from "react";
 import { Rings } from "react-loader-spinner";
 
-
 const Loader = () => {
   return (
     <div className="w-full h-[100dvh]  flex justify-center items-center">
@@ -11,18 +10,18 @@ const Loader = () => {
       </div>
 
       <div className="w-11/12 md:w-[38%]  border border-[#81808079] bg-[#00000027] rounded-[4px] h-10 md:h-12 relative z-10 flex items-center ">
-            <div className="w-[8%] md:w-[12%] flex items-center justify-center rotate-90 gap-[2px]">
-  {/* Left angled line: < */}
-  <span className="w-2 h-2 border-t-2 border-l-2 border-[#8fff86] rotate-[-45deg]" />
-  
-  {/* Slash / */}
-  <span className="w-1 h-4 bg-white rotate-[40deg]" />
+        <div className="w-[10%] md:w-[12%] flex items-center justify-center rotate-90 gap-[2px]">
+          {/* Left angled line: < */}
+          <span className="w-2 h-2 border-t-2 border-l-2 border-[#8fff86] rotate-[-45deg]" />
 
-  {/* Right angled line: > */}
-  <span className="w-2 h-2 border-t-2 border-r-2 border-[#8fff86] rotate-[45deg]" />
-</div>
-       <div className="w-[1px] bg-[#81808079] h-full"></div>
-       <div className="w-[70%] md:w-[80%] flex tracking-tighter items-center justify-center">
+          {/* Slash / */}
+          <span className="w-1 h-4 bg-white rotate-[40deg]" />
+
+          {/* Right angled line: > */}
+          <span className="w-2 h-2 border-t-2 border-r-2 border-[#8fff86] rotate-[45deg]" />
+        </div>
+        <div className="w-[1px] bg-[#81808079] h-full"></div>
+        <div className="w-[70%] md:w-[80%] flex tracking-tighter items-center justify-center">
           <span className="text-base tracking-tighter  font-medium text-center fonts">
             matthew
             <span className="text-base md:text-lg all-text">&lt;ameh&gt;</span>
@@ -30,15 +29,15 @@ const Loader = () => {
         </div>
         <div className="w-[1px] bg-[#81808079] h-full"></div>
         <header className="w-[15%] md:w-[10%]  h-12 flex justify-center items-center  relative z-10">
-        <Rings
-          visible={true}
-          height="50"
-          width="50"
-          color="#4fa94d"
-          ariaLabel="rings-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-        />
+          <Rings
+            visible={true}
+            height="50"
+            width="50"
+            color="#4fa94d"
+            ariaLabel="rings-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
         </header>
       </div>
     </div>

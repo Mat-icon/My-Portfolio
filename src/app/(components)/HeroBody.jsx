@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import ProjectHighlight from "./ProjectHighlight";
 import Header from "./Header";
 import Contactbar from "./Contactbar";
+import FullNav from "./FullNav";
 
-const HeroBody = () => {
+const HeroBody = ({isOpen, toggleNav }) => {
   const [isProjectVisible, setIsProjectVisible] = useState(false);
   const [isContactVisible, setIsContactVisible] = useState(false);
   const projectRef = useRef(null);
@@ -51,7 +52,8 @@ const HeroBody = () => {
   };
 
   return (
-    <div className="test2 flex flex-col">
+    <div className="relative test2 flex flex-col">
+      <FullNav isOpen={isOpen} toggleNav={toggleNav} />
       <Header />
 
       <div ref={projectRef}>
