@@ -9,7 +9,7 @@ import Link from "next/link";
 const Contactbar = () => {
   return (
     <div className="w-full  flex  justify-center   relative top-32">
-      <div className="about-me">
+      <div className="about-me w-11/12 md:w-[85%]">
         <div className="about-me-title p-4">
           <p className="text-sm">collaboration</p>
           <div className="flex space-x-4 text-gray-500 text-xs">

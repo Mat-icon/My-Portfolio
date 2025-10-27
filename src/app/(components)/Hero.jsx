@@ -17,7 +17,12 @@ import {
   VscChromeClose,
 } from "react-icons/vsc";
 
-import { FaArrowRight, FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaFacebook,
+  FaLinkedin,
+  FaTwitter,
+} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import HeroBody from "./HeroBody";
@@ -28,20 +33,20 @@ const NavItem = ({ number, label, isActive }) => (
       isActive ? "text-green-400" : "hover:text-green-600"
     }`}
   >
-    <span className="text-3xl text-gray-500">{number}</span>
-    <span className="text-5xl">{label}</span>
+    <span className="text-2xl tracking-tighter  text-gray-500">{number}</span>
+    <span className="text-4xl tracking-tighter">{label}</span>
   </div>
 );
 
 const FullScreenNav = ({ isOpen, toggleNav }) => (
   <div
-    className={`fixed top-0 left-0 w-full h-full bg-black flex flex-col  justify-center space-y-10 transform transition-transform ${
+    className={`fixed top-0 left-0 w-full h-full bg-black flex flex-col  justify-center space-y-8 transform transition-transform ${
       isOpen ? "translate-y-0" : "-translate-y-full"
     } z-20 md:hidden`}
     style={{ transition: "1s" }}
   >
     <div
-      className="absolute top-4 right-4 text-2xl  cursor-pointer xi text-center"
+      className="absolute top-4 right-4 text-2xl  cursor-pointer  text-center"
       onClick={toggleNav}
     >
       x
@@ -90,31 +95,45 @@ export default function Home() {
   return (
     <div className="flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-lime-400 selection:text-white">
       {/* Header */}
-      <header
-        className="flex justify-between items-center p-2 border-b border-gray-500"
-        style={{ background: "#0000001f" }}
-      >
-        <div className="flex items-center">
-          <FiMenu
-            className="text-lg md:text-2xl cursor-pointer  md:hidden"
-            onClick={toggleNav}
-          />
-        </div>
-        <div className="flex  items-center">
-          <span className="text-lg tracking-tighter font-medium text-center fonts">
-            matthew
-            <span className="text-lg tracking-tighter all-text">&lt;ameh&gt;</span>
-          </span>
-        </div>
-        <div className="flex items-center space-x-3 ">
-          <VscChromeMinimize className="text-base text-gray-600" />
-          <div
-            className="w-2.5 h-2.5 border border-gray-600 rounded-sm hover:border-white cursor-pointer"
-            style={{ transition: "ease-in 0.5s" }}
-          ></div>
-          <VscChromeClose className="text-base text-gray-600" />
-        </div>
-      </header>
+ <header
+  className="flex justify-between items-center p-2 border-b border-gray-500"
+  style={{ background: "#0000001f" }}
+>
+  {/* Left Icon </> */}
+  <div className="flex items-center rotate-90 gap-[2px]">
+    <span className="w-2 h-2 border-t-2 border-l-2 border-[#8fff86] rotate-[-45deg]" />
+    <span className="w-1 h-4 bg-white rotate-[40deg]" />
+    <span className="w-2 h-2 border-t-2 border-r-2 border-[#8fff86] rotate-[45deg]" />
+  </div>
+
+  {/* Center name */}
+  <div className="flex items-center">
+    <span className="text-lg tracking-tighter font-medium text-center fonts">
+      matthew
+      <span className="text-lg tracking-tighter all-text">
+        &lt;ameh&gt;
+      </span>
+    </span>
+  </div>
+
+  {/* Desktop controls */}
+  <div className="hidden md:flex items-center space-x-3">
+    <VscChromeMinimize className="text-base text-gray-600" />
+    <div
+      className="w-2.5 h-2.5 border border-gray-600 rounded-sm hover:border-white cursor-pointer"
+      style={{ transition: "ease-in 0.5s" }}
+    ></div>
+    <VscChromeClose className="text-base text-gray-600" />
+  </div>
+
+  {/* Mobile menu icon */}
+  <div className="flex md:hidden items-center">
+    <FiMenu
+      className="text-lg cursor-pointer"
+      onClick={toggleNav}
+    />
+  </div>
+</header>
 
       <FullScreenNav isOpen={isNavOpen} toggleNav={toggleNav} />
 
@@ -153,23 +172,22 @@ export default function Home() {
 
         {/* Content */}
         <HeroBody />
-        
       </div>
 
       {/* Footer */}
-      <footer
-        className="flex md:bg-[#0000001f] bg-black/90 h-[48px] w-full z-[99999] absolute bottom-0 justify-between items-center pl-2 py-2 pr-3  border-t border-gray-500 text-gray-600"
-        
-      >
+      <footer className="flex md:bg-[#0000001f] bg-black/90 h-[48px] w-full z-[99999] absolute bottom-0 justify-between items-center pl-2 py-2 pr-3  border-t border-gray-500 text-gray-600">
         <div className="w-[12%] md:w-[2.5%] h-full rounded-sm bg-[#8fff86] flex items-center justify-center space-x-2">
           <div className="w-2.5 h-2.5 bg-[#101010e1] rounded-full"></div>
         </div>
         <Link
           href="/contact"
-          style={{background:"#10101080"}}
+          style={{ background: "#10101080" }}
           className="bg-[#10101080] material-bubble3 hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
         >
-          <p className="flex items-center justify-center tracking-tighter">Let&apos;s-get-in-touch<FaArrowRight  className="ml-2"/></p>
+          <p className="flex items-center justify-center tracking-tighter">
+            Let&apos;s-get-in-touch
+            <FaArrowRight className="ml-2" />
+          </p>
         </Link>
         <div className="flex space-x-16 items-center">
           <span className="hidden md:block tracking-tighter text-[15px] leading-[24px] text-[#979595cc]">

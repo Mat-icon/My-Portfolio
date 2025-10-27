@@ -475,12 +475,8 @@ const TestimonialCardhighlight = ({
 const TestimonialHighlight = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const slidesPerView = 3;
 
-  const isMiddleSlide = (index) => {
-    const midIndex = (slidesPerView - 1) / 2;
-    return index === activeIndex + midIndex;
-  };
+ 
 
   return (
     
@@ -513,7 +509,7 @@ const TestimonialHighlight = () => {
         >
           {testimonials.map(
             ({ id, tech, content, author, position, image }) => (
-              <SwiperSlide key={id} className="flex justify-center">
+              <SwiperSlide key={id} className="flex justify-center my-10">
                 <TestimonialCardhighlight
                   tech={tech}
                   content={content}
@@ -701,9 +697,10 @@ const ProjectHighlight = () => {
         </motion.div>
 
      
-          <TestimonialHighlight />
+          
       
       </motion.div>
+      <TestimonialHighlight />
     </div>
   );
 };
