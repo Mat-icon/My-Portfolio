@@ -127,12 +127,19 @@ export default function Home() {
   </div>
 
   {/* Mobile menu icon */}
-  <div className="flex md:hidden items-center">
-    <FiMenu
-      className="text-lg cursor-pointer"
-      onClick={toggleNav}
-    />
-  </div>
+ <div className="flex md:hidden items-center">
+      {isNavOpen ? (
+        <FiX
+          className="text-lg cursor-pointer"
+          onClick={toggleNav}
+        />
+      ) : (
+        <FiMenu
+          className="text-lg cursor-pointer"
+          onClick={toggleNav}
+        />
+      )}
+    </div>
 </header>
 
    

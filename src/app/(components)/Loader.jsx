@@ -10,7 +10,7 @@ const Loader = () => {
       </div>
 
       <div className="w-11/12 md:w-[38%]  border border-[#81808079] bg-[#00000027] rounded-[4px] h-10 md:h-12 relative z-10 flex items-center ">
-        <div className="w-[10%] md:w-[12%] flex items-center justify-center rotate-90 gap-[2px]">
+        <div className="w-[15%] md:w-[10%] flex items-center justify-center rotate-90 gap-[2px]">
           {/* Left angled line: < */}
           <span className="w-2 h-2 border-t-2 border-l-2 border-[#8fff86] rotate-[-45deg]" />
 

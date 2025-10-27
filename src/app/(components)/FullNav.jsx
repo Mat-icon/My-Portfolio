@@ -16,18 +16,12 @@ const NavItem = ({ number, label, isActive }) => (
 const FullScreenNav = ({ isOpen, toggleNav }) => {
   return (
     <div
-      className={`absolute top-0 left-0 w-full h-full bg-black flex flex-col justify-center space-y-8 transform transition-transform ${
+      className={`absolute top-0 left-0 overflow-hidden w-full h-full bg-black/90 backdrop-blur-lg flex flex-col justify-center space-y-8 transform transition-transform ${
         isOpen ? "translate-y-0" : "-translate-y-full"
-      } z-20 md:hidden`}
+      } z-50 md:hidden`}
       style={{ transition: "1s" }}
     >
-      {/* Close button */}
-      <div
-        className="absolute top-4 right-4 text-2xl cursor-pointer text-center"
-        onClick={toggleNav}
-      >
-        ×
-      </div>
+    
 
       {/* Navigation links */}
       <Link href="/" onClick={toggleNav}>
