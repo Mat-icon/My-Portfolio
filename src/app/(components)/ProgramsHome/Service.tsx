@@ -85,8 +85,8 @@ const projects: ProjectType[] = [
     lang: ["Svelte 5", "Convex","tailwind", "clerk", "Sveltekit", "typeScript"],  
     color: "#706D63",
     description:
-      "A minimalist e-commerce platform for smart home devices and automation solutions.",
-    link: "https://brabik.netlify.app/"
+      "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
+    link: "https://tap2member.netlify.app/"
   },
 ];
 
