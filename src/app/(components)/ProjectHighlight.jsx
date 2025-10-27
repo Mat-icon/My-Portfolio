@@ -24,9 +24,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
 import Image from "next/image";
 import Services from "../(components)/ProgramsHome/Service";
-import { FaChevronRight } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
-
+import Tech from './Tech';
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
 }
@@ -647,7 +646,7 @@ const ProjectHighlight = () => {
       >
         <ContactHighlight />
       </motion.div>
-      <TestimonialHighlight />
+      <Tech />
     </div>
   );
 };

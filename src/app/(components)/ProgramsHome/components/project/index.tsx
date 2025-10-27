@@ -43,7 +43,7 @@ export default function Index({
           <div className="flex flex-wrap gap-2">
             {lang.map((lan, index) => (
               <p
-                className="px-4 py-1 text-[14px] rounded-full bg-black/30 text-white backdrop-blur-md"
+                className="px-4 py-1 text-[12px] rounded-full bg-black/30 text-white tracking-wider  backdrop-blur-md"
                 key={index}
               >
                 {lan}

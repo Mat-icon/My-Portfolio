@@ -23,7 +23,7 @@ const HeroBody = () => {
         });
       },
       {
-        threshold: 0.1, // Adjust the threshold as needed for visibility
+        threshold: 0.05, // Adjust the threshold as needed for visibility
       }
     );
 

@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <>
-      <main className="w-full header">
+      <main className="w-full h-[70vh] md:h-[80vh]">
         <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
           <div className="words-container">
             <div className="word">

@@ -15,28 +15,38 @@ interface ProjectType {
 }
 
 const projects: ProjectType[] = [
+    {
+    title: "Brabik SmartHomes",
+    time: "2025",
+    lang: ["Next.js", "Tailwind.css", "Zustand", "Three.js", "Typescript"],  
+    color: "#706D63",
+    description:
+      "A minimalist e-commerce platform for smart home devices and automation solutions.",
+    link: "https://brabik.netlify.app/"
+  },
+    {
+    title: "Noirvik Fashion",
+    time: "2025",
+    lang: ["Next.js", "Tailwind.css", "Node.js"],  
+    color: "#706D63",
+    description:
+      "A minimalist e-commerce fashion store showcasing a curated selection of stylish apparel and accessories.",
+    link: "https://noirvik.netlify.app/"
+  },
   {
     title: "BwinTech",
     time: "2025",
-    lang: ["nextjs", "tailwind", "node.js"],
+    lang: ["Next.js", "Tailwind.css", "Node.js"],
     color: "#706D63",
     description:
       "Bwintech is a boutique data consultancy helping businesses make smarter decisions with their data.",
     link: "https://bwintech.com.au/",
   },
-  {
-    title: "Home Loan Hub App",
-    time: "2025",
-    lang: ["nextjs", "AI", "node.js"],
-    color: "#706D63",
-    description:
-      "AI-powered chatbot that helps users check loan eligibility in a conversational, friendly way.",
-    link: "https://home-loan-hub.netlify.app/",
-  },
+
   {
     title: "Adelehamza Resources",
     time: "2025",
-    lang: ["nextjs", "tailwind", "node.js"],
+    lang: ["Next.js", "Tailwind.css", "Node.js"],
     link: "https://adelehamzaresources.com/",
     color: "#706D63",
     description:
@@ -44,7 +54,7 @@ const projects: ProjectType[] = [
   },
   {
     title: "Delve Learn",
-    lang: ["tailwindcss", "next.js", "php"],
+    lang: ["Tailwindcss", "Next.js", "Php"],
     color: "#706D63",
     time: "2024",
     link: " https://delve.fun/",
@@ -53,7 +63,7 @@ const projects: ProjectType[] = [
   },
   {
     title: "Devlinks",
-    lang: ["css", "next.js", "tailwindcss", "firebase"],
+    lang: ["Next.js", "Tailwind.css", "Firebase"],
     color: "#000000",
     time: "2024",
     link: "https://mathewlinktree.netlify.app/",
@@ -61,22 +71,22 @@ const projects: ProjectType[] = [
       "A personalized link-sharing tool to connect all your social media and portfolio links.",
   },
   {
-    title: "Homework AI",
-    lang: ["tailwindcss", "next.js"],
-    color: "whitesmoke",
-    time: "2024",
-    link: "https://aiforhomework.com/",
+    title: "Home Loan Hub App",
+    time: "2025",
+    lang: ["Next.js", "AI Integration", "Node.js"],
+    color: "#706D63",
     description:
-      "AI-powered solution that helps students with step-by-step homework guidance.",
+      "AI-powered chatbot that helps users check loan eligibility in a conversational, friendly way.",
+    link: "https://home-loan-hub.netlify.app/",
   },
-  {
-    title: "HSR Ministry",
-    lang: ["tailwindcss", "next.js", "sass", "firebase"],
-    color: "#333",
-    time: "2024",
-    link: "https://hsr.netlify.app/",
+   {
+    title: "Tap2 Member",
+    time: "2025",
+    lang: ["Svelte 5", "Convex","tailwind", "clerk", "Sveltekit", "typeScript"],  
+    color: "#706D63",
     description:
-      "Ministry website with events, services, database, and bulk SMS for updates.",
+      "A minimalist e-commerce platform for smart home devices and automation solutions.",
+    link: "https://brabik.netlify.app/"
   },
 ];
 
