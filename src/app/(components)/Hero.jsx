@@ -23,6 +23,7 @@ import {
   FaLinkedin,
   FaTwitter,
 } from "react-icons/fa";
+import { AiOutlineLaptop } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import HeroBody from "./HeroBody";
@@ -117,7 +118,7 @@ export default function Home() {
           </div>
           <div className="icon-container">
             <Link href="/ProjectsPage">
-              <FiCode className="text-base hover:text-green-300 cursor-pointer" />
+              <AiOutlineLaptop className="text-base hover:text-green-300 cursor-pointer" />
             </Link>
             <span className="badge">projects</span>
           </div>

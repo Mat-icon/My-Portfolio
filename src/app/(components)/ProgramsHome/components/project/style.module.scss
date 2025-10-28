@@ -4,12 +4,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 50px 100px;
-    border-top: 1px solid #646262da;
+    border: 0.5px solid #646262da;
+    margin-top: 10px;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s;
+    background: #00000052;
   
     h2 {
-      font-size: 60px;
+      font-size: 50px;
       margin: 0px;
       font-weight: 400;
       transition: all 0.4s;

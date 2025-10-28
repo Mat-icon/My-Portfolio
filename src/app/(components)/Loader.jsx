@@ -10,15 +10,10 @@ const Loader = () => {
       </div>
 
       <div className="w-11/12 md:w-[38%]  border border-[#81808079] bg-[#00000027] rounded-[4px] h-10 md:h-12 relative z-10 flex items-center ">
-        <div className="w-[15%] md:w-[10%] flex items-center justify-center rotate-90 gap-[2px]">
-          {/* Left angled line: < */}
-          <span className="w-2 h-2 border-t-2 border-l-2 border-[#8fff86] rotate-[-45deg]" />
-
-          {/* Slash / */}
-          <span className="w-1 h-4 bg-white rotate-[40deg]" />
-
-          {/* Right angled line: > */}
-          <span className="w-2 h-2 border-t-2 border-r-2 border-[#8fff86] rotate-[45deg]" />
+        <div className="w-[15%] md:w-[10%] flex items-center justify-center rotate-90 gap-[1px]">
+          <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg]" />
+          <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full" />
+          <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg]" />
         </div>
         <div className="w-[1px] bg-[#81808079] h-full"></div>
         <div className="w-[70%] md:w-[80%] flex tracking-tighter items-center justify-center">

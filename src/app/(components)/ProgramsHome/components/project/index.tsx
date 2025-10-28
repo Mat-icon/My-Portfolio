@@ -38,7 +38,7 @@ export default function Index({
         className={styles.project}
       >
         <div>
-          <h2 className="tracking-tight">{title}</h2>
+          <h2 className="tracking-tight ">{title}</h2>
           <div className="text-[12px] md:text-sm tracking-tight font-light text-slate-400 mb-4">{description}</div>
           <div className="flex flex-wrap gap-2">
             {lang.map((lan, index) => (
