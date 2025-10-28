@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 import Link from "next/link";
+import "./App.scss"
 
 const Contactbar = () => {
   return (
     <div className="w-full  flex  justify-center   relative top-32">
-      <div className="about-me w-11/12 md:w-[85%]">
+      <div className="about-me w-11/12 backdrop-blur-md md:w-[85%]">
         <div className="about-me-title p-4">
           <p className="text-sm">collaboration</p>
           <div className="flex space-x-4 text-gray-500 text-xs">
@@ -38,8 +39,8 @@ const Contactbar = () => {
             />
           </div>
           <div className="flex flex-col space-y-6">
-            <p className="text-center tracking-tighter lg:text-left text-2xl lg:text-6xl font-normal">
-              Let&#39;s work together on your next project .
+            <p className="text-center tracking-tighter poppins lg:text-left text-2xl lg:text-6xl font-normal">
+              Let&#39;s work together on your <br/>next project .
             </p>
             <div className="flex flex-col tracking-tighter items-center md:flex-row md:space-x-2 ">
               <Link

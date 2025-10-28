@@ -7,23 +7,17 @@ const Header = () => {
     <>
       <main className="w-full h-[70vh] md:h-[80vh]">
         <div className="relative z-10 flex flex-col text-center items-center mt-24 ">
-         
           <span className="text-xs md:text-[13px] poppins mb-6  text-gray-400 uppercase tracking-wider">
             Home
           </span>
           <h1 className="w-[93%] text-[46px]  tracking-tight md:text-7xl lg:text-[95px] lg:w-10/12 poppins">
-            <TextRevealOnScroll
-              as="div"
-              className=""
-              text={
-                <h1 className="text-center mx-auto [word-spacing:-10px] xl:[word-spacing:-10px]">
-                  Hi<span className="font-serif">,</span> I<span className="font-serif">&apos;</span>m  Matthew<span className="font-serif">,</span> a {""}<br className="xl:hidden"/>
-                  <br className="hidden xl:block" />
-                  <span className="all-text">creative</span>{" "}
-                  developer.
-                </h1>
-              }
-            />
+            <h1 className="text-center mx-auto  xl:[word-spacing:-10px]">
+              Hi<span className="font-serif">, </span> I
+              <span className="font-serif">&apos;</span>m Matthew
+              <span className="font-serif">,</span> a {""}
+              <br className="hidden xl:block" />
+              <span className="all-text">creative </span> developer.
+            </h1>
           </h1>
           <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-tighter md:text-[16px] text-[14px] text-center max-w-2xl text-gray-400 mt-8 our-text">
             I bring value to web development projects by merging technical

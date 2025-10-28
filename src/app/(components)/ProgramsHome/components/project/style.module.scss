@@ -3,13 +3,13 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 50px;
+    padding: 50px 40px;
     border: 0.5px solid #646262da;
     margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s;
-    background: #10101034;
+    background: #10101048;
   
     h2 {
       font-size: 50px;
@@ -17,10 +17,18 @@
       font-weight: 400;
       transition: all 0.4s;
     }
+
+    h4 ,h3{
+      transition: all 0.4s;
+    }
   
     p {
       transition: all 0.4s;
       font-weight: 300;
+    }
+
+    span{
+      transition: all 0.4s;
     }
   
     &:last-of-type {
@@ -31,11 +39,23 @@
       opacity: 0.5;
   
       h2 {
-        transform: translateX(-10px);
+        transform: translateX(-35px);
+      }
+
+      h3{
+        opacity: 0;
       }
   
       p {
-        transform: translateX(10px);
+        transform: translateX(-35px);
+      }
+
+      h4{
+        transform: translateX(-35px);
+      }
+
+      span{
+         transform: translateX(-10px);
       }
     }
   
@@ -64,7 +84,7 @@
       }
   
       p {
-        font-size: 14px;
+        font-size: 11px;
       }
   
       &:hover {

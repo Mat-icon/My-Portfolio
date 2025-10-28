@@ -25,7 +25,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 import Image from "next/image";
 import Services from "../(components)/ProgramsHome/Service";
 import { FaArrowRight } from "react-icons/fa6";
-import Tech from './Tech';
+import Tech from "./Tech";
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
 }
@@ -81,12 +81,15 @@ const ContactHighlight = () => {
 
   return (
     <div className="w-full flex flex-col items-center mb-0">
-      <h1 className="text-4xl md:text-7xl tracking-tight poppins text-center">
-        Your <span className="all-text">creative</span>  web developer
+      <h1 className="text-4xl md:text-6xl tracking-tight poppins text-center">
+        Your <span className="all-text">creative</span> web developer
       </h1>
       <div className="light4"></div>
       <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
-        <div className="me backdrop-blur-sm md:w-full lg:w-4/5 xl:w-[60%]" ref={jobRef}>
+        <div
+          className="me backdrop-blur-sm md:w-full lg:w-4/5 xl:w-[60%]"
+          ref={jobRef}
+        >
           <div className="about-me-title p-2 text-white">
             <p className="text-base font-[500] tracking-tighter">about-me</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -151,8 +154,8 @@ const ContactHighlight = () => {
           className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/3 h-64"
           ref={hobbiesRef}
         >
-          <div className="about-me-title p-3 text-white">
-            <p className="text-sm">hobbies</p>
+          <div className="about-me-title p-2 text-white">
+            <p className="text-base">hobbies</p>
             <div className="flex space-x-4 text-gray-500">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -191,7 +194,10 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64" ref={contactRef}>
+        <div
+          className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
+          ref={contactRef}
+        >
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">me-online</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -272,7 +278,10 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="me md:w-full  backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto" ref={collabRef}>
+        <div
+          className="me md:w-full  backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto"
+          ref={collabRef}
+        >
           <div className="about-me-title p-2 text-white">
             <p>collaborations</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -331,7 +340,10 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4" ref={potraitRef}>
+        <div
+          className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
+          ref={potraitRef}
+        >
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">potrait</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -365,18 +377,13 @@ const ContactHighlight = () => {
         style={{ background: "#101010e1" }}
         className="material-bubble3 w-3/5 tracking-tighter md:w-4/12 poppin lg:w-[12%] p-4 lg:px-4 rounded-[4px] mt-5  border-[0.3px] border-[#5a5959] text-center lg:text-center text-sm flex items-center justify-center"
       >
-        <p className="flex items-center">about-me <FaArrowRight  className="ml-2"/></p>
+        <p className="flex items-center">
+          about-me <FaArrowRight className="ml-2" />
+        </p>
       </Link>
     </div>
   );
 };
-
-
-
-
-
-
-
 
 const testimonials = [
   {
@@ -456,7 +463,6 @@ const TestimonialCardhighlight = ({
     <div className=" flex md:flex-row-reverse flex-col md:items-start items-center md:gap-4  p-5">
       <div className="flex flex-col  text-left items-center">
         <p className=" text-sm">{content}</p>
-       
       </div>
       <Image
         width={500}
@@ -465,9 +471,9 @@ const TestimonialCardhighlight = ({
         alt={author}
         className="w-[40px] h-[40px] rounded-full mt-4  object-cover"
       />
-       <p className="w-4/5 mx-auto text-center absolute bottom-4 testimonial-author">
-          {author} &#123;&#125; {position}
-        </p>
+      <p className="w-4/5 mx-auto text-center absolute bottom-4 testimonial-author">
+        {author} &#123;&#125; {position}
+      </p>
     </div>
   </div>
 );
@@ -475,12 +481,7 @@ const TestimonialCardhighlight = ({
 const TestimonialHighlight = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-
- 
-
   return (
-    
-  
     <div className="relative w-full flex flex-col items-center overflow-hidden">
       {/* BLUR OVERLAYS */}
 
@@ -509,7 +510,7 @@ const TestimonialHighlight = () => {
         >
           {testimonials.map(
             ({ id, tech, content, author, position, image }) => (
-              <SwiperSlide key={id} className="flex justify-center ml-1 my-10">
+              <SwiperSlide key={id} className="flex justify-center xl:ml-1 my-10">
                 <TestimonialCardhighlight
                   tech={tech}
                   content={content}
@@ -523,21 +524,30 @@ const TestimonialHighlight = () => {
         </Swiper>
       </div>
 
-      <div className="relative mt-4 w-1/2 h-[1px] bg-gray-700 rounded ">
-        <div
-          className="absolute z-10 h-1 bg-[#1afc4b] transition-all duration-300"
-          style={{
-            width: `${(activeIndex / (testimonials.length - 1)) * 100}%`,
-            filter: "blur(12px)",
-          }}
-        />
+      <div className="w-11/12 md:w-[38%]  border border-[#81808079] bg-[#00000027] rounded-[4px] h-10 md:h-12 relative z-10 flex items-center ">
+        <div className="w-[15%] md:w-[10%] h-full hover:bg-[#8eff8669] flex items-center justify-center">
+          ≺
+        </div>
+        <div className="w-[1px] bg-[#81808079] h-full"></div>
+        <div className="w-[70%] md:w-[80%] flex tracking-tighter items-center justify-center">
+          <div className="relative mt-4 w-1/2 h-[1px] bg-gray-700 rounded ">
+            <div
+              className="absolute z-10 h-1 bg-[#1afc4b] transition-all duration-300"
+              style={{
+                width: `${(activeIndex / (testimonials.length - 1)) * 100}%`,
+                filter: "blur(12px)",
+              }}
+            />
+          </div>
+        </div>
+        <div className="w-[1px] bg-[#81808079] h-full"></div>
+        <header className="w-[15%] md:w-[10%] h-full hover:bg-[#8eff8669]  flex justify-center items-center  relative z-10">
+          ≻
+        </header>
       </div>
     </div>
   );
 };
-
-
-
 
 const ProjectHighlight = () => {
   const [isVisible, setIsVisible] = useState({
@@ -695,10 +705,6 @@ const ProjectHighlight = () => {
         >
           <Tech />
         </motion.div>
-
-     
-          
-      
       </motion.div>
       <TestimonialHighlight />
     </div>

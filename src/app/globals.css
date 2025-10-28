@@ -170,26 +170,63 @@
   }
 
   .light4 {
-    width: 1px;
-    height: 100px;
-    margin-top: 20px;
-    position: relative;
-    overflow: hidden;
-  }
+  width: 1px; /* base thin width */
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  border-radius: 20px;
+}
 
-  .light4::after {
-    content: "";
-    width: 117px;
-    height: 150px;
-    background: rgb(139, 248, 14);
-    filter: blur(60px);
-    border-radius: 20px;
-    position: absolute;
-    top: 0;
-    left: 0%;
-    z-index: 20;
-    animation: animateLight 10s linear infinite;
+.light4::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 200px;
+  background:  rgba(143, 255, 134, 0.9);
+  
+  border-radius: 50%;
+  z-index: 20;
+
+  /* 👇 Creates tear shape (narrow top, wide bottom) */
+  clip-path: polygon(
+    0% 90%,
+    90% 10%,
+    70% 90%,
+    80% 40%,
+    85% 60%,
+    80% 80%,
+    70% 90%,
+    50% 100%,
+    30% 90%,
+    20% 80%,
+    15% 60%,
+    20% 40%,
+    30% 20%,
+    40% 10%
+  );
+
+  animation: animateLight 12s linear infinite;
+}
+
+
+
+@keyframes animateLight {
+  0% {
+    transform: translate(-50%, -150%);
+    opacity: 0.8;
   }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 150%);
+    opacity: 0.8;
+  }
+}
 
   .light3 {
     width: 1px;
@@ -213,15 +250,8 @@
     animation: animateLight 10s linear infinite;
   }
 
- 
-  @keyframes animateLight {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(800%);
-    }
-  }
+
+
   .head {
     @apply border border-gray-400;
   }
@@ -246,12 +276,13 @@
   }
 
   .circle1 {
-    top: 20%;
-    left: 3%;
-    width: 200px;
-    height: 200px;
-    background-color: #3e683b;
+    top: 50%;
+    left: 5%;
+    width: 300px;
+    height: 300px;
+    background-color: #8eff863f;
     animation: animateScale2 15s infinite ease-in-out;
+    
   }
 
   .circle2 {
@@ -260,6 +291,7 @@
     background-color: #3e683b;
     width: 500px;
     height: 400px;
+    animation-delay: 5s;
     animation: animateScale2 20s infinite ease-in-out;
   }
 
@@ -564,12 +596,15 @@
   }
 }
 
+
+
 @keyframes animateScale2 {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.4); /* Scales down slightly */
+    transform: scale(1.5);
+    background:  rgba(143, 255, 134, 0.9);
   }
   100% {
     transform: scale(1);
