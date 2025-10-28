@@ -17,7 +17,7 @@ const Header = () => {
               className=""
               text={
                 <h1 className="text-center mx-auto [word-spacing:-10px] xl:[word-spacing:-10px]">
-                  Hi<span className="font-serif">,</span> I<span className="font-serif">'</span>m  Matthew<span className="font-serif">,</span> a {""}<br className="xl:hidden"/>
+                  Hi<span className="font-serif">,</span> I<span className="font-serif">&apos;</span>m  Matthew<span className="font-serif">,</span> a {""}<br className="xl:hidden"/>
                   <br className="hidden xl:block" />
                   <span className="all-text">creative</span>{" "}
                   developer.
