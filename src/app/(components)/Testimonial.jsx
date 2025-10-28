@@ -66,7 +66,7 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ tech, content, author, position, image }) => (
-  <div className="testimonial-card bg-[#111] border border-gray-700 rounded-2xl w-[340px] h-[380px] flex flex-col justify-between shadow-lg overflow-hidden">
+  <div className="testimonial-card bg-[#111]  border border-gray-700 rounded-2xl w-[340px] h-[380px] flex flex-col justify-between shadow-lg overflow-hidden">
     <div className="about-me-title test-color p-3 flex justify-between items-center border-b border-gray-700">
       <p className="text-sm font-semibold">{tech}</p>
       <div className="flex space-x-3 text-gray-500 text-xs">

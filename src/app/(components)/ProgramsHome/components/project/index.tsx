@@ -35,15 +35,15 @@ export default function Index({
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={styles.project}
+        className={` backdrop-blur-md ${styles.project}`}
       >
         <div>
-          <h2 className="tracking-tight ">{title}</h2>
-          <div className="text-[12px] md:text-sm tracking-tight font-light text-slate-400 mb-4">{description}</div>
+          <h2 className="tracking-tighter  poppins">{title}</h2>
+          <div className="text-[12px]  tracking-tighter fonts font-light text-slate-300 mb-4">{description}</div>
           <div className="flex flex-wrap gap-2">
             {lang.map((lan, index) => (
               <p
-                className="px-4 py-1 text-[12px] rounded-full bg-black/30 text-white tracking-wider  backdrop-blur-md"
+                className="px-4 fonts tracking-tight py-[5px] border-[0.5px] lowercase border-[#646262da]  text-[8px] md:text-[11px] rounded-full bg-[#161616] text-[#dfdcdcda]   backdrop-blur-md"
                 key={index}
               >
                 {lan}
@@ -52,7 +52,7 @@ export default function Index({
           </div>
           
         </div>
-        <p>{date}</p>
+        <p className="fonts text-[#c2c0c0da]">{date}</p>
       </div>
      
     </Link>

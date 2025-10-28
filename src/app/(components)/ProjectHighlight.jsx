@@ -86,9 +86,9 @@ const ContactHighlight = () => {
       </h1>
       <div className="light4"></div>
       <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
-        <div className="me md:w-full lg:w-4/5 xl:w-[60%]" ref={jobRef}>
+        <div className="me backdrop-blur-sm md:w-full lg:w-4/5 xl:w-[60%]" ref={jobRef}>
           <div className="about-me-title p-2 text-white">
-            <p className="text-base tracking-tighter">about-me</p>
+            <p className="text-base font-[500] tracking-tighter">about-me</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -148,7 +148,7 @@ const ContactHighlight = () => {
         </div>
 
         <div
-          className="hobbies w-4/5 tracking-tighter lg:w-1/2 xl:w-1/3 h-64"
+          className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/3 h-64"
           ref={hobbiesRef}
         >
           <div className="about-me-title p-3 text-white">
@@ -191,7 +191,7 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="contact-links w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64" ref={contactRef}>
+        <div className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64" ref={contactRef}>
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">me-online</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -272,7 +272,7 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="me md:w-full tracking-tighter lg:w-4/5 xl:w-[60%] h-auto" ref={collabRef}>
+        <div className="me md:w-full  backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto" ref={collabRef}>
           <div className="about-me-title p-2 text-white">
             <p>collaborations</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -331,7 +331,7 @@ const ContactHighlight = () => {
           </div>
         </div>
 
-        <div className="potrait w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4" ref={potraitRef}>
+        <div className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4" ref={potraitRef}>
           <div className="about-me-title p-3 text-white">
             <p className="text-sm">potrait</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
@@ -433,7 +433,7 @@ const TestimonialCardhighlight = ({
   position,
   image,
 }) => (
-  <div className=" mt-8 testimonial-card b  tracking-tighter w-full md:w-full ">
+  <div className=" mt-8 testimonial-card b   backdrop-blur-md tracking-tighter w-full md:w-full ">
     <div className="about-me-title test-color p-3">
       <p className="text-sm font-semibold">{tech}</p>
       <div className="flex space-x-4 text-gray-500 text-xs">
@@ -489,7 +489,7 @@ const TestimonialHighlight = () => {
         <br className="hidden md:block" /> about my work
       </h1>
 
-      <div className="relative w-full flex justify-center items-center">
+      <div className="relative  w-full flex justify-center items-center">
         <Swiper
           modules={[Autoplay]}
           spaceBetween={0}
@@ -505,11 +505,11 @@ const TestimonialHighlight = () => {
             disableOnInteraction: false,
           }}
           allowTouchMove={false} // prevent drag interruption
-          className="cursor-default testimonial-swiper"
+          className="cursor-default testimonial-swiper "
         >
           {testimonials.map(
             ({ id, tech, content, author, position, image }) => (
-              <SwiperSlide key={id} className="flex justify-center my-10">
+              <SwiperSlide key={id} className="flex justify-center ml-1 my-10">
                 <TestimonialCardhighlight
                   tech={tech}
                   content={content}

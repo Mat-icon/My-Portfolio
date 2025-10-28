@@ -30,9 +30,7 @@
   .fonts {
     font-family: "Space Mono", monospace;
   }
-  .poppins {
-    font-family: "CustomFont", sans-serif;
-  }
+ 
 
   .poppins {
     font-family: "Poppins", sans-serif;
@@ -605,7 +603,7 @@
   border: 0.8px solid #5a5959;
   background: #101010a2;
   border-radius: 4px;
-  padding: 8px;
+  
 }
 
 .footer-content {
@@ -638,7 +636,7 @@
 }
 
 .about-me-title {
-  border-bottom: 0.5px solid #5a5959;
+  border-bottom: 0.5px solid #646262da;
   text-align: center;
   width: 100%;
   display: flex;

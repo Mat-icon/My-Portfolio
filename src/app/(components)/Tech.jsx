@@ -32,7 +32,7 @@ const Tech = () => {
       {/* 🔹 Dynamic light background */}
       <div className={lightClass} />
 
-      <div className="tech md:w-4/5 w-11/12">
+      <div className="tech backdrop-blur-md md:w-4/5 w-11/12">
         <div className="about-me-title p-3">
           <p className="text-sm md:text-base tracking-tighter font-semibold">techs</p>
           <div className="flex space-x-4 text-gray-500 text-xs">
