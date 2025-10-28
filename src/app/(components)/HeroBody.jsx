@@ -52,7 +52,38 @@ const HeroBody = ({isOpen, toggleNav }) => {
   };
 
   return (
+    <>
+    <style>{`
+        @keyframes scrollWords {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scrollWords 410s linear infinite;
+        }
+      `}</style>
     <div className="relative test2 flex flex-col">
+      <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
+            <div className="relative flex gap-8 text-[460px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000065] font-mono whitespace-nowrap animate-scroll">
+              <p>code</p>
+              <p>beautiful interfaces</p>
+              <p>code</p>
+              <p>design</p>
+              <p>creative logic</p>
+              <p>design</p>
+              {/* Duplicate for seamless loop */}
+              <p>code</p>
+              <p>beautiful interfaces</p>
+              <p>code</p>
+              <p>design</p>
+              <p>creative logic</p>
+              <p>design</p>
+            </div>
+          </div>
       <FullNav isOpen={isOpen} toggleNav={toggleNav} />
       <Header />
 
@@ -68,6 +99,7 @@ const HeroBody = ({isOpen, toggleNav }) => {
      
       <Contactbar />
     </div>
+    </>
   );
 };
 

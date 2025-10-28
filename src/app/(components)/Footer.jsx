@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-full h-96 tracking-tighter top-full absolute mt-4 footer-content">
+    <div className="w-full h-[70vh] tracking-tighter top-full absolute mt-4 footer-content">
       <div className="w-full flex flex-col space-y-52 relative top-1/4  items-center">
         <div className="flex flex-col text-xs md:text-sm sm:flex-col sm:flex md:flex justify-between items-center md:flex-row md:items-center md:space-x-4  w-11/12">
           <span className="text-lg font-normal ">

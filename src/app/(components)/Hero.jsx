@@ -27,47 +27,6 @@ import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import HeroBody from "./HeroBody";
 
-// const NavItem = ({ number, label, isActive }) => (
-//   <div
-//     className={`flex items-center space-x-4 p-4 ${
-//       isActive ? "text-green-400" : "hover:text-green-600"
-//     }`}
-//   >
-//     <span className="text-2xl tracking-tighter  text-gray-500">{number}</span>
-//     <span className="text-4xl tracking-tighter">{label}</span>
-//   </div>
-// );
-
-// const FullScreenNav = ({ isOpen, toggleNav }) => (
-//   <div
-//     className={`fixed top-0 left-0 w-full h-full bg-black flex flex-col  justify-center space-y-8 transform transition-transform ${
-//       isOpen ? "translate-y-0" : "-translate-y-full"
-//     } z-20 md:hidden`}
-//     style={{ transition: "1s" }}
-//   >
-//     <div
-//       className="absolute top-4 right-4 text-2xl  cursor-pointer  text-center"
-//       onClick={toggleNav}
-//     >
-//       x
-//     </div>
-
-//     <Link href="/">
-//       <NavItem number="01" label="home/" isActive />
-//     </Link>
-//     <Link href="/About">
-//       <NavItem number="02" label="about/" />
-//     </Link>
-//     <Link href="/ProjectsPage">
-//       {" "}
-//       <NavItem number="03" label="work/" />
-//     </Link>
-//     <Link href="/contact">
-//       <NavItem number="04" label="contact/" />
-//     </Link>
-//   </div>
-// );
-
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
@@ -100,10 +59,10 @@ export default function Home() {
   style={{ background: "#0000001f" }}
 >
   {/* Left Icon </> */}
-  <div className="flex items-center rotate-90 gap-[2px]">
-    <span className="w-2 h-2 border-t-2 border-l-2 border-[#8fff86] rotate-[-45deg]" />
-    <span className="w-1 h-4 bg-white rotate-[40deg]" />
-    <span className="w-2 h-2 border-t-2 border-r-2 border-[#8fff86] rotate-[45deg]" />
+  <div className="flex items-center rotate-90 gap-[1px]">
+    <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg]" />
+    <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full" />
+    <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg]" />
   </div>
 
   {/* Center name */}
@@ -148,7 +107,7 @@ export default function Home() {
         {/* Sidebar */}
         <aside
           className="hidden md:flex md:flex-col md:items-center  md:justify-center md:space-y-6 md:border-r md:border-gray-500 md:p-3"
-          style={{ background: "#0000001f" }}
+          style={{ background: "#0000005e" }}
         >
           <div className="icon-container">
             <Link href="/">
@@ -182,29 +141,24 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="flex md:bg-[#0000001f] bg-black/90 h-[48px] w-full z-[99999] absolute bottom-0 justify-between items-center pl-2 py-2 pr-3  border-t border-gray-500 text-gray-600">
-        <div className="w-[12%] md:w-[2.5%] h-full rounded-sm bg-[#8fff86] flex items-center justify-center space-x-2">
+      <section className="flex md:bg-[#0000001f] bg-black/90 h-[48px] w-full z-[99999]">
+      <footer className="flex md:bg-[#0000001f] bg-black/90 h-[48px] w-full z-[99999] absolute bottom-0 justify-between items-center pl-0 py-2 pr-3  border-t border-gray-500 text-gray-600">
+        <div className="w-[12%] md:w-[3.1%] h-[48px] bg-[#8eff8669] flex items-center justify-center space-x-2">
           <div className="w-2.5 h-2.5 bg-[#101010e1] rounded-full"></div>
         </div>
-        <Link
+       
+        
+         <Link
           href="/contact"
           style={{ background: "#10101080" }}
-          className="bg-[#10101080] material-bubble3 hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
+          className="bg-[#10101080] material-bubble3 hidden md:block w-3/5 md:w-4/12 lg:w-[18%] poppin p-2 lg:px-3 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
         >
           <p className="flex items-center justify-center tracking-tighter">
             Let&apos;s-get-in-touch
             <FaArrowRight className="ml-2" />
           </p>
         </Link>
-        <div className="flex space-x-16 items-center">
-          <span className="hidden md:block tracking-tighter text-[15px] leading-[24px] text-[#979595cc]">
-            Based in Nigeria
-          </span>
-          <div className="hidden md:block text-[15px] tracking-tighter  text-[#979595cc] ">
-            Localtime — <span className="time font-[600]">{currentTime}</span>
-          </div>
-        </div>
-        <div className="flex space-x-4 items-center ">
+        {/* <div className="flex space-x-4 items-center ">
           <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
             <FaLinkedin
               className="text-lg hover:text-white cursor-pointer  hover:scale-105"
@@ -231,8 +185,18 @@ export default function Home() {
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
           />
-        </div>
+        </div> */}
+     
       </footer>
+         <div className="w-full flex  justify-center space-x-6 text-sm items-center">
+          <span className="hidden md:block tracking-tighter  leading-[24px] text-[#b4b4b4]">
+            Based in Nigeria
+          </span>
+          <div className="hidden md:block tracking-tighter text-[#b4b4b4]">
+            Localtime <span className="time font-[600]">{currentTime}</span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

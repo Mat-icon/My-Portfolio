@@ -7,12 +7,7 @@
 @tailwind utilities;
 
 
-@font-face {
-  font-family: 'CustomFont';
-  src: url('/fonts/Montreal-Regular.ttf') format('truetype');
-  font-weight: normal;  /* Use 'bold' for bold variations */
-  font-style: normal;   /* Use 'italic' for italic variations */
-}
+
 
 
 @layer components {
@@ -39,9 +34,11 @@
     font-family: "CustomFont", sans-serif;
   }
 
-  .poppin {
+  .poppins {
     font-family: "Poppins", sans-serif;
   }
+
+
   .test {
     width: 98%;
     height: 97%;
@@ -112,9 +109,8 @@
     position: relative;
     white-space: nowrap;
     font-weight: bolder;
-    opacity: 0.2;
-    color: rgba(22, 19, 19, 0.795);
-    animation: animateWord 100s linear infinite;
+    opacity: 0.3;
+    color: rgba(22, 19, 19, 0.945);
     font-size: 600px;
     letter-spacing: 30px;
   }
@@ -241,7 +237,7 @@
     left: 0;
     width: 100%;
     overflow: hidden;
-    background: rgba(2, 7, 0, 0.932);
+    background: #0f0f0f;
     z-index: 1;
   }
 
@@ -254,8 +250,8 @@
   .circle1 {
     top: 20%;
     left: 3%;
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     background-color: #3e683b;
     animation: animateScale2 15s infinite ease-in-out;
   }
@@ -438,7 +434,7 @@
     }
   }
   .all-text {
-    color: #8fff86;
+    color: #8FFF86;
   }
   .all-text-p {
     color: rgb(187, 4, 4);
@@ -614,7 +610,7 @@
 
 .footer-content {
   border-top: 0.5px solid #81808079;
-  background: #00000027;
+  background: #101010a2;
 }
 .job {
   border: 0.5px solid #5a5959;
@@ -677,8 +673,6 @@
 @media (max-width : 800px) {
   .testimonial-swiper .swiper-slide:not(.swiper-slide-active) {
     opacity: 0.1;
-    transform: scale(0.9);
-
   }
  
   
