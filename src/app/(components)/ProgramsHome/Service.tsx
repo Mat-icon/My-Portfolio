@@ -16,7 +16,7 @@ interface ProjectType {
 
 const projects: ProjectType[] = [
     {
-    title: "Brabik Smarthomes",
+    title: "Brabik smarthomes",
     time: "2025",
     lang: ["Next.js", "Zustand", "Three.js","Tailwind.css", "Typescript"],  
     color: "#706D63",
@@ -25,7 +25,7 @@ const projects: ProjectType[] = [
     link: "https://brabik.netlify.app/"
   },
     {
-    title: "Noirvik Fashion",
+    title: "Noirvik fashion",
     time: "2025",
     lang: ["Next.js", "Tailwind.css", "Node.js"],  
     color: "#706D63",
@@ -34,7 +34,7 @@ const projects: ProjectType[] = [
     link: "https://noirvik.netlify.app/"
   },
   {
-    title: "BwinTech",
+    title: "Bwintech",
     time: "2025",
     lang: ["Next.js", "Tailwind.css", "Node.js"],
     color: "#706D63",
@@ -44,7 +44,7 @@ const projects: ProjectType[] = [
   },
 
   {
-    title: "Adelehamza Resources",
+    title: "Adelehamza resources",
     time: "2025",
     lang: ["Next.js", "Tailwind.css", "Node.js"],
     link: "https://adelehamzaresources.com/",
@@ -52,26 +52,9 @@ const projects: ProjectType[] = [
     description:
       "A digital consultancy platform that simplifies Nigeria’s building construction documentation process.",
   },
+
   {
-    title: "Delve Learn",
-    lang: ["Tailwindcss", "Next.js", "Php"],
-    color: "#706D63",
-    time: "2024",
-    link: " https://delve.fun/",
-    description:
-      "Learning platform with interactive courses and resources for skill development.",
-  },
-  {
-    title: "Devlinks",
-    lang: ["Next.js", "Tailwind.css", "Firebase"],
-    color: "#000000",
-    time: "2024",
-    link: "https://mathewlinktree.netlify.app/",
-    description:
-      "A personalized link-sharing tool to connect all your social media and portfolio links.",
-  },
-  {
-    title: "Home Loan Hub App",
+    title: "Home loan hub app",
     time: "2025",
     lang: ["Next.js", "AI Integration", "Node.js"],
     color: "#706D63",
@@ -80,7 +63,7 @@ const projects: ProjectType[] = [
     link: "https://home-loan-hub.netlify.app/",
   },
    {
-    title: "Tap2 Member",
+    title: "Tap2 member",
     time: "2025",
     lang: ["Svelte 5", "Convex","tailwind", "clerk", "Sveltekit", "typeScript"],  
     color: "#706D63",
@@ -166,7 +149,7 @@ export default function Home() {
   return (
     <main
       onMouseMove={(e: MouseEvent) => moveItems(e.clientX, e.clientY)}
-      className={`lg:px-[160px] md:px-[100px] poppins px-4 ${styles.projects}`}
+      className={`lg:px-[140px] md:px-[100px] poppins px-4 ${styles.projects}`}
     >
       <div className={styles.body}>
         {projects.map((project, idx) => (

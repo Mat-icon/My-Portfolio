@@ -23,12 +23,12 @@ import {
   FaLinkedin,
   FaTwitter,
 } from "react-icons/fa";
+import { AiOutlineLaptop } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
-import Projects from "../(components)/Projects";
-import AnimatedLetters from "./AnimatedLetters";
 import Services from "../(components)/Programs/Service";
 import Contactbar from "./Contactbar";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const NavItem = ({ number, label, isActive }) => (
   <div
@@ -72,10 +72,48 @@ const FullScreenNav = ({ isOpen, toggleNav }) => (
 );
 
 export default function Project() {
-  const [letterClass, setLetterClass] = useState("text-animate");
-  const nameArray = [" ", "m", "y", "  ", " ", "b", "e", "s", "t", " "];
+  const [hovered, setHovered] = useState(false);
 
-  const collection = ["c", "o", "l", "l", "e", "t", "i", "o", "n"];
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+    },
+  };
+
+  const letter = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  };
+
+  const renderText = (node, keyPrefix = "") => {
+    if (typeof node === "string") {
+      return node.split("").map((char, i) => (
+        <motion.span
+          key={`${keyPrefix}-${i}`}
+          variants={letter}
+          className="inline-block"
+        >
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ));
+    }
+
+    if (Array.isArray(node)) {
+      return node.map((child, i) => renderText(child, `${keyPrefix}-${i}`));
+    }
+
+    if (typeof node === "object" && node !== null && "props" in node) {
+      const element = node;
+      return (
+        <element.type key={keyPrefix} {...element.props}>
+          {renderText(element.props.children, keyPrefix + "-child")}
+        </element.type>
+      );
+    }
+
+    return node;
+  };
 
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
@@ -101,24 +139,30 @@ export default function Project() {
   }, []);
 
   return (
-    <div className=" flex flex-col test text-white border border-gray-500 relative z-40 rounded overflow-hidden selection:bg-red-500 selection:text-white">
+    <div className="flex flex-col test text-white border border-[#6462628c] relative z-40 rounded overflow-hidden selection:bg-red-500 selection:text-white">
       {/* Header */}
       <header
-        className="flex justify-between items-center p-2 border-b border-gray-500"
-        style={{ background: "#0000001f" }}
+        className="flex justify-between items-center h-12 pr-2 border-b border-[#6462628c]"
+        style={{ background: "#101010e1" }}
       >
-        <div className="flex items-center">
-          <FiMenu
-            className="text-lg md:text-2xl cursor-pointer  md:hidden"
-            onClick={toggleNav}
-          />
+        <div className=" flex w-[12%] md:w-[3.1%] h-full border-r border-[#6462628c] justify-center">
+          <div className="rotate-90 gap-[1px] flex items-center">
+            <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg]" />
+            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full" />
+            <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg]" />
+          </div>
         </div>
+
         <div className="flex items-center">
-          <span className="text-lg font-medium text-center fonts">
-            matthew<span className="text-lg text-[#fa9595] ">&lt;ameh&gt;</span>
+          <span className="text-lg tracking-tighter font-medium text-center fonts">
+            matthew
+            <span className="text-lg tracking-tighter text-[#fa9595]">
+              &lt;ameh&gt;
+            </span>
           </span>
         </div>
-        <div className="flex items-center space-x-2 ">
+
+        <div className="hidden md:flex items-center space-x-3 ">
           <VscChromeMinimize
             className="text-sm text-gray-400 hover:text-white"
             style={{ transition: "ease-in 0.5s" }}
@@ -132,6 +176,15 @@ export default function Project() {
             style={{ transition: "ease-in 0.5s" }}
           />
         </div>
+
+          <div className="flex md:hidden items-center">
+          {isNavOpen ? (
+            <FiX className="text-lg cursor-pointer" onClick={toggleNav} />
+          ) : (
+            <FiMenu className="text-lg cursor-pointer" onClick={toggleNav} />
+          )}
+        </div>
+
       </header>
 
       <FullScreenNav isOpen={isNavOpen} toggleNav={toggleNav} />
@@ -139,15 +192,20 @@ export default function Project() {
       {/* Main Content */}
       <div className="flex">
         {/* Sidebar */}
-        <aside className="nav-color hidden md:flex md:flex-col md:items-center md:justify-center md:space-y-6 md:border-r md:border-gray-500 md:p-3 ">
+        <aside
+          style={{ background: "#0000005e" }}
+          className="hidden md:flex md:flex-col md:items-center  md:justify-center md:space-y-6 md:border-r md:border-[#6462628c] md:p-3"
+        >
           <div className="icon-container">
             <Link href="/">
               <FiHome className="text-base hover:text-red-500 cursor-pointer" />
             </Link>
             <span className="badge">home</span>
           </div>
-          <div className="icon-container">
-            <FiCode className="text-base hover:text-red-500 cursor-pointer" />
+           <div className="icon-container">
+            <Link href="/ProjectsPage">
+              <AiOutlineLaptop className="text-base hover:text-red-500 cursor-pointer" />
+            </Link>
             <span className="badge">projects</span>
           </div>
           <div className="icon-container">
@@ -168,68 +226,89 @@ export default function Project() {
         <div className="test3 flex flex-col">
           <main className="w-full header">
             <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
-              {" "}
-              <div className="words-container">
-                <div className="word flex">
-                  <p>&lt;h5&gt;</p>
-                  <p>&lt;br&gt;</p>
-                </div>
-              </div>
+            
               <span className="text-xs poppin text-gray-500 uppercase tracking-wider">
                 Work
               </span>
-              <h1 className="text-5xl tracking-tight md:text-7xl lg:text-[110px] font-normal  mt-4 lg:w-10/12 poppins g">
-                A{" "}
-                <AnimatedLetters
-                  strArray={collection}
-                  letterClass={letterClass}
-                  idx={10}
-                />{" "}
-                of <br />
-                <AnimatedLetters
-                  letterClass={letterClass}
-                  strArray={nameArray}
-                  idx={15}
-                />
-                <span className=" text-[#fa9595]"> projects </span>
+              <h1 className="w-[94%] text-[44px]  tracking-tight md:text-7xl lg:text-[95px] lg:w-10/12 poppins">
+                A collection of <br />
+                best
+                <span className=" text-[#fa9595]"> projects. </span>
               </h1>
-              <p className=" w-11/12 md:w-10/12 lg:w-6/12 2xl:w-5/12 text-[13px] max-w-2xl text-gray-400 mt-8 our-text">
+              <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-tighter md:text-[16px] text-[14px] text-center max-w-2xl text-gray-400 mt-8 our-text">
                 With many years in web development, I acquired extensive
                 experience working on projects across multiple industries and
                 technologies. Let me show you my best creations.
               </p>
             </div>
           </main>
-          {/* <Projects /> */}
+           <style>{`
+        @keyframes scrollWords {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scrollWords 410s linear infinite;
+        }
+      `}</style>
+      <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
+            <div className="relative flex gap-8 text-[460px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000065] font-mono whitespace-nowrap animate-scroll">
+              <p>code</p>
+              <p>beautiful interfaces</p>
+              <p>code</p>
+              <p>design</p>
+              <p>creative logic</p>
+              <p>design</p>
+              {/* Duplicate for seamless loop */}
+              <p>code</p>
+              <p>beautiful interfaces</p>
+              <p>code</p>
+              <p>design</p>
+              <p>creative logic</p>
+              <p>design</p>
+            </div>
+          </div>
           <Services />
           <Contactbar />
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="flex justify-between md:bg-[#0000001f] bg-black/90 h-[48px] w-full z-[99999] absolute bottom-0  items-center pl-2 py-2 pr-3  border-t border-gray-500 text-gray-600">
-        <div className="w-[12%] md:w-[2.5%] h-full bg-red-400 rounded-sm flex items-center justify-center space-x-2">
-          <div className="w-2.5 h-2.5 bg-[#101010e1] rounded-full"></div>
-        </div>
-        <Link
-          href="/contact"
-          style={{ background: "#101010e1" }}
-          className="material-bubble5 hidden md:block w-3/5 md:w-4/12 lg:w-[15%] poppin p-2 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm  items-center justify-center"
-        >
-          <p className="flex items-center justify-center">
-            Let&apos;s-get-in-touch
-            <FaArrowRight className="ml-2" />
-          </p>
-        </Link>
-        <div className="flex space-x-16">
-          <span className="hidden md:block poppin text-[15px] leading-[24px] text-[#979595cc]">
-            Based in Nigeria
-          </span>
-          <div className="hidden md:block text-[15px] poppin text-[#979595cc] local ">
-            Local time <span className="time font-[600]">{currentTime}</span>
+      <section className="flex md:bg-[#0000001f] bg-black/90 h-[48px] w-full z-[99999]">
+        <footer className="flex  h-[48px] w-full z-[99999] absolute bottom-0 justify-between items-center pl-0 py-2 pr-3  border-t border-[#6462628c] text-gray-600">
+          <div className="w-[12%] md:w-[3.1%] h-[48px] bg-[#ff869669] flex items-center justify-center space-x-2">
+            <div className="w-2.5 h-2.5 bg-[#101010e1] rounded-full"></div>
           </div>
-        </div>
-        <div className="flex space-x-4 items-center ">
+
+          <Link
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            href="/contact"
+            style={{ background: "#101010e1" }}
+            className="w-full material-bubble5 hidden md:block  md:w-4/12 lg:w-[18%] py-2 lg:px-4 rounded-md border-[#6462628c] bg-black border text-center lg:text-center text-sm"
+          >
+            {hovered ? (
+              <motion.p
+                className="flex items-center  justify-center tracking-tighter"
+                variants={container}
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+              >
+                {renderText("let's-get-in-touch")}
+                <FaArrowRight className="ml-2" />
+              </motion.p>
+            ) : (
+              <p className="flex items-center text-white  justify-center tracking-tighter">
+                <> let&#39;s-get-in-touch</>
+                <FaArrowRight className="ml-2" />
+              </p>
+            )}
+          </Link>
+
+          {/* <div className="flex space-x-4 items-center ">
           <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
             <FaLinkedin
               className="text-lg hover:text-white cursor-pointer  hover:scale-105"
@@ -256,8 +335,18 @@ export default function Project() {
             className="text-lg hover:text-white cursor-pointer hover:scale-105"
             style={{ transition: "ease-in 0.5s" }}
           />
+        </div> */}
+        </footer>
+        <div className="w-full flex  justify-center space-x-6 text-sm items-center">
+          <span className="hidden md:block tracking-tighter  leading-[24px] text-[#b4b4b4]">
+            Based in Nigeria <span className="text-[7px]">NG</span>
+          </span>
+          <div className="hidden md:block tracking-tighter text-[#b4b4b4]">
+            Localtime <span className="time font-[600]">{currentTime}</span>
+            <span className="text-[14px]"> ☀️</span>
+          </div>
         </div>
-      </footer>
+      </section>
     </div>
   );
 }

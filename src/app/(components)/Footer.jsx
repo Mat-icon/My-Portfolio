@@ -1,14 +1,31 @@
+import { usePathname } from "next/navigation";
 import React from "react";
 
 
 const Footer = () => {
+  const pathname = usePathname();
+  
+  
+    let spanColor;
+    if(pathname === "/"){
+      spanColor = "text-[#8FFF86]"
+    }else if(pathname === "/About"){
+      spanColor = "text-[#95bdfa]"
+    }
+    else if(pathname === "/ProjectsPage"){
+      spanColor = "text-[#fa9595]"
+    }else{
+       spanColor = "text-[#8FFF86]"
+    }
+
+
   return (
     <div className="w-full h-[70vh] tracking-tighter top-full absolute mt-4 footer-content">
       <div className="w-full flex flex-col space-y-52 relative top-1/4  items-center">
         <div className="flex flex-col text-xs md:text-sm sm:flex-col sm:flex md:flex justify-between items-center md:flex-row md:items-center md:space-x-4  w-11/12">
           <span className="text-lg font-normal ">
             matthew 
-             <span style={{ color: "#8FFF86" }}>
+             <span className={`${spanColor}`}>
                 {''}&lt;ameh&gt;
             </span>
           </span>

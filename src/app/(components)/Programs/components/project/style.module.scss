@@ -3,15 +3,22 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 100px;
-    border-top: 1px solid #646262da;
+    padding: 60px 30px;
+    border: 0.5px solid #6462628c;
+    margin-top: 10px;
+    border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s;
+    background: #1010103b;
   
     h2 {
-      font-size: 65px;
+      font-size: 45px;
       margin: 0px;
       font-weight: 400;
+      transition: all 0.4s;
+    }
+
+    h4 ,h3{
       transition: all 0.4s;
     }
   
@@ -19,20 +26,45 @@
       transition: all 0.4s;
       font-weight: 300;
     }
+
+    span{
+      transition: all 0.4s;
+    }
+
+    svg{
+      transition: all 0.4s;
+      opacity: 0;
+    }
   
     &:last-of-type {
       border-bottom: 1px solid #646262da;
     }
   
     &:hover {
-      opacity: 0.5;
+      opacity: 0.8;
   
       h2 {
-        transform: translateX(-10px);
+        transform: translateX(-35px);
+      }
+
+      h3{
+        opacity: 0;
+      }
+
+      svg{
+        opacity: 1;
       }
   
       p {
-        transform: translateX(10px);
+        transform: translateX(-35px);
+      }
+
+      h4{
+        transform: translateX(-35px);
+      }
+
+      span{
+         transform: translateX(-10px);
       }
     }
   
@@ -41,11 +73,11 @@
       padding: 40px 50px;
   
       h2 {
-        font-size: 45px;
+        font-size: 40px;
       }
   
       p {
-        font-size: 16px;
+        font-size: 14px;
       }
     }
   
@@ -61,11 +93,11 @@
       }
   
       p {
-        font-size: 14px;
+        font-size: 11px;
       }
   
       &:hover {
-        h2, p {
+        h2, p, h3, h4, span {
           transform: none; // Disable transform on mobile hover
         }
       }

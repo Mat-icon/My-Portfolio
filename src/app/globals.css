@@ -147,27 +147,50 @@
     animation: animateLight 22s linear infinite;
   }
 
+ 
   .light2 {
-    width: 1px;
-    height: 100px;
-    margin-top: 30px;
-    position: relative;
-    overflow: hidden;
-  }
+  width: 1px; /* base thin width */
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  border-radius: 20px;
+}
 
-  .light2::after {
-    content: "";
-    width: 117px;
-    height: 150px;
-    background: rgb(43, 128, 255);
-    filter: blur(60px);
-    border-radius: 10px;
-    position: absolute;
-    top: 0;
-    left: 0%;
-    z-index: 20;
-    animation: animateLight 10s linear infinite;
-  }
+.light2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 200px;
+  background: #95bdfa;
+  
+  border-radius: 50%;
+  z-index: 20;
+
+  /* 👇 Creates tear shape (narrow top, wide bottom) */
+  clip-path: polygon(
+    0% 90%,
+    90% 10%,
+    70% 90%,
+    80% 40%,
+    85% 60%,
+    80% 80%,
+    70% 90%,
+    50% 100%,
+    30% 90%,
+    20% 80%,
+    15% 60%,
+    20% 40%,
+    30% 20%,
+    40% 10%
+  );
+
+  animation: animateLight 12s linear infinite;
+}
+
 
   .light4 {
   width: 1px; /* base thin width */
@@ -488,7 +511,7 @@
 }
 
 .test4::-webkit-scrollbar-thumb {
-  background-color: #243492;
+  background-color: #95bdfa;
 }
 .test5::-webkit-scrollbar-thumb {
   background-color: #d3d606;
@@ -603,8 +626,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.5);
-    background:  rgba(143, 255, 134, 0.9);
+    transform: scale(2);
   }
   100% {
     transform: scale(1);
@@ -618,26 +640,26 @@
   height: auto;
   border: 0.5px solid #333;
   background: #00000081;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .tech {
   border: 0.5px solid #646262da;
   background: #10101048;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .tech2 {
   border: 0.5px solid #64626275;
   background: #10101038;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 
 
 .me{
-  border: 0.8px solid #5a5959;
-  background: #101010a2;
-  border-radius: 4px;
+  border: 0.8px solid #6462628c;
+  background: #101010e1;
+  border-radius: 3px;
   
 }
 
@@ -646,32 +668,32 @@
   background: #101010a2;
 }
 .job {
-  border: 0.5px solid #5a5959;
-  background: #101010a2;
-  border-radius: 4px;
+  border: 0.5px solid #6462628c;
+  background: #101010e1;
+  border-radius: 3px;
 }
 
 .hobbies {
-  border: 0.5px solid #5a5959;
-  background: #101010a2;
-  border-radius: 4px;
+  border: 0.5px solid #6462628c;
+  background: #101010e1;
+  border-radius: 3px;
 }
 .potrait {
-  border: 0.5px solid #5a5959;
-  background: #101010a2;
-  border-radius: 4px;
+  border: 0.5px solid #6462628c;
+  background: #101010e1;
+  border-radius: 3px;
 }
 
 
 
 .contact-links {
-  border: 0.5px solid #5a5959;
-  background: #101010a2;
-  border-radius: 4px;
+  border: 0.5px solid #6462628c;
+  background: #101010e1;
+  border-radius: 3px;
 }
 
 .about-me-title {
-  border-bottom: 0.5px solid #646262da;
+  border-bottom: 0.5px solid #6462628c;
   text-align: center;
   width: 100%;
   display: flex;
@@ -681,7 +703,7 @@
 
 }
 .about-me-title2 {
-  border-bottom: 0.5px solid #4d4c4c;
+  border-bottom: 0.5px solid #6462628c;
   text-align: center;
   width: 100%;
   display: flex;
@@ -720,10 +742,10 @@
 .testimonial-card {
   height: auto;
   min-height: 400px;
-  background: #10101070;
-  border-radius: 5px;
+  background: #101010e1;
+  border-radius: 3px;
   color: #fff;
-  border: 1px solid rgba(128, 128, 128, 0.651);
+  border: 0.5px solid rgba(128, 128, 128, 0.651);
   transition: transform 0.3s ease-in-out;
 }
 

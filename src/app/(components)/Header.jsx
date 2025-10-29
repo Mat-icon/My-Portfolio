@@ -10,7 +10,7 @@ const Header = () => {
           <span className="text-xs md:text-[13px] poppins mb-6  text-gray-400 uppercase tracking-wider">
             Home
           </span>
-          <h1 className="w-[93%] text-[46px]  tracking-tight md:text-7xl lg:text-[95px] lg:w-10/12 poppins">
+          <div className="w-[94%] text-[44px]  tracking-tight md:text-7xl lg:text-[95px] lg:w-10/12 poppins">
             <h1 className="text-center mx-auto  xl:[word-spacing:-10px]">
               Hi<span className="font-serif">, </span> I
               <span className="font-serif">&apos;</span>m Matthew
@@ -18,7 +18,7 @@ const Header = () => {
               <br className="hidden xl:block" />
               <span className="all-text">creative </span> developer.
             </h1>
-          </h1>
+          </div>
           <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-tighter md:text-[16px] text-[14px] text-center max-w-2xl text-gray-400 mt-8 our-text">
             I bring value to web development projects by merging technical
             expertise with creativity and aesthetics.

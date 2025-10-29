@@ -1,10 +1,10 @@
 @import 'animate.css';
 
-$off: darken(rgb(252, 252, 252), 10%);
+$off: darken(whitesmoke, 10%);
 $offwhite: darken(rgb(238, 223, 11), 10%);
-$offgreen: darken(rgb(64, 238, 11), 10%);
-$offblue: darken(rgb(15, 11, 238), 10%);
-$offred: darken(rgb(238, 11, 11), 10%);
+$offgreen: darken(#8FFF86, 0%);
+$offblue: darken(#95bdfa, 10%);
+$offred: darken(#fa9595, 10%);
 $darkblue: rgb(50,50,60);
 $darkgreen: rgb(16, 16, 17);
 
@@ -180,15 +180,13 @@ $darkgreen: rgb(16, 16, 17);
 
       .material-bubble4{
         background-color: transparent;
-        
-      
         overflow: hidden;
         box-shadow: none;
         position: relative;
         color: white;
         
         &:hover{
-          color: $off;
+          color: black;
         }
         
         &::before{
@@ -210,7 +208,7 @@ $darkgreen: rgb(16, 16, 17);
           left: 0;
           width: 300px;
           height: 200px;
-          background-color: lighten($off, 40%);
+          background-color: lighten($off, 10%);
          
           border-radius: 50%;
           transform: translate(40px, -70px) scale(0.1);
@@ -237,7 +235,7 @@ $darkgreen: rgb(16, 16, 17);
           color: white;
           
           &:hover{
-            color: rgb(83, 83, 231);
+            color: #95bdfa;
           }
           
           &::before{
@@ -336,7 +334,7 @@ $darkgreen: rgb(16, 16, 17);
               color: white;
               
               &:hover{
-                color: rgb(250, 95, 95);
+                color: #fa9595;
               }
               
               &::before{

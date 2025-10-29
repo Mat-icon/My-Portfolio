@@ -1,11 +1,11 @@
-'use client';
-import React, { useState, useEffect, useRef, MouseEvent } from 'react';
-import styles from './style.module.scss';
-import Project from './components/project';
-import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import React, { useState, useEffect, useRef, MouseEvent } from "react";
+import styles from "./style.module.scss";
+import Project from "./components/project";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import Image from "next/image";
+import Link from "next/link";
 
 // interface ProjectType {
 //   title: string;
@@ -51,7 +51,7 @@ import Link from 'next/link';
 //     time: "2024",
 //     link: "https://aiforhomework.com/",
 //   },
-  
+
 //   {
 //     title: "HSR Ministry",
 //     src: "hsr.png",
@@ -106,23 +106,23 @@ interface ProjectType {
 }
 
 const projects: ProjectType[] = [
-    {
+  {
     title: "Brabik SmartHomes",
     time: "2025",
-    lang: ["Next.js", "Tailwind.css", "Zustand", "Three.js", "Typescript"],  
+    lang: ["Next.js", "Tailwind.css", "Zustand", "Three.js", "Typescript"],
     color: "#706D63",
     description:
       "A minimalist e-commerce platform for smart home devices and automation solutions.",
-    link: "https://brabik.netlify.app/"
+    link: "https://brabik.netlify.app/",
   },
-    {
+  {
     title: "Noirvik Fashion",
     time: "2025",
-    lang: ["Next.js", "Tailwind.css", "Node.js"],  
+    lang: ["Next.js", "Tailwind.css", "Node.js"],
     color: "#706D63",
     description:
       "A minimalist e-commerce fashion store showcasing a curated selection of stylish apparel and accessories.",
-    link: "https://noirvik.netlify.app/"
+    link: "https://noirvik.netlify.app/",
   },
   {
     title: "BwinTech",
@@ -170,29 +170,46 @@ const projects: ProjectType[] = [
       "AI-powered chatbot that helps users check loan eligibility in a conversational, friendly way.",
     link: "https://home-loan-hub.netlify.app/",
   },
-   {
+  {
     title: "Tap2 Member",
     time: "2025",
-    lang: ["Svelte 5", "Convex","tailwind", "clerk", "Sveltekit", "typeScript"],  
+    lang: [
+      "Svelte 5",
+      "Convex",
+      "tailwind",
+      "clerk",
+      "Sveltekit",
+      "typeScript",
+    ],
     color: "#706D63",
     description:
       "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
-    link: "https://tap2member.netlify.app/"
+    link: "https://tap2member.netlify.app/",
   },
-    {
+  {
     title: "Telgachain",
     color: "#706D63",
     time: "2023",
-     lang: ["React.JS", "Node.JS","Css"],
+    lang: ["React.JS", "Node.JS", "Css"],
     description:
       "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
-    link: "https://tegalchain.org/"
+    link: "https://tegalchain.org/",
   },
 ];
 const scaleAnimation = {
-  initial: { scale: 0, x: '-50%', y: '-50%' },
-  enter: { scale: 1, x: '-50%', y: '-50%', transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] } },
-  closed: { scale: 0, x: '-50%', y: '-50%', transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] } },
+  initial: { scale: 0, x: "-50%", y: "-50%" },
+  enter: {
+    scale: 1,
+    x: "-50%",
+    y: "-50%",
+    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
+  },
+  closed: {
+    scale: 0,
+    x: "-50%",
+    y: "-50%",
+    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
+  },
 };
 
 interface ModalState {
@@ -202,35 +219,44 @@ interface ModalState {
 
 export default function Home() {
   const [modal, setModal] = useState<ModalState>({ active: false, index: 0 });
-  const { active, index } = modal;
-  const modalContainer = useRef<HTMLDivElement | null>(null);
+  const { active } = modal;
   const cursor = useRef<HTMLDivElement | null>(null);
   const cursorLabel = useRef<HTMLDivElement | null>(null);
 
-  const xMoveContainer = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
-  const yMoveContainer = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
   const xMoveCursor = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
   const yMoveCursor = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
   const xMoveCursorLabel = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
   const yMoveCursorLabel = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
 
   useEffect(() => {
-    if (modalContainer.current && cursor.current && cursorLabel.current) {
-      xMoveContainer.current = gsap.quickTo(modalContainer.current, 'left', { duration: 0.8, ease: 'power3' });
-      yMoveContainer.current = gsap.quickTo(modalContainer.current, 'top', { duration: 0.8, ease: 'power3' });
+    if (cursor.current && cursorLabel.current) {
+      xMoveCursor.current = gsap.quickTo(cursor.current, "left", {
+        duration: 0.5,
+        ease: "power3",
+      });
+      yMoveCursor.current = gsap.quickTo(cursor.current, "top", {
+        duration: 0.5,
+        ease: "power3",
+      });
 
-      xMoveCursor.current = gsap.quickTo(cursor.current, 'left', { duration: 0.5, ease: 'power3' });
-      yMoveCursor.current = gsap.quickTo(cursor.current, 'top', { duration: 0.5, ease: 'power3' });
-
-      xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, 'left', { duration: 0.45, ease: 'power3' });
-      yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, 'top', { duration: 0.45, ease: 'power3' });
+      xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "left", {
+        duration: 0.45,
+        ease: "power3",
+      });
+      yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "top", {
+        duration: 0.45,
+        ease: "power3",
+      });
     }
   }, []);
 
   const moveItems = (x: number, y: number) => {
-    if (xMoveContainer.current && yMoveContainer.current && xMoveCursor.current && yMoveCursor.current && xMoveCursorLabel.current && yMoveCursorLabel.current) {
-      xMoveContainer.current(x);
-      yMoveContainer.current(y);
+    if (
+      xMoveCursor.current &&
+      yMoveCursor.current &&
+      xMoveCursorLabel.current &&
+      yMoveCursorLabel.current
+    ) {
       xMoveCursor.current(x);
       yMoveCursor.current(y);
       xMoveCursorLabel.current(x);
@@ -243,29 +269,41 @@ export default function Home() {
     setModal({ active, index });
   };
 
+  
   return (
-    <main onMouseMove={(e: MouseEvent) => moveItems(e.clientX, e.clientY)} className={`lg:px-[200px] md:px-[100px] px-4 poppins ${styles.projects}`}>
+    <main
+      onMouseMove={(e: MouseEvent) => moveItems(e.clientX, e.clientY)}
+      className={`lg:px-[120px] md:px-[100px] px-4 poppins ${styles.projects}`}
+    >
       <div className={styles.body}>
         {projects.map((project, idx) => (
-          <Project manageModal={manageModal} description={project.description} lang={project.lang} date={project.time} link={project.link} key={idx} index={idx} title={project.title} />
+          <Project
+            manageModal={manageModal}
+            description={project.description}
+            lang={project.lang}
+            date={project.time}
+            link={project.link}
+            key={idx}
+            index={idx}
+            title={project.title}
+          />
         ))}
       </div>
 
       <>
-   
         <motion.div
           ref={cursor}
           className={styles.cursor}
           variants={scaleAnimation}
           initial="initial"
-          animate={active ? 'enter' : 'closed'}
+          animate={active ? "enter" : "closed"}
         />
         <motion.div
           ref={cursorLabel}
           className={styles.cursorLabel}
           variants={scaleAnimation}
           initial="initial"
-          animate={active ? 'enter' : 'closed'}
+          animate={active ? "enter" : "closed"}
         >
           View
         </motion.div>

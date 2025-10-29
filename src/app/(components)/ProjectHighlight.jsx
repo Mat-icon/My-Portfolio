@@ -26,6 +26,9 @@ import Image from "next/image";
 import Services from "../(components)/ProgramsHome/Service";
 import { FaArrowRight } from "react-icons/fa6";
 import Tech from "./Tech";
+
+
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
 }
@@ -38,6 +41,52 @@ const ContactHighlight = () => {
   const potraitRef = useRef(null);
   const contactRef = useRef(null);
   const collabRef = useRef(null);
+
+  const [hovered, setHovered] = useState(false);
+
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+    },
+  };
+
+  const letter = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  };
+
+  
+  const renderText = (node, keyPrefix = "") => {
+    if (typeof node === "string") {
+      return node.split("").map((char, i) => (
+        <motion.span
+          key={`${keyPrefix}-${i}`}
+          variants={letter}
+          className="inline-block"
+        >
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ));
+    }
+
+    if (Array.isArray(node)) {
+      return node.map((child, i) => renderText(child, `${keyPrefix}-${i}`));
+    }
+
+    if (typeof node === "object" && node !== null && "props" in node) {
+      const element = node;
+      return (
+        <element.type key={keyPrefix} {...element.props}>
+          {renderText(element.props.children, keyPrefix + "-child")}
+        </element.type>
+      );
+    }
+
+    return node;
+  };
+
+
   useEffect(() => {
     const draggableElements = [
       elementRef,
@@ -111,13 +160,13 @@ const ContactHighlight = () => {
           </div>
           <div className="about-me-text tracking-tighter p-4 text-[15px] rounded-lg shadow">
             <p>
-              <span className="text-gray-600">1. </span>Nice to meet you!
+              <span className="text-[#c2c0c0da]">1. </span>Nice to meet you!
               I&apos;m
               <span className="text-red-500"> Matthew</span> a{" "}
               <span className="text-blue-400">Freelance Web Developer</span>.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">2. </span>My focus is on{" "}
+              <span className="text-[#c2c0c0da]">2. </span>My focus is on{" "}
               <span className="text-lime-400">creative development</span>: my
               skills can be described as the{" "}
               <span className="text-blue-300">meeting point</span> between{" "}
@@ -125,7 +174,7 @@ const ContactHighlight = () => {
               <span className="text-pink-500">technical proficiency</span>.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">3. </span>I{" "}
+              <span className="text-[#c2c0c0da]">3. </span>I{" "}
               <span className="text-yellow-400">integrate</span> complex but{" "}
               <span className="text-blue-800">smooth animations</span> and{" "}
               <span className="text-green-500">interactions</span> into my
@@ -135,7 +184,7 @@ const ContactHighlight = () => {
               <span className="text-blue-500">memorable experience</span>.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">4. </span>I strive to{" "}
+              <span className="text-[#c2c0c0da]">4. </span>I strive to{" "}
               <span className="text-cyan-500">deliver projects</span> that are{" "}
               <span className="text-purple-400">visually compelling</span> by
               working closely with the{" "}
@@ -175,21 +224,21 @@ const ContactHighlight = () => {
           </div>
           <div className="about-me-text p-4 space-y-3">
             <p className="text-base">
-              <span className="text-gray-600">1.</span> ⚽ Football
+              <span className="text-[#c2c0c0da]">1.</span> ⚽ Football
             </p>
             <p className="text-base">
-              <span className="text-gray-600">2. </span>
+              <span className="text-[#c2c0c0da]">2. </span>
               🎮 Playing games
             </p>
             <p className="text-base">
-              <span className="text-gray-600">3. </span>
+              <span className="text-[#c2c0c0da]">3. </span>
               ✈️ Travelling
             </p>
             <p className="text-base">
-              <span className="text-gray-600">4. </span> 🏋️ Exercise
+              <span className="text-[#c2c0c0da]">4. </span> 🏋️ Exercise
             </p>
             <p className="text-base">
-              <span className="text-gray-600">5. </span> 🎧 Music
+              <span className="text-[#c2c0c0da]">5. </span> 🎧 Music
             </p>
           </div>
         </div>
@@ -198,8 +247,8 @@ const ContactHighlight = () => {
           className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
           ref={contactRef}
         >
-          <div className="about-me-title p-3 text-white">
-            <p className="text-sm">me-online</p>
+          <div className="about-me-title p-2 text-white">
+            <p >me-online</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -219,10 +268,10 @@ const ContactHighlight = () => {
           </div>
           <div className="potrait-img tracking-tighter text-md flex flex-col space-y-3  p-4 shadow">
             <div className="flex">
-              <span className="text-gray-600">1.</span>{" "}
+              <span className="text-[#c2c0c0da]">1.</span>{" "}
               <a
                 href="https://www.linkedin.com/in/rex-technologies-759965238/"
-                className="hover:text-lime-400 decoration-inherit flex items-center"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
               >
@@ -230,10 +279,10 @@ const ContactHighlight = () => {
               </a>
             </div>
             <div className="flex">
-              <span className="text-gray-600">2.</span>{" "}
+              <span className="text-[#c2c0c0da]">2.</span>{" "}
               <a
                 href="https://www.linkedin.com/in/rex-technologies-759965238/"
-                className="hover:text-lime-400 decoration-inherit flex items-center"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
               >
@@ -241,10 +290,10 @@ const ContactHighlight = () => {
               </a>
             </div>
             <div className="flex">
-              <span className="text-gray-600">3.</span>{" "}
+              <span className="text-[#c2c0c0da]">3.</span>{" "}
               <a
                 href="https://github.com/Mat-icon?tab=repositories"
-                className="hover:text-lime-400 decoration-inherit flex items-center"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
               >
@@ -252,10 +301,10 @@ const ContactHighlight = () => {
               </a>
             </div>
             <div className="flex">
-              <span className="text-gray-600">4.</span>{" "}
+              <span className="text-[#c2c0c0da]">4.</span>{" "}
               <a
                 href="https://github.com/Mat-icon?tab=repositories"
-                className="hover:text-lime-400 decoration-inherit flex items-center"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
               >
@@ -264,10 +313,10 @@ const ContactHighlight = () => {
               </a>
             </div>
             <div className="flex">
-              <span className="text-gray-600">5.</span>{" "}
+              <span className="text-[#c2c0c0da]">5.</span>{" "}
               <a
                 href="https://github.com/Mat-icon?tab=repositories"
-                className="hover:text-lime-400 decoration-inherit flex items-center"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
               >
@@ -303,7 +352,7 @@ const ContactHighlight = () => {
           </div>
           <div className="about-me-text p-4 text-[15px]  rounded-lg shadow">
             <p>
-              <span className="text-gray-600">1. </span>My ideal collaboration
+              <span className="text-[#c2c0c0da]">1. </span>My ideal collaboration
               are with
               <span className="text-red-500"> web agencies</span> and
               <span className="text-blue-400">
@@ -317,7 +366,7 @@ const ContactHighlight = () => {
               <span className="text-yellow-300">aesthetics</span>.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">2. </span>I can also work with
+              <span className="text-[#c2c0c0da]">2. </span>I can also work with
               <span className="text-blue-300">
                 {" "}
                 independent professionals
@@ -330,7 +379,7 @@ const ContactHighlight = () => {
               project.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">3. </span>I achieve my
+              <span className="text-[#c2c0c0da]">3. </span>I achieve my
               <span className="text-yellow-400"> best results</span> in
               paternships that are based on
               <span className="text-cyan-400"> mutual understanding</span> and
@@ -344,8 +393,8 @@ const ContactHighlight = () => {
           className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
           ref={potraitRef}
         >
-          <div className="about-me-title p-3 text-white">
-            <p className="text-sm">potrait</p>
+          <div className="about-me-title p-2 text-white">
+            <p >potrait</p>
             <div className="flex space-x-4 text-gray-500 text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -363,7 +412,7 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="w-full h-auto bg-[#4af36f] overflow-hidden ">
+          <div className="w-full h-auto bg-[#8FFF86] overflow-hidden ">
             <img
               src="/images/matthew.png"
               alt="img-face"
@@ -372,15 +421,40 @@ const ContactHighlight = () => {
           </div>
         </div>
       </div>
-      <Link
-        href="/About"
-        style={{ background: "#101010e1" }}
-        className="material-bubble3 w-3/5 tracking-tighter md:w-4/12 poppin lg:w-[12%] p-4 lg:px-4 rounded-[4px] mt-5  border-[0.3px] border-[#5a5959] text-center lg:text-center text-sm flex items-center justify-center"
-      >
-        <p className="flex items-center">
-          about-me <FaArrowRight className="ml-2" />
-        </p>
-      </Link>
+        <Link
+            href="/About"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            style={{ background: "#101010e1" }}
+            className="material-bubble3 w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border-[0.5px] border-[#6462628c] text-center text-sm flex mt-8 items-center justify-center transition-all duration-300"
+          >
+            {hovered ? (
+              <motion.p
+                className="flex items-center  justify-center tracking-tighter"
+                variants={container}
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+              >
+                {renderText("about-me")}
+                <FaArrowRight
+                  className={`transition-transform duration-300 ${
+                    hovered ? "translate-x-1" : ""
+                  }`}
+                />
+              </motion.p>
+            ) : (
+              <p
+                className="flex items-center text-white  justify-center tracking-tighter"
+              >
+                <>
+                  about-me{" "}
+                  <FaArrowRight
+                  className="translate-x-1"
+                  />
+                </>
+              </p>
+            )}
+          </Link>
     </div>
   );
 };
@@ -441,8 +515,8 @@ const TestimonialCardhighlight = ({
   image,
 }) => (
   <div className=" mt-8 testimonial-card b   backdrop-blur-md tracking-tighter w-full md:w-full ">
-    <div className="about-me-title test-color p-3">
-      <p className="text-sm font-semibold">{tech}</p>
+    <div className="about-me-title test-color p-2">
+      <p className="text-sm">{tech}</p>
       <div className="flex space-x-4 text-gray-500 text-xs">
         <FontAwesomeIcon
           icon={faMinus}
@@ -485,7 +559,7 @@ const TestimonialHighlight = () => {
     <div className="relative w-full flex flex-col items-center overflow-hidden">
       {/* BLUR OVERLAYS */}
 
-      <h1 className="w-[96%] poppins text-3xl md:text-[64px] md:leading-[60px] text-center">
+      <h1 className="w-[96%] poppins text-3xl md:text-6xl md:leading-[60px] text-center">
         Nice things <span className="all-text">people say</span>
         <br className="hidden md:block" /> about my work
       </h1>
@@ -510,7 +584,10 @@ const TestimonialHighlight = () => {
         >
           {testimonials.map(
             ({ id, tech, content, author, position, image }) => (
-              <SwiperSlide key={id} className="flex justify-center xl:ml-1 my-10">
+              <SwiperSlide
+                key={id}
+                className="flex justify-center xl:ml-1 my-10"
+              >
                 <TestimonialCardhighlight
                   tech={tech}
                   content={content}
@@ -524,11 +601,11 @@ const TestimonialHighlight = () => {
         </Swiper>
       </div>
 
-      <div className="w-11/12 md:w-[38%]  border border-[#81808079] bg-[#00000027] rounded-[4px] h-10 md:h-12 relative z-10 flex items-center ">
-        <div className="w-[15%] md:w-[10%] h-full hover:bg-[#8eff8669] flex items-center justify-center">
+      <div className="w-11/12 md:w-[38%]  backdrop-blur-md border border-[#6462628c] bg-[#101010e1] rounded-[4px] h-10 md:h-12 relative z-10 flex items-center ">
+        <div className="w-[15%] md:w-[10%] h-full border-r-[0.5px] border-[#6462628c] rounded-l-[3px] hover:bg-[#8FFF86] hover:text-black  flex items-center justify-center">
           ≺
         </div>
-        <div className="w-[1px] bg-[#81808079] h-full"></div>
+        <div className="w-[1px] bg-[#101010e1] h-full"></div>
         <div className="w-[70%] md:w-[80%] flex tracking-tighter items-center justify-center">
           <div className="relative mt-4 w-1/2 h-[1px] bg-gray-700 rounded ">
             <div
@@ -540,8 +617,8 @@ const TestimonialHighlight = () => {
             />
           </div>
         </div>
-        <div className="w-[1px] bg-[#81808079] h-full"></div>
-        <header className="w-[15%] md:w-[10%] h-full hover:bg-[#8eff8669]  flex justify-center items-center  relative z-10">
+        <div className="w-[1px] bg-[#101010e1] h-full"></div>
+        <header className="w-[15%] border-l-[0.5px] border-[#6462628c] md:w-[10%] h-full rounded-r-[3px] hover:bg-[#8FFF86] hover:text-black  flex justify-center items-center  relative z-10">
           ≻
         </header>
       </div>
@@ -621,8 +698,52 @@ const ProjectHighlight = () => {
     },
   };
 
+  const [hovered, setHovered] = useState(false);
+
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+    },
+  };
+
+  const letter = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  };
+
+  
+  const renderText = (node, keyPrefix = "") => {
+    if (typeof node === "string") {
+      return node.split("").map((char, i) => (
+        <motion.span
+          key={`${keyPrefix}-${i}`}
+          variants={letter}
+          className="inline-block"
+        >
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ));
+    }
+
+    if (Array.isArray(node)) {
+      return node.map((child, i) => renderText(child, `${keyPrefix}-${i}`));
+    }
+
+    if (typeof node === "object" && node !== null && "props" in node) {
+      const element = node;
+      return (
+        <element.type key={keyPrefix} {...element.props}>
+          {renderText(element.props.children, keyPrefix + "-child")}
+        </element.type>
+      );
+    }
+
+    return node;
+  };
+
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col mt-14 lg:mt-0 items-center">
       {/* Animated container for staggered children */}
       <motion.div
         initial="hidden"
@@ -675,12 +796,37 @@ const ProjectHighlight = () => {
         >
           <Link
             href="/ProjectsPage"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
             style={{ background: "#101010e1" }}
-            className="material-bubble3 w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border border-gray-600 text-center text-sm flex items-center justify-center"
+            className="material-bubble3 w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border-[0.5px] border-[#6462628c] text-center text-sm flex items-center justify-center transition-all duration-300"
           >
-            <p className="flex items-center justify-center tracking-tighter">
-              all-projects <FaArrowRight className="ml-2" />
-            </p>
+            {hovered ? (
+              <motion.p
+                className="flex items-center  justify-center tracking-tighter"
+                variants={container}
+                initial="hidden"
+                animate={hovered ? "visible" : "hidden"}
+              >
+                {renderText("all-projects")}
+                <FaArrowRight
+                  className={`transition-transform duration-300 ${
+                    hovered ? "translate-x-1" : ""
+                  }`}
+                />
+              </motion.p>
+            ) : (
+              <p
+                className="flex items-center text-white  justify-center tracking-tighter"
+              >
+                <>
+                  all-projects{" "}
+                  <FaArrowRight
+                  className="translate-x-1"
+                  />
+                </>
+              </p>
+            )}
           </Link>
         </motion.div>
 

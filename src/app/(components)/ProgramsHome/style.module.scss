@@ -1,8 +1,6 @@
 .projects{
     display: flex;
     align-items: center;
-    // padding-left: 200px;
-    // padding-right: 200px;
     flex-direction: column;
     margin-top: 50px;
 
@@ -49,8 +47,8 @@
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background:#3dc734;
-        color: white;
+        background:#8FFF86;
+        color: black;
         position: fixed;
         z-index:3;
         display: flex;

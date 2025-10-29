@@ -3,16 +3,16 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 40px;
-    border: 0.5px solid #646262da;
+    padding: 60px 30px;
+    border: 0.5px solid #6462628c;
     margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s;
-    background: #10101048;
+    background: #1010103b;
   
     h2 {
-      font-size: 50px;
+      font-size: 45px;
       margin: 0px;
       font-weight: 400;
       transition: all 0.4s;
@@ -30,13 +30,18 @@
     span{
       transition: all 0.4s;
     }
+
+    svg{
+      transition: all 0.4s;
+      opacity: 0;
+    }
   
     &:last-of-type {
       border-bottom: 1px solid #646262da;
     }
   
     &:hover {
-      opacity: 0.5;
+      opacity: 0.8;
   
       h2 {
         transform: translateX(-35px);
@@ -44,6 +49,10 @@
 
       h3{
         opacity: 0;
+      }
+
+      svg{
+        opacity: 1;
       }
   
       p {
@@ -88,7 +97,7 @@
       }
   
       &:hover {
-        h2, p {
+        h2, p, h3, h4, span {
           transform: none; // Disable transform on mobile hover
         }
       }

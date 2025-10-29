@@ -18,14 +18,14 @@ const Tech = () => {
 
   // 🔹 Define which "light" background and color to use
   const lightClass = pathname === "/" ? "light4" : "light2";
-  const spanColor = pathname === "/" ? "text-green-400" : "text-blue-500";
+  const spanColor = pathname === "/" ? "#8FFF86" : "#95bdfa";
 
   return (
     <div className="w-screen flex flex-col justify-center items-center mt-36">
       <div>
-        <h1 className="text-4xl tracking-tight md:text-[64px] md:leading-[55px] text-center poppins">
+        <h1 className="text-4xl tracking-tight md:text-6xl md:leading-[55px] text-center poppins">
           Some of the techs i<br /> like to{" "}
-          <span className={`${spanColor}`}>work with</span>
+          <span className={`text-[${spanColor}]`}>work with</span>
         </h1>
       </div>
 
@@ -33,8 +33,8 @@ const Tech = () => {
       <div className={lightClass} />
 
       <div className="tech backdrop-blur-md md:w-4/5 w-11/12">
-        <div className="about-me-title p-3">
-          <p className="text-sm md:text-base tracking-tighter font-semibold">techs</p>
+        <div className="about-me-title p-2">
+          <p className="text-sm md:text-base tracking-tighter">Languages & Frameworks</p>
           <div className="flex space-x-4 text-gray-500 text-xs">
             <FontAwesomeIcon
               icon={faMinus}
