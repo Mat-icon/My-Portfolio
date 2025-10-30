@@ -53,7 +53,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-   height: 82vh auto;
+   height: 82.5dvh;
   }
 
   .test3 {
@@ -421,6 +421,14 @@
       left: -30%;
       animation: animateScale2 25s infinite ease-in-out; /* Adjust the height for mobile */
     }
+
+     .test2 {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+   height: 82dvh;
+  }
 
     .circle2 {
       width: 250px; /* Adjust the width for mobile */
