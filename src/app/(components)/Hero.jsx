@@ -174,7 +174,6 @@ export default function Home() {
           <span className="badge">contact</span>
         </div>
       </aside>
-
       <HeroBody isOpen={isNavOpen} toggleNav={toggleNav} />
     </div>
 
@@ -248,7 +247,7 @@ export default function Home() {
   </div>
 
   {/* Mobile - Social Icons */}
-  <div className="flex md:hidden flex-1 justify-end items-center space-x-3 min-w-0 px-2">
+  <div className="flex md:hidden text-[#c2c0c0da] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
     <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
       <FaLinkedin
         className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all"

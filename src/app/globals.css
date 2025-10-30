@@ -40,7 +40,7 @@
   .test {
     width: 98%;
     height: 97%;
-    margin: 10px auto;
+    margin:2px auto;
   }
 
   [data-scroll-container] {
@@ -53,7 +53,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-   
+   height: 82vh;
   }
 
   .test3 {
@@ -417,9 +417,9 @@
     .circle1 {
       width: 250px; /* Adjust the width for mobile */
       height: 380px;
-      top: 33%;
+      top: 43%;
       left: -30%;
-      animation: animateScale 15s infinite ease-in-out; /* Adjust the height for mobile */
+      animation: animateScale2 25s infinite ease-in-out; /* Adjust the height for mobile */
     }
 
     .circle2 {
@@ -427,7 +427,7 @@
       height: 300px;
       bottom: 37%;
       right: -28%; /* Adjust the height for mobile */
-      animation: animateScale 15s infinite ease-in-out;
+      animation: animateScale2 15s infinite ease-in-out;
     }
 
     .circle3 {
@@ -625,7 +625,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(2);
+    transform: scale(1.3);
   }
   100% {
     transform: scale(1);
