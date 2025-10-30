@@ -68,7 +68,7 @@ const HeroBody = ({isOpen, toggleNav }) => {
       `}</style>
     <div className="relative test2 flex flex-col">
       <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
-            <div className="relative flex gap-8 text-[560px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000065] font-mono whitespace-nowrap animate-scroll">
+            <div className="relative flex gap-8 text-[560px] md:text-[800px] space-x-8 font-extrabold tracking-[-40px] text-[#00000044] font-mono whitespace-nowrap animate-scroll">
               <p>code</p>
               <p>beautiful interfaces</p>
               <p>code</p>

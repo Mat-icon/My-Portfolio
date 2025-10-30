@@ -39,8 +39,8 @@
 
   .test {
     width: 98%;
-    height: 97%;
-    margin:2px auto;
+    height: 98%;
+    margin: 10px auto;
   }
 
   [data-scroll-container] {
@@ -53,7 +53,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-   height: 82vh;
+   height: 82vh auto;
   }
 
   .test3 {
@@ -298,20 +298,20 @@
   }
 
   .circle1 {
-    top: 50%;
+    top: 40%;
     left: 5%;
-    width: 300px;
+    width: 600px;
     height: 300px;
-    background-color: #8eff863f;
+    background-color: #8eff8627;
     animation: animateScale2 15s infinite ease-in-out;
     
   }
 
   .circle2 {
     bottom: 44%;
-    right: 10%;
-    background-color: #3e683b;
-    width: 500px;
+    right: 20%;
+    background-color: #3e683bb6;
+    width: 700px;
     height: 400px;
     animation-delay: 5s;
     animation: animateScale2 20s infinite ease-in-out;

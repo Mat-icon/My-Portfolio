@@ -3,12 +3,12 @@ import "./App.scss";
 
 const Header = () => {
   return (
-    <div className="relative z-10 flex flex-col text-center items-center mt-16 md:mt-24">
+    <div className="relative z-10 flex flex-col text-center items-center mt-24 md:mt-24">
       <span className="text-xs md:text-[13px] poppins mb-2 md:mb-4 text-gray-400 uppercase tracking-wider">
         Home
       </span>
-      <div className="w-[94%]  text-[40px] tracking-tight md:text-7xl lg:text-[95px] lg:w-10/12 poppins">
-        <h1 className="text-center mx-auto xl:leading-[82px] leading-[52px] scale-[1.05] md:scale-[0.95] xl:leading-0 xl:[word-spacing:-10px]">
+      <div className="w-[94%] text-[40px] tracking-tight md:text-7xl lg:text-[95px] lg:w-10/12 poppins">
+        <h1 className="text-center mx-auto xl:leading-[82px] leading-[60px] scale-[1.1] md:scale-[0.95] xl:leading-0 xl:[word-spacing:-10px]">
           Hi<span className="font-serif">, </span> I
           <span className="font-serif">&apos;</span>m Matthew
           <span className="font-serif">,</span> a {""}

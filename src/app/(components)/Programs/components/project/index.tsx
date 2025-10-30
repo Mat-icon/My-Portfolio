@@ -38,7 +38,7 @@ export default function Index({
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={` backdrop-blur-md ${styles.project}`}
+        className={` backdrop-blur-sm ${styles.project}`}
       >
         <div className="w-full flex items-start justify-between">
           <div className="flex items-start">
