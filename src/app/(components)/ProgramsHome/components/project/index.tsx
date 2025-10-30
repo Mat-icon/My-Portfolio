@@ -43,7 +43,7 @@ export default function Index({
           <div className="flex items-start">
             <h3 className=" fonts text-[#c2c0c0da] text-[15px] ">{formattedNumber}</h3>
             <div>
-              <div className="ml-4">
+              <div className="ml-2 md:ml-4">
               <h2 className="tracking-tighter lowercase poppins">{title}</h2>
               <h4 className="text-[12px] des tracking-tighter fonts font-light text-slate-300 mb-2">
                 {description}

@@ -273,7 +273,7 @@ export default function Home() {
   return (
     <main
       onMouseMove={(e: MouseEvent) => moveItems(e.clientX, e.clientY)}
-      className={`lg:px-[120px] md:px-[100px] px-4 poppins ${styles.projects}`}
+      className={`lg:px-[120px] md:px-[100px] px-2 poppins ${styles.projects}`}
     >
       <div className={styles.body}>
         {projects.map((project, idx) => (
