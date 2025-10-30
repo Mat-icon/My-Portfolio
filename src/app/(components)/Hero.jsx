@@ -179,7 +179,7 @@ export default function Home() {
     </div>
 
     {/* Footer */}
-    <footer className="flex bg-[#0000001f] h-12 w-full justify-between items-center border-t border-[#6462628c] text-gray-600 relative shrink-0">
+    <footer className="flex bg-[#0000001f] h-[48px] md:h-12 w-full justify-between items-center border-t border-[#6462628c] text-gray-600 relative shrink-0">
       {/* Left section - Green sidebar with pulsing dot */}
       <div className="w-[12%] md:w-[3.1%] h-full bg-[#8eff8669] flex items-center justify-center border-r border-[#6462628c]">
         <div className="relative">
