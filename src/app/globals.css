@@ -53,7 +53,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-   height: 82.5dvh;
+   height: 82vh;
   }
 
   .test3 {
@@ -427,7 +427,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-   height: 82dvh;
+   height: 82vh;
   }
 
     .circle2 {
