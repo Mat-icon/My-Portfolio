@@ -33,14 +33,14 @@ const Tech = () => {
       <div className={lightClass} />
 
       <div className="tech backdrop-blur-md md:w-4/5 w-11/12">
-        <div className="about-me-title p-2">
-          <p className="text-sm md:text-base tracking-tighter">Languages & Frameworks</p>
-          <div className="flex space-x-4 text-gray-500 text-xs">
+        <div className="about-me-title px-4 py-2">
+          <p className="text-sm tracking-[-1px]">Languages & Frameworks</p>
+          <div className="flex items-center space-x-2 text-[#494949] text-xs">
             <FontAwesomeIcon
               icon={faMinus}
               className="hover:text-white cursor-pointer transition ease-in duration-500"
             />
-            <div className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer transition ease-in duration-500"></div>
+            <div className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer transition ease-in duration-500"></div>
             <FontAwesomeIcon
               icon={faX}
               className="hover:text-white cursor-pointer transition ease-in duration-500"

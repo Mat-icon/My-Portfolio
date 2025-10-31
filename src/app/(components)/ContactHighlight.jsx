@@ -120,34 +120,34 @@ const ContactHighlight = () => {
           className="me backdrop-blur-sm md:w-full lg:w-4/5 xl:w-[60%]"
           ref={jobRef}
         >
-          <div className="about-me-title p-2 text-white">
-            <p className="text-base font-[500] tracking-tighter">about-me</p>
-            <div className="flex space-x-4 text-gray-500 text-xs">
+          <div className="about-me-title px-4 py-2 text-white">
+            <p className="text-sm tracking-[-1px] ">about-me</p>
+           <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white "
                 style={{ transition: "ease-in 0.5s" }}
               />
               <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white text-xs"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
           </div>
-          <div className="about-me-text tracking-tighter p-4 text-[15px] rounded-lg shadow">
+          <div className="about-me-text tracking-tighter p-4 text-[15px] rounded-lg">
             <p>
-              <span className="text-[#c2c0c0da]">1. </span>Nice to meet you!
+              <span className="text-[#c2c0c0da]">1 </span>Nice to meet you!
               I&apos;m
               <span className="text-red-500"> Matthew</span> a{" "}
               <span className="text-blue-400">Freelance Web Developer</span>.
             </p>
             <p className="mt-2">
-              <span className="text-[#c2c0c0da]">2. </span>My focus is on{" "}
+              <span className="text-[#c2c0c0da]">2 </span>My focus is on{" "}
               <span className="text-lime-400">creative development</span>: my
               skills can be described as the{" "}
               <span className="text-blue-300">meeting point</span> between{" "}
@@ -155,7 +155,7 @@ const ContactHighlight = () => {
               <span className="text-pink-500">technical proficiency</span>.
             </p>
             <p className="mt-2">
-              <span className="text-[#c2c0c0da]">3. </span>I{" "}
+              <span className="text-[#c2c0c0da]">3 </span>I{" "}
               <span className="text-yellow-400">integrate</span> complex but{" "}
               <span className="text-blue-800">smooth animations</span> and{" "}
               <span className="text-green-500">interactions</span> into my
@@ -165,7 +165,7 @@ const ContactHighlight = () => {
               <span className="text-blue-500">memorable experience</span>.
             </p>
             <p className="mt-2">
-              <span className="text-[#c2c0c0da]">4. </span>I strive to{" "}
+              <span className="text-[#c2c0c0da]">4 </span>I strive to{" "}
               <span className="text-cyan-500">deliver projects</span> that are{" "}
               <span className="text-purple-400">visually compelling</span> by
               working closely with the{" "}
@@ -184,42 +184,42 @@ const ContactHighlight = () => {
           className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/3 h-64"
           ref={hobbiesRef}
         >
-          <div className="about-me-title p-2 text-white">
-            <p className="text-base">hobbies</p>
-            <div className="flex space-x-4 text-gray-500">
+          <div className="about-me-title px-4 py-2 text-white">
+            <p className="text-sm">hobbies</p>
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
-                className="hover:text-white cursor-pointer text-xs"
+                className="hover:text-white hover:border-white "
                 style={{ transition: "ease-in 0.5s" }}
               />
               <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer text-xs"
+                className="hover:text-white hover:border-white text-xs"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
           </div>
           <div className="about-me-text p-4 space-y-3">
             <p className="text-base">
-              <span className="text-[#c2c0c0da]">1.</span> ⚽ Football
+              <span className="text-[#c2c0c0da]">1</span> ⚽ Football
             </p>
             <p className="text-base">
-              <span className="text-[#c2c0c0da]">2. </span>
+              <span className="text-[#c2c0c0da]">2 </span>
               🎮 Playing games
             </p>
             <p className="text-base">
-              <span className="text-[#c2c0c0da]">3. </span>
+              <span className="text-[#c2c0c0da]">3 </span>
               ✈️ Travelling
             </p>
             <p className="text-base">
-              <span className="text-[#c2c0c0da]">4. </span> 🏋️ Exercise
+              <span className="text-[#c2c0c0da]">4 </span> 🏋️ Exercise
             </p>
             <p className="text-base">
-              <span className="text-[#c2c0c0da]">5. </span> 🎧 Music
+              <span className="text-[#c2c0c0da]">5 </span> 🎧 Music
             </p>
           </div>
         </div>
@@ -228,39 +228,39 @@ const ContactHighlight = () => {
           className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
           ref={contactRef}
         >
-          <div className="about-me-title p-2 text-white">
+          <div className="about-me-title px-4 text-sm py-2 text-white">
             <p>me-online</p>
-            <div className="flex space-x-4 text-gray-500 text-xs">
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white "
                 style={{ transition: "ease-in 0.5s" }}
               />
               <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white text-xs"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
           </div>
           <div className="potrait-img tracking-tighter text-md flex flex-col space-y-3  p-4 shadow">
-            <div className="flex">
-              <span className="text-[#c2c0c0da]">1.</span>{" "}
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">1  </span>{" "}
               <a
                 href="https://www.linkedin.com/in/rex-technologies-759965238/"
                 className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
               >
-                linkedin <FiArrowUpRight className="text-lg" />
+                 linkedin <FiArrowUpRight className="text-lg" />
               </a>
             </div>
-            <div className="flex">
-              <span className="text-[#c2c0c0da]">2.</span>{" "}
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">2 </span>{" "}
               <a
                 href="https://www.linkedin.com/in/rex-technologies-759965238/"
                 className="hover:text-[#8FFF86] decoration-inherit flex items-center"
@@ -270,8 +270,8 @@ const ContactHighlight = () => {
                 instagram <FiArrowUpRight className="text-lg" />
               </a>
             </div>
-            <div className="flex">
-              <span className="text-[#c2c0c0da]">3.</span>{" "}
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">3 </span>{" "}
               <a
                 href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-[#8FFF86] decoration-inherit flex items-center"
@@ -281,20 +281,20 @@ const ContactHighlight = () => {
                 github <FiArrowUpRight className="text-lg" />
               </a>
             </div>
-            <div className="flex">
-              <span className="text-[#c2c0c0da]">4.</span>{" "}
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">4 </span>{" "}
               <a
                 href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
               >
-                x &#123;twitter&#125;
+                x&#123;twitter&#125;
                 <FiArrowUpRight className="text-lg" />
               </a>
             </div>
-            <div className="flex">
-              <span className="text-[#c2c0c0da]">5.</span>{" "}
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">5 </span>{" "}
               <a
                 href="https://github.com/Mat-icon?tab=repositories"
                 className="hover:text-[#8FFF86] decoration-inherit flex items-center"
@@ -312,28 +312,28 @@ const ContactHighlight = () => {
           className="me md:w-full  backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto"
           ref={collabRef}
         >
-          <div className="about-me-title p-2 text-white">
+          <div className="about-me-title px-4 text-sm py-2 text-white">
             <p>collaborations</p>
-            <div className="flex space-x-4 text-gray-500 text-xs">
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white "
                 style={{ transition: "ease-in 0.5s" }}
               />
               <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer text-xs"
+                className="hover:text-white hover:border-white text-xs"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
           </div>
-          <div className="about-me-text p-4 text-[15px]  rounded-lg shadow">
+          <div className="p-4 text-[15px] rounded-lg ">
             <p>
-              <span className="text-[#c2c0c0da]">1. </span>My ideal collaboration
+              <span className="text-[#c2c0c0da]">1 </span>My ideal collaboration
               are with
               <span className="text-red-500"> web agencies</span> and
               <span className="text-blue-400">
@@ -347,7 +347,7 @@ const ContactHighlight = () => {
               <span className="text-yellow-300">aesthetics</span>.
             </p>
             <p className="mt-2">
-              <span className="text-[#c2c0c0da]">2. </span>I can also work with
+              <span className="text-[#c2c0c0da]">2 </span>I can also work with
               <span className="text-blue-300">
                 {" "}
                 independent professionals
@@ -360,11 +360,11 @@ const ContactHighlight = () => {
               project.
             </p>
             <p className="mt-2">
-              <span className="text-[#c2c0c0da]">3. </span>I achieve my
+              <span className="text-[#c2c0c0da]">3 </span>I achieve my
               <span className="text-yellow-400"> best results</span> in
               paternships that are based on
               <span className="text-cyan-400"> mutual understanding</span> and
-              <span className="text-green-500"> close collaborations</span>{" "}
+              <span className="text-green-300"> close collaborations</span>{" "}
               between all parties, especially design and development.
             </p>
           </div>
@@ -374,21 +374,21 @@ const ContactHighlight = () => {
           className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
           ref={potraitRef}
         >
-          <div className="about-me-title p-2 text-white">
+          <div className="about-me-title text-sm px-4 py-2 text-white">
             <p>potrait</p>
-            <div className="flex space-x-4 text-gray-500 text-xs">
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white "
                 style={{ transition: "ease-in 0.5s" }}
               />
               <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer text-xs"
+                className="hover:text-white hover:border-white text-xs"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
@@ -407,7 +407,7 @@ const ContactHighlight = () => {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{ background: "#101010e1" }}
-        className="material-bubble3 w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border-[0.5px] border-[#6462628c] text-center text-sm flex mt-8 items-center justify-center transition-all duration-300"
+        className="material-bubble3  hover:border-[#8eff86]  w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border-[0.5px] border-[#6462628c] text-center text-sm flex mt-8 items-center justify-center transition-all duration-300"
       >
         {hovered ? (
           <motion.p

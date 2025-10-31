@@ -9,25 +9,25 @@ const Loader = () => {
         <div className="circle circle2"></div>
       </div>
 
-      <div className="w-11/12 md:w-[40%] backdrop-blur-md border border-[#6462628c] bg-[#101010e1] rounded-[4px] h-10 md:h-12 relative z-10 flex items-center ">
+      <div className="w-11/12 md:w-[40%] backdrop-blur-md border border-[#494949] bg-[#1111101a] rounded-[4px] h-10  relative z-10 flex items-center ">
         <div className="w-[15%] md:w-[10%] flex items-center justify-center rotate-90 gap-[1px]">
           <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg]" />
           <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full" />
           <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg]" />
         </div>
-        <div className="w-[1px] bg-[#81808079] h-full"></div>
-        <div className="w-[70%] md:w-[80%] flex tracking-tighter items-center justify-center">
-          <span className="text-base tracking-tighter  font-medium text-center fonts">
+        <div className="w-[1px] bg-[#494949] h-full"></div>
+        <div className="w-[70%] md:w-[80%]  flex tracking-tighter items-center justify-center">
+          <span className="text-base tracking-[-1px]  font-medium text-center fonts">
             matthew
-            <span className="text-base md:text-lg all-text">&lt;ameh&gt;</span>
+            <span className="text-base all-text">&#123;ameh&#125;</span>
           </span>
         </div>
-        <div className="w-[1px] bg-[#81808079] h-full"></div>
+        <div className="w-[1px] bg-[#494949] h-full"></div>
         <header className="w-[15%] md:w-[10%]  h-12 flex justify-center items-center  relative z-10">
           <Rings
             visible={true}
-            height="45"
-            width="45"
+            height="40"
+            width="40"
             color="#8FFF86"
             ariaLabel="rings-loading"
             wrapperStyle={{}}

@@ -123,22 +123,13 @@ const ProjectHighlight = () => {
   };
 
   return (
-    <div className="flex flex-col mt-8 lg:mt-0 items-center">
+    <div className="flex flex-col items-center">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
         className="flex flex-col items-center w-full"
       >
-        <motion.div
-          ref={sections.light4}
-          custom={0.1}
-          initial="hidden"
-          animate={isVisible.light4 ? "visible" : "hidden"}
-          variants={fadeUpVariant}
-          className="light4"
-        ></motion.div>
-
         <motion.h1
           ref={sections.heading}
           custom={0.2}
@@ -147,7 +138,7 @@ const ProjectHighlight = () => {
           variants={fadeUpVariant}
           className="text-4xl md:text-[64px] tracking-tight text-center poppins"
         >
-          Project <span className="all-text">highlights</span>
+          Projects <span className="all-text">highlight</span>
         </motion.h1>
 
         <motion.div
@@ -158,7 +149,7 @@ const ProjectHighlight = () => {
           variants={fadeUpVariant}
           className="w-full"
         >
-          <Services />
+          <Services  />
         </motion.div>
 
         <motion.div
@@ -174,7 +165,7 @@ const ProjectHighlight = () => {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             style={{ background: "#101010e1" }}
-            className="material-bubble3 w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border-[0.5px] border-[#6462628c] text-center text-sm flex items-center justify-center transition-all duration-300"
+            className="material-bubble3  hover:border-[#8eff86]  w-3/5 md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border-[0.5px] border-[#6462628c] text-center text-sm flex items-center justify-center transition-all duration-300"
           >
             {hovered ? (
               <motion.p

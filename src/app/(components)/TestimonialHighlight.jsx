@@ -63,14 +63,14 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
   <div className=" mt-8 testimonial-card b   backdrop-blur-md tracking-tighter w-full md:w-full ">
     <div className="about-me-title test-color p-2">
       <p className="text-sm">{tech}</p>
-      <div className="flex space-x-4 text-gray-500 text-xs">
+      <div className="flex space-x-2 items-center text-[#494949] text-xs">
         <FontAwesomeIcon
           icon={faMinus}
           className="hover:text-white cursor-pointer"
           style={{ transition: "ease-in 0.5s" }}
         />
         <div
-          className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+          className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer"
           style={{ transition: "ease-in 0.5s" }}
         ></div>
         <FontAwesomeIcon
@@ -89,7 +89,7 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
         height={500}
         src={image}
         alt={author}
-        className="w-42 h-42 md:w-[40px] md:h-[40px] rounded-full mt-4 md:mt-0 object-cover order-2 md:order-none"
+        className="w-[90px] h-[90px] md:w-[40px] md:h-[40px] rounded-full mt-4 md:mt-0 object-cover order-2 md:order-none"
       />
       <p className="w-4/5 mx-auto text-center absolute bottom-4 testimonial-author order-1 md:order-none">
         {author} &#123;&#125; {position}
@@ -159,20 +159,19 @@ const TestimonialHighlight = () => {
         </Swiper>
       </div>
 
-      <div className="w-11/12 md:w-[38%]   backdrop-blur-md border border-[#6462628c] bg-[#101010e1] rounded-[4px] h-12 relative z-10 flex items-center ">
+      <div className="w-11/12 md:w-[38%]   backdrop-blur-md border border-[#494949] bg-[#1111101a] rounded-[4px] h-10 relative z-10 flex items-center ">
         <div
           onClick={handlePrev}
-          className="w-[15%] md:w-[10%] h-full border-r-[0.5px] border-[#6462628c] rounded-l-[3px] hover:bg-[#8FFF86] hover:text-black  flex items-center justify-center cursor-pointer"
+          className="w-[15%] md:w-[10%] h-full border-r-[0.5px] border-[#494949] rounded-l-[3px] hover:text-[#8FFF86]   flex items-center justify-center cursor-pointer"
         >
           <HiChevronLeft className="text-xl" />
         </div>
         <div className="w-[70%] md:w-[90%] flex tracking-tighter items-center justify-center">
-          <div className="relative mt-4 w-full h-[1px] bg-[#6462628c] rounded ">
+          <div className="relative w-full h-[1px] bg-[#494949] rounded ">
             <div
               className="absolute z-10 h-[1px] bg-[#8FFF86] transition-all duration-300"
               style={{
                 width: `${(activeIndex / (testimonials.length - 1)) * 100}%`,
-                filter: "blur(2px)",
               }}
             />
           </div>
@@ -180,7 +179,7 @@ const TestimonialHighlight = () => {
 
         <div
           onClick={handleNext}
-          className="w-[15%] border-l-[0.5px] border-[#6462628c] md:w-[10%] h-full rounded-r-[3px] hover:bg-[#8FFF86] hover:text-black  flex justify-center items-center  relative z-10 cursor-pointer"
+          className="w-[15%] border-l-[0.5px] border-[#494949] md:w-[10%] h-full rounded-r-[3px] hover:text-[#8FFF86]  flex justify-center items-center  relative z-10 cursor-pointer"
         >
           <HiChevronRight className="text-xl" />
         </div>
