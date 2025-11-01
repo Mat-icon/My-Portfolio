@@ -124,33 +124,14 @@ const ProjectHighlight = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
-        className="flex flex-col items-center w-full"
-      >
-        <motion.h1
-          ref={sections.heading}
-          custom={0.2}
-          initial="hidden"
-          animate={isVisible.heading ? "visible" : "hidden"}
-          variants={fadeUpVariant}
-          className="text-4xl md:text-[64px] tracking-tight text-center poppins"
-        >
+      <div className="flex flex-col items-center w-full">
+        <h1 className="text-4xl md:text-[64px] tracking-tight text-center poppins">
           Projects <span className="all-text">highlight</span>
-        </motion.h1>
+        </h1>
 
-        <motion.div
-          ref={sections.services}
-          custom={0.3}
-          initial="hidden"
-          animate={isVisible.services ? "visible" : "hidden"}
-          variants={fadeUpVariant}
-          className="w-full"
-        >
-          <Services  />
-        </motion.div>
+        <div className="w-full">
+          <Services />
+        </div>
 
         <motion.div
           ref={sections.link}
@@ -210,7 +191,7 @@ const ProjectHighlight = () => {
         >
           <Tech />
         </motion.div>
-      </motion.div>
+      </div>
       <TestimonialHighlight />
     </div>
   );

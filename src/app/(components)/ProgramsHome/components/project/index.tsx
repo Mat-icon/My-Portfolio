@@ -208,16 +208,16 @@ export default function Index({
         variants={containerVariant}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="backdrop-blur-sm relative"
+        className="backdrop-blur-sm relative px-[15px] py-[70px] lg:px-[30px] "
         style={{
           display: "flex",
           width: "100%",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "70px 30px",
+          
           border: "0.5px solid #494949",
           marginTop: "15px",
-          borderRadius: "5px",
+          borderRadius: "3px",
           cursor: "pointer",
           transition: "all 0.2s",
           backgroundColor: "color-mix(in oklab, #0f0f0f 25%, transparent)",
@@ -240,9 +240,9 @@ export default function Index({
                   initial="hidden"
                   animate={isVisible ? "visible" : "hidden"}
                   variants={opacityVariant(0.8)}
-                  className="tracking-tighter lowercase poppins"
+                  className="tracking-tighter lowercase poppins text-[36px] xl:text-[45px]"
                   style={{
-                    fontSize: "45px",
+                   
                     margin: "0px",
                     fontWeight: 400,
                     transition: "all 0.4s",
@@ -265,7 +265,7 @@ export default function Index({
                 </motion.h4>
 
                 <div
-                  className="flex flex-wrap gap-2 "
+                  className="flex flex-wrap gap-1 xl:gap-2 "
                   style={{
                     transition: "all 0.4s",
                     fontWeight: 300,
@@ -278,7 +278,7 @@ export default function Index({
                       initial="hidden"
                       animate={isVisible ? "visible" : "hidden"}
                       variants={langItemVariant(idx)}
-                      className="px-4 fonts tracking-tighter py-[5px] border-[0.5px] lowercase border-[#494949] md:text-[12px] rounded-full bg-[#131613] text-[#dfdcdcda] backdrop-blur-md"
+                      className="px-4 fonts tracking-tighter py-[5px] border-[0.5px] lowercase border-[#494949] text-[10px] md:text-[12px] rounded-full bg-[#131613] text-[#dfdcdcda] backdrop-blur-md"
                     >
                       {lan}
                     </motion.span>

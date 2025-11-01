@@ -24,6 +24,11 @@ const ContactHighlight = () => {
   const collabRef = useRef(null);
 
   const [hovered, setHovered] = useState(false);
+  const [jobVisible, setJobVisible] = useState(false);
+  const [hobbiesVisible, setHobbiesVisible] = useState(false);
+  const [contactVisible, setContactVisible] = useState(false);
+  const [collabVisible, setCollabVisible] = useState(false);
+  const [potraitVisible, setPotraitVisible] = useState(false);
 
   const container = {
     hidden: {},
@@ -37,7 +42,19 @@ const ContactHighlight = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
   };
 
-  
+  const containerVariant = {
+    hidden: { opacity: 0, scale: 0.90 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        delay: 0,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
   const renderText = (node, keyPrefix = "") => {
     if (typeof node === "string") {
       return node.split("").map((char, i) => (
@@ -66,7 +83,6 @@ const ContactHighlight = () => {
 
     return node;
   };
-
 
   useEffect(() => {
     const draggableElements = [
@@ -101,11 +117,75 @@ const ContactHighlight = () => {
       });
     }
 
+    // Intersection observers for each card
+    const observerOptions = { threshold: 0.5 };
+
+    const jobObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setJobVisible(true);
+        } else {
+  setIsVisible(false);
+}
+      });
+    }, observerOptions);
+
+    const hobbiesObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setHobbiesVisible(true);
+        }else {
+  setIsVisible(false);
+}
+      });
+    }, observerOptions);
+
+    const contactObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setContactVisible(true);
+        }else {
+  setIsVisible(false);
+}
+      });
+    }, observerOptions);
+
+    const collabObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCollabVisible(true);
+        }else {
+  setIsVisible(false);
+}
+      });
+    }, observerOptions);
+
+    const potraitObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setPotraitVisible(true);
+        }else {
+  setIsVisible(false);
+}
+      });
+    }, observerOptions);
+
+    if (jobRef.current) jobObserver.observe(jobRef.current);
+    if (hobbiesRef.current) hobbiesObserver.observe(hobbiesRef.current);
+    if (contactRef.current) contactObserver.observe(contactRef.current);
+    if (collabRef.current) collabObserver.observe(collabRef.current);
+    if (potraitRef.current) potraitObserver.observe(potraitRef.current);
+
     // Cleanup
     return () => {
       draggableInstances.forEach((instance) => {
         if (instance) instance.kill();
       });
+      jobObserver.disconnect();
+      hobbiesObserver.disconnect();
+      contactObserver.disconnect();
+      collabObserver.disconnect();
+      potraitObserver.disconnect();
     };
   }, []);
 
@@ -116,13 +196,16 @@ const ContactHighlight = () => {
       </h1>
       <div className="light4"></div>
       <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
-        <div
-          className="me backdrop-blur-sm md:w-full lg:w-4/5 xl:w-[60%]"
+        <motion.div
+          className="me  md:w-full lg:w-4/5 xl:w-[60%]"
           ref={jobRef}
+          initial="hidden"
+          animate={jobVisible ? "visible" : "hidden"}
+          variants={containerVariant}
         >
-          <div className="about-me-title px-4 py-2 text-white">
+          <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
             <p className="text-sm tracking-[-1px] ">about-me</p>
-           <div className="flex items-center space-x-2 text-[#494949] text-xs">
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
                 className="hover:text-white hover:border-white "
@@ -139,7 +222,7 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="about-me-text tracking-tighter p-4 text-[15px] rounded-lg">
+          <div className="about-me-text backdrop-blur-sm tracking-tighter p-4 text-[15px] ">
             <p>
               <span className="text-[#c2c0c0da]">1 </span>Nice to meet you!
               I&apos;m
@@ -178,11 +261,14 @@ const ContactHighlight = () => {
               <span className="text-pink-500"> technical SEO aspects.</span>
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/3 h-64"
           ref={hobbiesRef}
+          initial="hidden"
+          animate={hobbiesVisible ? "visible" : "hidden"}
+          variants={containerVariant}
         >
           <div className="about-me-title px-4 py-2 text-white">
             <p className="text-sm">hobbies</p>
@@ -222,11 +308,14 @@ const ContactHighlight = () => {
               <span className="text-[#c2c0c0da]">5 </span> 🎧 Music
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
           ref={contactRef}
+          initial="hidden"
+          animate={contactVisible ? "visible" : "hidden"}
+          variants={containerVariant}
         >
           <div className="about-me-title px-4 text-sm py-2 text-white">
             <p>me-online</p>
@@ -256,7 +345,7 @@ const ContactHighlight = () => {
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
               >
-                 linkedin <FiArrowUpRight className="text-lg" />
+                linkedin <FiArrowUpRight className="text-lg" />
               </a>
             </div>
             <div className="flex space-x-2">
@@ -306,11 +395,14 @@ const ContactHighlight = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="me md:w-full  backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto"
           ref={collabRef}
+          initial="hidden"
+          animate={collabVisible ? "visible" : "hidden"}
+          variants={containerVariant}
         >
           <div className="about-me-title px-4 text-sm py-2 text-white">
             <p>collaborations</p>
@@ -368,11 +460,14 @@ const ContactHighlight = () => {
               between all parties, especially design and development.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
           ref={potraitRef}
+          initial="hidden"
+          animate={potraitVisible ? "visible" : "hidden"}
+          variants={containerVariant}
         >
           <div className="about-me-title text-sm px-4 py-2 text-white">
             <p>potrait</p>
@@ -400,7 +495,7 @@ const ContactHighlight = () => {
               className="h-[275px] w-full object-cover"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
       <Link
         href="/About"

@@ -73,7 +73,7 @@ const Home = () => {
   }
 
   return (
-    <div className="w-full flex justify-center h-screen overflow-hidden bg-[#0f0f0f] relative">
+    <div className="w-full flex justify-center h-dvh overflow-hidden bg-[#0f0f0f] relative">
       {/* Gradient background container */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         {/* Circle 1 - Top Left */}
@@ -97,10 +97,10 @@ const Home = () => {
           ref={circle2Ref}
           className="absolute rounded-full"
           style={{
-            bottom: '50%',
+            bottom: '45%',
             right: '-8%',
-            width: '400px',
-            height: '400px',
+            width: '500px',
+            height: '600px',
             background: 'radial-gradient(circle, rgba(142, 255, 134, 0.6) 0%, rgba(142, 255, 134, 0.3) 40%, transparent 70%)',
             filter: 'blur(100px)',
             transform: 'scale(0.5)',

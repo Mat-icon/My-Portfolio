@@ -20,6 +20,12 @@
     position: sticky;
   }
 
+  @layer utilities {
+  .animate-crazy1 { animation: crazy1 1s ease-in-out infinite alternate; }
+  .animate-crazy2 { animation: crazy2 1s ease-in-out infinite alternate; }
+  .animate-crazy3 { animation: crazy3 1s ease-in-out infinite alternate; }
+}
+
 
   .test2,
   .test3,
@@ -659,6 +665,7 @@
   height: auto;
   border: 0.5px solid #494949;
   border-radius: 3px;
+  padding-bottom: 1.5rem;
 }
 
 .tech {
@@ -715,7 +722,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #00000000;
+ 
 }
 .about-me-title2 {
   border-bottom: 0.5px solid #494949;
@@ -730,42 +737,48 @@
   letter-spacing: -2px;
   word-spacing: -3px;
 } */
-
-.testimonial-swiper .swiper-slide {
-  transition: all 0.3s ease-in-out;
+.testimonial-swiper {
+  width: 100%;
+  padding: 0 20px;
 }
 
+.testimonial-swiper .swiper-slide {
+  transition: all 0.5s ease-in-out;
+  height: auto;
+}
+
+/* Non-active slides - smaller and faded */
 .testimonial-swiper .swiper-slide:not(.swiper-slide-active) {
-  opacity: 0.5;
-  transform: scale(1);
+  opacity: 0.4;
+
+}
+
+/* Active (centered) slide - larger and fully visible */
+.testimonial-swiper .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.05);
+  z-index: 10;
 }
 
 @media (max-width: 800px) {
   .testimonial-swiper .swiper-slide:not(.swiper-slide-active) {
-    opacity: 0.1;
+    opacity: 0.8;
+    transform: scale(0.9);
   }
-}
-
-.testimonial-container {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(250px, 1fr)
-  ); /* Adjust columns responsively */
+  
+  .testimonial-swiper .swiper-slide-active {
+    transform: scale(1);
+  }
 }
 
 .testimonial-card {
   height: auto;
-  min-height: 400px;
+  min-height: 350px;
   border-radius: 3px;
   color: #fff;
   border: 0.5px solid #494949;
-  transition: transform 0.3s ease-in-out;
-}
-
-.active-slide {
-  position: relative;
-  z-index: 20;
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto;
 }
 
 .testimonial-content {
@@ -857,3 +870,30 @@
     opacity: 0.8;
   }
 }
+
+@keyframes crazy1 {
+  0% { transform: rotate(-45deg) scale(1); }
+  25% { transform: rotate(20deg) scale(1.2); }
+  50% { transform: rotate(-90deg) scale(0.9); }
+  75% { transform: rotate(10deg) scale(1.1); }
+  100% { transform: rotate(-45deg) scale(1); }
+}
+
+@keyframes crazy2 {
+  0% { transform: rotate(30deg) scale(1); }
+  20% { transform: rotate(100deg) scale(1.1);  }
+  50% { transform: rotate(-60deg) scale(0.9); }
+  80% { transform: rotate(50deg) scale(1.15); }
+  100% { transform: rotate(30deg) scale(1); }
+}
+
+@keyframes crazy3 {
+  0% { transform: rotate(45deg)  scale(1); color: #8fff86; }
+  30% { transform: rotate(100deg) scale(1.2) ; color: #8fff86}
+  60% { transform: rotate(-30deg) scale(0.95); color: #8fff86}
+  90% { transform: rotate(70deg) scale(1.05);color: #8fff86}
+  100% { transform: rotate(45deg) scale(1); }
+}
+
+/* Tailwind extension */
+

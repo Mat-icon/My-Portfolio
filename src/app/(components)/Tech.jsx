@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
 import { FaCss3, FaDocker, FaGithub, FaReact, FaSass } from "react-icons/fa";
@@ -11,14 +11,61 @@ import {
   RiFirebaseFill,
   RiNodejsFill,
 } from "react-icons/ri";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 const Tech = () => {
   const pathname = usePathname();
-
+  const [hovered, setHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
   // 🔹 Define which "light" background and color to use
   const lightClass = pathname === "/" ? "light4" : "light2";
   const spanColor = pathname === "/" ? "#8FFF86" : "#95bdfa";
+
+  const containerVariant = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        delay: 0,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+    },
+  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="w-screen flex flex-col justify-center items-center mt-36">
@@ -32,7 +79,13 @@ const Tech = () => {
       {/* 🔹 Dynamic light background */}
       <div className={lightClass} />
 
-      <div className="tech glossy-25 backdrop-blur-md md:w-4/5 w-11/12">
+      <motion.div
+        ref={cardRef}
+        initial="hidden"
+        animate={isVisible ? "visible" : "hidden"}
+        variants={containerVariant}
+        className="tech glossy-25 backdrop-blur-md md:w-4/5 w-11/12"
+      >
         <div className="about-me-title px-4 py-2">
           <p className="text-sm tracking-[-1px]">Languages & Frameworks</p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
@@ -68,11 +121,13 @@ const Tech = () => {
               className="text-4xl md:text-6xl text-gray-200 flex items-center flex-col"
             >
               {icon}
-              <span className="text-sm text-gray-300 md:text-base mt-2 tracking-tighter">{label}</span>
+              <span className="text-sm text-gray-300 md:text-base mt-2 tracking-tighter">
+                {label}
+              </span>
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       <div className={lightClass} />
     </div>

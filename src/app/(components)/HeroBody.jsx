@@ -5,7 +5,7 @@ import Header from "./Header";
 import Contactbar from "./Contactbar";
 import FullNav from "./FullNav";
 
-const HeroBody = ({isOpen, toggleNav }) => {
+const HeroBody = ({ isOpen, toggleNav }) => {
   const [isProjectVisible, setIsProjectVisible] = useState(false);
   const [isContactVisible, setIsContactVisible] = useState(false);
   const projectRef = useRef(null);
@@ -53,7 +53,7 @@ const HeroBody = ({isOpen, toggleNav }) => {
 
   return (
     <>
-    <style>{`
+      <style>{`
         @keyframes scrollWords {
           0% {
             transform: translateX(0);
@@ -66,40 +66,36 @@ const HeroBody = ({isOpen, toggleNav }) => {
           animation: scrollWords 410s linear infinite;
         }
       `}</style>
-    <div className="relative  flex flex-col">
-      <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
-            <div className="relative flex gap-8 text-[560px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000044] font-mono whitespace-nowrap animate-scroll">
-              <p>code</p>
-              <p>beautiful interfaces</p>
-              <p>code</p>
-              <p>design</p>
-              <p>creative logic</p>
-              <p>design</p>
-              {/* Duplicate for seamless loop */}
-              <p>code</p>
-              <p>beautiful interfaces</p>
-              <p>code</p>
-              <p>design</p>
-              <p>creative logic</p>
-              <p>design</p>
-            </div>
+      <div className="relative  flex flex-col">
+        <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
+          <div className="relative flex gap-8 text-[560px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000044] font-mono whitespace-nowrap animate-scroll">
+            <p>code</p>
+            <p>beautiful interfaces</p>
+            <p>code</p>
+            <p>design</p>
+            <p>creative logic</p>
+            <p>design</p>
+            {/* Duplicate for seamless loop */}
+            <p>code</p>
+            <p>beautiful interfaces</p>
+            <p>code</p>
+            <p>design</p>
+            <p>creative logic</p>
+            <p>design</p>
           </div>
-      <FullNav isOpen={isOpen} toggleNav={toggleNav} />
+        </div>
+        <FullNav isOpen={isOpen} toggleNav={toggleNav} />
 
-      <Header />
-  <div className="light4 mx-auto my-4" />
-      <div ref={projectRef}>
-        <motion.div
-          initial="hidden"
-          animate={isProjectVisible ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          <ProjectHighlight />
-        </motion.div>
+        <Header />
+        <div className="light4 mx-auto my-4" />
+        <div>
+          <div>
+            <ProjectHighlight />
+          </div>
+        </div>
+
+        <Contactbar />
       </div>
-     
-      <Contactbar />
-    </div>
     </>
   );
 };

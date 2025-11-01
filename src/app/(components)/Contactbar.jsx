@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
@@ -10,25 +10,30 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 const Contactbar = () => {
-  const [hovered, setHovered] = useState(false);
+  const [hoveredBtn1, setHoveredBtn1] = useState(false);
+  const [hoveredBtn2, setHoveredBtn2] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
   const pathname = usePathname();
 
   let spanColor;
-  if (pathname === "/") {
-    spanColor = "bg-[#8FFF86]";
-  } else if (pathname === "/About") {
-    spanColor = "bg-[#95bdfa]";
-  } else if (pathname === "/ProjectsPage") {
-    spanColor = "bg-[#fa9595]";
-  } else {
-    spanColor = "bg-[#8FFF86]";
-  }
+  if (pathname === "/") spanColor = "bg-[#8FFF86]";
+  else if (pathname === "/About") spanColor = "bg-[#95bdfa]";
+  else if (pathname === "/ProjectsPage") spanColor = "bg-[#fa9595]";
+  else spanColor = "bg-[#8FFF86]";
+
+  const containerVariant = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
+    },
+  };
 
   const container = {
     hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-    },
+    visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
   };
 
   const letter = {
@@ -36,64 +41,48 @@ const Contactbar = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
   };
 
-  const renderText = (node, keyPrefix = "") => {
-    if (typeof node === "string") {
-      return node.split("").map((char, i) => (
-        <motion.span
-          key={`${keyPrefix}-${i}`}
-          variants={letter}
-          className="inline-block"
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ));
-    }
+  const renderText = (text, keyPrefix = "") =>
+    text.split("").map((char, i) => (
+      <motion.span
+        key={`${keyPrefix}-${i}`}
+        variants={letter}
+        className="inline-block"
+      >
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    ));
 
-    if (Array.isArray(node)) {
-      return node.map((child, i) => renderText(child, `${keyPrefix}-${i}`));
-    }
-
-    if (typeof node === "object" && node !== null && "props" in node) {
-      const element = node;
-      return (
-        <element.type key={keyPrefix} {...element.props}>
-          {renderText(element.props.children, keyPrefix + "-child")}
-        </element.type>
-      );
-    }
-
-    return node;
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => setIsVisible(entries[0]?.isIntersecting),
+      { threshold: 0.5 }
+    );
+    if (cardRef.current) observer.observe(cardRef.current);
+    return () => cardRef.current && observer.unobserve(cardRef.current);
+  }, []);
 
   return (
-    <div className="w-full  flex  justify-center my-[8%]">
-      <div className="about-me-two glossy-25 w-11/12 backdrop-blur-sm md:w-[75%]">
-        <div className="about-me-title px-4 py-2">
+    <div className="w-full flex justify-center my-[8%]">
+      <motion.div
+        ref={cardRef}
+        initial="hidden"
+        animate={isVisible ? "visible" : "hidden"}
+        variants={containerVariant}
+        className="about-me-two glossy-25 w-11/12 backdrop-blur-sm md:w-[75%]"
+      >
+        <div className="about-me-title px-4 py-2 flex justify-between">
           <p className="text-sm tracking-[-1px]">collaboration</p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
-            <FontAwesomeIcon
-              icon={faMinus}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
-            <div
-              className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            ></div>
-            <FontAwesomeIcon
-              icon={faX}
-              className="hover:text-white cursor-pointer"
-              style={{ transition: "ease-in 0.5s" }}
-            />
+            <FontAwesomeIcon icon={faMinus} className="hover:text-white transition" />
+            <div className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer transition"></div>
+            <FontAwesomeIcon icon={faX} className="hover:text-white transition" />
           </div>
         </div>
+
         <div className="w-full h-auto">
-          <div className="w-full h-auto md:mt-8 mt-4  py-6 poppin flex flex-col lg:flex-row items-center justify-center lg:space-x-10">
+          <div className="w-full md:mt-8 mt-4 py-6 poppin flex flex-col lg:flex-row items-center justify-center lg:space-x-10">
             <div className="relative w-24 h-24 md:w-32 md:h-32">
-              {/* Circle container */}
-              <div
-                className={`relative w-full h-full rounded-full  overflow-y-visible ${spanColor} hi`}
-              >
+              <div className={`relative w-full h-full rounded-full overflow-y-visible ${spanColor}`}>
                 <img
                   src="/images/matthew.png"
                   alt="me"
@@ -105,61 +94,65 @@ const Contactbar = () => {
             <div className="flex flex-col space-y-6">
               <p className="text-center tracking-tighter poppins lg:text-left text-3xl lg:text-6xl font-normal">
                 Let&#39;s work together on your <br />
-                next project .
+                next project.
               </p>
             </div>
           </div>
-          <div className="flex flex-col xl:ml-[22%]  mt-0 xl:mt-[1%]  tracking-tighter items-center md:flex-row md:space-x-2 ">
+
+          {/* Buttons */}
+          <div className="flex flex-col xl:ml-[22%] mt-0 xl:mt-[1%] tracking-tighter items-center md:flex-row md:space-x-2">
+            {/* Button 1 */}
             <Link
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
+              onMouseEnter={() => setHoveredBtn1(true)}
+              onMouseLeave={() => setHoveredBtn1(false)}
               href="/contact"
               style={{ background: "#101010e1" }}
-              className="w-10/12 material-bubble3   hover:border-[#8eff86] md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-[#494949]  border text-center lg:text-center text-sm"
+              className="w-10/12 material-bubble3 hover:border-[#8eff86] md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-[#494949] border text-center text-sm"
             >
-              {hovered ? (
+              {hoveredBtn1 ? (
                 <motion.p
                   className="flex items-center justify-center tracking-[-1px]"
                   variants={container}
                   initial="hidden"
-                  animate={hovered ? "visible" : "hidden"}
+                  animate="visible"
                 >
-                  {renderText("let's-get-in-touch →")}
+                  {renderText("let's-get-in-touch →", "btn1")}
                 </motion.p>
               ) : (
-                <p className="flex items-center text-white  justify-center tracking-[-1px]">
+                <p className="flex items-center text-white justify-center tracking-[-1px]">
                   let&#39;s-get-in-touch →
                 </p>
               )}
             </Link>
 
+            {/* Button 2 */}
             <Link
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
+              onMouseEnter={() => setHoveredBtn2(true)}
+              onMouseLeave={() => setHoveredBtn2(false)}
               href="/cv.pdf"
               download
               style={{ background: "#101010e1" }}
               target="_blank"
-              className="w-10/12 mt-1 md:mt-0  material-bubble3  hover:border-[#8eff86]  md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-[#494949] bg-black border text-center lg:text-center text-sm"
+              className="w-10/12 mt-1 md:mt-0 material-bubble3 hover:border-[#8eff86] md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-[#494949] bg-black border text-center text-sm"
             >
-              {hovered ? (
+              {hoveredBtn2 ? (
                 <motion.p
-                  className="flex items-center tracking-[-1px]  justify-center "
+                  className="flex items-center justify-center tracking-[-1px]"
                   variants={container}
                   initial="hidden"
-                  animate={hovered ? "visible" : "hidden"}
+                  animate="visible"
                 >
-                  {renderText("download cv")}
+                  {renderText("download cv", "btn2")}
                 </motion.p>
               ) : (
-                <p className="flex items-center tracking-[-1px] text-white  justify-center ">
-                  <> download cv</>
+                <p className="flex items-center tracking-[-1px] text-white justify-center">
+                  download cv
                 </p>
               )}
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Footer />
     </div>
   );

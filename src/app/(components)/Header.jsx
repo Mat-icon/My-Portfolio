@@ -73,7 +73,7 @@ const Header = () => {
 
 
   return (
-    <div ref={headerRef} className="relative  h-[60vh]  xl:h-[65vh]  justify-center z-10 flex  text-center items-center">
+    <div ref={headerRef} className="relative  h-[60vh]  xl:h-[62vh]  justify-center z-10 flex  text-center items-center">
       <div className="absolute bottom-0 flex flex-col items-center w-full">
       <span 
         className="text-xs md:text-[13px] poppins mb-2 md:mb-4 text-gray-400 uppercase tracking-wider"

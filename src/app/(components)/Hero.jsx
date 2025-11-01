@@ -104,13 +104,14 @@ export default function Home() {
         className="flex justify-between filter glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
         
       >
-        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center">
-          <div className="rotate-90 gap-[1px] flex items-center">
-            <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg]" />
-            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full" />
-            <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg]" />
-          </div>
-        </div>
+       <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center  group overflow-hidden">
+  <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg] ">
+    <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1  group-hover:border-[#8fff86]" />
+    <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full animate-none group-hover:animate-crazy2 group-hover:border-[#8fff86]" />
+    <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3 group-hover:border-[#8fff86]" />
+  </div>
+</div>
+
         {/* Center name */}
         <div className="flex text-lg items-center">
           <span className=" tracking-tighter font-medium text-center fonts">
@@ -287,7 +288,7 @@ export default function Home() {
           onMouseLeave={() => setHovered(false)}
           href="/contact"
           style={{ background: "#0a0a0afb" }}
-          className="hidden material-bubble3 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[15px] mr-3 rounded-md border-[0.5px] hover:border-[#8eff86] border-[#6462628c] bg-black text-center "
+          className="hidden material-bubble3 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] hover:border-[#8eff86] border-[#6462628c] bg-[#0f0f0f] text-center "
         >
           {hovered ? (
             <motion.p
