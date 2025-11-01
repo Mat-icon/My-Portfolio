@@ -77,11 +77,11 @@ export default function Index({
   };
 
   const opacityVariant = (delay: number) => ({
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0.1 },
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 1,
         delay,
         ease: "easeOut",
       },
