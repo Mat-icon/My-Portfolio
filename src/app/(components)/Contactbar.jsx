@@ -67,7 +67,7 @@ const Contactbar = () => {
 
   return (
     <div className="w-full  flex  justify-center my-[8%]">
-      <div className="about-me-two bg-[#1111101a] w-11/12 backdrop-blur-md md:w-[75%]">
+      <div className="about-me-two glossy-25 w-11/12 backdrop-blur-sm md:w-[75%]">
         <div className="about-me-title px-4 py-2">
           <p className="text-sm tracking-[-1px]">collaboration</p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">

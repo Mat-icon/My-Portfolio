@@ -20,7 +20,7 @@ const Footer = () => {
 
 
   return (
-    <div className="w-full h-[70vh] px-2 xl:px-10 backdrop-blur-sm   tracking-tighter top-full absolute mt-4 footer-content">
+    <div className="w-full h-[70vh] glossy-25 px-2 xl:px-10 backdrop-blur-sm  tracking-tighter top-full absolute mt-4 footer-content">
       <div className="w-full flex flex-col space-y-52 relative top-1/4  items-center">
         <div className="flex flex-col text-sm   sm:flex-col sm:flex md:flex justify-between items-center md:flex-row md:items-center md:space-x-4  w-11/12">
         <div className="flex items-center space-x-2">

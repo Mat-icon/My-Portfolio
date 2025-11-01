@@ -73,14 +73,14 @@ const Header = () => {
 
 
   return (
-    <div ref={headerRef} className="relative  h-[50vh]  xl:h-[60vh]  justify-center z-10 flex  text-center items-center">
+    <div ref={headerRef} className="relative  h-[60vh]  xl:h-[65vh]  justify-center z-10 flex  text-center items-center">
       <div className="absolute bottom-0 flex flex-col items-center w-full">
       <span 
         className="text-xs md:text-[13px] poppins mb-2 md:mb-4 text-gray-400 uppercase tracking-wider"
       >
         Home
       </span>
-      <div className="w-[94%] text-[40px] tracking-tight md:text-7xl lg:text-[95px] lg:w-10/12 poppins">
+      <div className="w-[94%] text-[40px] tracking-tight md:text-7xl lg:text-[88px]  lg:w-9/12 poppins">
         <h1 className="text-center mx-auto">
           <span >
             Hi<span className="font-serif">, </span>

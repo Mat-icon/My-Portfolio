@@ -60,7 +60,7 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ tech, content, author, position, image }) => (
-  <div className=" mt-8 testimonial-card b   backdrop-blur-md tracking-tighter w-full md:w-full ">
+  <div className=" mt-8 testimonial-card glossy-25 b   backdrop-blur-md tracking-tighter w-full md:w-full ">
     <div className="about-me-title test-color p-2">
       <p className="text-sm">{tech}</p>
       <div className="flex space-x-2 items-center text-[#494949] text-xs">

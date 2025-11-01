@@ -9,7 +9,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s;
-    background: #111110;
+      background-color: color-mix(in oklab, #0f0f0f 25%, transparent);
   
     h2 {
       font-size: 45px;

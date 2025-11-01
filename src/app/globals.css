@@ -20,6 +20,7 @@
     position: sticky;
   }
 
+
   .test2,
   .test3,
   .test4,
@@ -279,25 +280,32 @@
   .circle {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(150px);
+   
+    background: #8fff86;
   }
 
   .circle1 {
-    bottom: 10%;
+    top: 20%;
     left: 5%;
-    width: 300px;
-    height: 300px;
-   
+    width: 400px;
+     opacity: 0.5;
+     background: #8eff86af;
+    height: 400px;
+        transform: scale(0.5);
     animation: animateScale2 25s infinite ease-in-out;
   }
 
  .circle2 {
   position: absolute;
-  top: 20%;
+   background: #8eff86af;
+  bottom: 10%;
   right: 8%;
-  width: 700px;
+   opacity: 0.5;
+  width: 400px;
+     transform: scale(0.5);
   height: 400px;
-  animation: animateScale2 34s infinite ease-in-out;
+  animation: animateScale2 30s infinite ease-in-out;
   animation-delay: 5s;
 }
 
@@ -489,7 +497,7 @@
 }
 
 .scrollbar {
- 
+  scrollbar-width: thin;
   scrollbar-color: #8fff86 transparent;
 }
 
@@ -655,7 +663,6 @@
 
 .tech {
   border: 0.5px solid #494949;
-  background: #1111101a;
   border-radius: 3px;
 }
 .tech2 {
@@ -678,6 +685,10 @@
   border: 0.5px solid #494949;
   background: #101010e1;
   border-radius: 3px;
+}
+
+.glossy-25 {
+  background-color: color-mix(in oklab, #0f0f0f 25%, transparent);
 }
 
 .hobbies {
@@ -746,7 +757,6 @@
 .testimonial-card {
   height: auto;
   min-height: 400px;
-  background: #1111108f;
   border-radius: 3px;
   color: #fff;
   border: 0.5px solid #494949;
@@ -836,17 +846,14 @@
 
 @keyframes animateScale2 {
   0% {
-    transform: scale(1);
-    opacity: 0.8;
-     background-color: rgba(36, 77, 33, 0.733);}
+    transform: scale(0.5);
+  }
   50% {
-    transform: scale(2);
-     background-color: #8eff86c7;
+    transform: scale(1.7);
     opacity: 0.4;
   }
   100% {
-    transform: scale(1);
-     background-color: #273C25;
+    transform: scale(0.5);
     opacity: 0.8;
   }
 }

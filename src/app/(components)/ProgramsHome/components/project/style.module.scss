@@ -5,11 +5,11 @@
     align-items: center;
     padding: 70px 30px;
     border: 0.5px solid #494949;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s;
-    background: #1111101a;
+     background-color: color-mix(in oklab, #0f0f0f 25%, transparent);
   
     h2 {
       font-size: 45px;

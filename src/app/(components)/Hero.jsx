@@ -101,7 +101,7 @@ export default function Home() {
     <div className="flex flex-col w-[99%] my-2 h-[98vh] overflow-hidden text-white border border-[#494949] relative z-40 rounded  selection:bg-lime-400 selection:text-white">
       {/* Header */}
       <header
-        className="flex justify-between filter backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
+        className="flex justify-between filter glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
         
       >
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center">
@@ -143,7 +143,7 @@ export default function Home() {
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
         <aside
-          className="hidden md:flex md:flex-col md:items-center backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10"
+          className="hidden md:flex md:flex-col md:items-center glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10"
         >
           <div className="icon-container">
             <Link href="/">
@@ -177,7 +177,7 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="flex bg-[#10101044] h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
+      <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
         {/* Left section - Green sidebar with search icon */}
         <div className="w-[12%] md:w-[3.1%] h-full bg-[#508A4C] flex items-center justify-center border-r border-[#494949] shrink-0">
           <div className="relative flex items-center justify-center">
