@@ -137,7 +137,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded selection:bg-lime-400 selection:text-white">
+    <div className="flex flex-col w-[97%] md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded selection:bg-lime-400 selection:text-white">
       {/* Header */}
       <header className="flex justify-between filter glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0">
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">

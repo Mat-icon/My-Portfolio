@@ -232,7 +232,7 @@ const numberVariant = {
           marginTop: "15px",
           borderRadius: "3px",
           cursor: "pointer",
-          transition: "all 0.2s",
+         
           backgroundColor: "color-mix(in oklab, #0f0f0f 25%, transparent)",
         }}
       >
@@ -340,7 +340,7 @@ const numberVariant = {
         <div className="w-full flex items-start justify-between">
           <div className="flex items-start">
             <motion.h3
-              initial="hidden"
+              initial={false}
               animate={isHovered ? "hovered" : isVisible ? "visible" : "hidden"}
               variants={numberVariant}
               className="fonts text-[#c2c0c0da] text-[15px]"
@@ -352,7 +352,7 @@ const numberVariant = {
               <div className="ml-2 md:ml-4">
                 <h2
                   
-                  className="tracking-tighter lowercase poppins text-[36px] xl:text-[45px]"
+                  className="tracking-tighter lowercase poppins text-[30px] xl:text-[40px]"
                   style={{
                    
                     margin: "0px",
@@ -397,6 +397,7 @@ const numberVariant = {
           </div>
           <div className="flex items-center gap-[1px]">
             <motion.span
+            initial={false}
             
               className="fonts text-sm md:text-[15px] text-[#c2c0c0da]"
               style={{

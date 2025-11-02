@@ -1,33 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const Loader = () => {
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const circleRef = useRef(null);
 
   useEffect(() => {
-    // Start transition after 1.5 seconds
-    const timer = setTimeout(() => {
-      setIsTransitioning(true);
-    }, 1500);
+    if (circleRef.current) {
+      // Create GSAP timeline for spotlight effect
+      const tl = gsap.timeline({ repeat: -1 });
 
-    return () => clearTimeout(timer);
+      tl.to(circleRef.current, {
+        scale: 1.5,
+        filter: "blur(150px)",
+        duration: 3,
+        ease: "power2.inOut",
+        force3D: true,
+        willChange: "transform, filter"
+      })
+      .to(circleRef.current, {
+        scale: 1,
+        filter: "blur(100px)",
+        duration: 3,
+        ease: "power2.inOut",
+        force3D: true,
+        willChange: "transform, filter"
+      });
+    }
   }, []);
 
   return (
-    <div className="w-full h-[100dvh] flex justify-center items-center">
-      <div className="gradient-effect w-full h-full overflow-hidden">
+    <div className="w-full h-[100dvh] flex justify-center items-center relative bg-black overflow-hidden">
+      {/* Spotlight Circle */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div 
-          className={`circle circle1 transition-all duration-[1500ms] ease-out ${
-            !isTransitioning && 'translate-to-center-1'
-          }`}
-        />
-        <div 
-          className={`circle circle2 transition-all duration-[1500ms] ease-out ${
-            !isTransitioning && 'translate-to-center-2'
-          }`}
+          ref={circleRef}
+          className="w-[700px] h-[700px] rounded-full"
+          style={{ 
+            filter: "blur(100px)",
+         background: 'radial-gradient(circle, #8FFF8666 0%, #8FFF8666 35%, transparent 70%)',
+         opacity: 0.4,
+          }}
         />
       </div>
 
-      <div className="w-11/12 md:w-[40%] backdrop-blur-md border border-[#646464ad] bg-[#1111101a] rounded-[4px] h-11 relative z-10 flex items-center">
+      <div className="w-11/12 md:w-[40%] backdrop-blur-md border border-[#646464ad] bg-[#1011105b] rounded-[4px] h-11 relative z-10 flex items-center">
         <div className="w-[15%] md:w-[10%] flex items-center justify-center rotate-90 gap-[1px]">
           <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg]" />
           <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full" />
@@ -35,7 +51,7 @@ const Loader = () => {
         </div>
         <div className="w-[1px] bg-[#646464ad] h-full"></div>
         <div className="w-[70%] md:w-[80%] flex tracking-tighter items-center justify-center">
-          <span className="text-base tracking-[-1px] font-medium text-center fonts">
+          <span className="text-base tracking-[-1px] font-medium text-center text-white">
             matthew
             <span className="text-base all-text">&#123;ameh&#125;</span>
           </span>
@@ -68,24 +84,6 @@ const Loader = () => {
         .animate-pulse-scale-delay {
           animation: pulseScale 1.5s ease-in-out infinite;
           animation-delay: 0.75s;
-        }
-
-        .translate-to-center-1 {
-          transform: translate(calc(50vw + 200px), calc(50vh + 200px));
-        }
-
-        .translate-to-center-2 {
-          transform: translate(calc(50vw - 250px), calc(50vh - 250px));
-        }
-
-        @media (max-width: 768px) {
-          .translate-to-center-1 {
-            transform: translate(calc(50vw + 150px), calc(50vh + 150px));
-          }
-
-          .translate-to-center-2 {
-            transform: translate(calc(50vw - 175px), calc(50vh - 175px));
-          }
         }
       `}</style>
     </div>
