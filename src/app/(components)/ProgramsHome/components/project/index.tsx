@@ -340,7 +340,9 @@ const numberVariant = {
         <div className="w-full flex items-start justify-between">
           <div className="flex items-start">
             <motion.h3
-        
+              initial="hidden"
+              animate={isHovered ? "hovered" : isVisible ? "visible" : "hidden"}
+              variants={numberVariant}
               className="fonts text-[#c2c0c0da] text-[15px]"
               style={{ transition: "all 0.4s" }}
             >
