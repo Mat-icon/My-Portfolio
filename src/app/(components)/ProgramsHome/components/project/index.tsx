@@ -1,7 +1,7 @@
 "use client";
 import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
 interface IndexProps {
@@ -28,9 +28,18 @@ export default function Index({
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isImageHovered, setIsImageHovered] = useState(false);
+  const [isMobileClicked, setIsMobileClicked] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const projectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,7 +50,7 @@ export default function Index({
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.2 }
     );
 
     if (projectRef.current) {
@@ -49,6 +58,7 @@ export default function Index({
     }
 
     return () => {
+      window.removeEventListener('resize', checkMobile);
       if (projectRef.current) {
         observer.unobserve(projectRef.current);
       }
@@ -56,13 +66,24 @@ export default function Index({
   }, []);
 
   const handleMouseEnter = (e: MouseEvent) => {
-    setIsHovered(true);
-    manageModal(true, index, e.clientX, e.clientY);
+    if (!isMobile) {
+      setIsHovered(true);
+      manageModal(true, index, e.clientX, e.clientY);
+    }
   };
 
   const handleMouseLeave = (e: MouseEvent) => {
-    setIsHovered(false);
-    manageModal(false, index, e.clientX, e.clientY);
+    if (!isMobile) {
+      setIsHovered(false);
+      manageModal(false, index, e.clientX, e.clientY);
+    }
+  };
+
+  const handleClick = (e: MouseEvent) => {
+    if (isMobile) {
+      e.preventDefault();
+      setIsMobileClicked(!isMobileClicked);
+    }
   };
 
   const formattedNumber = String(index + 1).padStart(2, "0");
@@ -72,59 +93,39 @@ export default function Index({
     visible: {
       opacity: 1,
       scale: 1,
-      transition: {
-        duration: 0.8,
-        delay: 0,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
+      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
     },
   };
 
-  const opacityVariant = (delay: number) => ({
-    hidden: { opacity: 0.1 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-        delay,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    },
-  });
 
-  const numberVariant = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        delay: 0,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
+ const opacityVariant = () => ({
+  hidden: { },
+  visible: {
+    transition: {
+      duration: 0.8,
+      delay: 0,
+      ease: [0.25, 0.1, 0.25, 1],
     },
-    hovered: {
-      opacity: 0,
-      transition: {
-        duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    },
-  };
+  },
+});
 
-  const langItemVariant = (idx: number) => ({
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: [0, 1, 1],
-      scale: [0.95, 0.95, 1],
-      transition: {
-        duration: 0.6,
-        delay: 1.4 + idx * 0.12,
-        times: [0, 0.4, 1],
-        ease: [0.25, 0.1, 0.25, 1],
-      },
+const numberVariant = {
+  hidden: { },
+  visible: {
+    transition: {
+      duration: 0.8,
+      delay: 0,
+      ease: [0.25, 0.1, 0.25, 1],
     },
-  });
-
+  },
+  hovered: {
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
   // Image variant for container hover (just scale)
   const imageContainerHoverVariant = {
     hidden: { opacity: 0, scale: 0.9, y: 20 },
@@ -141,6 +142,15 @@ export default function Index({
       opacity: 1,
       scale: 1.05,
       y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+      y: 20,
       transition: {
         duration: 0.3,
         ease: [0.25, 0.1, 0.25, 1],
@@ -173,8 +183,8 @@ export default function Index({
     },
     visible: {
       opacity: 1,
-      x: -8 - index * 4,
-      y: 3 + index * 2,
+      x: -5 - index * 3,
+      y: 2 + index * 2,
       transition: {
         duration: 0.4,
         delay: 0.1 + index * 0.05,
@@ -200,20 +210,23 @@ export default function Index({
   };
 
   return (
-    <Link href={link} className="w-full" target="_blank">
+    <Link href={link} className="w-full" target="_blank" onClick={handleClick}>
       <motion.div
         ref={projectRef}
-        initial="hidden"
+         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariant}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="backdrop-blur-sm relative px-[15px] py-[70px] lg:px-[30px] "
+        className={`backdrop-blur-sm relative px-[15px] lg:px-[30px] ${
+          isMobile && isMobileClicked ? 'py-[20px] pb-[70px]' : 'py-[70px]'
+        }`}
         style={{
           display: "flex",
+          flexDirection: isMobile && isMobileClicked ? "column" : "row",
           width: "100%",
           justifyContent: "space-between",
-          alignItems: "center",
+          alignItems: isMobile && isMobileClicked ? "flex-start" : "center",
           
           border: "0.5px solid #494949",
           marginTop: "15px",
@@ -223,12 +236,111 @@ export default function Index({
           backgroundColor: "color-mix(in oklab, #0f0f0f 25%, transparent)",
         }}
       >
+        <AnimatePresence>
+        {isMobile && isMobileClicked && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="w-full mx-auto mb-6 -mt-8"
+            style={{
+              zIndex: 9999,
+              perspective: "1200px",
+            }}
+            onMouseEnter={() => setIsImageHovered(true)}
+            onMouseLeave={() => setIsImageHovered(false)}
+          >
+            {/* 3D Book wrapper */}
+            <motion.div
+              initial="hidden"
+              animate={isImageHovered ? "visible" : "hidden"}
+              variants={bookWrapperVariant}
+              style={{
+                transformStyle: "preserve-3d",
+                position: "relative",
+              }}
+            >
+              {/* Paper stack layers - visible when hovering on image */}
+              {isImageHovered && (
+                <>
+                  {/* Layer 4 - deepest */}
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={paperLayerVariant(3)}
+                    className="absolute top-0 left-0 w-full h-[200px] rounded-[3px] bg-[#0a0a0a9a] border-l border-t border-b border-white/70"
+                    style={{
+                      zIndex: 1,
+                      transformStyle: "preserve-3d",
+                    }}
+                  />
+
+                  {/* Layer 3 */}
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={paperLayerVariant(2)}
+                    className="absolute top-0 left-0 w-full h-[200px] rounded-[3px] bg-[#0d0d0d] border-l border-t border-b border-white/70"
+                    style={{
+                      zIndex: 2,
+                      transformStyle: "preserve-3d",
+                    }}
+                  />
+
+                  {/* Layer 2 */}
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={paperLayerVariant(1)}
+                    className="absolute top-0 left-0 w-full h-[200px] rounded-[3px] bg-[#111111] border-l border-t border-b border-white/70"
+                    style={{
+                      zIndex: 3,
+                      transformStyle: "preserve-3d",
+                    }}
+                  />
+
+                  {/* Layer 1 - closest to main image */}
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={paperLayerVariant(0)}
+                    className="absolute top-0 left-0 w-full h-[200px] rounded-[3px] bg-[#141414] border-l border-t border-b border-white/70"
+                    style={{
+                      zIndex: 4,
+                      transformStyle: "preserve-3d",
+                    }}
+                  />
+                </>
+              )}
+
+              
+
+              {/* Main image */}
+              <motion.div
+                variants={imageVariant}
+                className="relative w-full h-[200px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
+                style={{
+                  zIndex: 5,
+                  transformStyle: "preserve-3d",
+                  backgroundColor: "#000",
+                }}
+              >
+                <Image
+                  src="/images/hsr.png"
+                  alt={title}
+                  fill
+                  className="object-cover rounded-[3px]"
+                />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+        </AnimatePresence>
+
         <div className="w-full flex items-start justify-between">
           <div className="flex items-start">
             <motion.h3
-              initial="hidden"
-              animate={isHovered ? "hovered" : isVisible ? "visible" : "hidden"}
-              variants={numberVariant}
+        
               className="fonts text-[#c2c0c0da] text-[15px]"
               style={{ transition: "all 0.4s" }}
             >
@@ -236,52 +348,46 @@ export default function Index({
             </motion.h3>
             <div>
               <div className="ml-2 md:ml-4">
-                <motion.h2
-                  initial="hidden"
-                  animate={isVisible ? "visible" : "hidden"}
-                  variants={opacityVariant(0.8)}
+                <h2
+                  
                   className="tracking-tighter lowercase poppins text-[36px] xl:text-[45px]"
                   style={{
                    
                     margin: "0px",
                     fontWeight: 400,
                     transition: "all 0.4s",
-                    transform: isHovered ? "translateX(-35px)" : "none",
+                    transform: isHovered && !isMobile ? "translateX(-35px)" : "none",
                   }}
                 >
                   {title}
-                </motion.h2>
-                <motion.h4
-                  initial="hidden"
-                  animate={isVisible ? "visible" : "hidden"}
-                  variants={opacityVariant(1.1)}
+                </h2>
+                <h4
+           
                   className="text-[12px] des tracking-tighter fonts font-light text-slate-400 mb-2"
                   style={{
                     transition: "all 0.4s",
-                    transform: isHovered ? "translateX(-35px)" : "none",
+                    transform: isHovered && !isMobile ? "translateX(-35px)" : "none",
                   }}
                 >
                   {description}
-                </motion.h4>
+                </h4>
 
                 <div
                   className="flex flex-wrap gap-1 xl:gap-2 "
                   style={{
                     transition: "all 0.4s",
                     fontWeight: 300,
-                    transform: isHovered ? "translateX(-35px)" : "none",
+                    transform: isHovered && !isMobile ? "translateX(-35px)" : "none",
                   }}
                 >
                   {lang.map((lan, idx) => (
-                    <motion.span
+                    <span
                       key={idx}
-                      initial="hidden"
-                      animate={isVisible ? "visible" : "hidden"}
-                      variants={langItemVariant(idx)}
+                    
                       className="px-4 fonts tracking-tighter py-[5px] border-[0.5px] lowercase border-[#494949] text-[10px] md:text-[12px] rounded-full bg-[#131613] text-[#dfdcdcda] backdrop-blur-md"
                     >
                       {lan}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -289,13 +395,11 @@ export default function Index({
           </div>
           <div className="flex items-center gap-[1px]">
             <motion.span
-              initial="hidden"
-              animate={isVisible ? "visible" : "hidden"}
-              variants={opacityVariant(0)}
+            
               className="fonts text-sm md:text-[15px] text-[#c2c0c0da]"
               style={{
                 transition: "all 0.4s",
-                transform: isHovered ? "translateX(-10px)" : "none",
+                transform: isHovered && !isMobile ? "translateX(-10px)" : "none",
               }}
             >
               {date}
@@ -308,7 +412,7 @@ export default function Index({
               className="rotate-[1deg]"
               style={{
                 transition: "all 0.4s",
-                opacity: isHovered ? 1 : 0,
+                opacity: isHovered && !isMobile ? 1 : 0,
               }}
             >
               <path
@@ -321,103 +425,107 @@ export default function Index({
             </svg>
           </div>
         </div>
-
-        {/* Image with 3D book effect */}
-        <motion.div
-          initial="hidden"
-          animate={isHovered ? "containerHovered" : "hidden"}
-          variants={imageContainerHoverVariant}
-          className="absolute top-[-2%] left-1/2"
-          style={{
-            transform: "translate(-50%, -50%)",
-            zIndex: 9999,
-            perspective: "1200px",
-          }}
-          onMouseEnter={() => setIsImageHovered(true)}
-          onMouseLeave={() => setIsImageHovered(false)}
-        >
-          {/* 3D Book wrapper */}
+<AnimatePresence>
+        {/* Image with 3D book effect - desktop version */}
+        {!isMobile && isHovered && (
           <motion.div
             initial="hidden"
-            animate={isImageHovered ? "visible" : "hidden"}
-            variants={bookWrapperVariant}
+            animate="containerHovered"
+            exit="exit"
+            variants={imageContainerHoverVariant}
+            className="absolute top-[-2%] left-1/2"
             style={{
-              transformStyle: "preserve-3d",
-              position: "relative",
+              transform: "translate(-50%, -50%)",
+              zIndex: 9999,
+              perspective: "1200px",
             }}
+            onMouseEnter={() => setIsImageHovered(true)}
+            onMouseLeave={() => setIsImageHovered(false)}
           >
-            {/* Paper stack layers - visible when hovering on image */}
-            {isImageHovered && (
-              <>
-                {/* Layer 4 - deepest */}
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={paperLayerVariant(3)}
-                  className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#0a0a0a9a] border-l border-t border-b border-white/70"
-                  style={{
-                    zIndex: 1,
-                    transformStyle: "preserve-3d",
-                  }}
-                />
-
-                {/* Layer 3 */}
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={paperLayerVariant(2)}
-                  className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#0d0d0d] border-l border-t border-b border-white/70"
-                  style={{
-                    zIndex: 2,
-                    transformStyle: "preserve-3d",
-                  }}
-                />
-
-                {/* Layer 2 */}
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={paperLayerVariant(1)}
-                  className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#111111] border-l border-t border-b border-white/70"
-                  style={{
-                    zIndex: 3,
-                    transformStyle: "preserve-3d",
-                  }}
-                />
-
-                {/* Layer 1 - closest to main image */}
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={paperLayerVariant(0)}
-                  className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#141414] border-l border-t border-b border-white/70"
-                  style={{
-                    zIndex: 4,
-                    transformStyle: "preserve-3d",
-                  }}
-                />
-              </>
-            )}
-
-            {/* Main image */}
+            {/* 3D Book wrapper */}
             <motion.div
-              variants={imageVariant}
-              className="relative w-[400px] h-[250px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
+              initial="hidden"
+              animate={isImageHovered ? "visible" : "hidden"}
+              variants={bookWrapperVariant}
               style={{
-                zIndex: 5,
                 transformStyle: "preserve-3d",
-                backgroundColor: "#000",
+                position: "relative",
               }}
             >
-              <Image
-                src="/images/hsr.png"
-                alt={title}
-                fill
-                className="object-cover rounded-[3px]"
-              />
+              {/* Paper stack layers - visible when hovering on image */}
+              {isImageHovered && (
+                <>
+                  {/* Layer 4 - deepest */}
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={paperLayerVariant(3)}
+                    className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#0a0a0a9a] border-l border-t border-b border-white/70"
+                    style={{
+                      zIndex: 1,
+                      transformStyle: "preserve-3d",
+                    }}
+                  />
+
+                  {/* Layer 3 */}
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={paperLayerVariant(2)}
+                    className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#0d0d0d] border-l border-t border-b border-white/70"
+                    style={{
+                      zIndex: 2,
+                      transformStyle: "preserve-3d",
+                    }}
+                  />
+
+                  {/* Layer 2 */}
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={paperLayerVariant(1)}
+                    className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#111111] border-l border-t border-b border-white/70"
+                    style={{
+                      zIndex: 3,
+                      transformStyle: "preserve-3d",
+                    }}
+                  />
+
+                  {/* Layer 1 - closest to main image */}
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={paperLayerVariant(0)}
+                    className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#141414] border-l border-t border-b border-white/70"
+                    style={{
+                      zIndex: 4,
+                      transformStyle: "preserve-3d",
+                    }}
+                  />
+                </>
+              )}
+
+              {/* Main image */}
+              <motion.div
+                variants={imageVariant}
+                className="relative w-[400px] h-[250px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
+                style={{
+                  zIndex: 5,
+                  transformStyle: "preserve-3d",
+                  backgroundColor: "#000",
+                }}
+              >
+                <Image
+                  src="/images/hsr.png"
+                  alt={title}
+                  fill
+                  className="object-cover rounded-[3px]"
+                />
+              </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div>
+        )}
+        </AnimatePresence>
       </motion.div>
     </Link>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   FiMenu,
   FiInstagram,
@@ -28,15 +28,15 @@ import { AiOutlineLaptop } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import HeroBody from "./HeroBody";
-import { color, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
-
   const [hovered, setHovered] = useState(false);
+  const scrollContainerRef = useRef(null);
 
   const container = {
     hidden: {},
@@ -97,26 +97,62 @@ export default function Home() {
     };
   }, []);
 
+  // Lenis Smooth Scroll Setup
+  useEffect(() => {
+    let lenis;
+
+    const initLenis = async () => {
+      // Dynamically import Lenis
+      const Lenis = (await import("@studio-freight/lenis")).default;
+
+      lenis = new Lenis({
+        wrapper: scrollContainerRef.current,
+        content: scrollContainerRef.current,
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    };
+
+    initLenis();
+
+    return () => {
+      if (lenis) {
+        lenis.destroy();
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col w-[99%] my-2 h-[98vh] overflow-hidden text-white border border-[#494949] relative z-40 rounded  selection:bg-lime-400 selection:text-white">
+    <div className="flex flex-col w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded selection:bg-lime-400 selection:text-white">
       {/* Header */}
-      <header
-        className="flex justify-between filter glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
-        
-      >
-       <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center  group overflow-hidden">
-  <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg] ">
-    <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1  group-hover:border-[#8fff86]" />
-    <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full animate-none group-hover:animate-crazy2 group-hover:border-[#8fff86]" />
-    <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3 group-hover:border-[#8fff86]" />
-  </div>
-</div>
+      <header className="flex justify-between filter glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0">
+        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
+          <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
+            <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1 group-hover:border-[#8fff86]" />
+            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full animate-none group-hover:animate-crazy2 group-hover:border-[#8fff86]" />
+            <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3 group-hover:border-[#8fff86]" />
+          </div>
+        </div>
 
         {/* Center name */}
         <div className="flex text-lg items-center">
-          <span className=" tracking-tighter font-medium text-center fonts">
+          <span className="tracking-tighter font-medium text-center fonts">
             matthew
-           <span className="all-text">&#123;ameh&#125;</span>
+            <span className="all-text">&#123;ameh&#125;</span>
           </span>
         </div>
 
@@ -143,9 +179,7 @@ export default function Home() {
       {/* Main Content */}
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside
-          className="hidden md:flex md:flex-col md:items-center glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10"
-        >
+        <aside className="hidden md:flex md:flex-col md:items-center glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container">
             <Link href="/">
               <FiHome className="text-base hover:text-green-300 cursor-pointer" />
@@ -173,7 +207,10 @@ export default function Home() {
         </aside>
 
         {/* Main Content Area with padding for sidebar */}
-        <div className="flex-1 md:pl-[3.1%] scrollbar overflow-x-hidden overflow-y-auto">
+        <div
+          ref={scrollContainerRef}
+          className="flex-1 md:pl-[3.1%] scrollbar overflow-x-hidden overflow-y-auto"
+        >
           <HeroBody isOpen={isNavOpen} toggleNav={toggleNav} />
         </div>
       </div>
@@ -186,89 +223,88 @@ export default function Home() {
           </div>
         </div>
 
-       <div className="hidden md:flex absolute scale-[1.02] left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
-  {/* Location Section */}
-  <motion.div
-    className="tracking-tighter text-[#9D9D9D] cursor-default flex items-baseline"
-    initial="rest"
-    whileHover="hover"
-  >
-    <motion.span
-      className="inline-block tracking-[-1px] whitespace-nowrap"
-      variants={{
-        rest: { x: 0 },
-        hover: { x: -2 },
-      }}
-      transition={{ duration: 0.3 }}
-    >
-      Based in{" "}
-      <motion.span
-        variants={{
-          rest: { color: "#9D9D9D" },
-          hover: { color: "#ffffff" },
-        }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="transition-colors duration-300"
-      >
-        Nigeria
-      </motion.span>
-    </motion.span>
+        <div className="hidden md:flex absolute scale-[1.02] left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
+          {/* Location Section */}
+          <motion.div
+            className="tracking-tighter text-[#9D9D9D] cursor-default flex items-baseline"
+            initial="rest"
+            whileHover="hover"
+          >
+            <motion.span
+              className="inline-block tracking-[-1px] whitespace-nowrap"
+              variants={{
+                rest: { x: 0 },
+                hover: { x: -2 },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              Based in{" "}
+              <motion.span
+                variants={{
+                  rest: { color: "#9D9D9D" },
+                  hover: { color: "#ffffff" },
+                }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="transition-colors duration-300"
+              >
+                Nigeria
+              </motion.span>
+            </motion.span>
 
-    <motion.span
-      className="text-[8px] tracking-wide poppins inline-block ml-1"
-      variants={{
-        rest: { opacity: 0, width: 0 },
-        hover: { opacity: 1, width: "auto" },
-      }}
-      transition={{ duration: 0.3 }}
-    >
-      NG
-    </motion.span>
-  </motion.div>
+            <motion.span
+              className="text-[8px] tracking-wide poppins inline-block ml-1"
+              variants={{
+                rest: { opacity: 0, width: 0 },
+                hover: { opacity: 1, width: "auto" },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              NG
+            </motion.span>
+          </motion.div>
 
-  {/* Local Time Section */}
-  <motion.div
-    className="tracking-[-1px] text-[#9D9D9D] cursor-default flex items-baseline"
-    initial="rest"
-    whileHover="hover"
-  >
-    <motion.span
-      className="inline-block whitespace-nowrap"
-      variants={{
-        rest: { x: 0 },
-        hover: { x: -3 },
-      }}
-      transition={{ duration: 0.3 }}
-    >
-      Localtime{" "}
-      <motion.span
-        className="time font-[600] mx-1 whitespace-nowrap"
-        variants={{
-          rest: { color: "#9D9D9D" },
-          hover: { color: "#ffffff" },
-        }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-      >
-        {currentTime}
-      </motion.span>
-    </motion.span>
+          {/* Local Time Section */}
+          <motion.div
+            className="tracking-[-1px] text-[#9D9D9D] cursor-default flex items-baseline"
+            initial="rest"
+            whileHover="hover"
+          >
+            <motion.span
+              className="inline-block whitespace-nowrap"
+              variants={{
+                rest: { x: 0 },
+                hover: { x: -3 },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              Localtime{" "}
+              <motion.span
+                className="time font-[600] mx-1 whitespace-nowrap"
+                variants={{
+                  rest: { color: "#9D9D9D" },
+                  hover: { color: "#ffffff" },
+                }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              >
+                {currentTime}
+              </motion.span>
+            </motion.span>
 
-    <motion.span
-      className="text-[14px] inline-block"
-      variants={{
-        rest: { opacity: 0, width: 0 },
-        hover: { opacity: 1, width: "auto" },
-      }}
-      transition={{ duration: 0.3 }}
-    >
-      {(() => {
-        const hour = new Date().getHours();
-        return hour >= 6 && hour < 18 ? "☀️" : "🌙";
-      })()}
-    </motion.span>
-  </motion.div>
-</div>
-
+            <motion.span
+              className="text-[14px] inline-block"
+              variants={{
+                rest: { opacity: 0, width: 0 },
+                hover: { opacity: 1, width: "auto" },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {(() => {
+                const hour = new Date().getHours();
+                return hour >= 6 && hour < 18 ? "☀️" : "🌙";
+              })()}
+            </motion.span>
+          </motion.div>
+        </div>
 
         {/* Mobile - Social Icons */}
         <div className="flex md:hidden text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
@@ -288,7 +324,7 @@ export default function Home() {
           onMouseLeave={() => setHovered(false)}
           href="/contact"
           style={{ background: "#0a0a0afb" }}
-          className="hidden material-bubble3 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] hover:border-[#8eff86] border-[#6462628c] bg-[#0f0f0f] text-center "
+          className="hidden material-bubble3 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] hover:border-[#8eff86] border-[#6462628c] bg-[#0f0f0f] text-center"
         >
           {hovered ? (
             <motion.p
