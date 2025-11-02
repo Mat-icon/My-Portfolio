@@ -70,7 +70,7 @@ const Tech = () => {
   return (
     <div className="w-screen flex flex-col justify-center items-center mt-36">
       <div>
-        <h1 className="text-4xl tracking-tight md:text-6xl md:leading-[55px] text-center poppins">
+        <h1 className="text-4xl md:text-[52px]  tracking-tighter md:leading-[60px] text-center poppins">
           Some of the techs i<br /> like to{" "}
           <span className={`text-[${spanColor}]`}>work with</span>
         </h1>
@@ -84,9 +84,9 @@ const Tech = () => {
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariant}
-        className="tech glossy-25 backdrop-blur-md md:w-4/5 w-11/12"
+        className="tech glossy-25  backdrop-blur-md md:w-4/5 w-11/12"
       >
-        <div className="about-me-title px-4 py-2">
+        <div className="about-me-title bg-[#0f0f0f7a] px-4 py-2">
           <p className="text-sm tracking-[-1px]">Languages & Frameworks</p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
             <FontAwesomeIcon

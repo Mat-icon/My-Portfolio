@@ -4,6 +4,7 @@ import ProjectHighlight from "./ProjectHighlight";
 import Header from "./Header";
 import Contactbar from "./Contactbar";
 import FullNav from "./FullNav";
+import LuminousBeam from "./LuminousBeam"; // Import the new component
 
 const HeroBody = ({ isOpen, toggleNav }) => {
   const [isProjectVisible, setIsProjectVisible] = useState(false);
@@ -16,15 +17,15 @@ const HeroBody = ({ isOpen, toggleNav }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.target === projectRef.current) {
-            setIsProjectVisible(entry.isIntersecting); // Trigger animation when in view
+            setIsProjectVisible(entry.isIntersecting);
           }
           if (entry.target === contactRef.current) {
-            setIsContactVisible(entry.isIntersecting); // Trigger animation when in view
+            setIsContactVisible(entry.isIntersecting);
           }
         });
       },
       {
-        threshold: 0.05, // Adjust the threshold as needed for visibility
+        threshold: 0.05,
       }
     );
 
@@ -45,7 +46,6 @@ const HeroBody = ({ isOpen, toggleNav }) => {
     };
   }, []);
 
-  // Define animation for ProjectHighlight and Contactbar
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -66,8 +66,8 @@ const HeroBody = ({ isOpen, toggleNav }) => {
           animation: scrollWords 410s linear infinite;
         }
       `}</style>
-      <div className="relative  flex flex-col">
-        <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
+      <div className="relative flex flex-col">
+        <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center">
           <div className="relative flex gap-8 text-[560px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000044] font-mono whitespace-nowrap animate-scroll">
             <p>code</p>
             <p>beautiful interfaces</p>
@@ -75,7 +75,6 @@ const HeroBody = ({ isOpen, toggleNav }) => {
             <p>design</p>
             <p>creative logic</p>
             <p>design</p>
-            {/* Duplicate for seamless loop */}
             <p>code</p>
             <p>beautiful interfaces</p>
             <p>code</p>
@@ -87,7 +86,18 @@ const HeroBody = ({ isOpen, toggleNav }) => {
         <FullNav isOpen={isOpen} toggleNav={toggleNav} />
 
         <Header />
-        <div className="light4 mx-auto my-4" />
+        
+        {/* Replace light4 with LuminousBeam */}
+        <div className="mx-auto my-4">
+          <LuminousBeam 
+            height="70px"
+            color="#8fff86"
+            thickness="1.5px"
+            glowIntensity={1}
+            animationDuration="4s"
+          />
+        </div>
+
         <div>
           <div>
             <ProjectHighlight />

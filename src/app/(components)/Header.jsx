@@ -80,7 +80,7 @@ const Header = () => {
       >
         Home
       </span>
-      <div className="w-[94%] text-[40px] tracking-tight md:text-7xl lg:text-[88px]  lg:w-9/12 poppins">
+      <div className="w-[94%] text-[40px] tracking-tighter md:text-7xl lg:text-[88px]  lg:w-9/12 poppins">
         <h1 className="text-center mx-auto">
           <span >
             Hi<span className="font-serif">, </span>

@@ -10,6 +10,7 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
+
 const testimonials = [
   {
     id: 1,
@@ -24,7 +25,7 @@ const testimonials = [
     id: 2,
     tech: "testimonials",
     content:
-      "Matthew’s dedication to delivering exceptional work truly stands out. He approaches each challenge with thoughtful precision and ensures that no detail is overlooked. During our collaboration, he consistently demonstrated strong problem-solving skills and an impressive sense of design and functionality. His professionalism and technical acumen make him an invaluable asset to any team.",
+      "Matthew's dedication to delivering exceptional work truly stands out. He approaches each challenge with thoughtful precision and ensures that no detail is overlooked. During our collaboration, he consistently demonstrated strong problem-solving skills and an impressive sense of design and functionality. His professionalism and technical acumen make him an invaluable asset to any team.",
     author: "Abiodun Illori",
     position: "Chief Executive Officer",
     image: "/images/abiodun.png",
@@ -42,7 +43,7 @@ const testimonials = [
     id: 4,
     tech: "testimonials",
     content:
-      "Matthew consistently goes above and beyond expectations. His attention to detail, deep understanding of frontend architecture, and creative thinking make him an exceptional collaborator. He approaches every task with a problem-solving mindset and a genuine desire to create the best possible outcome. I’ve seen him handle complex requirements effortlessly, always delivering polished and scalable solutions.",
+      "Matthew consistently goes above and beyond expectations. His attention to detail, deep understanding of frontend architecture, and creative thinking make him an exceptional collaborator. He approaches every task with a problem-solving mindset and a genuine desire to create the best possible outcome. I've seen him handle complex requirements effortlessly, always delivering polished and scalable solutions.",
     author: "Abiodun Illori",
     position: "Chief Executive Officer",
     image: "/images/abiodun.png",
@@ -51,7 +52,7 @@ const testimonials = [
     id: 5,
     tech: "testimonials",
     content:
-      "Matthew is a talented developer with a great sense for design and user experience. He is highly collaborative and receptive to feedback, making the entire design-to-development process smooth and efficient. His ability to bring creative concepts to life through clean, structured code is inspiring. I admire his professionalism, consistency, and dedication to producing high-quality work that aligns perfectly with the project’s vision.",
+      "Matthew is a talented developer with a great sense for design and user experience. He is highly collaborative and receptive to feedback, making the entire design-to-development process smooth and efficient. His ability to bring creative concepts to life through clean, structured code is inspiring. I admire his professionalism, consistency, and dedication to producing high-quality work that aligns perfectly with the project's vision.",
     author: "Christopher Victor",
     position: "UI/UX Designer",
     image: "/images/a.png",
@@ -97,7 +98,7 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
           {content}
         </p>
         <p className="testimonial-author mt-6  [word-spacing:-3px] text-gray-400">
-          <span className="all-text">{author}</span> // {position}
+          <span className="all-text">{author}</span> &#47;&#47; {position}
         </p>
       </div>
     </div>
@@ -122,7 +123,62 @@ const TestimonialHighlight = () => {
 
   return (
     <div className="relative w-full flex flex-col items-center overflow-hidden">
-      <h1 className="w-[96%] poppins text-3xl md:text-6xl md:leading-[60px] text-center">
+      <style>{`
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+            filter: brightness(1);
+          }
+          50% {
+            opacity: 0.85;
+            filter: brightness(1.2);
+          }
+        }
+
+        .luminous-tracker-beam {
+          position: absolute;
+          left: 0;
+          height: 100%;
+          background: linear-gradient(
+            to right,
+            transparent 0%,
+            #8FFF8633 5%,
+            #8FFF86cc 15%,
+            #8FFF86 50%,
+            #8FFF86cc 85%,
+            #8FFF8633 95%,
+            transparent 100%
+          );
+          box-shadow: 
+            0 0 10px #8FFF86cc,
+            0 0 20px #8FFF8699,
+            0 0 40px #8FFF8666,
+            0 0 80px #8FFF8633;
+          animation: pulse 2s ease-in-out infinite;
+          transition: width 0.8s ease-out;
+        }
+
+        .tracker-static-glow {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to right,
+            transparent 0%,
+            #ffffff1a 20%,
+            #ffffff33 50%,
+            #ffffff1a 80%,
+            transparent 100%
+          );
+          box-shadow: 
+            0 0 5px #8FFF864d,
+            0 0 10px #8FFF8633;
+        }
+      `}</style>
+
+      <h1 className="w-[96%] poppins text-3xl md:text-[52px]  tracking-tighter md:leading-[60px] text-center">
         Nice things <span className="all-text">people say</span>
         <br className="hidden md:block" /> about my work
       </h1>
@@ -162,7 +218,6 @@ const TestimonialHighlight = () => {
                 const slideProgress = slide.progress;
                 const absProgress = Math.abs(slideProgress);
 
-                // Scale effect: center slide is 1.05, others fade to 0.85
                 const scale = 1.05 - Math.min(absProgress * 0.2, 0.2);
                 const opacity = 1 - Math.min(absProgress * 0.4, 0.5);
 
@@ -201,9 +256,10 @@ const TestimonialHighlight = () => {
           <HiChevronLeft className="text-xl" />
         </div>
         <div className="w-[70%] md:w-[90%] flex tracking-tighter items-center justify-center">
-          <div className="relative w-10/12 h-[1px] bg-[#494949] rounded">
-            <div
-              className="absolute z-10 h-[1px] bg-[#8FFF86] transition-all duration-300"
+          <div className="relative w-10/12 h-[2px] overflow-hidden rounded">
+            <div className="tracker-static-glow" />
+            <div 
+              className="luminous-tracker-beam" 
               style={{
                 width: `${(activeIndex / (testimonials.length - 1)) * 100}%`,
               }}

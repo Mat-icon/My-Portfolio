@@ -30,6 +30,13 @@ const ContactHighlight = () => {
   const [collabVisible, setCollabVisible] = useState(false);
   const [potraitVisible, setPotraitVisible] = useState(false);
 
+  // Track if animation has already played
+  const [jobAnimated, setJobAnimated] = useState(false);
+  const [hobbiesAnimated, setHobbiesAnimated] = useState(false);
+  const [contactAnimated, setContactAnimated] = useState(false);
+  const [collabAnimated, setCollabAnimated] = useState(false);
+  const [potraitAnimated, setPotraitAnimated] = useState(false);
+
   const container = {
     hidden: {},
     visible: {
@@ -103,9 +110,6 @@ const ContactHighlight = () => {
           edgeResistance: 0.92,
           bounds: ".contact-body",
           inertia: true,
-          onDragStart: () => console.log("Drag started"),
-          onDrag: () => console.log("Dragging"),
-          onDragEnd: () => console.log("Drag ended"),
         })[0];
       }
       return null;
@@ -117,56 +121,51 @@ const ContactHighlight = () => {
       });
     }
 
-    // Intersection observers for each card
+    // Intersection observers for each card - only trigger once
     const observerOptions = { threshold: 0.5 };
 
     const jobObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !jobAnimated) {
           setJobVisible(true);
-        } else {
-  setIsVisible(false);
-}
+          setJobAnimated(true);
+        } 
       });
     }, observerOptions);
 
     const hobbiesObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hobbiesAnimated) {
           setHobbiesVisible(true);
-        }else {
-  setIsVisible(false);
-}
+          setHobbiesAnimated(true);
+        }
       });
     }, observerOptions);
 
     const contactObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !contactAnimated) {
           setContactVisible(true);
-        }else {
-  setIsVisible(false);
-}
+          setContactAnimated(true);
+        }
       });
     }, observerOptions);
 
     const collabObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !collabAnimated) {
           setCollabVisible(true);
-        }else {
-  setIsVisible(false);
-}
+          setCollabAnimated(true);
+        }
       });
     }, observerOptions);
 
     const potraitObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !potraitAnimated) {
           setPotraitVisible(true);
-        }else {
-  setIsVisible(false);
-}
+          setPotraitAnimated(true);
+        }
       });
     }, observerOptions);
 
@@ -187,21 +186,18 @@ const ContactHighlight = () => {
       collabObserver.disconnect();
       potraitObserver.disconnect();
     };
-  }, []);
+  }, [jobAnimated, hobbiesAnimated, contactAnimated, collabAnimated, potraitAnimated]);
 
   return (
     <div className="w-full flex flex-col items-center mb-0">
-      <h1 className="text-4xl md:text-6xl tracking-tight poppins text-center">
+      <h1 className="text-4xl md:text-[52px]  tracking-tighter md:leading-[60px] poppins text-center">
         Your <span className="all-text">creative</span> web developer
       </h1>
       <div className="light4"></div>
       <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
-        <motion.div
+        <div
           className="me  md:w-full lg:w-4/5 xl:w-[60%]"
           ref={jobRef}
-          initial="hidden"
-          animate={jobVisible ? "visible" : "hidden"}
-          variants={containerVariant}
         >
           <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
             <p className="text-sm tracking-[-1px] ">about-me</p>
@@ -261,14 +257,11 @@ const ContactHighlight = () => {
               <span className="text-pink-500"> technical SEO aspects.</span>
             </p>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/3 h-64"
           ref={hobbiesRef}
-          initial="hidden"
-          animate={hobbiesVisible ? "visible" : "hidden"}
-          variants={containerVariant}
         >
           <div className="about-me-title px-4 py-2 text-white">
             <p className="text-sm">hobbies</p>
@@ -308,14 +301,11 @@ const ContactHighlight = () => {
               <span className="text-[#c2c0c0da]">5 </span> 🎧 Music
             </p>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
           ref={contactRef}
-          initial="hidden"
-          animate={contactVisible ? "visible" : "hidden"}
-          variants={containerVariant}
         >
           <div className="about-me-title px-4 text-sm py-2 text-white">
             <p>me-online</p>
@@ -395,14 +385,11 @@ const ContactHighlight = () => {
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className="me md:w-full  backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto"
           ref={collabRef}
-          initial="hidden"
-          animate={collabVisible ? "visible" : "hidden"}
-          variants={containerVariant}
         >
           <div className="about-me-title px-4 text-sm py-2 text-white">
             <p>collaborations</p>
@@ -460,14 +447,11 @@ const ContactHighlight = () => {
               between all parties, especially design and development.
             </p>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
           ref={potraitRef}
-          initial="hidden"
-          animate={potraitVisible ? "visible" : "hidden"}
-          variants={containerVariant}
         >
           <div className="about-me-title text-sm px-4 py-2 text-white">
             <p>potrait</p>
@@ -495,7 +479,7 @@ const ContactHighlight = () => {
               className="h-[275px] w-full object-cover"
             />
           </div>
-        </motion.div>
+        </div>
       </div>
       <Link
         href="/About"

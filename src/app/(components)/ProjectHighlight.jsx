@@ -125,7 +125,7 @@ const ProjectHighlight = () => {
   return (
     <div className="flex flex-col items-center">
       <div className="flex flex-col items-center w-full">
-        <h1 className="text-4xl md:text-[64px] tracking-tight text-center poppins">
+        <h1 className="text-4xl md:text-[52px]  tracking-tighter md:leading-[60px] text-center poppins">
           Projects <span className="all-text">highlight</span>
         </h1>
 

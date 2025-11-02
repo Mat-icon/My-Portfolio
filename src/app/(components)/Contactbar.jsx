@@ -107,7 +107,7 @@ const Contactbar = () => {
               onMouseLeave={() => setHoveredBtn1(false)}
               href="/contact"
               style={{ background: "#101010e1" }}
-              className="w-10/12 material-bubble3 hover:border-[#8eff86] md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-[#494949] border text-center text-sm"
+              className="w-10/12 material-bubble3 hover:border-[#8eff86] md:w-full lg:w-3/12 p-4 lg:px-4 rounded-md border-[#494949] border text-center text-sm"
             >
               {hoveredBtn1 ? (
                 <motion.p
@@ -133,7 +133,7 @@ const Contactbar = () => {
               download
               style={{ background: "#101010e1" }}
               target="_blank"
-              className="w-10/12 mt-1 md:mt-0 material-bubble3 hover:border-[#8eff86] md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md border-[#494949] bg-black border text-center text-sm"
+              className="w-10/12 mt-1 md:mt-0 material-bubble3 hover:border-[#8eff86] md:w-full lg:w-3/12 p-4 lg:px-4 rounded-md border-[#494949] bg-black border text-center text-sm"
             >
               {hoveredBtn2 ? (
                 <motion.p
