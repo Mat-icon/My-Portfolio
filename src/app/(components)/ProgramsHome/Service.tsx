@@ -25,7 +25,7 @@ const projects: ProjectType[] = [
     lang: ["Nextjs", "Zustand", "Threejs","Tailwindcss", "Typescript"],  
     color: "#706D63",
     image: "brabik.png",
-    bookBg:"bg-[#ffffff]",
+    bookBg:"bg-[#333]",
     bookBorder: "border-[#03fa7e]",
     description:
       "A minimalist e-commerce platform for smart home devices and automation solutions.",
@@ -52,7 +52,7 @@ const projects: ProjectType[] = [
     lang: ["Nextjs", "Tailwindcss", "Nodejs"],
     color: "#706D63",
      bookBg:"bg-[#fff]",
-    bookBorder: "border-[#fa03fa]",
+    bookBorder: "border-[#706D63]",
     description:
       "Bwintech is a boutique data consultancy helping businesses make smarter decisions with their data.",
     link: "https://bwintech.com.au/",
@@ -63,7 +63,7 @@ const projects: ProjectType[] = [
     time: "2025",
     image: "adele.png",
      bookBg:"bg-[#fff]",
-    bookBorder: "border-yellow-600",
+    bookBorder: "border-yellow-700",
     lang: ["Nextjs", "Tailwindcss", "Nodejs"],
     link: "https://adelehamzaresources.com/",
     color: "#706D63",

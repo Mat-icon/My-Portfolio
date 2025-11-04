@@ -263,7 +263,7 @@ const ContactHighlight = () => {
             }
           }}
         >
-          <div className="about-me-title px-4 py-2 text-white">
+          <div className="about-me-title  bg-[#0f0f0f] px-4 py-2 text-white">
             <p className="text-sm">hobbies</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
@@ -316,7 +316,7 @@ const ContactHighlight = () => {
             }
           }}
         >
-          <div className="about-me-title px-4 text-sm py-2 text-white">
+          <div className="about-me-title bg-[#0f0f0f] px-4 text-sm py-2 text-white">
             <p>me-online</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
@@ -409,7 +409,7 @@ const ContactHighlight = () => {
             }
           }}
         >
-          <div className="about-me-title px-4 text-sm py-2 text-white">
+          <div className="about-me-title bg-[#0f0f0f] px-4 text-sm py-2 text-white">
             <p>collaborations</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
@@ -480,7 +480,7 @@ const ContactHighlight = () => {
             }
           }}
         >
-          <div className="about-me-title text-sm px-4 py-2 text-white">
+          <div className="about-me-title bg-[#0f0f0f] text-sm px-4 py-2 text-white">
             <p>potrait</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
