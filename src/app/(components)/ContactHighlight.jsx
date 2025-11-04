@@ -9,6 +9,8 @@ import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
 import { FaArrowRight } from "react-icons/fa6";
+import LuminousBeam from './LuminousBeam';
+
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -24,18 +26,13 @@ const ContactHighlight = () => {
   const collabRef = useRef(null);
 
   const [hovered, setHovered] = useState(false);
+  
+  // Visibility states for each card
   const [jobVisible, setJobVisible] = useState(false);
   const [hobbiesVisible, setHobbiesVisible] = useState(false);
   const [contactVisible, setContactVisible] = useState(false);
   const [collabVisible, setCollabVisible] = useState(false);
   const [potraitVisible, setPotraitVisible] = useState(false);
-
-  // Track if animation has already played
-  const [jobAnimated, setJobAnimated] = useState(false);
-  const [hobbiesAnimated, setHobbiesAnimated] = useState(false);
-  const [contactAnimated, setContactAnimated] = useState(false);
-  const [collabAnimated, setCollabAnimated] = useState(false);
-  const [potraitAnimated, setPotraitAnimated] = useState(false);
 
   const container = {
     hidden: {},
@@ -50,13 +47,12 @@ const ContactHighlight = () => {
   };
 
   const containerVariant = {
-    hidden: { opacity: 0, scale: 0.90 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
         duration: 0.8,
-        delay: 0,
         ease: [0.25, 0.1, 0.25, 1],
       },
     },
@@ -93,82 +89,68 @@ const ContactHighlight = () => {
 
   useEffect(() => {
     const draggableElements = [
-      elementRef,
-      jobRef,
-      hobbiesRef,
-      potraitRef,
-      contactRef,
-      collabRef,
+      { ref: jobRef, visible: jobVisible },
+      { ref: hobbiesRef, visible: hobbiesVisible },
+      { ref: potraitRef, visible: potraitVisible },
+      { ref: contactRef, visible: contactVisible },
+      { ref: collabRef, visible: collabVisible },
     ];
 
     const isMobileDevice = () => /Mobi|Android/i.test(navigator.userAgent);
 
-    const draggableInstances = draggableElements.map((ref) => {
-      if (ref.current) {
+    const draggableInstances = draggableElements.map(({ ref, visible }) => {
+      if (ref.current && visible && !isMobileDevice()) {
+        // Clear any Framer Motion inline styles that might interfere
+        gsap.set(ref.current, { clearProps: "all" });
+        
         return Draggable.create(ref.current, {
           type: "x,y",
           edgeResistance: 0.92,
           bounds: ".contact-body",
           inertia: true,
+          onDragStart: function() {
+            // Ensure transform origin is preserved during drag
+            gsap.set(this.target, { transformOrigin: "center center" });
+          }
         })[0];
       }
       return null;
     });
 
-    if (isMobileDevice()) {
-      draggableInstances.forEach((instance) => {
-        if (instance) instance.disable();
-      });
-    }
-
-    // Intersection observers for each card - only trigger once
-    const observerOptions = { threshold: 0.5 };
+    // Create intersection observers for each card
+    const observerOptions = { threshold: 0.2 };
 
     const jobObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !jobAnimated) {
-          setJobVisible(true);
-          setJobAnimated(true);
-        } 
+        setJobVisible(entry.isIntersecting);
       });
     }, observerOptions);
 
     const hobbiesObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !hobbiesAnimated) {
-          setHobbiesVisible(true);
-          setHobbiesAnimated(true);
-        }
+        setHobbiesVisible(entry.isIntersecting);
       });
     }, observerOptions);
 
     const contactObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !contactAnimated) {
-          setContactVisible(true);
-          setContactAnimated(true);
-        }
+        setContactVisible(entry.isIntersecting);
       });
     }, observerOptions);
 
     const collabObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !collabAnimated) {
-          setCollabVisible(true);
-          setCollabAnimated(true);
-        }
+        setCollabVisible(entry.isIntersecting);
       });
     }, observerOptions);
 
     const potraitObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !potraitAnimated) {
-          setPotraitVisible(true);
-          setPotraitAnimated(true);
-        }
+        setPotraitVisible(entry.isIntersecting);
       });
     }, observerOptions);
 
+    // Observe elements
     if (jobRef.current) jobObserver.observe(jobRef.current);
     if (hobbiesRef.current) hobbiesObserver.observe(hobbiesRef.current);
     if (contactRef.current) contactObserver.observe(contactRef.current);
@@ -186,18 +168,27 @@ const ContactHighlight = () => {
       collabObserver.disconnect();
       potraitObserver.disconnect();
     };
-  }, [jobAnimated, hobbiesAnimated, contactAnimated, collabAnimated, potraitAnimated]);
+  }, [jobVisible, hobbiesVisible, contactVisible, collabVisible, potraitVisible]);
 
   return (
     <div className="w-full flex flex-col items-center mb-0">
       <h1 className="text-4xl md:text-[52px]  tracking-tighter md:leading-[60px] poppins text-center">
         Your <span className="all-text">creative</span> web developer
       </h1>
-      <div className="light4"></div>
+       <LuminousBeam  height="h-[130px]" color="8fff86"/>
       <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
-        <div
+        <motion.div
           className="me  md:w-full lg:w-4/5 xl:w-[60%]"
           ref={jobRef}
+          initial="hidden"
+          animate={jobVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (jobRef.current && jobVisible) {
+              gsap.set(jobRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
         >
           <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
             <p className="text-sm tracking-[-1px] ">about-me</p>
@@ -257,11 +248,20 @@ const ContactHighlight = () => {
               <span className="text-pink-500"> technical SEO aspects.</span>
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div
-          className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/3 h-64"
+        <motion.div
+          className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
           ref={hobbiesRef}
+          initial="hidden"
+          animate={hobbiesVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (hobbiesRef.current && hobbiesVisible) {
+              gsap.set(hobbiesRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
         >
           <div className="about-me-title px-4 py-2 text-white">
             <p className="text-sm">hobbies</p>
@@ -301,11 +301,20 @@ const ContactHighlight = () => {
               <span className="text-[#c2c0c0da]">5 </span> 🎧 Music
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
           ref={contactRef}
+          initial="hidden"
+          animate={contactVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (contactRef.current && contactVisible) {
+              gsap.set(contactRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
         >
           <div className="about-me-title px-4 text-sm py-2 text-white">
             <p>me-online</p>
@@ -385,11 +394,20 @@ const ContactHighlight = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="me md:w-full  backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto"
           ref={collabRef}
+          initial="hidden"
+          animate={collabVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (collabRef.current && collabVisible) {
+              gsap.set(collabRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
         >
           <div className="about-me-title px-4 text-sm py-2 text-white">
             <p>collaborations</p>
@@ -447,11 +465,20 @@ const ContactHighlight = () => {
               between all parties, especially design and development.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
           className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
           ref={potraitRef}
+          initial="hidden"
+          animate={potraitVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (potraitRef.current && potraitVisible) {
+              gsap.set(potraitRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
         >
           <div className="about-me-title text-sm px-4 py-2 text-white">
             <p>potrait</p>
@@ -479,7 +506,7 @@ const ContactHighlight = () => {
               className="h-[275px] w-full object-cover"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
       <Link
         href="/About"

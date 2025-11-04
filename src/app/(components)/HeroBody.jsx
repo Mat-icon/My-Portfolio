@@ -4,7 +4,7 @@ import ProjectHighlight from "./ProjectHighlight";
 import Header from "./Header";
 import Contactbar from "./Contactbar";
 import FullNav from "./FullNav";
-import LuminousBeam from "./LuminousBeam"; // Import the new component
+import LuminousBeam from './LuminousBeam';
 
 const HeroBody = ({ isOpen, toggleNav }) => {
   const [isProjectVisible, setIsProjectVisible] = useState(false);
@@ -65,8 +65,79 @@ const HeroBody = ({ isOpen, toggleNav }) => {
         .animate-scroll {
           animation: scrollWords 410s linear infinite;
         }
+        
+         @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+            filter: brightness(1);
+            transform: scale(3);
+          }
+          50% {
+            opacity: 0.85;
+            filter: brightness(1.2);
+             transform: scale(3);
+          }
+        }
+
+        @keyframes beamFlow {
+          0% {
+            transform: translateY(-100%);
+          }
+          100% {
+            transform: translateY(150%);
+          }
+        }
+
+        .luminous-vertical-beam {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to bottom,
+           transparent 0%,
+            #8FFF8633 5%,
+            #8FFF86cc 15%,
+            #8FFF86 50%,
+            #8FFF86cc 85%,
+            #8FFF8633 95%,
+            transparent 100%
+          );
+         box-shadow: 
+  0 0 10px #8FFF86cc,
+  0 0 80px #8FFF8699,
+  0 0 80px #8FFF8666,
+  0 0 0px #8FFF8633;
+            
+          animation: pulse 0.5s ease-in-out infinite, beamFlow 3s linear infinite;
+          will-change: transform;
+          
+          transition: height 0.8s ease-out;
+        }
+
+        .vertical-static-glow {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(255, 255, 255, 0.1) 20%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.1) 80%,
+            transparent 100%
+          );
+
+          box-shadow: 
+            0 0 8px rgba(143, 255, 134, 0.3),
+            0 0 15px rgba(143, 255, 134, 0.2);
+        }
       `}</style>
+
       <div className="relative flex flex-col">
+        {/* Background Animation */}
         <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center">
           <div className="relative flex gap-8 text-[560px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000044] font-mono whitespace-nowrap animate-scroll">
             <p>code</p>
@@ -83,19 +154,15 @@ const HeroBody = ({ isOpen, toggleNav }) => {
             <p>design</p>
           </div>
         </div>
+
+        {/* FullNav - Must be here at the top level */}
         <FullNav isOpen={isOpen} toggleNav={toggleNav} />
 
         <Header />
-        
-        {/* Replace light4 with LuminousBeam */}
-        <div className="mx-auto my-4">
-          <LuminousBeam 
-            height="70px"
-            color="#8fff86"
-            thickness="1.5px"
-            glowIntensity={1}
-            animationDuration="4s"
-          />
+
+        {/* Vertical Luminous Beam */}
+        <div className="mx-auto my-4 flex justify-center">
+          <LuminousBeam height="h-[60px]" color="8fff86"/>
         </div>
 
         <div>

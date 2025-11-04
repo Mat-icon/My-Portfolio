@@ -29,6 +29,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import HeroBody from "./HeroBody";
 import { motion } from "framer-motion";
+import FullNav from "./FullNav";
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(
@@ -97,6 +98,8 @@ export default function Home() {
     };
   }, []);
 
+  
+
   // Lenis Smooth Scroll Setup
   useEffect(() => {
     let lenis;
@@ -137,7 +140,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col w-[97%] md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded selection:bg-lime-400 selection:text-white">
+    <div className="flex flex-col w-[97%]  md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded selection:bg-[#8fff86] selection:text-white">
       {/* Header */}
       <header className="flex justify-between filter glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0">
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
@@ -179,8 +182,8 @@ export default function Home() {
       {/* Main Content */}
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
-          <div className="icon-container">
+        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+          <div className="icon-container ">
             <Link href="/">
               <FiHome className="text-base hover:text-green-300 cursor-pointer" />
             </Link>
@@ -206,11 +209,15 @@ export default function Home() {
           </div>
         </aside>
 
+         
+
         {/* Main Content Area with padding for sidebar */}
         <div
           ref={scrollContainerRef}
-          className="flex-1 md:pl-[3.1%] scrollbar overflow-x-hidden overflow-y-auto"
+          className="flex-1 md:pl-[3.1%] relative scrollbar overflow-x-hidden overflow-y-auto"
+
         >
+           <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
           <HeroBody isOpen={isNavOpen} toggleNav={toggleNav} />
         </div>
       </div>
@@ -244,7 +251,7 @@ export default function Home() {
                   rest: { color: "#9D9D9D" },
                   hover: { color: "#ffffff" },
                 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 className="transition-colors duration-300"
               >
                 Nigeria

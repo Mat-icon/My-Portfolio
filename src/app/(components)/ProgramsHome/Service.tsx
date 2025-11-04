@@ -11,6 +11,10 @@ interface ProjectType {
   time: string;
   link: string;
   lang: string[];
+  image: string;
+   bookBorder:string;
+  bookBg:string;
+
   description: string;
 }
 
@@ -20,6 +24,9 @@ const projects: ProjectType[] = [
     time: "2025",
     lang: ["Next.js", "Zustand", "Three.js","Tailwind.css", "Typescript"],  
     color: "#706D63",
+    image: "brabik.png",
+    bookBg:"bg-[#ffffff]",
+    bookBorder: "border-[#333]",
     description:
       "A minimalist e-commerce platform for smart home devices and automation solutions.",
     link: "https://brabik.netlify.app/"
@@ -27,17 +34,25 @@ const projects: ProjectType[] = [
     {
     title: "Noirvik fashion",
     time: "2025",
+    image: "noirvik.png",
+
     lang: ["Next.js", "Tailwind.css", "Node.js"],  
     color: "#706D63",
+     bookBg:"bg-[#0a0a0a9a]",
+    bookBorder: "border-[white]",
     description:
+    
       "A minimalist e-commerce fashion store showcasing a curated selection of stylish apparel and accessories.",
     link: "https://noirvik.netlify.app/"
   },
   {
     title: "Bwintech",
+    image: "bwin.png",
     time: "2025",
     lang: ["Next.js", "Tailwind.css", "Node.js"],
     color: "#706D63",
+     bookBg:"bg-[#0a0a0a9a]",
+    bookBorder: "border-[white]",
     description:
       "Bwintech is a boutique data consultancy helping businesses make smarter decisions with their data.",
     link: "https://bwintech.com.au/",
@@ -46,6 +61,9 @@ const projects: ProjectType[] = [
   {
     title: "Adelehamza resources",
     time: "2025",
+    image: "adele.png",
+     bookBg:"bg-[#0a0a0a9a]",
+    bookBorder: "border-[white]",
     lang: ["Next.js", "Tailwind.css", "Node.js"],
     link: "https://adelehamzaresources.com/",
     color: "#706D63",
@@ -56,8 +74,11 @@ const projects: ProjectType[] = [
   {
     title: "Home loan hub app",
     time: "2025",
+     bookBg:"bg-[#0a0a0a9a]",
+    bookBorder: "border-[white]",
     lang: ["Next.js", "AI Integration", "Node.js"],
     color: "#706D63",
+    image: "calc.png",
     description:
       "AI-powered chatbot that helps users check loan eligibility in a conversational, friendly way.",
     link: "https://home-loan-hub.netlify.app/",
@@ -65,8 +86,11 @@ const projects: ProjectType[] = [
    {
     title: "Tap2 member",
     time: "2025",
+     bookBg:"bg-[#0a0a0a9a]",
+    bookBorder: "border-[white]",
     lang: ["Svelte 5", "Convex","tailwind", "clerk", "Sveltekit", "typeScript"],  
     color: "#706D63",
+    image: "tap2.png",
     description:
       "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
     link: "https://tap2member.netlify.app/"
@@ -159,6 +183,9 @@ export default function Home() {
             lang={project.lang}
             link={project.link}
             index={idx}
+            bookBorder={project.bookBorder}
+            bookBg={project.bookBg}
+            image={project.image}
             title={project.title}
             description={project.description}
             manageModal={manageModal}

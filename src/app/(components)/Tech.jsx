@@ -13,6 +13,8 @@ import {
 } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import LuminousBeam from './LuminousBeam';
+
 
 const Tech = () => {
   const pathname = usePathname();
@@ -20,7 +22,7 @@ const Tech = () => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef(null);
   // 🔹 Define which "light" background and color to use
-  const lightClass = pathname === "/" ? "light4" : "light2";
+  const lightClass = pathname === "/" ? "8fff86" : "8FFF86";
   const spanColor = pathname === "/" ? "#8FFF86" : "#95bdfa";
 
   const containerVariant = {
@@ -77,7 +79,7 @@ const Tech = () => {
       </div>
 
       {/* 🔹 Dynamic light background */}
-      <div className={lightClass} />
+       <LuminousBeam  height="h-[100px]" color={lightClass}/>
 
       <motion.div
         ref={cardRef}
@@ -118,7 +120,7 @@ const Tech = () => {
           ].map(({ icon, label }) => (
             <div
               key={label}
-              className="text-4xl md:text-6xl text-gray-200 flex items-center flex-col"
+              className="text-5xl md:text-6xl text-gray-200 flex items-center flex-col"
             >
               {icon}
               <span className="text-sm text-gray-300 md:text-base mt-2 tracking-tighter">
@@ -129,7 +131,7 @@ const Tech = () => {
         </div>
       </motion.div>
 
-      <div className={lightClass} />
+        <LuminousBeam  height="h-[100px]" color={lightClass}/>
     </div>
   );
 };

@@ -16,13 +16,11 @@ const NavItem = ({ number, label, isActive }) => (
 const FullScreenNav = ({ isOpen, toggleNav }) => {
   return (
     <div
-      className={`absolute top-0 left-0 overflow-hidden w-full h-full bg-black/90 backdrop-blur-lg flex flex-col justify-center space-y-8 transform transition-transform ${
+      className={`absolute inset-0 bg-black/80 backdrop-blur-lg h-[90dvh] flex flex-col justify-center space-y-8 transform transition-transform ${
         isOpen ? "translate-y-0" : "-translate-y-full"
-      } z-50 md:hidden`}
-      style={{ transition: "1s" }}
+      } z-40 md:hidden`}
+      style={{ transition: "transform 1s ease-in-out" }}
     >
-    
-
       {/* Navigation links */}
       <Link href="/" onClick={toggleNav}>
         <NavItem number="01" label="home/" isActive />

@@ -1,11 +1,12 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -17,8 +18,8 @@ const testimonials = [
     tech: "testimonials",
     content:
       "Working with Matthew was a fantastic experience. He brings a unique mix of creativity and technical expertise to every project. His ability to translate complex ideas into elegant, functional solutions is remarkable. Beyond his skill set, Matthew is proactive, communicates clearly, and always maintains a positive energy that motivates the entire team. I would gladly collaborate with him again on future projects.",
-    author: "Abiodun Illori",
-    position: "Chief Executive Officer",
+    author: "Bamise",
+    position: "CEO of Noirvik Fashion",
     image: "/images/a.png",
   },
   {
@@ -27,7 +28,7 @@ const testimonials = [
     content:
       "Matthew's dedication to delivering exceptional work truly stands out. He approaches each challenge with thoughtful precision and ensures that no detail is overlooked. During our collaboration, he consistently demonstrated strong problem-solving skills and an impressive sense of design and functionality. His professionalism and technical acumen make him an invaluable asset to any team.",
     author: "Abiodun Illori",
-    position: "Chief Executive Officer",
+    position: "CEO of Brabik Smarthomes",
     image: "/images/abiodun.png",
   },
   {
@@ -35,9 +36,9 @@ const testimonials = [
     tech: "testimonials",
     content:
       "It has been an absolute pleasure working with Matthew. He combines strong development knowledge with a genuine passion for creating meaningful digital experiences. His ability to adapt quickly, learn continuously, and provide innovative solutions makes him stand out as a developer. He is not only dependable but also contributes valuable insights that elevate the entire project.",
-    author: "Abiodun Illori",
-    position: "Chief Executive Officer",
-    image: "/images/a.png",
+    author: "Blessing Bayo-Ige",
+    position: "Founder of Bwintech",
+    image: "/images/bless.jpeg",
   },
   {
     id: 4,
@@ -84,8 +85,8 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
       {/* Image Section */}
       <div className="w-[80px] h-[80px] rounded-full overflow-hidden md:ml-0 md:mt-0 mt-4 order-2 md:order-none relative shrink-0">
         <Image
-          width={80}
-          height={80}
+          width={500}
+          height={500}
           src={image}
           alt={author}
           className="object-cover w-full h-full rounded-full"
@@ -108,7 +109,8 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
 const TestimonialHighlight = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
-
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
   const handlePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slidePrev();
@@ -120,6 +122,29 @@ const TestimonialHighlight = () => {
       swiperRef.current.swiper.slideNext();
     }
   };
+
+  const containerVariant = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
+    },
+  };
+
+  const container = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => setIsVisible(entries[0]?.isIntersecting),
+      { threshold: 0.5 }
+    );
+    if (cardRef.current) observer.observe(cardRef.current);
+    return () => cardRef.current && observer.unobserve(cardRef.current);
+  }, []);
 
   return (
     <div className="relative w-full flex flex-col items-center overflow-hidden">
@@ -183,7 +208,13 @@ const TestimonialHighlight = () => {
         <br className="hidden md:block" /> about my work
       </h1>
 
-      <div className="relative w-full flex justify-center items-center overflow-visible">
+      <motion.div
+        ref={cardRef}
+        initial="hidden"
+        animate={isVisible ? "visible" : "hidden"}
+        variants={containerVariant}
+        className="relative w-full flex justify-center items-center overflow-visible"
+      >
         <div className="w-full overflow-hidden">
           <Swiper
             ref={swiperRef}
@@ -246,7 +277,7 @@ const TestimonialHighlight = () => {
             )}
           </Swiper>
         </div>
-      </div>
+      </motion.div>
 
       <div className="w-11/12 md:w-[38%] backdrop-blur-md border border-[#494949] bg-[#1111101a] rounded-[4px] h-10 relative z-10 flex items-center">
         <div
@@ -258,8 +289,8 @@ const TestimonialHighlight = () => {
         <div className="w-[70%] md:w-[90%] flex tracking-tighter items-center justify-center">
           <div className="relative w-10/12 h-[2px] overflow-hidden rounded">
             <div className="tracker-static-glow" />
-            <div 
-              className="luminous-tracker-beam" 
+            <div
+              className="luminous-tracker-beam"
               style={{
                 width: `${(activeIndex / (testimonials.length - 1)) * 100}%`,
               }}
