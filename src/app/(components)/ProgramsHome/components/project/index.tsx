@@ -443,7 +443,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(3)}
-                      className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#0a0a0a9a] border-l border-t border-b border-white/70"
+                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{
                         zIndex: 1,
                         transformStyle: "preserve-3d",
@@ -455,7 +455,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(2)}
-                      className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#0d0d0d] border-l border-t border-b border-white/70"
+                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{
                         zIndex: 2,
                         transformStyle: "preserve-3d",
@@ -467,7 +467,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(1)}
-                      className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#111111] border-l border-t border-b border-white/70"
+                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{
                         zIndex: 3,
                         transformStyle: "preserve-3d",
@@ -479,7 +479,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(0)}
-                      className="absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] bg-[#141414] border-l border-t border-b border-white/70"
+                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{
                         zIndex: 4,
                         transformStyle: "preserve-3d",

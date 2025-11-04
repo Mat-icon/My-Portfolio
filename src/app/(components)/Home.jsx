@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import Hero from "./Hero";
 import { useEffect, useState, useRef } from "react";
@@ -15,11 +15,11 @@ const Home = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useEffect(() => {
@@ -39,12 +39,12 @@ const Home = () => {
         // Mobile animations - side by side, smaller movement
         gsap.to(circle1Ref.current, {
           scale: 1.3,
-          x: '+=30',
-          y: '+=20',
+          x: "+=30",
+          y: "+=20",
           duration: 25,
           repeat: -1,
           yoyo: true,
-          ease: 'power1.inOut',
+          ease: "power1.inOut",
           force3D: true,
         });
 
@@ -52,17 +52,17 @@ const Home = () => {
           rotation: 360,
           duration: 20,
           repeat: -1,
-          ease: 'none',
+          ease: "none",
         });
 
         gsap.to(circle2Ref.current, {
           scale: 1.4,
-          x: '-=30',
-          y: '-=20',
+          x: "-=30",
+          y: "-=20",
           duration: 22,
           repeat: -1,
           yoyo: true,
-          ease: 'power1.inOut',
+          ease: "power1.inOut",
           delay: 2,
           force3D: true,
         });
@@ -71,18 +71,18 @@ const Home = () => {
           rotation: -360,
           duration: 25,
           repeat: -1,
-          ease: 'none',
+          ease: "none",
         });
       } else {
         // Desktop animations - diagonal, larger movement
         gsap.to(circle1Ref.current, {
           scale: 1.6,
-          x: '+=120',
-          y: '+=80',
+          x: "+=120",
+          y: "+=80",
           duration: 28,
           repeat: -1,
           yoyo: true,
-          ease: 'power1.inOut',
+          ease: "power1.inOut",
           force3D: true,
         });
 
@@ -90,17 +90,17 @@ const Home = () => {
           rotation: 360,
           duration: 20,
           repeat: -1,
-          ease: 'none',
+          ease: "none",
         });
 
         gsap.to(circle2Ref.current, {
           scale: 1.7,
-          x: '-=100',
-          y: '-=70',
+          x: "-=100",
+          y: "-=70",
           duration: 24,
           repeat: -1,
           yoyo: true,
-          ease: 'power1.inOut',
+          ease: "power1.inOut",
           delay: 2,
           force3D: true,
         });
@@ -109,7 +109,7 @@ const Home = () => {
           rotation: -360,
           duration: 25,
           repeat: -1,
-          ease: 'none',
+          ease: "none",
         });
       }
 
@@ -119,7 +119,7 @@ const Home = () => {
         duration: 4,
         repeat: -1,
         yoyo: true,
-        ease: 'sine.inOut',
+        ease: "sine.inOut",
       });
     }
   }, [isLoading, isMobile]);
@@ -137,32 +137,36 @@ const Home = () => {
           ref={circle1Ref}
           className="absolute rounded-full"
           style={{
-            top: isMobile ? '25%' : '45%',
-            left: isMobile ? '-30%' : '-8%',
-            width: isMobile ? '350px' : '400px',
-            height: isMobile ? '500px' : '400px',
-               background: "radial-gradient(circle, #8FFF8666 0%, #8FFF8666 50%, transparent 80%)",
-            filter: isMobile ? 'blur(60px)' : 'blur(120px)',
-            transform: 'scale(0.5)',
+            top: isMobile ? "25%" : "45%",
+            left: isMobile ? "-30%" : "-8%",
+            width: isMobile ? "350px" : "400px",
+            height: isMobile ? "500px" : "400px",
+            background: isMobile
+              ? "#8FFF86"
+              : "#8FFF86",
+            filter: isMobile ? "blur(60px)" : "blur(120px)",
+             transform: isMobile ? "scale(0.1)": "scale(0.5)",
             opacity: 0.8,
-            willChange: 'transform, opacity',
+            willChange: "transform, opacity",
           }}
         />
-        
+
         {/* Circle 2 - Bottom Right (Desktop) / Right (Mobile) */}
         <div
           ref={circle2Ref}
           className="absolute rounded-full"
           style={{
-            bottom: isMobile ? '15%' : '50%',
-            right: isMobile ? '-40%' : '-10%',
-            width: isMobile ? '400px' : '400px',
-            height: isMobile ? '500px' : '400px',
-                background: "radial-gradient(circle, #8FFF8666 0%, #8FFF8666 50%, transparent 80%)",
-            filter: isMobile ? 'blur(60px)' : 'blur(100px)',
-            transform: 'scale(0.5)',
+            bottom: isMobile ? "15%" : "50%",
+            right: isMobile ? "-40%" : "-10%",
+            width: isMobile ? "400px" : "400px",
+            height: isMobile ? "500px" : "400px",
+            background: isMobile
+              ? "#8FFF86"
+              : "radial-gradient(circle, #8FFF8666 0%, #8FFF8666 50%, transparent 80%)",
+            filter: isMobile ? "blur(60px)" : "blur(100px)",
+            transform: isMobile ? "scale(0.1)": "scale(0.5)",
             opacity: 0.8,
-            willChange: 'transform, opacity',
+            willChange: "transform, opacity",
           }}
         />
       </div>

@@ -22,11 +22,11 @@ const projects: ProjectType[] = [
     {
     title: "Brabik smarthomes",
     time: "2025",
-    lang: ["Next.js", "Zustand", "Three.js","Tailwind.css", "Typescript"],  
+    lang: ["Nextjs", "Zustand", "Threejs","Tailwindcss", "Typescript"],  
     color: "#706D63",
     image: "brabik.png",
     bookBg:"bg-[#ffffff]",
-    bookBorder: "border-[#333]",
+    bookBorder: "border-[#03fa7e]",
     description:
       "A minimalist e-commerce platform for smart home devices and automation solutions.",
     link: "https://brabik.netlify.app/"
@@ -36,7 +36,7 @@ const projects: ProjectType[] = [
     time: "2025",
     image: "noirvik.png",
 
-    lang: ["Next.js", "Tailwind.css", "Node.js"],  
+    lang: ["Nextjs", "Tailwindcss", "Nodejs"],  
     color: "#706D63",
      bookBg:"bg-[#0a0a0a9a]",
     bookBorder: "border-[white]",
@@ -49,10 +49,10 @@ const projects: ProjectType[] = [
     title: "Bwintech",
     image: "bwin.png",
     time: "2025",
-    lang: ["Next.js", "Tailwind.css", "Node.js"],
+    lang: ["Nextjs", "Tailwindcss", "Nodejs"],
     color: "#706D63",
-     bookBg:"bg-[#0a0a0a9a]",
-    bookBorder: "border-[white]",
+     bookBg:"bg-[#fff]",
+    bookBorder: "border-[#fa03fa]",
     description:
       "Bwintech is a boutique data consultancy helping businesses make smarter decisions with their data.",
     link: "https://bwintech.com.au/",
@@ -62,9 +62,9 @@ const projects: ProjectType[] = [
     title: "Adelehamza resources",
     time: "2025",
     image: "adele.png",
-     bookBg:"bg-[#0a0a0a9a]",
-    bookBorder: "border-[white]",
-    lang: ["Next.js", "Tailwind.css", "Node.js"],
+     bookBg:"bg-[#fff]",
+    bookBorder: "border-yellow-600",
+    lang: ["Nextjs", "Tailwindcss", "Nodejs"],
     link: "https://adelehamzaresources.com/",
     color: "#706D63",
     description:
@@ -74,9 +74,9 @@ const projects: ProjectType[] = [
   {
     title: "Home loan hub app",
     time: "2025",
-     bookBg:"bg-[#0a0a0a9a]",
-    bookBorder: "border-[white]",
-    lang: ["Next.js", "AI Integration", "Node.js"],
+    bookBg:"bg-[#ffffff]",
+    bookBorder: "border-[#333]",
+    lang: ["Nextjs", "AI Integration", "Nodejs"],
     color: "#706D63",
     image: "calc.png",
     description:
@@ -86,9 +86,9 @@ const projects: ProjectType[] = [
    {
     title: "Tap2 member",
     time: "2025",
-     bookBg:"bg-[#0a0a0a9a]",
-    bookBorder: "border-[white]",
-    lang: ["Svelte 5", "Convex","tailwind", "clerk", "Sveltekit", "typeScript"],  
+     bookBg:"bg-[#fff]",
+    bookBorder: "border-[#03c9fa]",
+    lang: ["Svelte 5", "Convex","tailwindcss", "clerk", "Sveltekit", "typeScript"],  
     color: "#706D63",
     image: "tap2.png",
     description:
