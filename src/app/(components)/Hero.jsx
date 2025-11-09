@@ -29,7 +29,7 @@ import Link from "next/link";
 import HeroBody from "./HeroBody";
 import { motion } from "framer-motion";
 import FullNav from "./FullNav";
-import Project from "../projects/page";
+import ProjectPage from "../(components)/ProjectPage";
 import Contacts from "../(components)/Contacts";
 import AboutPage from "../(components)/AboutPage";
 const ROUTE_COLORS = {
@@ -174,7 +174,7 @@ export default function Home() {
       case "/":
         return <HeroBody isOpen={isNavOpen} currentRoute={currentRoute} toggleNav={toggleNav} />;
       case "/projects":
-        return <Project currentRoute={currentRoute} />;
+        return <ProjectPage currentRoute={currentRoute} />;
       case "/about":
         return <div><AboutPage isOpen={isNavOpen} currentRoute={currentRoute} toggleNav={toggleNav}/></div>;
       case "/contact":

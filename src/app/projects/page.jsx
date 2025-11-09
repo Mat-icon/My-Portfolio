@@ -1,8 +1,8 @@
-import Project from "../(components)/ProjectPage"
+import ProjectPage from "../(components)/ProjectPage"
 
 const page = ({currentRoute}) => {
   return (
-    <><Project currentRoute={currentRoute}  /></>
+    <><ProjectPage currentRoute={currentRoute}  /></>
   )
 }
 

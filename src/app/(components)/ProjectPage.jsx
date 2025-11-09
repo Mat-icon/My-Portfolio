@@ -12,71 +12,7 @@ import LuminousBeam from "./LuminousBeam";
 
 
 export default function Project({currentRoute}) {
-  const [hovered, setHovered] = useState(false);
 
-  const container = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-    },
-  };
-
-  const letter = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
-  };
-
-  const renderText = (node, keyPrefix = "") => {
-    if (typeof node === "string") {
-      return node.split("").map((char, i) => (
-        <motion.span
-          key={`${keyPrefix}-${i}`}
-          variants={letter}
-          className="inline-block"
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ));
-    }
-
-    if (Array.isArray(node)) {
-      return node.map((child, i) => renderText(child, `${keyPrefix}-${i}`));
-    }
-
-    if (typeof node === "object" && node !== null && "props" in node) {
-      const element = node;
-      return (
-        <element.type key={keyPrefix} {...element.props}>
-          {renderText(element.props.children, keyPrefix + "-child")}
-        </element.type>
-      );
-    }
-
-    return node;
-  };
-
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
-  );
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
-  const toggleNav = () => setIsNavOpen(!isNavOpen);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTime(
-        new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        })
-      );
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
 
   return (
     <div >
