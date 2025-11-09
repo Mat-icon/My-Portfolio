@@ -14,37 +14,20 @@ import {
   VscChromeMinimize,
   VscChromeClose,
 } from "react-icons/vsc";
-
 import {
   FaArrowRight,
   FaLinkedin,
-  FaPlay,
-  FaPause,
 } from "react-icons/fa";
-import { HiMusicNote } from "react-icons/hi";
-import { SlMusicToneAlt } from "react-icons/sl";
+import { CiSearch } from "react-icons/ci";
 import { AiOutlineLaptop } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
-import Link from "next/link";
-import HeroBody from "./HeroBody";
-import { motion } from "framer-motion";
-import FullNav from "./FullNav";
-import Project from "../projects/page";
-import Contacts from "../(components)/Contacts";
-import AboutPage from "../(components)/AboutPage";
+import { motion, AnimatePresence } from "framer-motion";
+
 const ROUTE_COLORS = {
   "/": "#8fff86", // Home - Green
   "/projects": "#fa9595", // Projects - Pink/Red
   "/about": "#86d4ff", // About - Blue
   "/contact": "#ffd886", // Contact - Yellow/Orange
-};
-
-// Darker shades for backgrounds
-const ROUTE_BG_COLORS = {
-  "/": "#508A4C", // Home - Dark Green
-  "/projects": "#8A4C4C", // Projects - Dark Red
-  "/about": "#4C6B8A", // About - Dark Blue
-  "/contact": "#8A7A4C", // Contact - Dark Yellow/Orange
 };
 
 export default function Home() {
@@ -55,12 +38,8 @@ export default function Home() {
   const [hovered, setHovered] = useState(false);
   const scrollContainerRef = useRef(null);
   const [currentRoute, setCurrentRoute] = useState("/");
-  const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState("Lofi Beats");
 
   const accentColor = ROUTE_COLORS[currentRoute];
-  const bgColor = ROUTE_BG_COLORS[currentRoute];
 
   const navigateTo = (route) => {
     setCurrentRoute(route);
@@ -112,8 +91,6 @@ export default function Home() {
   };
 
   const toggleNav = () => setIsNavOpen(!isNavOpen);
-  const toggleMusicPlayer = () => setIsMusicPlayerOpen(!isMusicPlayerOpen);
-  const togglePlayPause = () => setIsPlaying(!isPlaying);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -172,72 +149,116 @@ export default function Home() {
   const renderPage = () => {
     switch (currentRoute) {
       case "/":
-        return <HeroBody isOpen={isNavOpen} currentRoute={currentRoute} toggleNav={toggleNav} />;
+        return (
+          <div className="flex flex-col items-center justify-center min-h-screen px-4">
+            <div className="text-center">
+              <h1 className="text-6xl md:text-8xl font-bold mb-6">
+                Home Page
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-400 mb-8">
+                This is the home component - Replace with HeroBody
+              </p>
+            </div>
+          </div>
+        );
       case "/projects":
-        return <Project currentRoute={currentRoute} />;
+        return (
+          <div className="flex flex-col items-center justify-center min-h-screen px-4">
+            <div className="text-center">
+              <h1 className="text-6xl md:text-8xl font-bold mb-6">
+                Projects Page
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-400 mb-8">
+                This is the projects component - Replace with your Projects component
+              </p>
+            </div>
+          </div>
+        );
       case "/about":
-        return <div><AboutPage isOpen={isNavOpen} currentRoute={currentRoute} toggleNav={toggleNav}/></div>;
+        return (
+          <div className="flex flex-col items-center justify-center min-h-screen px-4">
+            <div className="text-center">
+              <h1 className="text-6xl md:text-8xl font-bold mb-6">
+                About Page
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-400 mb-8">
+                This is the about component - Replace with your About component
+              </p>
+            </div>
+          </div>
+        );
       case "/contact":
-        return <div><Contacts   isOpen={isNavOpen} currentRoute={currentRoute} toggleNav={toggleNav}/></div>;
+        return (
+          <div className="flex flex-col items-center justify-center min-h-screen px-4">
+            <div className="text-center">
+              <h1 className="text-6xl md:text-8xl font-bold mb-6">
+                Contact Page
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-400 mb-8">
+                This is the contact component - Replace with your Contact component
+              </p>
+            </div>
+          </div>
+        );
       default:
-        return <div>Home Component Here</div>;
+        return (
+          <div className="flex flex-col items-center justify-center min-h-screen px-4">
+            <div className="text-center">
+              <h1 className="text-6xl md:text-8xl font-bold mb-6">
+                Home Page
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-400 mb-8">
+                This is the home component - Replace with HeroBody
+              </p>
+            </div>
+          </div>
+        );
     }
   };
 
   return (
-    <div 
-      className="flex flex-col w-[97%] md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded"
-      style={{ 
-        '--selection-bg': accentColor,
-      }}
-    >
-      <style jsx>{`
-        div {
-          selection-background-color: ${accentColor};
-          selection-color: white;
+    <div className="flex flex-col w-[97%] md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded selection:bg-[#8fff86] selection:text-white">
+      <style>{`
+        @keyframes crazy1 {
+          0%, 100% { transform: rotate(-45deg) scale(1); }
+          50% { transform: rotate(-45deg) scale(1.3); }
         }
-        ::selection {
-          background-color: ${accentColor};
-          color: white;
+        @keyframes crazy2 {
+          0%, 100% { transform: rotate(30deg) scale(1); }
+          50% { transform: rotate(30deg) scale(1.2); }
         }
+        @keyframes crazy3 {
+          0%, 100% { transform: rotate(45deg) scale(1); }
+          50% { transform: rotate(45deg) scale(1.3); }
+        }
+        .animate-crazy1 { animation: crazy1 0.5s ease-in-out infinite; }
+        .animate-crazy2 { animation: crazy2 0.5s ease-in-out infinite; }
+        .animate-crazy3 { animation: crazy3 0.5s ease-in-out infinite; }
       `}</style>
 
       {/* Header */}
       <header className="flex justify-between filter glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0">
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
-            <span 
-              className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1"
-              style={{ '--hover-color': accentColor }}
-            />
-            <span 
-              className="w-1 h-3 bg-white rotate-[30deg] rounded-full animate-none group-hover:animate-crazy2"
-            />
-            <span 
-              className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3"
-            />
+            <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1 group-hover:border-[#8fff86]" />
+            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full animate-none group-hover:animate-crazy2 group-hover:bg-[#8fff86]" />
+            <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3 group-hover:border-[#8fff86]" />
           </div>
         </div>
 
-        {/* Center name */}
         <div className="flex text-lg items-center">
           <span className="tracking-tighter font-medium text-center fonts">
             matthew
-            <span style={{ color: accentColor }}>&#123;ameh&#125;</span>
+            <span className="text-[#8fff86]">&#123;ameh&#125;</span>
           </span>
         </div>
 
-        {/* Desktop controls */}
         <div className="hidden md:flex items-center space-x-2">
-          <VscChromeMinimize className="text-base text-[#494949] hover:border-white" />
-          <div
-            className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
-            style={{ transition: "ease-in 0.5s" }}
-          ></div>
-          <VscChromeClose className="text-base text-[#494949] hover:border-white" />
+          <VscChromeMinimize className="text-base text-[#494949] hover:text-white transition-colors cursor-pointer" />
+          <div className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white transition-all duration-500 cursor-pointer" />
+          <VscChromeClose className="text-base text-[#494949] hover:text-white transition-colors cursor-pointer" />
         </div>
 
-        {/* Mobile menu icon */}
         <div className="flex md:hidden items-center">
           {isNavOpen ? (
             <FiX className="text-lg cursor-pointer" onClick={toggleNav} />
@@ -247,156 +268,112 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isNavOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-95 z-50 flex flex-col items-center justify-center md:hidden"
+          >
+            <button
+              onClick={() => setIsNavOpen(false)}
+              className="absolute top-4 right-4 text-2xl"
+            >
+              <FiX />
+            </button>
+            <nav className="flex flex-col space-y-8 text-2xl">
+              <button
+                onClick={() => navigateTo('/')}
+                className="flex items-center gap-3 transition-all"
+              >
+                <FiHome className={currentRoute === '/' ? 'text-white' : 'text-[#9D9D9D]'} /> 
+                <span className={currentRoute === '/' ? 'text-white' : 'text-[#9D9D9D]'}>Home</span>
+              </button>
+              <button
+                onClick={() => navigateTo('/projects')}
+                className="flex items-center gap-3 transition-all"
+              >
+                <AiOutlineLaptop className={currentRoute === '/projects' ? 'text-white' : 'text-[#9D9D9D]'} /> 
+                <span className={currentRoute === '/projects' ? 'text-white' : 'text-[#9D9D9D]'}>Projects</span>
+              </button>
+              <button
+                onClick={() => navigateTo('/about')}
+                className="flex items-center gap-3 transition-all"
+              >
+                <FiUser className={currentRoute === '/about' ? 'text-white' : 'text-[#9D9D9D]'} /> 
+                <span className={currentRoute === '/about' ? 'text-white' : 'text-[#9D9D9D]'}>About</span>
+              </button>
+              <button
+                onClick={() => navigateTo('/contact')}
+                className="flex items-center gap-3 transition-all"
+              >
+                <FiMail className={currentRoute === '/contact' ? 'text-white' : 'text-[#9D9D9D]'} /> 
+                <span className={currentRoute === '/contact' ? 'text-white' : 'text-[#9D9D9D]'}>Contact</span>
+              </button>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Main Content */}
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-2 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container">
-            <button onClick={() => navigateTo("/")}>
-              <FiHome
-                className={`${
-                  currentRoute === "/" ? "text-white" : "text-[#c5c4c4]"
-                } text-base cursor-pointer`}
-                style={{ 
-                  '--hover-color': accentColor,
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.color = accentColor}
-                onMouseLeave={(e) => e.currentTarget.style.color = currentRoute === "/" ? "white" : "#c5c4c4"}
-              />
+            <button onClick={() => navigateTo('/')}>
+              <FiHome className={`text-base hover:text-[#8fff86] cursor-pointer transition-colors ${currentRoute === '/' ? 'text-white' : 'text-[#9D9D9D]'}`} />
             </button>
             <span className="badge">home</span>
           </div>
           <div className="icon-container">
-            <button onClick={() => navigateTo("/projects")}>
-              <AiOutlineLaptop
-                className={`${
-                  currentRoute === "/projects" ? "text-white" : "text-[#9D9D9D]"
-                } text-base cursor-pointer`}
-                onMouseEnter={(e) => e.currentTarget.style.color = accentColor}
-                onMouseLeave={(e) => e.currentTarget.style.color = currentRoute === "/projects" ? "white" : "#9D9D9D"}
-              />
+            <button onClick={() => navigateTo('/projects')}>
+              <AiOutlineLaptop className={`text-base hover:text-[#8fff86] cursor-pointer transition-colors ${currentRoute === '/projects' ? 'text-white' : 'text-[#9D9D9D]'}`} />
             </button>
             <span className="badge">projects</span>
           </div>
           <div className="icon-container">
-            <button onClick={() => navigateTo("/about")}>
-              <FiUser
-                className={`${
-                  currentRoute === "/about" ? "text-white" : "text-[#9D9D9D]"
-                } text-base cursor-pointer`}
-                onMouseEnter={(e) => e.currentTarget.style.color = accentColor}
-                onMouseLeave={(e) => e.currentTarget.style.color = currentRoute === "/about" ? "white" : "#9D9D9D"}
-              />
+            <button onClick={() => navigateTo('/about')}>
+              <FiUser className={`text-base hover:text-[#8fff86] cursor-pointer transition-colors ${currentRoute === '/about' ? 'text-white' : 'text-[#9D9D9D]'}`} />
             </button>
             <span className="badge">about</span>
           </div>
           <div className="icon-container">
-            <button onClick={() => navigateTo("/contact")}>
-              <FiMail
-                className={`${
-                  currentRoute === "/contact" ? "text-white" : "text-[#9D9D9D]"
-                } text-base cursor-pointer`}
-                onMouseEnter={(e) => e.currentTarget.style.color = accentColor}
-                onMouseLeave={(e) => e.currentTarget.style.color = currentRoute === "/contact" ? "white" : "#9D9D9D"}
-              />
+            <button onClick={() => navigateTo('/contact')}>
+              <FiMail className={`text-base hover:text-[#8fff86] cursor-pointer transition-colors ${currentRoute === '/contact' ? 'text-white' : 'text-[#9D9D9D]'}`} />
             </button>
             <span className="badge">contact</span>
           </div>
         </aside>
 
-        {/* Main Content Area with padding for sidebar */}
+        {/* Main Content Area */}
         <div
           ref={scrollContainerRef}
           className="flex-1 md:pl-[3.1%] relative scrollbar overflow-x-hidden overflow-y-auto"
         >
-          <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
-          <motion.div
-            key={currentRoute}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            {renderPage()}
-          </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentRoute}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              {renderPage()}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
-      {/* Music Player Toaster */}
-      <motion.div
-        initial={{ x: -300, opacity: 0 }}
-        animate={{ 
-          x: isMusicPlayerOpen ? 0 : -300,
-          opacity: isMusicPlayerOpen ? 1 : 0,
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed bottom-14 left-4 z-50 w-64 glossy-25 backdrop-blur-2xl border border-[#494949]  rounded-[3px] p-4 "
-        style={{ backgroundColor: 'rgba(10, 10, 10, 0.95)' }}
-      >
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-medium tracking-tight">Now Playing</h3>
-          <button 
-            onClick={toggleMusicPlayer}
-            className="text-[#9D9D9D] hover:text-white transition"
-          >
-            <FiX size={16} />
-          </button>
-        </div>
-        
-        <div className="flex items-center space-x-3 mb-3">
-          <div 
-            className="w-12 h-12 rounded-[3px] flex items-center justify-center"
-            style={{ backgroundColor: bgColor }}
-          >
-            <SlMusicToneAlt className="text-xl text-white" />
-          </div>
-          <div className="flex-1">
-            <p className="text-sm font-medium tracking-tight">{currentSong}</p>
-            <p className="text-xs text-[#9D9D9D] tracking-tight">Chill Vibes</p>
-          </div>
-        </div>
-
-        <div className="flex items-center space-x-2 mb-2">
-          <div className="flex-1 h-1 bg-[#494949] rounded-full overflow-hidden">
-            <motion.div
-              className="h-full rounded-full"
-              style={{ backgroundColor: accentColor }}
-              initial={{ width: "0%" }}
-              animate={{ width: isPlaying ? "60%" : "0%" }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </div>
-        </div>
-
-        <div className="flex items-center justify-center space-x-4">
-          <button 
-            onClick={togglePlayPause}
-            className="w-10 h-10 rounded-full flex items-center justify-center transition hover:scale-105"
-            style={{ backgroundColor: accentColor }}
-          >
-            {isPlaying ? (
-              <FaPause className="text-black text-sm" />
-            ) : (
-              <FaPlay className="text-black text-sm ml-0.5" />
-            )}
-          </button>
-        </div>
-      </motion.div>
-
       <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
-        {/* Left section - Dynamic color sidebar with music icon */}
-        <div 
-          className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
-          style={{ backgroundColor: bgColor }}
-          onClick={toggleMusicPlayer}
-        >
+        <div className="w-[12%] md:w-[3.1%] h-full bg-[#508A4C] flex items-center justify-center border-r border-[#494949] shrink-0">
           <div className="relative flex items-center justify-center">
-            <SlMusicToneAlt className="text-black text-lg" />
+            <CiSearch className="text-black text-xl" />
           </div>
         </div>
 
         <div className="hidden md:flex absolute scale-[1.02] left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
-          {/* Location Section */}
           <motion.div
             className="tracking-tighter text-[#9D9D9D] cursor-default flex items-baseline"
             initial="rest"
@@ -435,7 +412,6 @@ export default function Home() {
             </motion.span>
           </motion.div>
 
-          {/* Local Time Section */}
           <motion.div
             className="tracking-[-1px] text-[#9D9D9D] cursor-default flex items-baseline"
             initial="rest"
@@ -478,27 +454,18 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Mobile - Social Icons */}
         <div className="flex md:hidden text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
-          <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
-            <FaLinkedin className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-          </Link>
+          <FaLinkedin className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
           <FiInstagram className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-          <Link href="https://github.com/Mat-icon?tab=repositories">
-            <FiGithub className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-          </Link>
+          <FiGithub className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
           <FaXTwitter className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
         </div>
 
-        {/* Right section - Contact button (Desktop only) */}
-        <Link
+        <button
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          href="/contact"
-          style={{ background: "#0a0a0afb" }}
-          className="hidden material-bubble3 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
-          onMouseOver={(e) => e.currentTarget.style.borderColor = accentColor}
-          onMouseOut={(e) => e.currentTarget.style.borderColor = "#6462628c"}
+          onClick={() => navigateTo('/contact')}
+          className="hidden material-bubble3 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] hover:border-[#8eff86] border-[#6462628c] bg-[#0a0a0afb] text-center transition-all"
         >
           {hovered ? (
             <motion.p
@@ -516,7 +483,7 @@ export default function Home() {
               <FaArrowRight className="ml-1" />
             </p>
           )}
-        </Link>
+        </button>
       </footer>
     </div>
   );

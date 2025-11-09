@@ -5,8 +5,9 @@ import Header from "./Header";
 import Contactbar from "./Contactbar";
 import FullNav from "./FullNav";
 import LuminousBeam from './LuminousBeam';
+import Footer from "./Footer";
 
-const HeroBody = ({ isOpen, toggleNav }) => {
+const HeroBody = ({ isOpen, toggleNav, currentRoute }) => {
   const [isProjectVisible, setIsProjectVisible] = useState(false);
   const [isContactVisible, setIsContactVisible] = useState(false);
   const projectRef = useRef(null);
@@ -139,7 +140,7 @@ const HeroBody = ({ isOpen, toggleNav }) => {
       <div className="relative flex flex-col">
         {/* Background Animation */}
         <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center">
-          <div className="relative flex gap-8 text-[560px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000044] font-mono whitespace-nowrap animate-scroll">
+          <div className="relative flex gap-8 text-[500px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000044] font-mono whitespace-nowrap animate-scroll">
             <p>code</p>
             <p>beautiful interfaces</p>
             <p>code</p>
@@ -156,7 +157,7 @@ const HeroBody = ({ isOpen, toggleNav }) => {
         </div>
 
         {/* FullNav - Must be here at the top level */}
-        <FullNav isOpen={isOpen} toggleNav={toggleNav} />
+        <FullNav isOpen={isOpen} toggleNav={toggleNav} currentRoute={currentRoute} />
 
         <Header />
 
@@ -171,7 +172,8 @@ const HeroBody = ({ isOpen, toggleNav }) => {
           </div>
         </div>
 
-        <Contactbar />
+        <Contactbar currentRoute={currentRoute} />
+        <Footer currentRoute={currentRoute} />
       </div>
     </>
   );

@@ -142,10 +142,10 @@ const Home = () => {
             width: isMobile ? "350px" : "400px",
             height: isMobile ? "500px" : "400px",
             background: isMobile
-              ? "#8FFF86"
-              : "#8FFF86",
+              ? "#365A34"
+              : "#365A34",
             filter: isMobile ? "blur(60px)" : "blur(120px)",
-             transform: isMobile ? "scale(0.1)": "scale(0.5)",
+             transform: isMobile ? "scale(1)": "scale(0.5)",
             opacity: 0.8,
             willChange: "transform, opacity",
           }}

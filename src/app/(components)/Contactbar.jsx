@@ -9,18 +9,24 @@ import "./App.scss";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
-const Contactbar = () => {
+const Contactbar = ({ currentRoute }) => {
   const [hoveredBtn1, setHoveredBtn1] = useState(false);
   const [hoveredBtn2, setHoveredBtn2] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef(null);
-  const pathname = usePathname();
 
-  let spanColor;
-  if (pathname === "/") spanColor = "bg-[#8FFF86]";
-  else if (pathname === "/About") spanColor = "bg-[#95bdfa]";
-  else if (pathname === "/ProjectsPage") spanColor = "bg-[#fa9595]";
-  else spanColor = "bg-[#8FFF86]";
+  let accentColor;
+  if (currentRoute === "/") {
+    accentColor = "#8FFF86";
+  } else if (currentRoute === "/about") {
+    accentColor = "#86d4ff";
+  } else if (currentRoute === "/projects") {
+    accentColor = "#fa9595";
+  } else if (currentRoute === "/contact") {
+    accentColor = "#ffd886";
+  } else {
+    accentColor = "#8FFF86";
+  }
 
   const containerVariant = {
     hidden: { opacity: 0, scale: 0.95 },
@@ -82,7 +88,10 @@ const Contactbar = () => {
         <div className="w-full h-auto">
           <div className="w-full md:mt-8 mt-4 py-6 poppin flex flex-col lg:flex-row items-center justify-center lg:space-x-10">
             <div className="relative w-24 h-24 md:w-32 md:h-32">
-              <div className={`relative w-full h-full rounded-full overflow-y-visible ${spanColor}`}>
+              <div 
+                className="relative w-full h-full rounded-full overflow-y-visible"
+                style={{ backgroundColor: accentColor }}
+              >
                 <img
                   src="/images/matthew.png"
                   alt="me"
@@ -107,7 +116,9 @@ const Contactbar = () => {
               onMouseLeave={() => setHoveredBtn1(false)}
               href="/contact"
               style={{ background: "#101010e1" }}
-              className="w-10/12 material-bubble3 hover:border-[#8eff86] md:w-full lg:w-3/12 p-4 lg:px-4 rounded-md border-[#494949] border text-center text-sm"
+              className="w-10/12 material-bubble3 md:w-full lg:w-3/12 p-4 lg:px-4 rounded-md border-[#494949] border text-center text-sm"
+              onMouseOver={(e) => e.currentTarget.style.borderColor = accentColor}
+              onMouseOut={(e) => e.currentTarget.style.borderColor = "#494949"}
             >
               {hoveredBtn1 ? (
                 <motion.p
@@ -133,7 +144,9 @@ const Contactbar = () => {
               download
               style={{ background: "#101010e1" }}
               target="_blank"
-              className="w-10/12 mt-1 md:mt-0 material-bubble3 hover:border-[#8eff86] md:w-full lg:w-3/12 p-4 lg:px-4 rounded-md border-[#494949] bg-black border text-center text-sm"
+              className="w-10/12 mt-1 md:mt-0 material-bubble3 md:w-full lg:w-3/12 p-4 lg:px-4 rounded-md border-[#494949] bg-black border text-center text-sm"
+              onMouseOver={(e) => e.currentTarget.style.borderColor = accentColor}
+              onMouseOut={(e) => e.currentTarget.style.borderColor = "#494949"}
             >
               {hoveredBtn2 ? (
                 <motion.p
@@ -153,7 +166,7 @@ const Contactbar = () => {
           </div>
         </div>
       </motion.div>
-      <Footer />
+     
     </div>
   );
 };

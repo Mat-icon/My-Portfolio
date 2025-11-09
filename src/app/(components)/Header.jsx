@@ -111,7 +111,7 @@ const Header = () => {
           </h1>
         </div>
         
-        <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-[-1px] md:text-[16px] text-[14px] text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">
+        <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px]  text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">
           {paragraphWords.map((word, index) => (
             <motion.span 
               key={index}

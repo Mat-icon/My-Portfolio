@@ -142,7 +142,7 @@ const ProjectHighlight = () => {
           className="w-full flex items-center justify-center"
         >
           <Link
-            href="/ProjectsPage"
+            href="/projects"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             style={{ background: "#101010e1" }}

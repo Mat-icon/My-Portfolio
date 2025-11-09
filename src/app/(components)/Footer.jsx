@@ -1,37 +1,45 @@
-import { usePathname } from "next/navigation";
 import React from "react";
 
 
-const Footer = () => {
-  const pathname = usePathname();
-  
-  
-    let spanColor;
-    if(pathname === "/"){
-      spanColor = "text-[#8FFF86]"
-    }else if(pathname === "/About"){
-      spanColor = "text-[#95bdfa]"
+const Footer = ({currentRoute}) => {
+
+    let accentColor;
+    if(currentRoute === "/"){
+      accentColor = "#8FFF86"
+    }else if(currentRoute === "/about"){
+      accentColor = "#86d4ff"
     }
-    else if(pathname === "/ProjectsPage"){
-      spanColor = "text-[#fa9595]"
+    else if(currentRoute === "/projects"){
+      accentColor = "#fa9595"
+    }else if(currentRoute === "/contact"){
+      accentColor = "#ffd886"
     }else{
-       spanColor = "text-[#8FFF86]"
+       accentColor = "#8FFF86"
     }
 
 
   return (
-    <div className="w-full h-[70vh] glossy-25 px-2 xl:px-10 backdrop-blur-sm  tracking-tighter top-full absolute mt-4 footer-content">
+    <div className="w-full h-[70vh] glossy-25 px-2 xl:px-10 backdrop-blur-sm  tracking-tighter top-full mt-4 footer-content">
       <div className="w-full flex flex-col space-y-52 relative top-1/4  items-center">
         <div className="flex flex-col text-sm   sm:flex-col sm:flex md:flex justify-between items-center md:flex-row md:items-center md:space-x-4  w-11/12">
         <div className="flex items-center space-x-2">
           <div className="rotate-90 gap-[1px] flex items-center">
-            <span className="w-2 h-2 border-t-4 border-l-4 border-[#8fff86] rotate-[-45deg]" />
-            <span className="w-1 h-3 bg-[#8fff86] rotate-[30deg] rounded-full" />
-            <span className="w-2 h-2 border-t-4 border-r-4 border-[#8fff86] rotate-[45deg]" />
+            <span 
+              className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]" 
+              style={{ borderColor: accentColor }}
+            />
+            <span 
+              className="w-1 h-3 rotate-[30deg] rounded-full" 
+              style={{ backgroundColor: accentColor }}
+            />
+            <span 
+              className="w-2 h-2 border-t-4 border-r-4 rotate-[45deg]" 
+              style={{ borderColor: accentColor }}
+            />
           </div>
           <span className="text-xl font-normal tracking-[-2px] ">
             matthew 
-             <span className={`${spanColor}`}>
+             <span style={{ color: accentColor }}>
                  &#123;ameh&#125;
             </span>
           </span>

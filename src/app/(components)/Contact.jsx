@@ -1,19 +1,32 @@
 "use client";
-
-import React, { useEffect, useRef } from "react";
+import Link from "next/link";
+import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGamepad,
-  faMinus,
-  faPlane,
-  faSoccerBall,
-  faWeight,
-  faX,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
 import { gsap } from "gsap";
+import { motion } from "framer-motion";
 import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
+import { FaArrowRight } from "react-icons/fa6";
+import LuminousBeam from './LuminousBeam';
+
+// Nigerian Flag Component
+const NigerianFlag = ({ width = 24, height = 16, className = "" }) => {
+  return (
+    <svg 
+      width={width} 
+      height={height} 
+      viewBox="0 0 24 16" 
+      className={`inline-block ${className}`}
+      aria-label="Nigerian Flag"
+    >
+      <rect width="8" height="16" x="0" y="0" fill="#008751" />
+      <rect width="8" height="16" x="8" y="0" fill="#FFFFFF" />
+      <rect width="8" height="16" x="16" y="0" fill="#008751" />
+    </svg>
+  );
+};
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable);
@@ -28,80 +41,255 @@ const Contact = () => {
   const contactRef = useRef(null);
   const collabRef = useRef(null);
 
+  const [hovered, setHovered] = useState(false);
+  
+  // Visibility states for each card
+  const [elementVisible, setElementVisible] = useState(false);
+  const [jobVisible, setJobVisible] = useState(false);
+  const [hobbiesVisible, setHobbiesVisible] = useState(false);
+  const [contactVisible, setContactVisible] = useState(false);
+  const [collabVisible, setCollabVisible] = useState(false);
+  const [potraitVisible, setPotraitVisible] = useState(false);
+
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+    },
+  };
+
+  const letter = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  };
+
+  const containerVariant = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
+  const renderText = (node, keyPrefix = "") => {
+    if (typeof node === "string") {
+      return node.split("").map((char, i) => (
+        <motion.span
+          key={`${keyPrefix}-${i}`}
+          variants={letter}
+          className="inline-block"
+        >
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ));
+    }
+
+    if (Array.isArray(node)) {
+      return node.map((child, i) => renderText(child, `${keyPrefix}-${i}`));
+    }
+
+    if (typeof node === "object" && node !== null && "props" in node) {
+      const element = node;
+      return (
+        <element.type key={keyPrefix} {...element.props}>
+          {renderText(element.props.children, keyPrefix + "-child")}
+        </element.type>
+      );
+    }
+
+    return node;
+  };
+
   useEffect(() => {
     const draggableElements = [
-      elementRef,
-      jobRef,
-      hobbiesRef,
-      potraitRef,
-      contactRef,
-      collabRef,
+      { ref: elementRef, visible: elementVisible },
+      { ref: jobRef, visible: jobVisible },
+      { ref: hobbiesRef, visible: hobbiesVisible },
+      { ref: potraitRef, visible: potraitVisible },
+      { ref: contactRef, visible: contactVisible },
+      { ref: collabRef, visible: collabVisible },
     ];
 
     const isMobileDevice = () => /Mobi|Android/i.test(navigator.userAgent);
 
-    const draggableInstances = draggableElements.map((ref) => {
-      if (ref.current) {
+    const draggableInstances = draggableElements.map(({ ref, visible }) => {
+      if (ref.current && visible && !isMobileDevice()) {
+        // Clear any Framer Motion inline styles that might interfere
+        gsap.set(ref.current, { clearProps: "all" });
+        
         return Draggable.create(ref.current, {
           type: "x,y",
           edgeResistance: 0.92,
           bounds: ".contact-body",
           inertia: true,
-          onDragStart: () => console.log("Drag started"),
-          onDrag: () => console.log("Dragging"),
-          onDragEnd: () => console.log("Drag ended"),
+          onDragStart: function() {
+            // Ensure transform origin is preserved during drag
+            gsap.set(this.target, { transformOrigin: "center center" });
+          }
         })[0];
       }
       return null;
     });
 
-    if (isMobileDevice()) {
-      draggableInstances.forEach((instance) => {
-        if (instance) instance.disable();
+    // Create intersection observers for each card
+    const observerOptions = { threshold: 0.2 };
+
+    const elementObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setElementVisible(entry.isIntersecting);
       });
-    }
+    }, observerOptions);
+
+    const jobObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setJobVisible(entry.isIntersecting);
+      });
+    }, observerOptions);
+
+    const hobbiesObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setHobbiesVisible(entry.isIntersecting);
+      });
+    }, observerOptions);
+
+    const contactObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setContactVisible(entry.isIntersecting);
+      });
+    }, observerOptions);
+
+    const collabObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setCollabVisible(entry.isIntersecting);
+      });
+    }, observerOptions);
+
+    const potraitObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setPotraitVisible(entry.isIntersecting);
+      });
+    }, observerOptions);
+
+    // Observe elements
+    if (elementRef.current) elementObserver.observe(elementRef.current);
+    if (jobRef.current) jobObserver.observe(jobRef.current);
+    if (hobbiesRef.current) hobbiesObserver.observe(hobbiesRef.current);
+    if (contactRef.current) contactObserver.observe(contactRef.current);
+    if (collabRef.current) collabObserver.observe(collabRef.current);
+    if (potraitRef.current) potraitObserver.observe(potraitRef.current);
 
     // Cleanup
     return () => {
       draggableInstances.forEach((instance) => {
         if (instance) instance.kill();
       });
+      elementObserver.disconnect();
+      jobObserver.disconnect();
+      hobbiesObserver.disconnect();
+      contactObserver.disconnect();
+      collabObserver.disconnect();
+      potraitObserver.disconnect();
     };
-  }, []);
+  }, [elementVisible, jobVisible, hobbiesVisible, contactVisible, collabVisible, potraitVisible]);
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="light2"></div>
-      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap gap-6 space-x-1 space-y-3">
-        <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={jobRef}>
-          <div className="about-me-title p-2 text-white">
-            <p>about-me</p>
-            <div className="flex space-x-4 text-gray-500 text-xs">
+    <div className="w-full flex flex-col items-center mb-0">
+      <h1 className="text-4xl md:text-[52px] tracking-tighter md:leading-[60px] poppins text-center">
+        Your <span className="text-[#95bdfa]">creative</span> web developer
+      </h1>
+      <LuminousBeam height="h-[130px]" color="8fff86"/>
+      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
+        
+        <motion.div
+          className="job md:h-44 h-auto w-4/5 lg:w-1/2 xl:w-2/6"
+          ref={elementRef}
+          initial="hidden"
+          animate={elementVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (elementRef.current && elementVisible) {
+              gsap.set(elementRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
+        >
+          <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
+            <p className="text-sm tracking-[-1px]">where-i-work</p>
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               />
               <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
           </div>
-          <div className="about-me-text p-4 text-base rounded-lg shadow">
+          <div className="w-11/12 about-me-text backdrop-blur-sm tracking-tighter p-4 rounded-lg shadow text-sm md:text-base font-normal">
+            <p className="flex items-center gap-2">
+              <span className="text-[#c2c0c0da]">1 </span>
+              <span>Currently based in Lagos, Nigeria</span>
+              <NigerianFlag width={20} height={14} />
+            </p>
+            <p className="mt-2">
+              <span className="text-[#c2c0c0da]">2 </span> Available for all
+              remote collaborations around the world 🌍
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="me md:w-full lg:w-4/5 xl:w-[60%]"
+          ref={jobRef}
+          initial="hidden"
+          animate={jobVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (jobRef.current && jobVisible) {
+              gsap.set(jobRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
+        >
+          <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
+            <p className="text-sm tracking-[-1px]">about-me</p>
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white hover:border-white"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white hover:border-white text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="about-me-text backdrop-blur-sm tracking-tighter p-4 text-[15px]">
             <p>
-              <span className="text-gray-600">1. </span>Nice to meet you!
+              <span className="text-[#c2c0c0da]">1 </span>Nice to meet you!
               I&apos;m
               <span className="text-red-500"> Matthew</span> a{" "}
               <span className="text-blue-400">Freelance Web Developer</span>.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">2. </span>My focus is on{" "}
+              <span className="text-[#c2c0c0da]">2 </span>My focus is on{" "}
               <span className="text-lime-400">creative development</span>: my
               skills can be described as the{" "}
               <span className="text-blue-300">meeting point</span> between{" "}
@@ -109,7 +297,7 @@ const Contact = () => {
               <span className="text-pink-500">technical proficiency</span>.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">3. </span>I{" "}
+              <span className="text-[#c2c0c0da]">3 </span>I{" "}
               <span className="text-yellow-400">integrate</span> complex but{" "}
               <span className="text-blue-800">smooth animations</span> and{" "}
               <span className="text-green-500">interactions</span> into my
@@ -119,7 +307,7 @@ const Contact = () => {
               <span className="text-blue-500">memorable experience</span>.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">4. </span>I strive to{" "}
+              <span className="text-[#c2c0c0da]">4 </span>I strive to{" "}
               <span className="text-cyan-500">deliver projects</span> that are{" "}
               <span className="text-purple-400">visually compelling</span> by
               working closely with the{" "}
@@ -132,110 +320,189 @@ const Contact = () => {
               <span className="text-pink-500"> technical SEO aspects.</span>
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div
-          className="job md:h-44 h-auto w-4/5 lg:w-1/2 xl:w-2/5"
-          ref={elementRef}
-        >
-          <div className="about-me-title p-3 text-white">
-            <p className="text-sm">where-i-work</p>
-            <div className="flex space-x-4 text-gray-500 text-xs">
-              <FontAwesomeIcon
-                icon={faMinus}
-                className="hover:text-white cursor-pointer"
-                style={{ transition: "ease-in 0.5s" }}
-              />
-              <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-                style={{ transition: "ease-in 0.5s" }}
-              ></div>
-              <FontAwesomeIcon
-                icon={faX}
-                className="hover:text-white cursor-pointer"
-                style={{ transition: "ease-in 0.5s" }}
-              />
-            </div>
-          </div>
-          <div className="w-11/12 about-me-text p-4 rounded-lg shadow text-sm md:text-base font-normal">
-            <p>
-              <span className="text-gray-600">1. </span>Currently based in
-              Lagos, Nigeria<sub className="text-xs"> NG</sub>🟩⬜🟩
-            </p>
-            <p>
-              <span className="text-gray-600">2. </span> Available for all
-              remote collaborations around the world🌍
-            </p>
-          </div>
-        </div>
-
-        <div
-          className="hobbies w-4/5 h-auto lg:w-1/2 xl:w-1/3"
+        <motion.div
+          className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
           ref={hobbiesRef}
+          initial="hidden"
+          animate={hobbiesVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (hobbiesRef.current && hobbiesVisible) {
+              gsap.set(hobbiesRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
         >
-          <div className="about-me-title p-3 text-white">
+          <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
             <p className="text-sm">hobbies</p>
-            <div className="flex space-x-4 text-gray-500">
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
-                className="hover:text-white cursor-pointer text-xs"
+                className="hover:text-white hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               />
               <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer text-xs"
+                className="hover:text-white hover:border-white text-xs"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
           </div>
           <div className="about-me-text p-4 space-y-3">
             <p className="text-base">
-              <span className="text-gray-600">1.</span> ⚽ Football
+              <span className="text-[#c2c0c0da]">1</span> ⚽ Football
             </p>
             <p className="text-base">
-              <span className="text-gray-600">2. </span>
+              <span className="text-[#c2c0c0da]">2 </span>
               🎮 Playing games
             </p>
             <p className="text-base">
-              <span className="text-gray-600">3. </span>
+              <span className="text-[#c2c0c0da]">3 </span>
               ✈️ Travelling
             </p>
             <p className="text-base">
-              <span className="text-gray-600">4. </span> 🏋️ Exercise
+              <span className="text-[#c2c0c0da]">4 </span> 🏋️ Exercise
             </p>
             <p className="text-base">
-              <span className="text-gray-600">5. </span> 🎧 Music
+              <span className="text-[#c2c0c0da]">5 </span> 🎧 Music
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="me md:w-full lg:w-4/5 xl:w-2/3" ref={collabRef}>
-          <div className="about-me-title p-2 text-white">
-            <p>collaborations</p>
-            <div className="flex space-x-4 text-gray-500 text-xs">
+        <motion.div
+          className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
+          ref={contactRef}
+          initial="hidden"
+          animate={contactVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (contactRef.current && contactVisible) {
+              gsap.set(contactRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
+        >
+          <div className="about-me-title bg-[#0f0f0f] px-4 text-sm py-2 text-white">
+            <p>me-online</p>
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               />
               <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer text-xs"
+                className="hover:text-white hover:border-white text-xs"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
           </div>
-          <div className="about-me-text p-4 text-base rounded-lg shadow">
+          <div className="potrait-img tracking-tighter text-md flex flex-col space-y-3 p-4 shadow">
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">1 </span>{" "}
+              <a
+                href="https://www.linkedin.com/in/rex-technologies-759965238/"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+                target="_blank"
+              >
+                linkedin <FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">2 </span>{" "}
+              <a
+                href="https://www.linkedin.com/in/rex-technologies-759965238/"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+                target="_blank"
+              >
+                instagram <FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">3 </span>{" "}
+              <a
+                href="https://github.com/Mat-icon?tab=repositories"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+                target="_blank"
+              >
+                github <FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">4 </span>{" "}
+              <a
+                href="https://github.com/Mat-icon?tab=repositories"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+                target="_blank"
+              >
+                x&#123;twitter&#125;
+                <FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+            <div className="flex space-x-2">
+              <span className="text-[#c2c0c0da]">5 </span>{" "}
+              <a
+                href="https://github.com/Mat-icon?tab=repositories"
+                className="hover:text-[#8FFF86] decoration-inherit flex items-center"
+                style={{ transition: "0.4s ease-in" }}
+                target="_blank"
+              >
+                facebook
+                <FiArrowUpRight className="text-lg" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="me md:w-full backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto"
+          ref={collabRef}
+          initial="hidden"
+          animate={collabVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (collabRef.current && collabVisible) {
+              gsap.set(collabRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
+        >
+          <div className="about-me-title bg-[#0f0f0f] px-4 text-sm py-2 text-white">
+            <p>collaborations</p>
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
+              <FontAwesomeIcon
+                icon={faMinus}
+                className="hover:text-white hover:border-white"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+              <div
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <FontAwesomeIcon
+                icon={faX}
+                className="hover:text-white hover:border-white text-xs"
+                style={{ transition: "ease-in 0.5s" }}
+              />
+            </div>
+          </div>
+          <div className="p-4 text-[15px] rounded-lg">
             <p>
-              <span className="text-gray-600">1. </span>My ideal collaboration
+              <span className="text-[#c2c0c0da]">1 </span>My ideal collaboration
               are with
               <span className="text-red-500"> web agencies</span> and
               <span className="text-blue-400">
@@ -249,7 +516,7 @@ const Contact = () => {
               <span className="text-yellow-300">aesthetics</span>.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">2. </span>I can also work with
+              <span className="text-[#c2c0c0da]">2 </span>I can also work with
               <span className="text-blue-300">
                 {" "}
                 independent professionals
@@ -262,126 +529,58 @@ const Contact = () => {
               project.
             </p>
             <p className="mt-2">
-              <span className="text-gray-600">3. </span>I achieve my
+              <span className="text-[#c2c0c0da]">3 </span>I achieve my
               <span className="text-yellow-400"> best results</span> in
               paternships that are based on
               <span className="text-cyan-400"> mutual understanding</span> and
-              <span className="text-green-500"> close collaborations</span>{" "}
+              <span className="text-green-300"> close collaborations</span>{" "}
               between all parties, especially design and development.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="potrait w-11/12 lg:w-1/2 xl:w-1/4" ref={potraitRef}>
-          <div className="about-me-title p-3 text-white">
-            <p className="text-sm">potrait</p>
-            <div className="flex space-x-4 text-gray-500 text-xs">
+        <motion.div
+          className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
+          ref={potraitRef}
+          initial="hidden"
+          animate={potraitVisible ? "visible" : "hidden"}
+          variants={containerVariant}
+          style={{ willChange: "auto" }}
+          onAnimationComplete={() => {
+            if (potraitRef.current && potraitVisible) {
+              gsap.set(potraitRef.current, { clearProps: "transform,opacity" });
+            }
+          }}
+        >
+          <div className="about-me-title bg-[#0f0f0f] text-sm px-4 py-2 text-white">
+            <p>potrait</p>
+            <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
-                className="hover:text-white cursor-pointer"
+                className="hover:text-white hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               />
               <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
                 style={{ transition: "ease-in 0.5s" }}
               ></div>
               <FontAwesomeIcon
                 icon={faX}
-                className="hover:text-white cursor-pointer text-xs"
+                className="hover:text-white hover:border-white text-xs"
                 style={{ transition: "ease-in 0.5s" }}
               />
             </div>
           </div>
-          <div className="w-full h-auto bg-lime-400">
+          <div className="w-full h-auto bg-[#95bdfa] overflow-hidden">
             <img
-              src="/images/crop.jpg"
+              src="/images/matthew.png"
               alt="img-face"
               className="h-[275px] w-full object-cover"
             />
           </div>
-        </div>
-
-        <div className="contact-links w-4/5 lg:w-1/2 xl:w-1/4" ref={contactRef}>
-          <div className="about-me-title p-3 text-white">
-            <p className="text-sm">me-online</p>
-            <div className="flex space-x-4 text-gray-500 text-xs">
-              <FontAwesomeIcon
-                icon={faMinus}
-                className="hover:text-white cursor-pointer"
-                style={{ transition: "ease-in 0.5s" }}
-              />
-              <div
-                className="w-2.5 h-2.5 border border-gray-500 rounded-sm hover:border-white cursor-pointer"
-                style={{ transition: "ease-in 0.5s" }}
-              ></div>
-              <FontAwesomeIcon
-                icon={faX}
-                className="hover:text-white cursor-pointer"
-                style={{ transition: "ease-in 0.5s" }}
-              />
-            </div>
-          </div>
-          <div className="potrait-img text-md flex flex-col space-y-3 p-6 shadow">
-            <div className="flex">
-              <span className="text-gray-600">1.</span>{" "}
-              <a
-                href="https://www.linkedin.com/in/rex-technologies-759965238/"
-                className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{ transition: "0.4s ease-in" }}
-                target="_blank"
-              >
-                linkedin <FiArrowUpRight className="text-lg" />
-              </a>
-            </div>
-            <div className="flex">
-              <span className="text-gray-600">2.</span>{" "}
-              <a
-                href="/home"
-                className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{ transition: "0.4s ease-in" }}
-                target="_blank"
-              >
-                instagram <FiArrowUpRight className="text-lg" />
-              </a>
-            </div>
-            <div className="flex">
-              <span className="text-gray-600">3.</span>{" "}
-              <a
-                href="https://github.com/Mat-icon?tab=repositories"
-                className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{ transition: "0.4s ease-in" }}
-                target="_blank"
-              >
-                github <FiArrowUpRight className="text-lg" />
-              </a>
-            </div>
-            <div className="flex">
-              <span className="text-gray-600">4.</span>{" "}
-              <a
-                href="https://github.com/Mat-icon?tab=repositories"
-                className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{ transition: "0.4s ease-in" }}
-                target="_blank"
-              >
-                x &#123;twitter&#125;
-                <FiArrowUpRight className="text-lg" />
-              </a>
-            </div>
-            <div className="flex">
-              <span className="text-gray-600">5.</span>{" "}
-              <a
-                href="https://github.com/Mat-icon?tab=repositories"
-                className="hover:text-blue-400 decoration-inherit flex items-center"
-                style={{ transition: "0.4s ease-in" }}
-                target="_blank"
-              >
-                facebook
-                <FiArrowUpRight className="text-lg" />
-              </a>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
+
     </div>
   );
 };
