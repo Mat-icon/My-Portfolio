@@ -180,7 +180,7 @@ export default function Home() {
       case "/contact":
         return <div><Contacts   isOpen={isNavOpen} currentRoute={currentRoute} toggleNav={toggleNav}/></div>;
       default:
-        return <div>Home Component Here</div>;
+        return <HeroBody isOpen={isNavOpen} currentRoute={currentRoute} toggleNav={toggleNav} />;
     }
   };
 
