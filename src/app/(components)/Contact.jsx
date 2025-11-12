@@ -197,15 +197,11 @@ const Contact = () => {
   }, [elementVisible, jobVisible, hobbiesVisible, contactVisible, collabVisible, potraitVisible]);
 
   return (
-    <div className="w-full flex flex-col items-center mb-0">
-      <h1 className="text-4xl md:text-[52px] tracking-tighter md:leading-[60px] poppins text-center">
-        Your <span className="text-[#95bdfa]">creative</span> web developer
-      </h1>
-      <LuminousBeam height="h-[130px]" color="8fff86"/>
-      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
+    <div className="w-full flex  relative z-10 flex-col items-center mb-0">
+      <div className="contact-body md:h-[100vh] relative flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
         
         <motion.div
-          className="job md:h-44 h-auto w-4/5 lg:w-1/2 xl:w-2/6"
+          className="job2 xl:absolute xl:left-5 md:h-44 h-auto w-4/5 lg:w-1/2 xl:w-2/6"
           ref={elementRef}
           initial="hidden"
           animate={elementVisible ? "visible" : "hidden"}
@@ -217,8 +213,8 @@ const Contact = () => {
             }
           }}
         >
-          <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
-            <p className="text-sm tracking-[-1px]">where-i-work</p>
+          <div className="about-me-title3 bg-[#1D242A] px-4 py-2 text-white">
+            <p className="text-sm tracking-[-1px] ">where-i-work</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -236,11 +232,11 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="w-11/12 about-me-text backdrop-blur-sm tracking-tighter p-4 rounded-lg shadow text-sm md:text-base font-normal">
-            <p className="flex items-center gap-2">
+          <div className="w-11/12 about-me-text  backdrop-blur-sm tracking-tighter p-4 rounded-lg shadow text-sm md:text-base font-normal">
+            <p className="flex  gap-2">
               <span className="text-[#c2c0c0da]">1 </span>
-              <span>Currently based in Lagos, Nigeria</span>
-              <NigerianFlag width={20} height={14} />
+              <span>Currently based in Lagos, Nigeria  <NigerianFlag width={20} height={14} /></span>
+             
             </p>
             <p className="mt-2">
               <span className="text-[#c2c0c0da]">2 </span> Available for all
@@ -250,7 +246,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="me md:w-full lg:w-4/5 xl:w-[60%]"
+          className="me2 md:w-full xl:absolute  lg:w-4/5 xl:w-[50%]"
           ref={jobRef}
           initial="hidden"
           animate={jobVisible ? "visible" : "hidden"}
@@ -262,8 +258,8 @@ const Contact = () => {
             }
           }}
         >
-          <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
-            <p className="text-sm tracking-[-1px]">about-me</p>
+          <div className="about-me-title3 bg-[#1D242A] px-4 py-2 text-white">
+            <p className="text-sm tracking-[-1px] ">about-me</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -281,11 +277,11 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="about-me-text backdrop-blur-sm tracking-tighter p-4 text-[15px]">
+          <div className="about-me-text  backdrop-blur-sm tracking-tighter p-4 text-[15px]">
             <p>
               <span className="text-[#c2c0c0da]">1 </span>Nice to meet you!
               I&apos;m
-              <span className="text-red-500"> Matthew</span> a{" "}
+              <span className="text-red-300"> Matthew</span> a{" "}
               <span className="text-blue-400">Freelance Web Developer</span>.
             </p>
             <p className="mt-2">
@@ -299,7 +295,7 @@ const Contact = () => {
             <p className="mt-2">
               <span className="text-[#c2c0c0da]">3 </span>I{" "}
               <span className="text-yellow-400">integrate</span> complex but{" "}
-              <span className="text-blue-800">smooth animations</span> and{" "}
+              <span className="text-blue-500">smooth animations</span> and{" "}
               <span className="text-green-500">interactions</span> into my
               projects, to present the{" "}
               <span className="text-red-400">website information</span> in an
@@ -314,7 +310,7 @@ const Contact = () => {
               <span className="text-yellow-600">designer</span>, but also{" "}
               <span className="text-sky-300">technically outstanding</span> with
               a clean{" "}
-              <span className="text-red-600">and properly structured</span>{" "}
+              <span className="text-red-400">and properly structured</span>{" "}
               code. All of this, without forgetting about{" "}
               <span className="text-lime-500">web performances</span> and{" "}
               <span className="text-pink-500"> technical SEO aspects.</span>
@@ -323,7 +319,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
+          className="hobbies2  xl:absolute xl:left-25  xl:bottom-0 backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
           ref={hobbiesRef}
           initial="hidden"
           animate={hobbiesVisible ? "visible" : "hidden"}
@@ -335,7 +331,7 @@ const Contact = () => {
             }
           }}
         >
-          <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
+          <div className="about-me-title3 px-4 py-2 text-white">
             <p className="text-sm">hobbies</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
@@ -376,7 +372,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
+          className="me2 xl:absolute xl:right-4 xl:top-12 backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
           ref={contactRef}
           initial="hidden"
           animate={contactVisible ? "visible" : "hidden"}
@@ -388,7 +384,7 @@ const Contact = () => {
             }
           }}
         >
-          <div className="about-me-title bg-[#0f0f0f] px-4 text-sm py-2 text-white">
+          <div className="about-me-title3 px-4 text-sm py-2 text-white">
             <p>me-online</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
@@ -469,7 +465,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="me md:w-full backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto"
+          className="me2 md:w-full xl:absolute xl:bottom-3 xl:right-0 backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[45%] h-auto"
           ref={collabRef}
           initial="hidden"
           animate={collabVisible ? "visible" : "hidden"}
@@ -481,7 +477,7 @@ const Contact = () => {
             }
           }}
         >
-          <div className="about-me-title bg-[#0f0f0f] px-4 text-sm py-2 text-white">
+          <div className="about-me-title3 px-4 text-sm py-2 text-white">
             <p>collaborations</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
@@ -540,7 +536,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
+          className="potrait2 xl:absolute xl:bottom-3 xl:left-3 backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
           ref={potraitRef}
           initial="hidden"
           animate={potraitVisible ? "visible" : "hidden"}
@@ -552,7 +548,7 @@ const Contact = () => {
             }
           }}
         >
-          <div className="about-me-title bg-[#0f0f0f] text-sm px-4 py-2 text-white">
+          <div className="about-me-title3  text-sm px-4 py-2 text-white">
             <p>potrait</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
@@ -571,7 +567,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="w-full h-auto bg-[#95bdfa] overflow-hidden">
+          <div className="w-full h-auto bg-[#8ff866] overflow-hidden">
             <img
               src="/images/matthew.png"
               alt="img-face"

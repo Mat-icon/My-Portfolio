@@ -7,6 +7,7 @@ import FullNav from "./FullNav";
 import LuminousBeam from './LuminousBeam';
 import Footer from "./Footer";
 
+
 const HeroBody = ({ isOpen, toggleNav, currentRoute }) => {
   const [isProjectVisible, setIsProjectVisible] = useState(false);
   const [isContactVisible, setIsContactVisible] = useState(false);
@@ -139,6 +140,7 @@ const HeroBody = ({ isOpen, toggleNav, currentRoute }) => {
 
       <div className="relative flex flex-col">
         {/* Background Animation */}
+        <div className="fixed top-[10%]"></div>
         <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center">
           <div className="relative flex gap-8 text-[500px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000044] font-mono whitespace-nowrap animate-scroll">
             <p>code</p>

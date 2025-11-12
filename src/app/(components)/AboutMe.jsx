@@ -20,7 +20,7 @@ import { CiLaptop } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import HeroBody from "./HeroBody";
+import AboutPage from "./AboutPage";
 import { motion, AnimatePresence } from "framer-motion";
 import FullNav from "./FullNav";
 
@@ -110,14 +110,14 @@ const RouteLoader = ({ isVisible, accentColor }) => {
   );
 };
 
-export default function Home() {
+export default function AboutMe() {
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const scrollContainerRef = useRef(null);
-  const [currentRoute, setCurrentRoute] = useState("/");
+  const [currentRoute, setCurrentRoute] = useState("/about");
   const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState("Lofi Beats");
@@ -237,7 +237,7 @@ export default function Home() {
 
   return (
     <div
-      className="flex flex-col w-[97%] md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+      className="flex flex-col w-[97%] md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#101010] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}
@@ -254,23 +254,23 @@ export default function Home() {
       `}</style>
 
       {/* Header */}
-      <header className="flex justify-between filter glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0">
-        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
+      <header className="flex justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#101010] shrink-0">
+        <div className="flex w-[12%] border-r border-[#101010] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
             <span
-              className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1"
+              className="w-2 h-2 border-t-4 border-l-4 border-[#101010] rotate-[-45deg] animate-none group-hover:animate-crazy1"
               style={{ "--hover-color": accentColor }}
             />
-            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full animate-none group-hover:animate-crazy2" />
-            <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3" />
+            <span className="w-1 h-3 bg-[#101010] rotate-[30deg] rounded-full animate-none group-hover:animate-crazy2" />
+            <span className="w-2 h-2 border-t-4 border-r-4 border-[#101010] rotate-[45deg] animate-none group-hover:animate-crazy3" />
           </div>
         </div>
 
         {/* Center name */}
         <div className="flex text-lg items-center">
-          <span className="tracking-tighter font-medium text-center fonts">
+          <span className="tracking-tighter text-black font-medium text-center fonts">
             matthew
-            <span className="all-text">&#123;ameh&#125;</span>
+            <span className="text-[#4d81ee]">&#123;ameh&#125;</span>
           </span>
         </div>
 
@@ -297,12 +297,12 @@ export default function Home() {
       {/* Main Content */}
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#101010] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container">
             <Link href="/">
               <FiHome
                 className={`${
-                  currentRoute === "/" ? "text-white" : "text-[#c5c4c4]"
+                    currentRoute === "/" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 style={{
                   "--hover-color": accentColor,
@@ -323,7 +323,7 @@ export default function Home() {
             <Link href="/about">
               <LuUserRound
                 className={`${
-                  currentRoute === "/about" ? "text-white" : "text-[#9D9D9D]"
+                    currentRoute === "/about" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -341,8 +341,8 @@ export default function Home() {
             <Link href="/projects">
               <CiLaptop
                 className={`${
-                  currentRoute === "/projects" ? "text-white" : "text-[#9D9D9D]"
-                } text-base cursor-pointer`}
+                    currentRoute === "/projects" ? "text-black" : "text-white"
+                } text-lg cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
                 }
@@ -359,7 +359,7 @@ export default function Home() {
             <Link href="/contact">
               <FiMail
                 className={`${
-                  currentRoute === "/contact" ? "text-white" : "text-[#9D9D9D]"
+                  currentRoute === "/contact" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -388,11 +388,7 @@ export default function Home() {
             transition={{ duration: 0.3 }}
           >
             <RouteLoader isVisible={isLoading} accentColor={accentColor} />
-            <HeroBody
-              isOpen={isNavOpen}
-              currentRoute={currentRoute}
-              toggleNav={toggleNav}
-            />
+          <AboutPage />
           </motion.div>
         </div>
       </div>
@@ -405,7 +401,7 @@ export default function Home() {
           opacity: isMusicPlayerOpen ? 1 : 0,
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed bottom-14 left-4 z-50 w-64 glossy-25 backdrop-blur-2xl border border-[#494949]  rounded-[3px] p-4 "
+        className="fixed bottom-14 left-4 z-50 w-64 glossy-25 backdrop-blur-2xl border border-[#101010]  rounded-[3px] p-4 "
         style={{ backgroundColor: "rgba(10, 10, 10, 0.95)" }}
       >
         <div className="flex items-center justify-between mb-3">
@@ -458,10 +454,10 @@ export default function Home() {
         </div>
       </motion.div>
 
-      <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
+      <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#101010] text-gray-600 relative shrink-0">
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
-          className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
+          className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#101010] shrink-0 cursor-pointer hover:opacity-80 transition"
           style={{ backgroundColor: bgColor }}
           onClick={toggleMusicPlayer}
         >
@@ -473,7 +469,7 @@ export default function Home() {
         <div className="hidden md:flex absolute scale-[1.02] left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
           {/* Location Section */}
           <motion.div
-            className="tracking-tighter text-[#9D9D9D] cursor-default flex items-baseline"
+            className="tracking-tighter text-[#ffffff] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
@@ -488,8 +484,8 @@ export default function Home() {
               Based in{" "}
               <motion.span
                 variants={{
-                  rest: { color: "#9D9D9D" },
-                  hover: { color: "#ffffff" },
+                  rest: { color: "#ffffff" },
+                  hover: { color: "#000000" },
                 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="transition-colors duration-300"
@@ -512,7 +508,7 @@ export default function Home() {
 
           {/* Local Time Section */}
           <motion.div
-            className="tracking-[-1px] text-[#9D9D9D] cursor-default flex items-baseline"
+            className="tracking-[-1px] text-[#ffffff] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
@@ -528,8 +524,8 @@ export default function Home() {
               <motion.span
                 className="time font-[600] mx-1 whitespace-nowrap"
                 variants={{
-                  rest: { color: "#9D9D9D" },
-                  hover: { color: "#ffffff" },
+                  rest: { color: "#ffffff" },
+                  hover: { color: "#000000" },
                 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
@@ -570,10 +566,10 @@ export default function Home() {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           href="/contact"
-          style={{ background: "#0a0a0afb" }}
-          className="hidden material-bubble3 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
+          style={{ background: "#1D242A" }}
+          className="hidden material-bubble2 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] border-[#101010] bg-[#0f0f0f] text-center"
           onMouseOver={(e) => (e.currentTarget.style.borderColor = accentColor)}
-          onMouseOut={(e) => (e.currentTarget.style.borderColor = "#6462628c")}
+          onMouseOut={(e) => (e.currentTarget.style.borderColor = "#101010")}
         >
           {hovered ? (
             <motion.p

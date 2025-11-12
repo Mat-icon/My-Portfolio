@@ -11,7 +11,7 @@ const Loader = () => {
 
       tl.to(circleRef.current, {
         scale: 1.5,
-        filter: "blur(150px)",
+        filter: "blur(200px)",
         duration: 3,
         ease: "power2.inOut",
         force3D: true,
@@ -19,7 +19,7 @@ const Loader = () => {
       })
       .to(circleRef.current, {
         scale: 1,
-        filter: "blur(100px)",
+        filter: "blur(150px)",
         duration: 3,
         ease: "power2.inOut",
         force3D: true,
@@ -34,9 +34,9 @@ const Loader = () => {
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div 
           ref={circleRef}
-          className="w-[700px] h-[700px] rounded-full"
+          className="w-[800px] h-[800px] rounded-full"
           style={{ 
-            filter: "blur(100px)",
+            filter: "blur(150px)",
          background: 'radial-gradient(circle, #8FFF8666 0%, #8FFF8666 35%, transparent 70%)',
          opacity: 0.4,
           }}

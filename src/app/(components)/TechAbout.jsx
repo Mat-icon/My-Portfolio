@@ -16,14 +16,14 @@ import { usePathname } from "next/navigation";
 import LuminousBeam from './LuminousBeam';
 
 
-const Tech = () => {
+const TechAbout = () => {
   const pathname = usePathname();
   const [hovered, setHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef(null);
   // 🔹 Define which "light" background and color to use
   const lightClass = pathname === "/" ? "8fff86" : "8FFF86";
-  const spanColor = pathname === "/" ? "#8FFF86" : "#95bdfa";
+  const spanColor = pathname === "/" ? "#8FFF86" : "#4d81ee";
 
   const containerVariant = {
     hidden: { opacity: 0, scale: 0.95 },
@@ -72,9 +72,9 @@ const Tech = () => {
   return (
     <div className="w-screen flex flex-col justify-center items-center mt-36">
       <div>
-        <h1 className="text-4xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center poppins">
-          Some of the techs i like to<br />{" "}
-          <span className='text-[#8fff86]'>work with</span>
+        <h1 className="text-4xl md:text-[58px] text-black  tracking-tighter md:leading-[60px] text-center poppins">
+          Some of the techs i like to{" "}<br />
+          <span className={`text-[${spanColor}]`}>work with</span>
         </h1>
       </div>
 
@@ -86,16 +86,16 @@ const Tech = () => {
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariant}
-        className="tech glossy-25  backdrop-blur-md md:w-4/5 w-11/12"
+        className="tech3 glossy-25  backdrop-blur-md md:w-4/5 w-11/12"
       >
-        <div className="about-me-title  px-4 py-2">
-          <p className="text-sm tracking-[-1px]">Languages & Frameworks</p>
-          <div className="flex items-center space-x-2 text-[#494949] text-xs">
+        <div className="about-me-title3  px-4 py-[10px]">
+          <p className="text-sm text-black tracking-[-1px]">Languages & Frameworks</p>
+          <div className="flex items-center space-x-2 text-[#101010] text-xs">
             <FontAwesomeIcon
               icon={faMinus}
               className="hover:text-white cursor-pointer transition ease-in duration-500"
             />
-            <div className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer transition ease-in duration-500"></div>
+            <div className="w-2.5 h-2.5 border border-[#101010] rounded-sm hover:border-white cursor-pointer transition ease-in duration-500"></div>
             <FontAwesomeIcon
               icon={faX}
               className="hover:text-white cursor-pointer transition ease-in duration-500"
@@ -136,4 +136,4 @@ const Tech = () => {
   );
 };
 
-export default Tech;
+export default TechAbout;

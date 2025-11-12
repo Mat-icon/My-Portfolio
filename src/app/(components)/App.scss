@@ -3,7 +3,7 @@
 $off: darken(whitesmoke, 10%);
 $offwhite: darken(rgb(238, 223, 11), 10%);
 $offgreen: darken(#8FFF86, 0%);
-$offblue: darken(#95bdfa, 10%);
+$offblue: darken(#4d81ee, 10%);
 $offred: darken(#fa9595, 10%);
 $darkblue: rgb(50,50,60);
 $darkgreen: rgb(16, 16, 17);
@@ -228,14 +228,14 @@ $darkgreen: rgb(16, 16, 17);
         .material-bubble2{
           background-color: transparent;
          ;
-          border: none;
+   
           overflow: hidden;
           box-shadow: none;
           position: relative;
           color: white;
           
           &:hover{
-            color: #95bdfa;
+            color: #4d81ee;
           }
           
           &::before{

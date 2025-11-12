@@ -56,6 +56,8 @@ export default function Home() {
     },
   };
 
+
+  
   const letter = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
@@ -488,3 +490,99 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
+
+
+```javascriptreact
+import React from "react";
+
+
+const Footer = () => {
+
+    const accentColor = "#8FF86"
+
+  return (
+    
+
+
+      
+
+
+        
+
+
+        
+
+
+          
+
+
+            
+            
+            
+          
+
+
+          
+            matthew 
+             
+                 {ameh}
+            
+          
+          
+
+
+          
+
+
+            home
+            projects
+            about
+            contact
+          
+
+
+        
+
+
+        
+
+
+         
+          
+
+
+            2024 - 2025 Matthew Ameh | Freelance Web Developer
+          
+
+
+          
+
+
+            
+              privacy policy
+            
+            
+              cookie-free website
+            
+          
+
+
+          
+        
+
+
+      
+
+
+    
+
+
+  );
+};
+
+export default Footer; i want to chnage the color of the icon, matthew then {ameh}(seperately)  then other conents in the footer their initial text color hen the hover. i have four pathnames /  /about / projects /contacts give full code
+```

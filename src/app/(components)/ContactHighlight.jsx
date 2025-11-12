@@ -171,14 +171,14 @@ const ContactHighlight = () => {
   }, [jobVisible, hobbiesVisible, contactVisible, collabVisible, potraitVisible]);
 
   return (
-    <div className="w-full flex flex-col items-center mb-0">
+    <div className="w-full relative flex flex-col  items-center mb-0">
       <h1 className="text-4xl md:text-[52px]  tracking-tighter md:leading-[60px] poppins text-center">
         Your <span className="all-text">creative</span> web developer
       </h1>
        <LuminousBeam  height="h-[130px]" color="8fff86"/>
-      <div className="contact-body flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
+      <div className="contact-body relative md:h-[100vh] flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
         <motion.div
-          className="me  md:w-full lg:w-4/5 xl:w-[60%]"
+          className="me  md:w-full   lg:w-4/5 xl:w-[50%] max-h-fit"
           ref={jobRef}
           initial="hidden"
           animate={jobVisible ? "visible" : "hidden"}
@@ -251,7 +251,7 @@ const ContactHighlight = () => {
         </motion.div>
 
         <motion.div
-          className="hobbies backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
+          className="hobbies backdrop-blur-sm w-4/5 xl:absolute xl:right-2 xl:top-4 tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
           ref={hobbiesRef}
           initial="hidden"
           animate={hobbiesVisible ? "visible" : "hidden"}
@@ -304,7 +304,7 @@ const ContactHighlight = () => {
         </motion.div>
 
         <motion.div
-          className="contact-links backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-64"
+          className="contact-links backdrop-blur-sm w-4/5 xl:absolute xl:left-2  tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
           ref={contactRef}
           initial="hidden"
           animate={contactVisible ? "visible" : "hidden"}
@@ -397,7 +397,7 @@ const ContactHighlight = () => {
         </motion.div>
 
         <motion.div
-          className="me md:w-full  backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[60%] h-auto"
+          className="me md:w-full xl:absolute xl:bottom-4 xl:left-0  lg:w-4/5 xl:w-[50%]  backdrop-blur-sm tracking-tighter h-auto"
           ref={collabRef}
           initial="hidden"
           animate={collabVisible ? "visible" : "hidden"}
@@ -468,7 +468,7 @@ const ContactHighlight = () => {
         </motion.div>
 
         <motion.div
-          className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
+          className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4 xl:absolute xl:bottom-10 xl:right-4"
           ref={potraitRef}
           initial="hidden"
           animate={potraitVisible ? "visible" : "hidden"}

@@ -7,6 +7,7 @@ import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -60,18 +61,18 @@ const testimonials = [
   },
 ];
 
-const TestimonialCard = ({ tech, content, author, position, image }) => (
-  <div className="mt-8 testimonial-card glossy-25 b backdrop-blur-md tracking-tighter w-11/12 md:w-full transition-all duration-500">
-    <div className="about-me-title p-2">
-      <p className="text-sm">{tech}</p>
-      <div className="flex space-x-2 items-center text-[#494949] text-xs">
+const TestimonialCard = ({ tech, content, author, position, image, accentColor, bgColor }) => (
+  <div className={`${bgColor} mt-8 testimonial-card2   b backdrop-blur-md tracking-tighter w-11/12 md:w-full transition-all duration-500`}>
+    <div className="about-me-title3 px-3 py-[10px]">
+      <p className="text-sm text-black">{tech}</p>
+      <div className="flex space-x-2 items-center text-[#15191E] text-xs">
         <FontAwesomeIcon
           icon={faMinus}
           className="hover:text-white cursor-pointer"
           style={{ transition: "ease-in 0.5s" }}
         />
         <div
-          className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer"
+          className="w-2.5 h-2.5 border border-[#15191E] rounded-sm hover:border-white cursor-pointer"
           style={{ transition: "ease-in 0.5s" }}
         ></div>
         <FontAwesomeIcon
@@ -94,19 +95,24 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
       </div>
 
       {/* Text Section */}
-      <div className="flex flex-col text-left items-start md:items-start md:justify-center mt-4 md:mt-0">
+      <div className="flex flex-col text-left text-black items-start md:items-start md:justify-center mt-4 md:mt-0">
         <p className="text-base tracking-[-1px] [word-spacing:-3px] leading-relaxed">
           {content}
         </p>
-        <p className="testimonial-author mt-6  [word-spacing:-3px] text-gray-400">
-          <span className="all-text">{author}</span> &#47;&#47; {position}
+        <p className="mt-6 text-sm  [word-spacing:-3px] text-white">
+          <span style={{ color: accentColor }}>{author}</span> &#47;&#47; {position}
         </p>
       </div>
     </div>
   </div>
 );
 
-const TestimonialHighlight = () => {
+const PagesTestimonial = () => {
+  const pathname = usePathname();
+  const accentColor = pathname === "/projects" ? "#e14f62" : "#4d81ee";
+
+    const bgColor = pathname === "/projects" ? "glossy-20" : "glossy-15";
+  
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -167,18 +173,18 @@ const TestimonialHighlight = () => {
           background: linear-gradient(
             to right,
             transparent 0%,
-            #8FFF8633 5%,
-            #8FFF86cc 15%,
-            #8FFF86 50%,
-            #8FFF86cc 85%,
-            #8FFF8633 95%,
+            ${accentColor}33 5%,
+            ${accentColor}cc 15%,
+            ${accentColor} 50%,
+            ${accentColor}cc 85%,
+            ${accentColor}33 95%,
             transparent 100%
           );
           box-shadow: 
-            0 0 10px #8FFF86cc,
-            0 0 20px #8FFF8699,
-            0 0 40px #8FFF8666,
-            0 0 80px #8FFF8633;
+            0 0 10px ${accentColor}cc,
+            0 0 20px ${accentColor}99,
+            0 0 40px ${accentColor}66,
+            0 0 80px ${accentColor}33;
           animation: pulse 2s ease-in-out infinite;
           transition: width 0.8s ease-out;
         }
@@ -198,13 +204,13 @@ const TestimonialHighlight = () => {
             transparent 100%
           );
           box-shadow: 
-            0 0 5px #8FFF864d,
-            0 0 10px #8FFF8633;
+            0 0 5px ${accentColor}4d,
+            0 0 10px ${accentColor}33;
         }
       `}</style>
 
-      <h1 className="w-[96%] poppins text-3xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center">
-        Nice things <span className="all-text">people say</span>
+      <h1 className="w-[96%] poppins text-black text-3xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center">
+        Nice things <span style={{ color: accentColor }}>people say</span>
         <br className="hidden md:block" /> about my work
       </h1>
 
@@ -271,6 +277,8 @@ const TestimonialHighlight = () => {
                     author={author}
                     position={position}
                     image={image}
+                    accentColor={accentColor}
+                    bgColor={bgColor}
                   />
                 </SwiperSlide>
               )
@@ -279,10 +287,15 @@ const TestimonialHighlight = () => {
         </div>
       </motion.div>
 
-      <div className="w-11/12 md:w-[38%] backdrop-blur-md border border-[#494949] bg-[#1111101a] rounded-[4px] h-10 relative z-10 flex items-center">
+      <div className={`w-11/12 md:w-[38%] backdrop-blur-md border border-[#15191E] ${bgColor} rounded-[4px] h-10 relative z-10 flex items-center`}>
         <div
           onClick={handlePrev}
-          className="w-[15%] md:w-[10%] h-full border-r-[0.5px] border-[#494949] rounded-l-[3px] hover:text-[#8FFF86] flex items-center justify-center cursor-pointer"
+          className="w-[15%] md:w-[10%] h-full border-r-[0.5px] border-[#15191E] rounded-l-[3px] flex items-center justify-center cursor-pointer"
+          style={{ 
+            transition: "color 0.3s",
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.color = accentColor}
+          onMouseLeave={(e) => e.currentTarget.style.color = ""}
         >
           <HiChevronLeft className="text-xl" />
         </div>
@@ -300,7 +313,12 @@ const TestimonialHighlight = () => {
 
         <div
           onClick={handleNext}
-          className="w-[15%] border-l-[0.5px] border-[#494949] md:w-[10%] h-full rounded-r-[3px] hover:text-[#8FFF86] flex justify-center items-center relative z-10 cursor-pointer"
+          className="w-[15%] border-l-[0.5px] border-[#15191E] md:w-[10%] h-full rounded-r-[3px] flex justify-center items-center relative z-10 cursor-pointer"
+          style={{ 
+            transition: "color 0.3s",
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.color = accentColor}
+          onMouseLeave={(e) => e.currentTarget.style.color = ""}
         >
           <HiChevronRight className="text-xl" />
         </div>
@@ -309,4 +327,4 @@ const TestimonialHighlight = () => {
   );
 };
 
-export default TestimonialHighlight;
+export default PagesTestimonial;

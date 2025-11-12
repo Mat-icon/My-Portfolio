@@ -1,22 +1,9 @@
 import React from "react";
 
 
-const Footer = ({currentRoute}) => {
+const Footer = () => {
 
-    let accentColor;
-    if(currentRoute === "/"){
-      accentColor = "#8FFF86"
-    }else if(currentRoute === "/about"){
-      accentColor = "#86d4ff"
-    }
-    else if(currentRoute === "/projects"){
-      accentColor = "#fa9595"
-    }else if(currentRoute === "/contact"){
-      accentColor = "#ffd886"
-    }else{
-       accentColor = "#8FFF86"
-    }
-
+    const accentColor = "#8FF86"
 
   return (
     <div className="w-full h-[70vh] glossy-25 px-2 xl:px-10 backdrop-blur-sm  tracking-tighter top-full mt-4 footer-content">

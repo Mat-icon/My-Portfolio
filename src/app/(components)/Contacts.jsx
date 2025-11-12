@@ -14,7 +14,7 @@ export default function Contacts({ currentRoute }) {
             Contact
           </span>
           <h1 className=" w-[94%] text-[40px] tracking-tighter md:text-7xl lg:text-[88px] lg:w-9/12 poppins">
-            Lets book a virtual space or  
+            Lets book a virtual <br/>space or  
             <span className=" text-[#ffd886]"> drop a line</span>
           </h1>
           <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">

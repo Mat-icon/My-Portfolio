@@ -71,6 +71,7 @@
   }
   .contact-body {
     width: 90%;
+    
   }
 
   .glass {
@@ -528,7 +529,7 @@
   top: -10px;
   left: 100%;
   border-radius: 5px;
-  transform: translateX(12%);
+  transform: translateX(18%);
   padding: 5px 10px;
   font-size: 13px;
   color: #000;
@@ -617,15 +618,43 @@
 .about-me-two {
   min-height: 350px;
   height: auto;
+  
   border: 0.5px solid #494949;
   border-radius: 3px;
   padding-bottom: 1.5rem;
 }
 
+.about-me-three {
+  min-height: 350px;
+  height: auto;
+  border: 0.5px solid #15191E;
+  border-radius: 3px;
+  padding-bottom: 1.5rem;
+}
+
+.testes {
+  min-height: 350px;
+  height: auto;
+  border: 0.5px solid #15191E;
+  border-radius: 3px;
+  padding-bottom: 1.5rem;
+     background-color: color-mix(in oklab, #1e232bc9 , transparent);
+}
+
+
+
 .tech {
   border: 0.5px solid #494949;
   border-radius: 3px;
 }
+
+.tech3 {
+  border: 0.5px solid #15191E;
+  border-radius: 3px;
+     background-color: color-mix(in oklab, #1e232bc9 , transparent);
+}
+
+
 .tech2 {
   border: 0.5px solid #494949;
   background: #10101038;
@@ -637,6 +666,19 @@
   background: #101010e1;
   border-radius: 3px;
 }
+
+.me2 {
+  border: 0.8px solid #101010;
+  background: #1D242A;
+  border-radius: 3px;
+}
+
+.job2, .hobbies2, .potrait2, .contact-links {
+  border: 0.5px solid #101010;
+  background: #1D242A;
+  border-radius: 3px;
+}
+
 
 .footer-content {
   border-top: 0.5px solid #494949;
@@ -652,11 +694,21 @@
   background-color: color-mix(in oklab, #0f0f0f 25%, transparent);
 }
 
+.glossy-15 {
+  background-color: color-mix(in oklab, #0f0f0f88 15%, transparent);
+}
+
+.glossy-20 {
+  background-color: color-mix(in oklab, #1e232bc9 , transparent);
+}
+
 .hobbies {
   border: 0.5px solid #494949;
   background: #101010e1;
   border-radius: 3px;
 }
+
+
 .potrait {
   border: 0.5px solid #494949;
   background: #101010e1;
@@ -673,6 +725,7 @@
   border-bottom: 0.5px solid #494949;
   text-align: center;
   width: 100%;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -687,6 +740,15 @@
   align-items: center;
 }
 
+.about-me-title3 {
+  border-bottom: 0.5px solid #15191E;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+}
 /* .g{
   letter-spacing: -2px;
   word-spacing: -3px;
@@ -731,6 +793,18 @@
   border-radius: 3px;
   color: #fff;
   border: 0.5px solid #494949;
+  
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto;
+}
+
+.testimonial-card2 {
+  height: auto;
+  min-height: 350px;
+     background-color: color-mix(in oklab, #1e232bc9 , transparent);
+  border-radius: 3px;
+  color: #fff;
+  border: 0.5px solid #15191E;
   transition: all 0.3s ease-in-out;
   margin: 0 auto;
 }
@@ -852,5 +926,7 @@
 /* Tailwind extension */
 
 .yy{
-  background: #00d390;
+  background: #4d80ee86;
+  --color-base-100: ##1D232A;
+  --color-base-100: #1d232a;
 }

@@ -212,11 +212,11 @@ export default function Index({
           width: "100%",
           justifyContent: "space-between",
           alignItems: isMobile ? "flex-start" : "center",
-          border: "0.5px solid #494949",
+          border: "0.5px solid #15191E",
           marginTop: "15px",
           borderRadius: "3px",
           cursor: "pointer",
-          backgroundColor: "color-mix(in oklab, #0f0f0f 25%, transparent)",
+          backgroundColor: "color-mix(in oklab, #1E232B 25%, transparent)",
         }}
       >
         <AnimatePresence>
@@ -325,7 +325,7 @@ export default function Index({
               initial={false}
               animate={isHovered ? "hovered" : isVisible ? "visible" : "hidden"}
               variants={numberVariant}
-              className="fonts text-[#c2c0c0da] text-[15px]"
+              className="fonts text-[#fff] text-[16px]"
               style={{ transition: "all 0.4s" }}
             >
               {formattedNumber}
@@ -333,7 +333,7 @@ export default function Index({
             <div>
               <div className="ml-2 md:ml-4">
                 <h2
-                  className="tracking-tighter lowercase poppins text-[30px] xl:text-[40px]"
+                  className="tracking-tighter lowercase poppins text-black text-[30px] xl:text-[40px]"
                   style={{
                     margin: "0px",
                     fontWeight: 400,
@@ -367,7 +367,7 @@ export default function Index({
                   {lang.map((lan, idx) => (
                     <span
                       key={idx}
-                      className="px-4 fonts tracking-tighter py-[6px] border-[0.5px] lowercase border-[#494949] text-[10px] md:text-[12px] rounded-full bg-[#131613] text-[#9D9D9D] backdrop-blur-md"
+                      className="px-4 fonts tracking-tighter py-[6px] border-[0.5px] lowercase border-[#131613] text-[10px] md:text-[12px] rounded-full bg-[#1E232B] text-[#fff] backdrop-blur-md"
                     >
                       {lan}
                     </span>
@@ -379,7 +379,7 @@ export default function Index({
           <div className="flex items-center gap-[1px]">
             <motion.span
               initial={false}
-              className="fonts text-sm md:text-[15px] text-[#c2c0c0da]"
+              className="fonts text-sm md:text-[16px]  text-[#fff]"
               style={{
                 transition: "all 0.4s",
                 transform: isHovered && !isMobile ? "translateX(-10px)" : "none",
