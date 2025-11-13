@@ -9,7 +9,7 @@ import "./App.scss";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
-const PagesContactbar = ({ currentRoute }) => {
+const PagesContactBar = ({ currentRoute }) => {
   const [hoveredBtn1, setHoveredBtn1] = useState(false);
   const [hoveredBtn2, setHoveredBtn2] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -172,4 +172,4 @@ const PagesContactbar = ({ currentRoute }) => {
   );
 };
 
-export default PagesContactbar;
+export default PagesContactBar;

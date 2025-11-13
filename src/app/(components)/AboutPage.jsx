@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import PagesContactbar from "./PagesContactbar";
+import PagesContactBar from "./PagesContactBar";
 import Footer from "./Footer";
 import TestimonialHighlight from "./TestimonialHighlight";
 import Contact from "./Contact";
@@ -340,7 +340,7 @@ export default function Project() {
         <Contact />
         <TechAbout />
 <PageTestimonials />
-        <PagesContactbar />
+        <PagesContactBar />
         <Footer />
       </div>
     </div>

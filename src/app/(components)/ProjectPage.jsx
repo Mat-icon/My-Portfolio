@@ -149,7 +149,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import PagesContactbar from "./PagesContactbar";
+import PagesContactBar from "./PagesContactBar";
 import Footer from "./Footer";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
@@ -482,7 +482,7 @@ export default function Project() {
         </div>
         <Services />
         <PageTestimonials />
-        <PagesContactbar />
+        <PagesContactBar />
         <Footer />
       </div>
     </div>
