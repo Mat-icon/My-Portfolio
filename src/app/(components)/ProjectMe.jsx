@@ -47,63 +47,43 @@ const RouteLoader = ({ isVisible, accentColor }) => {
         <motion.div
           initial={{ y: "-100%" }}
           animate={{ y: 0 }}
-          exit={{ y: "-100%" }}
+          exit={{ y: "200%" }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="absolute left-11 w-[96.9%] inset-0 z-[100] flex items-center justify-center"
+          className="absolute inset-0 z-[100] flex items-center justify-center"
           style={{
-            background:
-              "linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(20, 20, 20, 0.95) 100%)",
+            background: "#1d232a",
             backdropFilter: "blur(20px)",
           }}
         >
-           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            className="relative rotate-90 flex flex-col items-center justify-center"
+          <motion.div
+            className="rotate-90 gap-[1px] scale-[12] flex items-center"
+            initial={{ rotate: "90deg", scale: 12 }}
+            animate={{ 
+              rotate: ["90deg", "270deg", "90deg"],
+              scale: 12
+            }}
+            exit={{ rotate: "180deg" }}
+            transition={{
+              rotate: {
+                duration: 1,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatDelay: 0
+              }
+            }}
           >
-            {/* Bigger Core Shape */}
-            <motion.div className="flex items-center justify-center scale-[5] gap-2">
-              <motion.span
-                className="w-6 h-6 border-t-[8px] border-l-[8px] rounded-sm"
-                style={{ borderColor: accentColor }}
-                animate={{
-                  scale: [1, 1.15, 1],
-                }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.span
-                className="w-3 h-10 rounded-full"
-                style={{ backgroundColor: accentColor }}
-                animate={{
-                  scaleY: [1, 1.3, 1],
-                }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.2,
-                }}
-              />
-              <motion.span
-                className="w-6 h-6 border-t-[8px] border-r-[8px] rounded-sm"
-                style={{ borderColor: accentColor }}
-                animate={{
-                  scale: [1, 1.15, 1],
-                }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.4,
-                }}
-              />
-            </motion.div>
+            <span
+              className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
+              style={{ borderColor: "#e14f62" }}
+            />
+            <span
+              className="w-1 h-3 rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]"
+              style={{ background: "#e14f62" }}
+            />
+            <span
+              className="w-2 h-2 border-t-4 border-r-4 rotate-[45deg]"
+              style={{ borderColor: "#e14f62" }}
+            />
           </motion.div>
         </motion.div>
       )}
@@ -111,10 +91,16 @@ const RouteLoader = ({ isVisible, accentColor }) => {
   );
 };
 
+
 export default function ProjectMe() {
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
+ const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    })
   );
+
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const scrollContainerRef = useRef(null);
@@ -255,7 +241,7 @@ export default function ProjectMe() {
       `}</style>
 
       {/* Header */}
-      <header className="flex justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#101010] shrink-0">
+      <header className="flex relative z-10 justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#101010] shrink-0">
         <div className="flex w-[12%] border-r border-[#101010] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
             <span
@@ -378,7 +364,7 @@ export default function ProjectMe() {
         {/* Main Content Area with padding for sidebar */}
         <div
           ref={scrollContainerRef}
-          className="flex-1 md:pl-[3.1%] relative scrollbar overflow-x-hidden overflow-y-auto"
+          className="flex-1 md:pl-[3.1%] relative scrollbar4 overflow-x-hidden overflow-y-auto"
         >
           <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
           <motion.div

@@ -294,7 +294,7 @@ const Scene = ({ mousePosition, isHovering }) => {
 
       <Model
         path="/models/python_programming_language.glb"
-        position={[0, -2, 0]}
+        position={[0, -1, 0]}
         scale={0.5}
         seed={3}
         mousePosition={mousePosition}
@@ -372,8 +372,8 @@ export default function Project() {
             </h1>
             <p className="w-10/12 md:w-10/12 text-white lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl  mt-4 our-text">
               With many years in web development, I acquired extensive
-              experience working on projects across multiple industries<br/> and
-              technologies. Let me show you my best creations.
+              experience working on projects across multiple industries
+              <br /> and technologies. Let me show you my best creations.
             </p>
             <div className="mx-auto my-4 flex justify-center">
               <LuminousBeam height="h-[70px]" color="4d81ee" />
@@ -420,21 +420,22 @@ export default function Project() {
                     top: 0;
                     width: 100%;
                     height: 100%;
-                    background: linear-gradient(
+                     background: linear-gradient(
                       to bottom,
                      transparent 0%,
-                      #ffd88633 5%,
-                      #ffd886cc 15%,
-                      #ffd886 50%,
-                      #ffd886cc 85%,
-                      #ffd88633 95%,
+                      #e14f6233 5%,
+                      #e14f62cc 15%,
+                      #e14f62 50%,
+                      #e14f62cc 85%,
+                      #e14f6233 95%,
                       transparent 100%
                     );
                    box-shadow: 
-            0 0 10px #ffd886cc,
-            0 0 80px #ffd88699,
-            0 0 80px #ffd88666,
-            0 0 0px #ffd88633;
+            0 0 10px #e14f62cc,
+            0 0 80px #e14f6299,
+            0 0 80px #e14f6266,
+            0 0 0px #e14f6233;
+                      
                       
                     animation: pulse 0.5s ease-in-out infinite, beamFlow 3s linear infinite;
                     will-change: transform;

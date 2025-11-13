@@ -113,9 +113,9 @@ const projects: ProjectType[] = [
     title: "Brabik smarthomes",
     time: "2025",
     lang: ["Nextjs", "Zustand", "Threejs","Tailwindcss", "Typescript"],  
-    color: "#706D63",
+    color: "#333",
     image: "brabik.png",
-    bookBg:"bg-[#333]",
+    bookBg:"bg-[#fff]",
     bookBorder: "border-[#03fa7e]",
     description:
       "A minimalist e-commerce platform for smart home devices and automation solutions.",

@@ -20,7 +20,7 @@ import { CiLaptop } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import AboutPage from "./AboutPage";
+import Contacts from "./Contacts";
 import { motion, AnimatePresence } from "framer-motion";
 import FullNav from "./FullNav";
 
@@ -28,7 +28,7 @@ const ROUTE_COLORS = {
   "/": "#8fff86", // Home - Green
   "/projects": "#fa9595", // Projects - Pink/Red
   "/about": "#86d4ff", // About - Blue
-  "/contact": "#ffd886", // Contact - Yellow/Orange
+  "/contact": "#91d1f8", // Contact - Yellow/Orange
 };
 
 // Darker shades for backgrounds
@@ -36,7 +36,7 @@ const ROUTE_BG_COLORS = {
   "/": "#508A4C", // Home - Dark Green
   "/projects": "#8A4C4C", // Projects - Dark Red
   "/about": "#4C6B8A", // About - Dark Blue
-  "/contact": "#8A7A4C", // Contact - Dark Yellow/Orange
+  "/contact": "#466375", // Contact - Dark Yellow/Orange
 };
 
 const RouteLoader = ({ isVisible, accentColor }) => {
@@ -64,15 +64,15 @@ const RouteLoader = ({ isVisible, accentColor }) => {
           >
             <span
               className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
-              style={{ borderColor: "#4d81ee" }}
+              style={{ borderColor: "#91d1f8" }}
             />
             <span
               className="w-1 h-3 rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]"
-              style={{ background: "#4d81ee" }}
+              style={{ background: "#91d1f8" }}
             />
             <span
               className="w-2 h-2 border-t-4 border-r-4 rotate-[45deg]"
-              style={{ borderColor: "#4d81ee" }}
+              style={{ borderColor: "#91d1f8" }}
             />
           </motion.div>
         </motion.div>
@@ -81,14 +81,14 @@ const RouteLoader = ({ isVisible, accentColor }) => {
   );
 };
 
-export default function AboutMe() {
+export default function ContactMe() {
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString()
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const scrollContainerRef = useRef(null);
-  const [currentRoute, setCurrentRoute] = useState("/about");
+  const [currentRoute, setCurrentRoute] = useState("/contact");
   const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState("Lofi Beats");
@@ -225,7 +225,7 @@ export default function AboutMe() {
       `}</style>
 
       {/* Header */}
-      <header className="flex justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#101010] shrink-0">
+      <header className="flex justify-between filter glossy-20 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#101010] shrink-0">
         <div className="flex w-[12%] border-r border-[#101010] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
             <span
@@ -241,7 +241,7 @@ export default function AboutMe() {
         <div className="flex text-lg items-center">
           <span className="tracking-tighter text-black font-medium text-center fonts">
             matthew
-            <span className="text-[#4d81ee]">&#123;ameh&#125;</span>
+            <span className="text-[#91d1f8]">&#123;ameh&#125;</span>
           </span>
         </div>
 
@@ -268,12 +268,12 @@ export default function AboutMe() {
       {/* Main Content */}
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#101010] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-20 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#101010] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container">
             <Link href="/">
               <FiHome
                 className={`${
-                    currentRoute === "/" ? "text-black" : "text-white"
+                  currentRoute === "/" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 style={{
                   "--hover-color": accentColor,
@@ -294,7 +294,7 @@ export default function AboutMe() {
             <Link href="/about">
               <LuUserRound
                 className={`${
-                    currentRoute === "/about" ? "text-black" : "text-white"
+                  currentRoute === "/about" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -312,7 +312,7 @@ export default function AboutMe() {
             <Link href="/projects">
               <CiLaptop
                 className={`${
-                    currentRoute === "/projects" ? "text-black" : "text-white"
+                  currentRoute === "/projects" ? "text-black" : "text-white"
                 } text-lg cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -348,7 +348,7 @@ export default function AboutMe() {
         {/* Main Content Area with padding for sidebar */}
         <div
           ref={scrollContainerRef}
-          className="flex-1 md:pl-[3.1%] relative scrollbar2 overflow-x-hidden overflow-y-auto"
+          className="flex-1 md:pl-[3.1%] relative scrollbar3 overflow-x-hidden overflow-y-auto"
         >
           <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
           <motion.div
@@ -359,7 +359,7 @@ export default function AboutMe() {
             transition={{ duration: 0.3 }}
           >
             <RouteLoader isVisible={isLoading} accentColor={accentColor} />
-          <AboutPage />
+            <Contacts />
           </motion.div>
         </div>
       </div>
@@ -521,7 +521,7 @@ export default function AboutMe() {
         </div>
 
         {/* Mobile - Social Icons */}
-        <div className="flex md:hidden text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
+        <div className="flex  text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
           <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
             <FaLinkedin className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
           </Link>
@@ -532,7 +532,7 @@ export default function AboutMe() {
           <FaXTwitter className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
         </div>
 
-        {/* Right section - Contact button (Desktop only) */}
+        {/* Right section - Contact button (Desktop only)
         <Link
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
@@ -558,7 +558,7 @@ export default function AboutMe() {
               <FaArrowRight className="ml-1" />
             </p>
           )}
-        </Link>
+        </Link> */}
       </footer>
     </div>
   );

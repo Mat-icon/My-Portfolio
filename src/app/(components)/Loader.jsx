@@ -46,7 +46,7 @@ const Loader = () => {
       <div className="w-11/12 md:w-[36%] backdrop-blur-md border border-[#646464ad] bg-[#1011105b] rounded-[4px] h-11 relative z-10 flex items-center">
         <div className="w-[15%] md:w-[10%] flex items-center justify-center rotate-90 gap-[1px]">
           <span className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg]" />
-          <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full" />
+          <span className="w-1 h-3 bg-white rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]" />
           <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg]" />
         </div>
         <div className="w-[1px] bg-[#646464ad] h-full"></div>

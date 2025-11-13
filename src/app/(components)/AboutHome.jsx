@@ -88,7 +88,7 @@ const Home = () => {
         });
 
         gsap.to(circle2Ref.current, {
-          scale: 1.7,
+          scale: 2.7,
           x: "-=100",
           y: "-=70",
           duration: 24,
@@ -128,15 +128,15 @@ const Home = () => {
           ref={circle1Ref}
           className="absolute rounded-full"
           style={{
-            top: isMobile ? "25%" : "35%",
-            left: isMobile ? "-30%" : "-8%",
-            width: isMobile ? "350px" : "400px",
-            height: isMobile ? "500px" : "400px",
+             bottom: isMobile ? "15%" : "45%",
+            right: isMobile ? "-40%" : "10%",
+            width: isMobile ? "400px" : "200px",
+            height: isMobile ? "500px" : "200px",
              background: isMobile
-              ? "#4d80ee86"
-              : "#4d80ee86",
-            filter: isMobile ? "blur(60px)" : "blur(200px)",
-             transform: isMobile ? "scale(1)": "scale(1)",
+              ? "#4d80ee"
+              : "#4d80ee",
+           filter: isMobile ? "blur(60px)" : "blur(120px)",
+            transform: isMobile ? "scale(0.1)": "scale(1)",
             opacity: 0.8,
             willChange: "transform, opacity",
           }}
@@ -147,15 +147,15 @@ const Home = () => {
           ref={circle2Ref}
           className="absolute rounded-full"
           style={{
-            bottom: isMobile ? "15%" : "30%",
-            right: isMobile ? "-40%" : "-10%",
-            width: isMobile ? "400px" : "400px",
-            height: isMobile ? "500px" : "400px",
+           top: isMobile ? "25%" : "60%",
+            left: isMobile ? "-30%" : "10%",
+            width: isMobile ? "350px" : "200px",
+            height: isMobile ? "500px" : "200px",
             background: isMobile
               ? "#4d80ee86"
               : "#4d80ee86",
-            filter: isMobile ? "blur(60px)" : "blur(200px)",
-            transform: isMobile ? "scale(0.1)": "scale(1)",
+             filter: isMobile ? "blur(60px)" : "blur(100px)",
+             transform: isMobile ? "scale(1)": "scale(1)",
             opacity: 0.8,
             willChange: "transform, opacity",
           }}

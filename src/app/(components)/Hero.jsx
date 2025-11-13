@@ -46,69 +46,41 @@ const RouteLoader = ({ isVisible, accentColor }) => {
         <motion.div
           initial={{ y: "-100%" }}
           animate={{ y: 0 }}
-          exit={{ y: "-100%" }}
+          exit={{ y: "200%" }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="absolute left-11 w-[96.9%] inset-0 z-[100] flex items-center justify-center"
+          className="absolute  inset-0 z-[100] flex items-center justify-center"
           style={{
-            background:
-              "linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(20, 20, 20, 0.95) 100%)",
+            background: "#0f0f0f",
             backdropFilter: "blur(20px)",
           }}
         >
-           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            className="relative rotate-90 flex flex-col items-center justify-center"
+          <motion.div
+            className="rotate-90 gap-[1px] scale-[12] flex items-center"
+            initial={{ rotate: "90deg", scale: 12 }}
+            animate={{ rotate: "270deg"}}
+            exit={{ rotate: "180deg" }}
+            transition={{duration: 0.4 }}
+
           >
-            {/* Bigger Core Shape */}
-            <motion.div className="flex items-center justify-center scale-[5] gap-2">
-              <motion.span
-                className="w-6 h-6 border-t-[8px] border-l-[8px] rounded-sm"
-                style={{ borderColor: accentColor }}
-                animate={{
-                  scale: [1, 1.15, 1],
-                }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.span
-                className="w-3 h-10 rounded-full"
-                style={{ backgroundColor: accentColor }}
-                animate={{
-                  scaleY: [1, 1.3, 1],
-                }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.2,
-                }}
-              />
-              <motion.span
-                className="w-6 h-6 border-t-[8px] border-r-[8px] rounded-sm"
-                style={{ borderColor: accentColor }}
-                animate={{
-                  scale: [1, 1.15, 1],
-                }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.4,
-                }}
-              />
-            </motion.div>
+            <span
+              className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
+              style={{ borderColor: "#8fff86" }}
+            />
+            <span
+              className="w-1 h-3 rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]"
+              style={{ background: "#8fff86" }}
+            />
+            <span
+              className="w-2 h-2 border-t-4 border-r-4 rotate-[45deg]"
+              style={{ borderColor: "#8fff86" }}
+            />
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
   );
 };
+
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(
@@ -261,7 +233,7 @@ export default function Home() {
               className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1"
               style={{ "--hover-color": accentColor }}
             />
-            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-full animate-none group-hover:animate-crazy2" />
+            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]  animate-none group-hover:animate-crazy2" />
             <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3" />
           </div>
         </div>

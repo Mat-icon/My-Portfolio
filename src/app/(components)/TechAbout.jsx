@@ -4,16 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
 import { FaCss3, FaDocker, FaGithub, FaReact, FaSass } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
-import { SiMongodb, SiRedux } from "react-icons/si";
+import { SiMongodb, SiRedux, SiJavascript, SiNetlify } from "react-icons/si";
 import {
   RiNextjsFill,
   RiSvelteFill,
   RiFirebaseFill,
   RiNodejsFill,
+  RiVercelFill,
 } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import LuminousBeam from './LuminousBeam';
+import { FiFigma } from "react-icons/fi";
 
 
 const TechAbout = () => {
@@ -117,6 +119,9 @@ const TechAbout = () => {
             { icon: <SiRedux />, label: "Redux" },
             { icon: <FaGithub />, label: "Git" },
             { icon: <BiLogoPostgresql />, label: "PostGres" },
+            { icon: <FiFigma />, label: "Figma" },
+             { icon: <SiJavascript />, label: "Javascript" },
+               { icon: <RiVercelFill />, label: "Vercel" },  { icon: <SiNetlify />, label: "Netlify" },
           ].map(({ icon, label }) => (
             <div
               key={label}

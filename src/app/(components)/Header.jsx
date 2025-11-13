@@ -129,7 +129,7 @@ const Scene = ({ mousePosition, isHovering }) => {
       
       <Model 
         path="/models/python_programming_language.glb" 
-        position={[0, -2, 0]} 
+        position={[0, -1, 0]} 
         scale={0.5} 
         seed={3}
         mousePosition={mousePosition}

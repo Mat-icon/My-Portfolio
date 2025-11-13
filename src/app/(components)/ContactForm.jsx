@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faX } from "@fortawesome/free-solid-svg-icons";
 import { FiMail } from "react-icons/fi";
-import './App.scss';
+import "./App.scss";
 import LuminousBeam from "./LuminousBeam";
-
-
-
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -56,12 +53,14 @@ const ContactForm = () => {
 
   return (
     <div className="w-full flex flex-col items-center">
-            <div className="mx-auto mt-4 flex justify-center">
-              <LuminousBeam height="h-[170px]" color="ffd886"/>
-            </div>
-      <div className="tech2 backdrop-blur-md w-10/12 sm:w-11/12 md:w-7/12 lg:w-6/12 xl:9/12">
-        <div className="about-me-title2 p-2">
-          <p className="text-sm font-semibold">write-me</p>
+      <div className="mx-auto mt-0 flex justify-center">
+        <LuminousBeam height="h-[170px]" color="ffd886" />
+      </div>
+      <div className="tech3 backdrop-blur-md w-10/12 sm:w-11/12 md:w-7/12 lg:w-7/12 xl:8/12">
+        <div className="about-me-title3 px-4 py-2">
+          <p className="text-base text-black tracking-tighter ">
+            write-me
+          </p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
             <FontAwesomeIcon
               icon={faMinus}
@@ -79,54 +78,80 @@ const ContactForm = () => {
             />
           </div>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-6 p-6 flex flex-col md:ml-10">
-          <div>
-            <label htmlFor="fullName" className="block text-xs font-semibold text-gray-200">
-              <span className="text-[#9D9D9D] text-sm">01</span> full-name <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              required
-              className="mt-4 block md:w-11/12 w-full px-3 py-4 border border-[#494949] rounded-md focus:border-yellow-800"
-              style={{ background: "#101010d3" }}
-            />
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6 py-6 px-4 flex flex-col md:ml-10"
+        >
+          <div className="flex items-baseline space-x-4">
+            <span className="text-[#ffffff] text-lg">01</span>
+            <div className="w-full flex flex-col">
+              <label
+                htmlFor="fullName"
+                className="block text-sm font-semibold text-black"
+              >
+                full-name <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+                className="mt-2 block md:w-11/12 w-full px-3 py-4 border active:border-[#91d1f8] border-[#0f0f0f] rounded-[3px] "
+                style={{ background: "#15191E" }}
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="company" className="block text-xs font-semibold text-gray-200">
-              <span className="text-[#9D9D9D] text-sm">02</span> company
-            </label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              className="mt-4 block md:w-11/12 w-full px-3 py-4 border border-[#494949] rounded-md focus:border-yellow-800"
-              style={{ background: "#101010d3" }}
-            />
+          <div className="flex items-baseline space-x-4">
+            <span className="text-[#ffffff] text-lg">02</span>
+            <div className="w-full flex flex-col">
+              <label
+                htmlFor="company"
+                className="block text-sm font-semibold text-black"
+              >
+                company
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                className="mt-4 block md:w-11/12 w-full px-3 py-4 border active:border-[#91d1f8] border-[#0f0f0f] rounded-[3px]"
+                style={{ background: "#15191E" }}
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="email" className="block text-xs font-semibold text-gray-200">
-              <span className="text-[#9D9D9D] text-sm">03</span> email <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="mt-4 block md:w-11/12 w-full px-3 py-4 border border-[#494949] rounded-md focus:border-yellow-800"
-              style={{ background: "#101010d3" }}
-            />
+          <div className="flex items-baseline space-x-4">
+            <span className="text-[#ffffff] text-lg">03</span>
+            <div className="w-full flex flex-col">
+              <label
+                htmlFor="email"
+                className="block text-sm font-semibold text-black"
+              >
+                email <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="mt-4 block md:w-11/12 w-full px-3 py-4 border border-[#0f0f0f] active:border-[#91d1f8] rounded-[3px]"
+                style={{ background: "#15191E" }}
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="message" className="block text-xs font-semibold text-gray-200">
-              <span className="text-[#9D9D9D] text-sm">04</span> your-message <span className="text-red-500">*</span>
+          <div className="flex items-baseline space-x-4">
+            <span className="text-[#ffffff] text-lg">04</span>
+                <div className="w-full flex flex-col">
+            <label
+              htmlFor="message"
+              className="block text-sm font-semibold text-black"
+            >
+              your-message <span className="text-red-500">*</span>
             </label>
             <textarea
               rows={7}
@@ -135,23 +160,26 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              className="mt-4 block md:w-11/12 w-full px-3 py-4 border border-[#494949] rounded-md focus:border-yellow-800"
-              style={{ background: "#101010d3" }}
+              className="mt-4 block md:w-11/12 w-full px-3 py-4 border active:border-[#91d1f8] border-[#0f0f0f] rounded-[3px]"
+              style={{ background: "#15191E" }}
             ></textarea>
+            </div>
           </div>
+          <div className="flex justify-start">
           <button
             type="submit"
-            style={{ background: "#101010d3" }}
-            className="material-bubble w-full md:w-7/12 lg:w-6/12 p-4 lg:px-4 rounded-md border border-[#494949] text-center text-sm flex items-center justify-center"
+            style={{ background: "#494949" }}
+            className=" w-full md:w-7/12 lg:w-5/12 tracking-tighter lg:py-3 p-4 lg:px-4 rounded-[3px] border border-[#0f0f0f] text-center text-md text-black flex items-center justify-center"
           >
             submit-message <FiMail className="ml-2" />
           </button>
+          </div>
         </form>
         {status && <p className="text-white mt-4">{status}</p>}
       </div>
-       <div className="mx-auto mt-4 flex justify-center">
-              <LuminousBeam height="h-[170px]" color="ffd886"/>
-            </div>
+      <div className="mx-auto mt-0 flex justify-center">
+        <LuminousBeam height="h-[170px]" color="ffd886" />
+      </div>
     </div>
   );
 };

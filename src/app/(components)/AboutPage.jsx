@@ -151,7 +151,7 @@ const Scene = ({ mousePosition, isHovering }) => {
 
       <Model
         path="/models/python_programming_language.glb"
-        position={[0, -2, 0]}
+        position={[0, -1, 0]}
         scale={0.5}
         seed={3}
         mousePosition={mousePosition}
@@ -223,13 +223,13 @@ export default function Project() {
             <span className="text-xs md:text-[13px] poppins mb-2 md:mb-4 text-white uppercase tracking-wider">
               About
             </span>
-            <h1 className=" w-[94%] text-black text-[44px] tracking-tighter md:text-7xl lg:text-[88px] lg:w-9/12 poppins">
+            <h1 className=" w-[94%] text-black text-[44px] tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
               Let&#39;s get to <br />
               know
               <span className=" text-[#4d81ee]"> each other. </span>
             </h1>
-            <p className="w-10/12 md:w-10/12 text-white lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl  mt-4 our-text">
-              Let me introduce myself, my workflows, my collaborations, and the
+            <p className="w-10/12 md:w-10/12 text-white lg:w-6/12 2xl:w-7/12 tracking-[-1px] text-[16px] text-center max-w-2xl  mt-4 our-text">
+              Let me introduce myself, my workflows, my collaborations,<br /> and the
               technologies I like to use to bring my projects to life.
             </p>
             <div className="mx-auto my-4 flex justify-center">
@@ -281,18 +281,18 @@ export default function Project() {
                     background: linear-gradient(
                       to bottom,
                      transparent 0%,
-                      #ffd88633 5%,
-                      #ffd886cc 15%,
-                      #ffd886 50%,
-                      #ffd886cc 85%,
-                      #ffd88633 95%,
+                      #4d81ee 5%,
+                      #4d81ee 15%,
+                      #4d81ee 50%,
+                      #4d81ee 85%,
+                      #4d81ee 95%,
                       transparent 100%
                     );
                    box-shadow: 
-            0 0 10px #ffd886cc,
-            0 0 80px #ffd88699,
-            0 0 80px #ffd88666,
-            0 0 0px #ffd88633;
+            0 0 10px #4d81ee,
+            0 0 80px #4d81ee,
+            0 0 80px #4d81ee,
+            0 0 0px #4d81ee,
                       
                     animation: pulse 0.5s ease-in-out infinite, beamFlow 3s linear infinite;
                     will-change: transform;
@@ -321,7 +321,7 @@ export default function Project() {
                   }
                 `}</style>
         <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
-          <div className="relative flex gap-8 text-[560px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#0000003d] font-mono whitespace-nowrap animate-scroll">
+          <div className="relative flex gap-8 text-[560px] md:text-[700px] space-x-8 font-[900] poppins tracking-[-40px] text-[#0000003d] font-mono whitespace-nowrap animate-scroll">
             <p>code</p>
             <p>beautiful interfaces</p>
             <p>code</p>
