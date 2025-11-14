@@ -86,7 +86,7 @@ const ContactPage = () => {
         });
 
         gsap.to(circle2Ref.current, {
-          scale: 2.7,
+          scale: 1.7,
           x: "-=100",
           y: "-=70",
           duration: 24,
@@ -126,16 +126,16 @@ const ContactPage = () => {
           ref={circle1Ref}
           className="absolute rounded-full"
           style={{
-             bottom: isMobile ? "15%" : "45%",
-            right: isMobile ? "-40%" : "10%",
-            width: isMobile ? "400px" : "200px",
-            height: isMobile ? "500px" : "200px",
+             top: isMobile ? "50%" : "45%",
+            left: isMobile ? "-30%" : "10%",
+            width: isMobile ? "250px" : "200px",
+            height: isMobile ? "250px" : "200px",
              background: isMobile
               ? "#91d1f8"
               : "#91d1f8",
            filter: isMobile ? "blur(60px)" : "blur(120px)",
-            transform: isMobile ? "scale(0.1)": "scale(1)",
-            opacity: 0.8,
+            transform: isMobile ? "scale(1)": "scale(1)",
+               opacity: isMobile ? 1 : 0.8,
             willChange: "transform, opacity",
           }}
         />
@@ -145,16 +145,16 @@ const ContactPage = () => {
           ref={circle2Ref}
           className="absolute rounded-full"
           style={{
-           top: isMobile ? "25%" : "60%",
-            left: isMobile ? "-30%" : "10%",
-            width: isMobile ? "350px" : "200px",
-            height: isMobile ? "500px" : "200px",
+           bottom: isMobile ? "55%" : "60%",
+            right: isMobile ? "-28%" : "10%",
+            width: isMobile ? "200px" : "200px",
+            height: isMobile ? "200px" : "200px",
             background: isMobile
               ? "#91d1f8"
               : "#91d1f8",
              filter: isMobile ? "blur(60px)" : "blur(100px)",
              transform: isMobile ? "scale(1)": "scale(1)",
-            opacity: 0.8,
+        opacity: isMobile ? 1 : 0.8,
             willChange: "transform, opacity",
           }}
         />

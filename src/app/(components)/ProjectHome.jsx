@@ -127,16 +127,16 @@ const ProjectHome = () => {
           ref={circle1Ref}
           className="absolute rounded-full"
           style={{
-            top: isMobile ? "25%" : "35%",
+            top: isMobile ? "50%" : "35%",
             left: isMobile ? "-30%" : "2%",
-            width: isMobile ? "350px" : "300px",
-            height: isMobile ? "500px" : "300px",
+            width: isMobile ? "250px" : "300px",
+            height: isMobile ? "250px" : "300px",
              background: isMobile
-              ? "#e14f6286"
+              ? "#e14f62"
               : "#e14f6286",
             filter: isMobile ? "blur(60px)" : "blur(80px)",
              transform: isMobile ? "scale(1)": "scale(1)",
-            opacity: 0.8,
+           opacity: isMobile ? 1 : 0.8,
             willChange: "transform, opacity",
           }}
         />
@@ -146,16 +146,16 @@ const ProjectHome = () => {
           ref={circle2Ref}
           className="absolute rounded-full"
           style={{
-            bottom: isMobile ? "15%" : "25%",
-            right: isMobile ? "-40%" : "0%",
-            width: isMobile ? "400px" : "300px",
-            height: isMobile ? "500px" : "300px",
+            bottom: isMobile ? "50%" : "25%",
+            right: isMobile ? "-28%" : "0%",
+            width: isMobile ? "200px" : "300px",
+            height: isMobile ? "200px" : "300px",
             background: isMobile
-              ? "#e14f6286"
+              ? "#e14f62"
               : "#e14f6286",
             filter: isMobile ? "blur(60px)" : "blur(80px)",
-            transform: isMobile ? "scale(0.1)": "scale(1)",
-            opacity: 0.4,
+            transform: isMobile ? "scale(1)": "scale(1)",
+            opacity: isMobile ? 1 : 0.4,
             willChange: "transform, opacity",
           }}
         />

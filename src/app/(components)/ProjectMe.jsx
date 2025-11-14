@@ -49,28 +49,19 @@ const RouteLoader = ({ isVisible, accentColor }) => {
           animate={{ y: 0 }}
           exit={{ y: "200%" }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="absolute inset-0 z-[100] flex items-center justify-center"
+          className="absolute  inset-0 z-[100] flex items-center justify-center"
           style={{
-            background: "#1d232a",
+            background: "#0f0f0f",
             backdropFilter: "blur(20px)",
           }}
         >
           <motion.div
             className="rotate-90 gap-[1px] scale-[12] flex items-center"
             initial={{ rotate: "90deg", scale: 12 }}
-            animate={{ 
-              rotate: ["90deg", "270deg", "90deg"],
-              scale: 12
-            }}
+            animate={{ rotate: "270deg"}}
             exit={{ rotate: "180deg" }}
-            transition={{
-              rotate: {
-                duration: 1,
-                ease: "easeInOut",
-                repeat: Infinity,
-                repeatDelay: 0
-              }
-            }}
+            transition={{duration: 0.4 }}
+
           >
             <span
               className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
@@ -90,6 +81,7 @@ const RouteLoader = ({ isVisible, accentColor }) => {
     </AnimatePresence>
   );
 };
+
 
 
 export default function ProjectMe() {

@@ -56,7 +56,7 @@ const ContactForm = () => {
       <div className="mx-auto mt-0 flex justify-center">
         <LuminousBeam height="h-[170px]" color="ffd886" />
       </div>
-      <div className="tech3 backdrop-blur-md w-10/12 sm:w-11/12 md:w-7/12 lg:w-7/12 xl:8/12">
+      <div className="tech3 backdrop-blur-md w-11/12 md:w-7/12 lg:w-7/12 xl:8/12">
         <div className="about-me-title3 px-4 py-2">
           <p className="text-base text-black tracking-tighter ">
             write-me
@@ -82,8 +82,8 @@ const ContactForm = () => {
           onSubmit={handleSubmit}
           className="space-y-6 py-6 px-4 flex flex-col md:ml-10"
         >
-          <div className="flex items-baseline space-x-4">
-            <span className="text-[#ffffff] text-lg">01</span>
+          <div className="flex items-baseline space-x-2 lg:space-x-4">
+            <span className="text-[#ffffff] text-sm lg:text-lg">01</span>
             <div className="w-full flex flex-col">
               <label
                 htmlFor="fullName"
@@ -103,8 +103,8 @@ const ContactForm = () => {
               />
             </div>
           </div>
-          <div className="flex items-baseline space-x-4">
-            <span className="text-[#ffffff] text-lg">02</span>
+          <div className="flex items-baseline space-x-2 lg:space-x-4">
+            <span className="text-[#ffffff] text-sm lg:text-lg">02</span>
             <div className="w-full flex flex-col">
               <label
                 htmlFor="company"
@@ -123,8 +123,8 @@ const ContactForm = () => {
               />
             </div>
           </div>
-          <div className="flex items-baseline space-x-4">
-            <span className="text-[#ffffff] text-lg">03</span>
+          <div className="flex items-baseline space-x-2 lg:space-x-4">
+            <span className="text-[#ffffff] text-sm lg:text-lg">03</span>
             <div className="w-full flex flex-col">
               <label
                 htmlFor="email"
@@ -144,8 +144,8 @@ const ContactForm = () => {
               />
             </div>
           </div>
-          <div className="flex items-baseline space-x-4">
-            <span className="text-[#ffffff] text-lg">04</span>
+          <div className="flex items-baseline space-x-2 lg:space-x-4">
+            <span className="text-[#ffffff] text-sm lg:text-lg">04</span>
                 <div className="w-full flex flex-col">
             <label
               htmlFor="message"

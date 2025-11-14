@@ -88,16 +88,16 @@ const TechAbout = () => {
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariant}
-        className="tech3 glossy-25  backdrop-blur-md md:w-4/5 w-11/12"
+        className="tech3 glossy-20  backdrop-blur-sm md:w-4/5 w-11/12"
       >
         <div className="about-me-title3  px-4 py-[10px]">
-          <p className="text-sm text-black tracking-[-1px]">Languages & Frameworks</p>
-          <div className="flex items-center space-x-2 text-[#101010] text-xs">
+          <p className="text-sm text-black tracking-[-1px]">techs</p>
+          <div className="flex items-center space-x-2 text-[#1d232a] text-xs">
             <FontAwesomeIcon
               icon={faMinus}
               className="hover:text-white cursor-pointer transition ease-in duration-500"
             />
-            <div className="w-2.5 h-2.5 border border-[#101010] rounded-sm hover:border-white cursor-pointer transition ease-in duration-500"></div>
+            <div className="w-2.5 h-2.5 border border-[#1d232a] rounded-sm hover:border-white cursor-pointer transition ease-in duration-500"></div>
             <FontAwesomeIcon
               icon={faX}
               className="hover:text-white cursor-pointer transition ease-in duration-500"
@@ -110,25 +110,25 @@ const TechAbout = () => {
             { icon: <RiSvelteFill />, label: "Svelte 5" },
             { icon: <FaReact />, label: "React" },
             { icon: <RiFirebaseFill />, label: "Firebase" },
-            { icon: <RiNextjsFill />, label: "Next.JS" },
+            { icon: <RiNextjsFill />, label: "Next.js" },
             { icon: <FaCss3 />, label: "CSS3" },
             { icon: <FaSass />, label: "Sass" },
             { icon: <FaDocker />, label: "Docker" },
-            { icon: <RiNodejsFill />, label: "Node.JS" },
-            { icon: <SiMongodb />, label: "Mongo.DB" },
+            { icon: <RiNodejsFill />, label: "Node.js" },
+            { icon: <SiMongodb />, label: "Mongo.db" },
             { icon: <SiRedux />, label: "Redux" },
             { icon: <FaGithub />, label: "Git" },
-            { icon: <BiLogoPostgresql />, label: "PostGres" },
+            { icon: <BiLogoPostgresql />, label: "Postgres" },
             { icon: <FiFigma />, label: "Figma" },
              { icon: <SiJavascript />, label: "Javascript" },
                { icon: <RiVercelFill />, label: "Vercel" },  { icon: <SiNetlify />, label: "Netlify" },
           ].map(({ icon, label }) => (
             <div
               key={label}
-              className="text-5xl md:text-6xl text-gray-200 flex items-center flex-col"
+              className="text-5xl md:text-5xl text-gray-200 flex items-center flex-col"
             >
               {icon}
-              <span className="text-sm text-gray-300 md:text-base mt-2 tracking-tighter">
+              <span className="text-sm poppins  font-semibold  mt-2  text-gray-200">
                 {label}
               </span>
             </div>

@@ -261,7 +261,7 @@ const Model = ({
     }
   }, [scene]);
 
-  const responsiveScale = isMobile ? scale * 0.5 : scale;
+  const responsiveScale = isMobile ? scale * 0.8 : scale;
 
   return (
     <primitive
@@ -362,18 +362,18 @@ export default function Project() {
       <div className="flex flex-col relative  rounded overflow-hidden">
         <main className="w-full header">
           <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
-            <span className="text-xs md:text-[13px] poppins mb-2 md:mb-4 text-white uppercase tracking-wider">
+            <span className="text-xs md:text-[13px] poppins mb-4 md:mb-4 text-white uppercase tracking-wider">
               Work
             </span>
-            <h1 className=" w-[94%] text-[#09090B] text-[44px] tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
-              A collection of <br />
+            <h1 className=" w-[94%] text-[#09090B] text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
+              A collection<br className='block md:hidden'/> of <br  className="hidden md:block"/>
               my best
               <span className=" text-[#e14f62]"> projects.</span>
             </h1>
-            <p className="w-10/12 md:w-10/12 text-white lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl  mt-4 our-text">
+            <p className="w-11/12 md:w-10/12 text-white lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl mt-6  md:mt-4 our-text">
               With many years in web development, I acquired extensive
               experience working on projects across multiple industries
-              <br /> and technologies. Let me show you my best creations.
+              <br className='md:block hidden'/> and technologies. Let me show you my best creations.
             </p>
             <div className="mx-auto my-4 flex justify-center">
               <LuminousBeam height="h-[70px]" color="4d81ee" />
@@ -391,7 +391,7 @@ export default function Project() {
                     }
                   }
                   .animate-scroll {
-                    animation: scrollWords 410s linear infinite;
+                    animation: scrollWords 610s linear infinite;
                   }
                      @keyframes pulse {
                     0%, 100% {

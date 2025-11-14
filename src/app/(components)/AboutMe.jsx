@@ -83,7 +83,11 @@ const RouteLoader = ({ isVisible, accentColor }) => {
 
 export default function AboutMe() {
   const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
+         new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        })
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -225,7 +229,7 @@ export default function AboutMe() {
       `}</style>
 
       {/* Header */}
-      <header className="flex justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#101010] shrink-0">
+      <header className="flex justify-between relative z-10 filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#101010] shrink-0">
         <div className="flex w-[12%] border-r border-[#101010] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
             <span

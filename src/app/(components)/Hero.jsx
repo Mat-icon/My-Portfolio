@@ -84,7 +84,11 @@ const RouteLoader = ({ isVisible, accentColor }) => {
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        })
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);

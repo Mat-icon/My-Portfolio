@@ -117,9 +117,8 @@ const PagesContactBar = ({ currentRoute }) => {
               onMouseLeave={() => setHoveredBtn1(false)}
               href="/contact"
               style={{ background: "#494949" }}
-              className="w-10/12 material-bubble3 md:w-full lg:w-3/12 p-4 lg:px-4 rounded-md border-[#000] border text-center text-sm"
-              onMouseOver={(e) => e.currentTarget.style.borderColor = accentColor}
-              onMouseOut={(e) => e.currentTarget.style.borderColor = "#000"}
+              className="w-10/12 material-bubble3 md:w-full lg:w-4/12 p-4 lg:px-4 rounded-md text-center text-base"
+           
             >
               {hoveredBtn1 ? (
                 <motion.p
@@ -145,9 +144,8 @@ const PagesContactBar = ({ currentRoute }) => {
               download
               style={{ background: "#494949" }}
               target="_blank"
-              className="w-10/12 mt-1 md:mt-0 material-bubble3 md:w-full lg:w-3/12 p-4 lg:px-4 rounded-md border-[#494949]  border text-center text-sm"
-              onMouseOver={(e) => e.currentTarget.style.borderColor = accentColor}
-              onMouseOut={(e) => e.currentTarget.style.borderColor = "#000"}
+              className="w-10/12 mt-1 md:mt-0 material-bubble3 md:w-full lg:w-3/12 p-4 lg:px-4 rounded-md  text-center text-base"
+        
             >
               {hoveredBtn2 ? (
                 <motion.p

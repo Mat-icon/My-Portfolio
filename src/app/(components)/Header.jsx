@@ -258,7 +258,7 @@ const Header = () => {
           Home
         </motion.span>
         
-        <div className="w-[94%] text-[40px] tracking-tighter poppins md:text-7xl lg:text-[88px] lg:w-9/12">
+        <div className="w-[94%] text-5xl tracking-tighter poppins md:text-7xl lg:text-[88px] lg:w-9/12">
           <h1 className="text-center mx-auto">
             <motion.span style={{ opacity: getHeadingWordOpacity(0, 6) }}>
               Hi<span className="font-serif">, </span>
