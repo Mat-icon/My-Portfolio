@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import Loader from "./Loader";
 import { gsap } from "gsap";
 
-const Home = () => {
+const AboutHome = () => {
 
   const [isMobile, setIsMobile] = useState(false);
   const circle1Ref = useRef(null);
@@ -167,4 +167,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AboutHome;
