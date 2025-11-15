@@ -517,9 +517,13 @@
   width: 40px;
   height: 50px;
 }
+
+
+
 .icon-container {
   position: relative;
   display: inline-block;
+   font-family: "Poppins", sans-serif;
   text-align: center;
   z-index: 20;
 }
@@ -528,10 +532,11 @@
   position: absolute;
   top: -10px;
   left: 100%;
-  border-radius: 5px;
+
+  border-radius: 4px;
   transform: translateX(18%);
-  padding: 5px 10px;
-  font-size: 13px;
+  padding: 5px 13px;
+  font-size: 11px;
   color: #000;
   visibility: hidden;
   opacity: 0;
@@ -539,11 +544,70 @@
   transition: scale 0.3s linear, visibility 0s, opacity 0.3s linear;
 }
 
+/* Smooth rounded tail */
+.badge::after {
+  content: "";
+  position: absolute;
+  left: -4px;                 /* connects to left edge */
+  top: 50%;                   /* vertically centered */
+  transform: translateY(-20%) rotate(45deg);  
+  width: 18px;
+  height: 10px;
+  background: white;
+  border-radius: 2px;         /* <-- rounded tip */
+}
+
 .icon-container:hover .badge {
   visibility: visible;
   opacity: 1;
   scale: 1.1;
 }
+
+
+.icon-container2 {
+  position: relative;
+  display: inline-block;
+   font-family: "Poppins", sans-serif;
+  text-align: center;
+  z-index: 20;
+}
+.badge2 {
+  background: black;
+  position: absolute;
+  top: -10px;
+  left: 100%;
+
+  border-radius: 4px;
+  transform: translateX(18%);
+  padding: 5px 13px;
+  font-size: 11px;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  scale: 0;
+  transition: scale 0.3s linear, visibility 0s, opacity 0.3s linear;
+}
+
+/* Smooth rounded tail */
+.badge2::after {
+  content: "";
+  position: absolute;
+  left: -4px;                 /* connects to left edge */
+  top: 50%;                   /* vertically centered */
+  transform: translateY(-20%) rotate(45deg);  
+  width: 18px;
+  height: 10px;
+  background: black;
+  border-radius: 2px;         /* <-- rounded tip */
+}
+
+.icon-container2:hover .badge2 {
+  visibility: visible;
+  opacity: 1;
+  scale: 1.1;
+}
+
+
 
 .lower-container {
   @apply border border-gray-600 rounded-b-md;

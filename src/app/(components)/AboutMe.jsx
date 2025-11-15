@@ -273,7 +273,7 @@ export default function AboutMe() {
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
         <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#101010] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
-          <div className="icon-container">
+          <div className="icon-container2">
             <Link href="/">
               <FiHome
                 className={`${
@@ -291,10 +291,10 @@ export default function AboutMe() {
                 }
               />
             </Link>
-            <span className="badge">home</span>
+            <span className="badge2">home</span>
           </div>
 
-          <div className="icon-container">
+          <div className="icon-container2">
             <Link href="/about">
               <LuUserRound
                 className={`${
@@ -309,10 +309,10 @@ export default function AboutMe() {
                 }
               />
             </Link>
-            <span className="badge">about</span>
+            <span className="badge2">about</span>
           </div>
 
-          <div className="icon-container">
+          <div className="icon-container2">
             <Link href="/projects">
               <CiLaptop
                 className={`${
@@ -327,10 +327,10 @@ export default function AboutMe() {
                 }
               />
             </Link>
-            <span className="badge">projects</span>
+            <span className="badge2">projects</span>
           </div>
 
-          <div className="icon-container">
+          <div className="icon-container2">
             <Link href="/contact">
               <FiMail
                 className={`${
@@ -345,7 +345,7 @@ export default function AboutMe() {
                 }
               />
             </Link>
-            <span className="badge">contact</span>
+            <span className="badge2">contact</span>
           </div>
         </aside>
 
