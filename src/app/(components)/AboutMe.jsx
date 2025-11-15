@@ -327,7 +327,7 @@ export default function AboutMe() {
                 }
               />
             </Link>
-            <span className="badge2">projects</span>
+            <span className="badge2">works</span>
           </div>
 
           <div className="icon-container2">

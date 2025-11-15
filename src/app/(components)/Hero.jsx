@@ -328,7 +328,7 @@ export default function Home() {
                 }
               />
             </Link>
-            <span className="badge">projects</span>
+            <span className="badge">works</span>
           </div>
 
           <div className="icon-container">
