@@ -534,9 +534,9 @@
   left: 100%;
 
   border-radius: 4px;
-  transform: translateX(18%);
-  padding: 5px 13px;
-  font-size: 11px;
+   transform: translateX(22%);
+  padding: 2px 13px;
+  font-size: 13px;
   color: #000;
   visibility: hidden;
   opacity: 0;
@@ -578,9 +578,9 @@
   left: 100%;
 
   border-radius: 4px;
-  transform: translateX(18%);
-  padding: 5px 13px;
-  font-size: 11px;
+  transform: translateX(22%);
+  padding: 2px 13px;
+  font-size: 13px;
   color: #fff;
   visibility: hidden;
   opacity: 0;

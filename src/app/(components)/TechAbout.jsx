@@ -125,7 +125,7 @@ const TechAbout = () => {
           ].map(({ icon, label }) => (
             <div
               key={label}
-              className="text-5xl md:text-5xl text-black flex items-center flex-col"
+              className="text-5xl md:text-5xl text-white flex items-center flex-col"
             >
               {icon}
               <span className="text-sm poppins   mt-2  text-gray-200">
