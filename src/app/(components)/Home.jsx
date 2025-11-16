@@ -146,7 +146,7 @@ const Home = () => {
               : "#365A34",
             filter: isMobile ? "blur(60px)" : "blur(120px)",
              transform: isMobile ? "scale(1)": "scale(0.5)",
-            opacity: 0.8,
+             opacity: isMobile ? 1 : 0.8,
             willChange: "transform, opacity",
           }}
         />
@@ -165,7 +165,7 @@ const Home = () => {
               : "radial-gradient(circle, #8FFF8666 0%, #8FFF8666 50%, transparent 80%)",
             filter: isMobile ? "blur(60px)" : "blur(100px)",
             transform: isMobile ? "scale(1)": "scale(0.5)",
-            opacity: 0.8,
+            opacity: isMobile ? 1 : 0.8,
             willChange: "transform, opacity",
           }}
         />
