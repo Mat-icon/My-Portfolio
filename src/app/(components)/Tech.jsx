@@ -123,7 +123,7 @@ const Tech = () => {
               className="text-5xl md:text-6xl text-gray-200 flex items-center flex-col"
             >
               {icon}
-              <span className="text-sm text-gray-300 md:text-base mt-2 tracking-tighter">
+              <span className="text-sm text-gray-200 poppins mt-2 ">
                 {label}
               </span>
             </div>

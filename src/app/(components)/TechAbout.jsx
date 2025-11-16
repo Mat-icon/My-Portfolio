@@ -125,10 +125,10 @@ const TechAbout = () => {
           ].map(({ icon, label }) => (
             <div
               key={label}
-              className="text-5xl md:text-5xl text-gray-200 flex items-center flex-col"
+              className="text-5xl md:text-5xl text-black flex items-center flex-col"
             >
               {icon}
-              <span className="text-sm poppins  font-semibold  mt-2  text-gray-200">
+              <span className="text-sm poppins   mt-2  text-gray-200">
                 {label}
               </span>
             </div>
