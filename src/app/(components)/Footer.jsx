@@ -16,7 +16,7 @@ const Footer = () => {
           amehColor: "#8FFF86",
           footerColor: "#9D9D9D",
         };
-      case "/about":
+      case "/about-me":
         return {
           accent: "#4d81ee",
           matthewColor: "#FFFFFF",

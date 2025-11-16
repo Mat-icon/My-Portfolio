@@ -138,11 +138,11 @@ const Home = () => {
           className="absolute rounded-full"
           style={{
             top: isMobile ? "25%" : "45%",
-            left: isMobile ? "-30%" : "-8%",
-            width: isMobile ? "350px" : "400px",
-            height: isMobile ? "500px" : "400px",
+            left: isMobile ? "-50%" : "-8%",
+            width: isMobile ? "200px" : "400px",
+            height: isMobile ? "200px" : "400px",
             background: isMobile
-              ? "#365A34"
+              ? "#8FFF86"
               : "#365A34",
             filter: isMobile ? "blur(60px)" : "blur(120px)",
              transform: isMobile ? "scale(1)": "scale(0.5)",
@@ -157,14 +157,14 @@ const Home = () => {
           className="absolute rounded-full"
           style={{
             bottom: isMobile ? "15%" : "50%",
-            right: isMobile ? "-40%" : "-10%",
-            width: isMobile ? "400px" : "400px",
-            height: isMobile ? "500px" : "400px",
+            right: isMobile ? "-50%" : "-10%",
+            width: isMobile ? "200px" : "400px",
+            height: isMobile ? "200px" : "400px",
             background: isMobile
               ? "#8FFF86"
               : "radial-gradient(circle, #8FFF8666 0%, #8FFF8666 50%, transparent 80%)",
             filter: isMobile ? "blur(60px)" : "blur(100px)",
-            transform: isMobile ? "scale(0.1)": "scale(0.5)",
+            transform: isMobile ? "scale(1)": "scale(0.5)",
             opacity: 0.8,
             willChange: "transform, opacity",
           }}

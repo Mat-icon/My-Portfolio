@@ -96,7 +96,7 @@ const Model = ({ path, position, scale = 1, seed = 0, mousePosition, isHovering 
     }
   }, [scene]);
 
-  const responsiveScale = isMobile ? scale * 0.5 : scale;
+  const responsiveScale = isMobile ? scale * 1.5 : scale;
 
   return (
     <primitive
