@@ -252,13 +252,13 @@ const Header = () => {
 
       <div className="absolute bottom-0 flex flex-col items-center w-full pointer-events-none">
         <motion.span 
-          className="text-xs md:text-[12px] mb-2 poppins md:mb-4 text-gray-400 uppercase tracking-wider"
+          className="text-xs md:text-[12px] mb-5 poppins md:mb-4 text-gray-400 uppercase tracking-wider"
           style={{ opacity: getHomeLabelOpacity() }}
         >
           Home
         </motion.span>
         
-        <div className="w-[98%] text-5xl tracking-tighter poppins md:text-7xl lg:text-[88px] lg:w-9/12">
+        <div className="w-[98%] text-[45px] leading-[1] tracking-tighter poppins md:text-7xl lg:text-[88px] lg:w-9/12">
           <h1 className="text-center mx-auto">
             <motion.span style={{ opacity: getHeadingWordOpacity(0, 6) }}>
               Hi<span className="font-serif">, </span>

@@ -213,7 +213,7 @@ export default function Home() {
 
   return (
     <div
-      className="flex flex-col w-[95%] md:w-[99%] my-2 h-[95dvh] md:h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+      className="flex flex-col w-[96%] md:w-[99%] my-2 h-[96dvh] md:h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}
@@ -230,7 +230,7 @@ export default function Home() {
       `}</style>
 
       {/* Header */}
-      <header className="flex justify-between filter glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0">
+      <header className="flex justify-between filter md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0">
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
             <span

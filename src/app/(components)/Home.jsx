@@ -137,7 +137,7 @@ const Home = () => {
           ref={circle1Ref}
           className="absolute rounded-full"
           style={{
-            top: isMobile ? "55%" : "45%",
+            top: isMobile ? "65%" : "45%",
             left: isMobile ? "-45%" : "-8%",
             width: isMobile ? "200px" : "400px",
             height: isMobile ? "200px" : "400px",
@@ -156,7 +156,7 @@ const Home = () => {
           ref={circle2Ref}
           className="absolute rounded-full"
           style={{
-            bottom: isMobile ? "45%" : "50%",
+            bottom: isMobile ? "55%" : "50%",
             right: isMobile ? "-45%" : "-10%",
             width: isMobile ? "200px" : "400px",
             height: isMobile ? "200px" : "400px",
