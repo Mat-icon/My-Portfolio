@@ -269,6 +269,7 @@ const Header = () => {
             <motion.span style={{ opacity: getHeadingWordOpacity(2, 6) }}>
               Matthew<span className="font-serif">,</span>{" "}
             </motion.span>
+               <br className="lg:hidden block" />
             <motion.span style={{ opacity: getHeadingWordOpacity(3, 6) }}>
               a{" "}
             </motion.span>

@@ -156,10 +156,10 @@ const Home = () => {
           ref={circle2Ref}
           className="absolute rounded-full"
           style={{
-            bottom: isMobile ? "55%" : "50%",
+            bottom: isMobile ? "65%" : "50%",
             right: isMobile ? "-45%" : "-10%",
-            width: isMobile ? "200px" : "400px",
-            height: isMobile ? "200px" : "400px",
+            width: isMobile ? "240px" : "400px",
+            height: isMobile ? "240px" : "400px",
             background: isMobile
               ? "#8FFF86"
               : "radial-gradient(circle, #8FFF8666 0%, #8FFF8666 50%, transparent 80%)",
