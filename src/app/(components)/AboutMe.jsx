@@ -27,7 +27,7 @@ import FullNav from "./FullNav";
 const ROUTE_COLORS = {
   "/": "#8fff86", // Home - Green
   "/projects": "#fa9595", // Projects - Pink/Red
-  "/about": "#86d4ff", // About - Blue
+  "/about-me": "#86d4ff", // About - Blue
   "/contact": "#ffd886", // Contact - Yellow/Orange
 };
 
@@ -35,7 +35,7 @@ const ROUTE_COLORS = {
 const ROUTE_BG_COLORS = {
   "/": "#508A4C", // Home - Dark Green
   "/projects": "#8A4C4C", // Projects - Dark Red
-  "/about": "#4C6B8A", // About - Dark Blue
+  "/about-me": "#4C6B8A", // About - Dark Blue
   "/contact": "#8A7A4C", // Contact - Dark Yellow/Orange
 };
 
@@ -92,7 +92,7 @@ export default function AboutMe() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const scrollContainerRef = useRef(null);
-  const [currentRoute, setCurrentRoute] = useState("/about");
+  const [currentRoute, setCurrentRoute] = useState("/about-me");
   const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState("Lofi Beats");
@@ -295,17 +295,17 @@ export default function AboutMe() {
           </div>
 
           <div className="icon-container2">
-            <Link href="/about">
+            <Link href="/about-me">
               <LuUserRound
                 className={`${
-                    currentRoute === "/about" ? "text-black" : "text-white"
+                    currentRoute === "/about-me" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
                 }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.color =
-                    currentRoute === "/about" ? "white" : "#9D9D9D")
+                    currentRoute === "/about-me" ? "white" : "#9D9D9D")
                 }
               />
             </Link>
