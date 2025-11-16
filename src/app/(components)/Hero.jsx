@@ -213,7 +213,7 @@ export default function Home() {
 
   return (
     <div
-      className="flex flex-col w-[97%] md:w-[99%] my-2 h-[96dvh] md:h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+      className="flex flex-col w-[97%] md:w-[99%] my-2 h-[97dvh] md:h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}

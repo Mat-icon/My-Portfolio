@@ -139,8 +139,8 @@ const Home = () => {
           style={{
             top: isMobile ? "65%" : "45%",
             left: isMobile ? "-45%" : "-8%",
-            width: isMobile ? "200px" : "400px",
-            height: isMobile ? "200px" : "400px",
+            width: isMobile ? "230px" : "400px",
+            height: isMobile ? "230px" : "400px",
             background: isMobile
               ? "#8FFF86"
               : "#365A34",
