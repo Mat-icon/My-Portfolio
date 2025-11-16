@@ -551,8 +551,8 @@
   left: -4px;                 /* connects to left edge */
   top: 50%;                   /* vertically centered */
   transform: translateY(-20%) rotate(45deg);  
-  width: 18px;
-  height: 10px;
+  width: 14px;
+  height: 8px;
   background: white;
   border-radius: 2px;         /* <-- rounded tip */
 }
@@ -595,8 +595,8 @@
   left: -4px;                 /* connects to left edge */
   top: 50%;                   /* vertically centered */
   transform: translateY(-20%) rotate(45deg);  
-  width: 18px;
-  height: 10px;
+  width: 14px;
+  height: 8px;
   background: black;
   border-radius: 2px;         /* <-- rounded tip */
 }

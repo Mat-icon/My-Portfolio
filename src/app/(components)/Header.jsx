@@ -280,7 +280,7 @@ const Header = () => {
               creative{" "}
             </motion.span>
             <motion.span style={{ opacity: getHeadingWordOpacity(5, 6) }}>
-              &#123;developer&#125;.
+              developer
             </motion.span>
           </h1>
         </div>
