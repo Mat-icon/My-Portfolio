@@ -509,7 +509,7 @@ const ContactHighlight = () => {
         </motion.div>
       </div>
       <Link
-        href="/about"
+        href="/about-me"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{ background: "#101010e1" }}
