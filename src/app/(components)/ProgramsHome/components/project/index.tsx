@@ -367,7 +367,7 @@ export default function Index({
                   {lang.map((lan, idx) => (
                     <span
                       key={idx}
-                      className="px-4 fonts tracking-tighter py-[6px] border-[0.5px] lowercase border-[#494949] text-[10px] md:text-[12px] rounded-full bg-[#131613] text-[#9D9D9D] backdrop-blur-md"
+                      className="px-4 fonts tracking-tighter py-[6px] border-[0.5px] lowercase border-[#494949] text-[12px] rounded-full bg-[#131613] text-[#9D9D9D] backdrop-blur-md"
                     >
                       {lan}
                     </span>
