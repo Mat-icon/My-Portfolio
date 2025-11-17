@@ -225,7 +225,7 @@ export default function Home() {
         times: [0, 0.3, 1],
         ease: [0.76, 0, 0.24, 1],
       }}
-      className="flex flex-col w-[96%] md:w-[99%] my-2 overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+      className="flex flex-col w-[95.5%] md:w-[99%] my-2 overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}
@@ -450,7 +450,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer
-        className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0"
+        className="flex md:glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0"
       >
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
@@ -547,7 +547,7 @@ export default function Home() {
         </div>
 
         {/* Mobile - Social Icons */}
-        <div className="flex md:hidden text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
+        {/* <div className="flex md:hidden text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
           <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
             <FaLinkedin className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
           </Link>
@@ -556,7 +556,7 @@ export default function Home() {
             <FiGithub className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
           </Link>
           <FaXTwitter className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-        </div>
+        </div> */}
 
         {/* Right section - Contact button (Desktop only) */}
         <Link
@@ -564,7 +564,7 @@ export default function Home() {
           onMouseLeave={() => setHovered(false)}
           href="/contact"
           style={{ background: "#0a0a0afb" }}
-          className="hidden material-bubble3 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
+          className="material-bubble3 w-[60%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
           onMouseOver={(e) => (e.currentTarget.style.borderColor = accentColor)}
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#6462628c")}
         >
