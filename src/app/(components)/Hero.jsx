@@ -245,7 +245,7 @@ export default function Home() {
       <motion.header
         initial={{ opacity: 1 }}
         animate={{ opacity: showInitialLoader ? 1 : 1 }}
-        className="flex justify-between filter md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
+        className="flex justify-between filter relative z-50 md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
       >
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
@@ -287,10 +287,7 @@ export default function Home() {
       </motion.header>
 
       {/* Main Content */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showInitialLoader ? 0 : 1 }}
-        transition={{ duration: 0.8, delay: showInitialLoader ? 0 : 0.3 }}
+      <div
         className="flex flex-1 min-h-0 relative"
       >
         {/* Sidebar */}
@@ -377,12 +374,8 @@ export default function Home() {
           className="flex-1 md:pl-[3.1%] relative scrollbar overflow-x-hidden overflow-y-auto"
         >
           <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
-          <motion.div
-            key={currentRoute}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+          <div
+            
           >
             <RouteLoader isVisible={isLoading} accentColor={accentColor} />
             <HeroBody
@@ -390,9 +383,9 @@ export default function Home() {
               currentRoute={currentRoute}
               toggleNav={toggleNav}
             />
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Music Player Toaster */}
       <motion.div
@@ -456,10 +449,7 @@ export default function Home() {
       </motion.div>
 
       {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showInitialLoader ? 0 : 1 }}
-        transition={{ duration: 0.8, delay: showInitialLoader ? 0 : 0.3 }}
+      <footer
         className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0"
       >
         {/* Left section - Dynamic color sidebar with music icon */}
@@ -595,7 +585,7 @@ export default function Home() {
             </p>
           )}
         </Link>
-      </motion.footer>
+      </footer>
     </motion.div>
   );
 }
