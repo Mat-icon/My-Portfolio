@@ -1,6 +1,6 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import PagesContactBar from "./PagesContactBar";
 import Footer from "./Footer";
 import TestimonialHighlight from "./TestimonialHighlight";
@@ -12,6 +12,48 @@ import LuminousBeam from "./LuminousBeam";
 import TechAbout from "./TechAbout";
 import PageTestimonials from './PagesTestimonial';
 
+
+const RouteLoader = ({ isVisible, accentColor }) => {
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ y: "-100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "200%" }}
+          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+          className="absolute  inset-0 z-[100] flex items-center justify-center"
+          style={{
+            background: "#1d232a",
+            backdropFilter: "blur(20px)",
+          }}
+        >
+          <motion.div
+            className="rotate-90 gap-[1px] scale-[12] flex items-center"
+            initial={{ rotate: "90deg", scale: 12 }}
+            animate={{ rotate: "270deg"}}
+            exit={{ rotate: "180deg" }}
+            transition={{duration: 0.4 }}
+
+          >
+            <span
+              className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
+              style={{ borderColor: "#4d81ee" }}
+            />
+            <span
+              className="w-1 h-3 rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]"
+              style={{ background: "#4d81ee" }}
+            />
+            <span
+              className="w-2 h-2 border-t-4 border-r-4 rotate-[45deg]"
+              style={{ borderColor: "#4d81ee" }}
+            />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 
 const Model = ({
