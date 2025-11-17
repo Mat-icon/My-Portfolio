@@ -204,7 +204,7 @@ export default function Index({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className={`backdrop-blur-md relative px-[15px] lg:px-[30px] ${
-          isMobile ? "py-[20px] pb-[70px]" : "py-[50px] lg:py-[70px]"
+          isMobile ? "py-[20px] pb-[30px]" : "py-[50px] lg:py-[70px]"
         }`}
         style={{
           display: "flex",
