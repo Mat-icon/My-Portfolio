@@ -225,7 +225,7 @@ export default function Home() {
         times: [0, 0.3, 1],
         ease: [0.76, 0, 0.24, 1],
       }}
-      className="flex flex-col w-[97%] md:w-[99%] my-2 overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+      className="flex flex-col w-[96%] md:w-[99%] my-2 overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}
