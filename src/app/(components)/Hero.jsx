@@ -377,7 +377,7 @@ export default function Home() {
           <div
             
           >
-            <RouteLoader isVisible={isLoading} accentColor={accentColor} />
+            {/* <RouteLoader isVisible={isLoading} accentColor={accentColor} /> */}
             <HeroBody
               isOpen={isNavOpen}
               currentRoute={currentRoute}
