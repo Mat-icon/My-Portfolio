@@ -122,7 +122,7 @@ const Home = () => {
         ease: "sine.inOut",
       });
     }
-  }, [ isMobile]);
+  }, [isLoading, isMobile]);
 
  
 

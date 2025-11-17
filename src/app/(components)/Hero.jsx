@@ -212,11 +212,11 @@ export default function Home() {
 
   return (
     <motion.div
-      initial={{ height: "7dvh" }}
+      initial={{ height: "6dvh" }}
       animate={
         showInitialLoader
           ? {
-              height: ["7dvh", "7dvh", "98dvh"],
+              height: ["6dvh", "6dvh", "98dvh"],
             }
           : { height: "98dvh" }
       }
