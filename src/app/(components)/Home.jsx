@@ -122,11 +122,9 @@ const Home = () => {
         ease: "sine.inOut",
       });
     }
-  }, [isLoading, isMobile]);
+  }, [ isMobile]);
 
-  if (isLoading) {
-    return <Loader />;
-  }
+ 
 
   return (
     <div className="w-full flex justify-center h-dvh overflow-hidden bg-[#0f0f0f] relative">

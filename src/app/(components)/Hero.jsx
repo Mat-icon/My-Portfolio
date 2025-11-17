@@ -11,7 +11,6 @@ import {
   FiX,
 } from "react-icons/fi";
 import { VscChromeMinimize, VscChromeClose } from "react-icons/vsc";
-
 import { FaArrowRight, FaLinkedin, FaPlay, FaPause } from "react-icons/fa";
 import { LuUserRound } from "react-icons/lu";
 import { SlMusicToneAlt } from "react-icons/sl";
@@ -25,18 +24,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import FullNav from "./FullNav";
 
 const ROUTE_COLORS = {
-  "/": "#8fff86", // Home - Green
-  "/projects": "#fa9595", // Projects - Pink/Red
-  "/about-me": "#86d4ff", // About - Blue
-  "/contact": "#ffd886", // Contact - Yellow/Orange
+  "/": "#8fff86",
+  "/projects": "#fa9595",
+  "/about-me": "#86d4ff",
+  "/contact": "#ffd886",
 };
 
-// Darker shades for backgrounds
 const ROUTE_BG_COLORS = {
-  "/": "#508A4C", // Home - Dark Green
-  "/projects": "#8A4C4C", // Projects - Dark Red
-  "/about-me": "#4C6B8A", // About - Dark Blue
-  "/contact": "#8A7A4C", // Contact - Dark Yellow/Orange
+  "/": "#508A4C",
+  "/projects": "#8A4C4C",
+  "/about-me": "#4C6B8A",
+  "/contact": "#8A7A4C",
 };
 
 const RouteLoader = ({ isVisible, accentColor }) => {
@@ -48,7 +46,7 @@ const RouteLoader = ({ isVisible, accentColor }) => {
           animate={{ y: 0 }}
           exit={{ y: "200%" }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="absolute  inset-0 z-[100] flex items-center justify-center"
+          className="absolute inset-0 z-[100] flex items-center justify-center"
           style={{
             background: "#0f0f0f",
             backdropFilter: "blur(20px)",
@@ -57,10 +55,9 @@ const RouteLoader = ({ isVisible, accentColor }) => {
           <motion.div
             className="rotate-90 gap-[1px] scale-[12] flex items-center"
             initial={{ rotate: "90deg", scale: 12 }}
-            animate={{ rotate: "270deg"}}
+            animate={{ rotate: "270deg" }}
             exit={{ rotate: "180deg" }}
-            transition={{duration: 0.4 }}
-
+            transition={{ duration: 0.4 }}
           >
             <span
               className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
@@ -81,14 +78,13 @@ const RouteLoader = ({ isVisible, accentColor }) => {
   );
 };
 
-
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(
-        new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        })
+    new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    })
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -99,18 +95,22 @@ export default function Home() {
   const [currentSong, setCurrentSong] = useState("Lofi Beats");
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
+  const [showInitialLoader, setShowInitialLoader] = useState(true);
   const accentColor = ROUTE_COLORS[currentRoute];
   const bgColor = ROUTE_BG_COLORS[currentRoute];
 
   useEffect(() => {
-    // When pathname changes, show loader
     setIsLoading(true);
-
-    // Small timeout to simulate load time or wait for render
     const timeout = setTimeout(() => setIsLoading(false), 3700);
-
     return () => clearTimeout(timeout);
   }, [pathname]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowInitialLoader(false);
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const container = {
     hidden: {},
@@ -173,7 +173,6 @@ export default function Home() {
     };
   }, []);
 
-  // Lenis Smooth Scroll Setup
   useEffect(() => {
     let lenis;
 
@@ -212,8 +211,21 @@ export default function Home() {
   }, []);
 
   return (
-    <div
-      className="flex flex-col w-[97%] md:w-[99%] my-2 h-[97dvh] md:h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+    <motion.div
+      initial={{ height: "7dvh" }}
+      animate={
+        showInitialLoader
+          ? {
+              height: ["7dvh", "7dvh", "98dvh"],
+            }
+          : { height: "98dvh" }
+      }
+      transition={{
+        duration: 2.5,
+        times: [0, 0.3, 1],
+        ease: [0.76, 0, 0.24, 1],
+      }}
+      className="flex flex-col w-[97%] md:w-[99%] my-2 overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}
@@ -230,14 +242,18 @@ export default function Home() {
       `}</style>
 
       {/* Header */}
-      <header className="flex justify-between filter md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0">
+      <motion.header
+        initial={{ opacity: 1 }}
+        animate={{ opacity: showInitialLoader ? 1 : 1 }}
+        className="flex justify-between filter md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
+      >
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
             <span
               className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1"
               style={{ "--hover-color": accentColor }}
             />
-            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]  animate-none group-hover:animate-crazy2" />
+            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px] animate-none group-hover:animate-crazy2" />
             <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3" />
           </div>
         </div>
@@ -268,10 +284,15 @@ export default function Home() {
             <FiMenu className="text-lg cursor-pointer" onClick={toggleNav} />
           )}
         </div>
-      </header>
+      </motion.header>
 
       {/* Main Content */}
-      <div className="flex flex-1 min-h-0 relative">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showInitialLoader ? 0 : 1 }}
+        transition={{ duration: 0.8, delay: showInitialLoader ? 0 : 0.3 }}
+        className="flex flex-1 min-h-0 relative"
+      >
         {/* Sidebar */}
         <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container">
@@ -350,7 +371,7 @@ export default function Home() {
           </div>
         </aside>
 
-        {/* Main Content Area with padding for sidebar */}
+        {/* Main Content Area */}
         <div
           ref={scrollContainerRef}
           className="flex-1 md:pl-[3.1%] relative scrollbar overflow-x-hidden overflow-y-auto"
@@ -371,7 +392,7 @@ export default function Home() {
             />
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Music Player Toaster */}
       <motion.div
@@ -381,7 +402,7 @@ export default function Home() {
           opacity: isMusicPlayerOpen ? 1 : 0,
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed bottom-14 left-4 z-50 w-64 glossy-25 backdrop-blur-2xl border border-[#494949]  rounded-[3px] p-4 "
+        className="fixed bottom-14 left-4 z-50 w-64 glossy-25 backdrop-blur-2xl border border-[#494949] rounded-[3px] p-4"
         style={{ backgroundColor: "rgba(10, 10, 10, 0.95)" }}
       >
         <div className="flex items-center justify-between mb-3">
@@ -434,7 +455,13 @@ export default function Home() {
         </div>
       </motion.div>
 
-      <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
+      {/* Footer */}
+      <motion.footer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showInitialLoader ? 0 : 1 }}
+        transition={{ duration: 0.8, delay: showInitialLoader ? 0 : 0.3 }}
+        className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0"
+      >
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
           className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
@@ -568,7 +595,7 @@ export default function Home() {
             </p>
           )}
         </Link>
-      </footer>
-    </div>
+      </motion.footer>
+    </motion.div>
   );
 }
