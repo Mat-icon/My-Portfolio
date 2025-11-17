@@ -221,7 +221,7 @@ export default function Home() {
           : { height: "98dvh" }
       }
       transition={{
-        duration: 2.5,
+        duration: 1.5,
         times: [0, 0.3, 1],
         ease: [0.76, 0, 0.24, 1],
       }}
