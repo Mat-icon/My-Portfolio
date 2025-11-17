@@ -304,7 +304,7 @@ const ContactHighlight = () => {
         </motion.div>
 
         <motion.div
-          className="contact-links backdrop-blur-sm w-4/5 xl:absolute xl:left-2  tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
+          className="contact-links relative left-12 backdrop-blur-sm w-4/5 xl:absolute xl:left-2  tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
           ref={contactRef}
           initial="hidden"
           animate={contactVisible ? "visible" : "hidden"}
