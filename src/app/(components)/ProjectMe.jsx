@@ -51,7 +51,7 @@ const RouteLoader = ({ isVisible, accentColor }) => {
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
           className="absolute  inset-0 z-[100] flex items-center justify-center"
           style={{
-            background: "#0f0f0f",
+            background: "#1d232a",
             backdropFilter: "blur(20px)",
           }}
         >
