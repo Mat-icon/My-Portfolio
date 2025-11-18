@@ -37,6 +37,17 @@ const ROUTE_BG_COLORS = {
   "/contact": "#8A7A4C",
 };
 
+const LoaderRings = () => {
+  return (
+    <div className="flex items-center justify-center">
+      <div className="relative w-8 h-8">
+        <div className="absolute inset-0 border-2 border-white/20 rounded-full"></div>
+        <div className="absolute inset-0 border-2 border-transparent border-t-white rounded-full animate-spin"></div>
+      </div>
+    </div>
+  );
+};
+
 const RouteLoader = ({ isVisible, accentColor }) => {
   return (
     <AnimatePresence>
@@ -108,7 +119,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowInitialLoader(false);
-    }, 2500);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -212,20 +223,21 @@ export default function Home() {
 
   return (
     <motion.div
-      initial={{ height: "6dvh" }}
+      initial={{ height: "7dvh" }}
       animate={
         showInitialLoader
           ? {
-              height: ["6dvh", "6dvh", "98dvh"],
+              height: "7dvh"
             }
-          : { height: "98dvh" }
+          : { 
+              height: "98dvh"
+            }
       }
       transition={{
         duration: 1.5,
-        times: [0, 0.3, 1],
         ease: [0.76, 0, 0.24, 1],
       }}
-      className="flex flex-col w-[95.5%] md:w-[99%] my-2 overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+      className="flex flex-col w-[95.5%] md:w-[99%] my-auto overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}
@@ -278,7 +290,9 @@ export default function Home() {
 
         {/* Mobile menu icon */}
         <div className="flex md:hidden items-center">
-          {isNavOpen ? (
+          {showInitialLoader ? (
+            <LoaderRings />
+          ) : isNavOpen ? (
             <FiX className="text-lg cursor-pointer" onClick={toggleNav} />
           ) : (
             <FiMenu className="text-lg cursor-pointer" onClick={toggleNav} />
@@ -374,10 +388,7 @@ export default function Home() {
           className="flex-1 md:pl-[3.1%] relative scrollbar overflow-x-hidden overflow-y-auto"
         >
           <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
-          <div
-            
-          >
-            {/* <RouteLoader isVisible={isLoading} accentColor={accentColor} /> */}
+          <div>
             <HeroBody
               isOpen={isNavOpen}
               currentRoute={currentRoute}
@@ -546,25 +557,13 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Mobile - Social Icons */}
-        {/* <div className="flex md:hidden text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
-          <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
-            <FaLinkedin className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-          </Link>
-          <FiInstagram className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-          <Link href="https://github.com/Mat-icon?tab=repositories">
-            <FiGithub className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-          </Link>
-          <FaXTwitter className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-        </div> */}
-
         {/* Right section - Contact button (Desktop only) */}
         <Link
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           href="/contact"
           style={{ background: "#0a0a0afb" }}
-          className="material-bubble3 w-[60%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
+          className="material-bubble3 w-[60%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-1 md:mr-3 rounded-[3px] border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
           onMouseOver={(e) => (e.currentTarget.style.borderColor = accentColor)}
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#6462628c")}
         >
