@@ -205,7 +205,7 @@ export default function Index({
         style={{
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
-          width: isMobile ? "97%" : "100%",
+          width: "100%",
           justifyContent: "space-between",
           alignItems: isMobile ? "flex-start" : "center",
           border: "0.5px solid #494949",
@@ -310,11 +310,11 @@ export default function Index({
               {title}
             </h2>
 
-            <h4 className="text-[12px] des tracking-tighter fonts font-light text-[#9D9D9D] mb-2">
+            {/* <h4 className="text-[12px] des tracking-tighter fonts font-light text-[#9D9D9D] mb-2">
               {description}
-            </h4>
+            </h4> */}
 
-            <div className="flex flex-wrap gap-1 xl:gap-2">
+            <div className="flex flex-wrap mt-2 md:mt-0 gap-2">
               {lang.map((lan, idx) => (
                 <span
                   key={idx}

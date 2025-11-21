@@ -76,7 +76,7 @@ const projects: ProjectType[] = [
     time: "2025",
      bookBg:"bg-[#fff]",
     bookBorder: "border-[#03c9fa]",
-    lang: ["Svelte 5", "Convex","tailwindcss", "clerk", "Sveltekit", "typeScript"],  
+    lang: ["Svelte 5", "Convex", "clerk", "Sveltekit", "typeScript", "tailwindcss"],  
     color: "#706D63",
     image: "tap2.png",
     description:
@@ -174,7 +174,7 @@ export default function Home() {
   return (
     <main
       onMouseMove={(e: MouseEvent) => moveItems(e.clientX, e.clientY)}
-      className={`lg:px-[140px] flex flex-col items-center md:px-[100px] poppins px-2 ${styles.projects}`}
+      className={`lg:px-[140px] md:px-[100px] poppins px-4 ${styles.projects}`}
     >
       <div className={styles.body}>
         {projects.map((project, idx) => (
