@@ -68,7 +68,7 @@ const Contactbar = ({ currentRoute }) => {
   }, []);
 
   return (
-    <div className="w-full flex justify-center my-[14%] md:my-[8%]">
+    <div className="w-full flex justify-center my-[18%] md:my-[8%]">
       <motion.div
         ref={cardRef}
         initial="hidden"

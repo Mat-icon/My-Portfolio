@@ -203,7 +203,7 @@ const TestimonialHighlight = () => {
         }
       `}</style>
 
-      <h1 className="w-[96%] poppins text-3xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center">
+      <h1 className="w-[96%] poppins text-4xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center">
         Nice things <span className="all-text">people<br className="md:hidden block" /> say</span>
         <br className="hidden md:block" /> about my work
       </h1>

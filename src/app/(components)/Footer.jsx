@@ -50,7 +50,7 @@ const Footer = () => {
   const colors = getColors();
 
   return (
-    <footer className="w-full h-[70vh] glossy-25 px-2 xl:px-10 backdrop-blur-sm tracking-tighter mt-4 footer-content">
+    <footer className="w-full h-auto md:h-[70vh] glossy-25 py-6 md:py-0 px-2 xl:px-10 backdrop-blur-sm tracking-tighter mt-4 footer-content">
       <div className="w-full flex flex-col space-y-52 relative top-1/4 items-center">
         {/* Logo + Nav */}
         <div className="flex flex-col sm:flex-col md:flex-row justify-between items-center md:space-x-4 w-11/12">
