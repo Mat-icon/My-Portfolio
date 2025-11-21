@@ -385,7 +385,7 @@ export default function Home() {
         {/* Main Content Area */}
         <div
           ref={scrollContainerRef}
-          className="flex-1 md:pl-[3.1%] relative scrollbar overflow-x-hidden overflow-y-auto"
+          className={`flex-1 md:pl-[3.1%] relative scrollbar overflow-x-hidden ${isNavOpen ? "overflow-y-hidden" : "overflow-y-auto"} `}
         >
           <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
           <div>
