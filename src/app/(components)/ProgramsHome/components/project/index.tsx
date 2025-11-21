@@ -209,7 +209,7 @@ export default function Index({
           justifyContent: "space-between",
           alignItems: isMobile ? "flex-start" : "center",
           border: "0.5px solid #494949",
-          marginTop: "15px",
+          marginTop: isMobile ? "60px" : "15px",
           borderRadius: "3px",
           cursor: "pointer",
           backgroundColor: "color-mix(in oklab, #0f0f0f 25%, transparent)",
@@ -222,7 +222,7 @@ export default function Index({
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="w-full mx-auto mb-6 -mt-8"
+              className="w-full mx-auto mb-8 -mt-16"
               style={{
                 zIndex: 9999,
                 perspective: "1200px",
@@ -245,28 +245,28 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(3)}
-                      className={`absolute top-0 left-0 w-full h-[200px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-full h-[150px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 1, transformStyle: "preserve-3d" }}
                     />
                     <motion.div
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(2)}
-                      className={`absolute top-0 left-0 w-full h-[200px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-full h-[150px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 2, transformStyle: "preserve-3d" }}
                     />
                     <motion.div
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(1)}
-                      className={`absolute top-0 left-0 w-full h-[200px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-full h-[150px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 3, transformStyle: "preserve-3d" }}
                     />
                     <motion.div
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(0)}
-                      className={`absolute top-0 left-0 w-full h-[200px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-full h-[150px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 4, transformStyle: "preserve-3d" }}
                     />
                   </>
@@ -274,7 +274,7 @@ export default function Index({
 
                 <motion.div
                   variants={imageVariant}
-                  className="relative w-full h-[200px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
+                  className="relative w-full h-[150px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
                   style={{
                     zIndex: 5,
                     transformStyle: "preserve-3d",
