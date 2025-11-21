@@ -20,19 +20,19 @@ interface ProjectType {
 
 const projects: ProjectType[] = [
     {
-    title: "Brabik smarthomes",
+    title: "Brabik Smarthomes",
     time: "2025",
     lang: ["Nextjs", "Zustand", "Threejs","Tailwindcss", "Typescript"],  
     color: "#706D63",
     image: "brabik.png",
-    bookBg:"bg-[#333]",
-    bookBorder: "border-[#03fa7e]",
+    bookBg:"bg-[#fff]",
+    bookBorder: "border-[#0a0a0a9a]",
     description:
       "A minimalist e-commerce platform for smart home devices and automation solutions.",
     link: "https://brabik.netlify.app/"
   },
     {
-    title: "Noirvik fashion",
+    title: "Noirvik Fashion",
     time: "2025",
     image: "noirvik.png",
 
@@ -72,7 +72,7 @@ const projects: ProjectType[] = [
   //   link: "https://home-loan-hub.netlify.app/",
   // },
    {
-    title: "Tap2 member",
+    title: "Tap2 Member",
     time: "2025",
      bookBg:"bg-[#fff]",
     bookBorder: "border-[#03c9fa]",
