@@ -73,7 +73,7 @@ const Tech = () => {
     <div className="w-screen flex flex-col justify-center items-center mt-36">
       <div>
         <h1 className="text-4xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center poppins">
-          Some of the techs i like to<br className="hidden md:block"/>{" "}
+          Some of the techs <br className="block md:hidden"/>i like to<br className="hidden md:block"/>{" "}
           <span className='text-[#8fff86]'>work with</span>
         </h1>
       </div>

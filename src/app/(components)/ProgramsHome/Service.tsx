@@ -45,44 +45,32 @@ const projects: ProjectType[] = [
       "A minimalist e-commerce fashion store showcasing a curated selection of stylish apparel and accessories.",
     link: "https://noirvik.netlify.app/"
   },
-  {
-    title: "Bwintech",
-    image: "bwin.png",
-    time: "2025",
-    lang: ["Nextjs", "Tailwindcss", "Nodejs"],
-    color: "#706D63",
-     bookBg:"bg-[#fff]",
-    bookBorder: "border-[#706D63]",
-    description:
-      "Bwintech is a boutique data consultancy helping businesses make smarter decisions with their data.",
-    link: "https://bwintech.com.au/",
-  },
+ 
+  // {
+  //   title: "Adelehamza resources",
+  //   time: "2025",
+  //   image: "adele.png",
+  //    bookBg:"bg-[#fff]",
+  //   bookBorder: "border-yellow-700",
+  //   lang: ["Nextjs", "Tailwindcss", "Nodejs"],
+  //   link: "https://adelehamzaresources.com/",
+  //   color: "#706D63",
+  //   description:
+  //     "A digital consultancy platform that simplifies Nigeria’s building construction documentation process.",
+  // },
 
-  {
-    title: "Adelehamza resources",
-    time: "2025",
-    image: "adele.png",
-     bookBg:"bg-[#fff]",
-    bookBorder: "border-yellow-700",
-    lang: ["Nextjs", "Tailwindcss", "Nodejs"],
-    link: "https://adelehamzaresources.com/",
-    color: "#706D63",
-    description:
-      "A digital consultancy platform that simplifies Nigeria’s building construction documentation process.",
-  },
-
-  {
-    title: "Home loan hub app",
-    time: "2025",
-    bookBg:"bg-[#ffffff]",
-    bookBorder: "border-[#333]",
-    lang: ["Nextjs", "AI Integration", "Nodejs"],
-    color: "#706D63",
-    image: "calc.png",
-    description:
-      "AI-powered chatbot that helps users check loan eligibility in a conversational, friendly way.",
-    link: "https://home-loan-hub.netlify.app/",
-  },
+  // {
+  //   title: "Home loan hub app",
+  //   time: "2025",
+  //   bookBg:"bg-[#ffffff]",
+  //   bookBorder: "border-[#333]",
+  //   lang: ["Nextjs", "AI Integration", "Nodejs"],
+  //   color: "#706D63",
+  //   image: "calc.png",
+  //   description:
+  //     "AI-powered chatbot that helps users check loan eligibility in a conversational, friendly way.",
+  //   link: "https://home-loan-hub.netlify.app/",
+  // },
    {
     title: "Tap2 member",
     time: "2025",
@@ -95,6 +83,19 @@ const projects: ProjectType[] = [
       "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
     link: "https://tap2member.netlify.app/"
   },
+   {
+    title: "Bwintech",
+    image: "bwin.png",
+    time: "2025",
+    lang: ["Nextjs", "Tailwindcss", "Nodejs"],
+    color: "#706D63",
+     bookBg:"bg-[#fff]",
+    bookBorder: "border-[#706D63]",
+    description:
+      "Bwintech is a boutique data consultancy helping businesses make smarter decisions with their data.",
+    link: "https://bwintech.com.au/",
+  },
+
 ];
 
 const scaleAnimation = {
@@ -173,7 +174,7 @@ export default function Home() {
   return (
     <main
       onMouseMove={(e: MouseEvent) => moveItems(e.clientX, e.clientY)}
-      className={`lg:px-[140px] md:px-[100px] poppins px-2 ${styles.projects}`}
+      className={`lg:px-[140px] flex flex-col items-center md:px-[100px] poppins px-2 ${styles.projects}`}
     >
       <div className={styles.body}>
         {projects.map((project, idx) => (

@@ -259,7 +259,7 @@ export default function Project() {
       </div>
 
       {/* Content */}
-      <div className="flex flex-col relative  rounded overflow-hidden">
+      <div className="flex flex-col items-center relative  rounded overflow-hidden">
         <main className="w-full header">
           <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
             <span className="text-xs md:text-[13px] poppins mb-4 text-white uppercase tracking-wider">

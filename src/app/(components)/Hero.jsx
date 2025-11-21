@@ -563,7 +563,7 @@ export default function Home() {
           onMouseLeave={() => setHovered(false)}
           href="/contact"
           style={{ background: "#0a0a0afb" }}
-          className="material-bubble3 w-[60%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-1 md:mr-3 rounded-[3px] border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
+          className="material-bubble3 w-[55%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-2 md:mr-3 rounded-[3px] border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
           onMouseOver={(e) => (e.currentTarget.style.borderColor = accentColor)}
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#6462628c")}
         >

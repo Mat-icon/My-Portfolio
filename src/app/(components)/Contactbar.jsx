@@ -68,7 +68,7 @@ const Contactbar = ({ currentRoute }) => {
   }, []);
 
   return (
-    <div className="w-full flex justify-center my-[8%]">
+    <div className="w-full flex justify-center my-[14%] md:my-[8%]">
       <motion.div
         ref={cardRef}
         initial="hidden"
@@ -85,8 +85,8 @@ const Contactbar = ({ currentRoute }) => {
           </div>
         </div>
 
-        <div className="w-full h-auto">
-          <div className="w-full md:mt-8 mt-4 py-6 poppin flex flex-col lg:flex-row items-center justify-center lg:space-x-10">
+        <div className="w-full h-auto px-10 md:px-0 ">
+          <div className="w-full md:mt-8 mt-4 py-6 poppin flex flex-col lg:flex-row items-start lg:items-center lg:justify-center space-y-6 lg:space-y-0 lg:space-x-10">
             <div className="relative w-24 h-24 md:w-32 md:h-32">
               <div 
                 className="relative w-full h-full rounded-full overflow-y-visible"
@@ -101,15 +101,15 @@ const Contactbar = ({ currentRoute }) => {
             </div>
 
             <div className="flex flex-col space-y-6">
-              <p className="text-center tracking-tighter poppins lg:text-left text-3xl lg:text-6xl font-normal">
-                Let&#39;s work together on your <br />
-                next project.
+              <p className="text-left tracking-tighter poppins lg:text-left text-4xl lg:text-6xl font-normal">
+                Let&#39;s work <br className="block md:hidden"/>together on <br className="block md:hidden"/> your <br  className="md:block hidden"/>
+                next  <br className="block md:hidden"/> project.
               </p>
             </div>
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col xl:ml-[22%] mt-0 xl:mt-[1%] tracking-tighter items-center md:flex-row md:space-x-2">
+          <div className="flex flex-col xl:ml-[22%] mt-0 xl:mt-[1%] tracking-tighter md:items-center md:flex-row md:space-x-2">
             {/* Button 1 */}
             <Link
               onMouseEnter={() => setHoveredBtn1(true)}

@@ -80,7 +80,7 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="space-x-6 text-base tracking-[-1px] ">
+          <div className="flex-col flex md:flex-row mt-4 md:mt-0 space-y-3 md:space-y-0 items-center md:text-left text-center md:space-x-6 text-base tracking-[-1px] ">
             <a
               href="/"
                className="hover:text-white"
