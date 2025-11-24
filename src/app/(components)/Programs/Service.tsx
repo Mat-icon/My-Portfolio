@@ -110,19 +110,19 @@ interface ProjectType {
 
 const projects: ProjectType[] = [
    {
-    title: "Brabik smarthomes",
+    title: "Brabik Smarthomes",
     time: "2025",
     lang: ["Nextjs", "Zustand", "Threejs","Tailwindcss", "Typescript"],  
     color: "#333",
     image: "brabik.png",
     bookBg:"bg-[#fff]",
-    bookBorder: "border-[#03fa7e]",
+    bookBorder: "border-[#000]",
     description:
       "A minimalist e-commerce platform for smart home devices and automation solutions.",
     link: "https://brabik.netlify.app/"
   },
     {
-    title: "Noirvik fashion",
+    title: "Noirvik Fashion",
     time: "2025",
     image: "noirvik.png",
 
@@ -149,11 +149,11 @@ const projects: ProjectType[] = [
   },
 
   {
-    title: "Adelehamza resources",
+    title: "Adelehamza Resources",
     time: "2025",
     image: "adele.png",
      bookBg:"bg-[#fff]",
-    bookBorder: "border-yellow-700",
+    bookBorder: "border-[#000]",
     lang: ["Nextjs", "Tailwindcss", "Nodejs"],
     link: "https://adelehamzaresources.com/",
     color: "#706D63",
@@ -177,7 +177,7 @@ const projects: ProjectType[] = [
     title: "Tap2 member",
     time: "2025",
      bookBg:"bg-[#fff]",
-    bookBorder: "border-[#03c9fa]",
+    bookBorder: "border-[#000]",
     lang: ["Svelte 5", "Convex","tailwindcss", "clerk", "Sveltekit", "typeScript"],  
     color: "#706D63",
     image: "tap2.png",
@@ -312,7 +312,7 @@ export default function Home() {
   return (
     <main
       onMouseMove={(e: MouseEvent) => moveItems(e.clientX, e.clientY)}
-      className={`lg:px-[120px] md:px-[100px] px-2 poppins ${styles.projects}`}
+      className={`lg:px-[120px] mt-8 md:px-[100px] px-4 poppins ${styles.projects}`}
     >
       <div className={styles.body}>
         {projects.map((project, idx) => (

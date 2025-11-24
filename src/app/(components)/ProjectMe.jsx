@@ -528,25 +528,13 @@ export default function ProjectMe() {
           </motion.div>
         </div>
 
-        {/* Mobile - Social Icons */}
-        <div className="flex md:hidden text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
-          <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
-            <FaLinkedin className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-          </Link>
-          <FiInstagram className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-          <Link href="https://github.com/Mat-icon?tab=repositories">
-            <FiGithub className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-          </Link>
-          <FaXTwitter className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
-        </div>
-
         {/* Right section - Contact button (Desktop only) */}
         <Link
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           href="/contact"
           style={{ background: "#1D242A" }}
-          className="hidden material-bubble2 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] border-[#101010] bg-[#0f0f0f] text-center"
+          className=" material-bubble2   w-[55%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-2 md:mr-3 rounded-[3px] border-[0.5px] border-[#0f0f0f]  text-center"
           onMouseOver={(e) => (e.currentTarget.style.borderColor = accentColor)}
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#101010")}
         >
@@ -561,7 +549,7 @@ export default function ProjectMe() {
               <FaArrowRight className="ml-1" />
             </motion.p>
           ) : (
-            <p className="flex items-center text-white justify-center tracking-[-1px]">
+            <p className="flex items-center text-black justify-center tracking-[-1px]">
               let&#39;s-get-in-touch
               <FaArrowRight className="ml-1" />
             </p>

@@ -209,7 +209,7 @@ const PagesTestimonial = () => {
         }
       `}</style>
 
-      <h1 className="w-[96%] poppins text-black text-3xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center">
+       <h1 className="w-[96%] text-black poppins text-4xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center">
         Nice things <span style={{ color: accentColor }}>people<br className="md:hidden block" /> say</span>
         <br className="hidden md:block" /> about my work
       </h1>
