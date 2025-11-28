@@ -243,7 +243,7 @@ export default function ContactMe() {
 
         {/* Center name */}
         <div className="flex text-lg items-center">
-          <span className="tracking-tighter text-black font-medium text-center fonts">
+          <span className="tracking-tighter text-white font-medium text-center fonts">
             matthew
             <span className="text-[#91d1f8]">&#123;ameh&#125;</span>
           </span>

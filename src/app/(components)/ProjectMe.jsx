@@ -246,8 +246,8 @@ export default function ProjectMe() {
         </div>
 
         {/* Center name */}
-        <div className="flex text-lg items-center">
-          <span className="tracking-tighter text-[#09090B] font-medium text-center fonts">
+        <div className="flex text-base items-center">
+          <span className="tracking-tighter text-white font-medium text-center fonts">
             matthew
             <span className="text-[#e14f62]">&#123;ameh&#125;</span>
           </span>

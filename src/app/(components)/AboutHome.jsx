@@ -133,8 +133,8 @@ const AboutHome = () => {
             width: isMobile ? "230px" : "400px",
             height: isMobile ? "230px" : "400px",
              background: isMobile
-              ? "#4d80ee86"
-              : "#4d80ee86",
+              ? "#4d81ee"
+              : "#4d81ee86",
            filter: isMobile ? "blur(60px)" : "blur(120px)",
             transform: isMobile ? "scale(0.1)": "scale(1)",
             opacity: 0.8,
@@ -152,8 +152,8 @@ const AboutHome = () => {
             width: isMobile ? "240px" : "400px",
             height: isMobile ? "240px" : "400px",
             background: isMobile
-              ? "#4d80ee86"
-              : "#4d80ee86",
+              ? "#4d81ee"
+              : "#4d81ee86",
                filter: isMobile ? "blur(60px)" : "blur(100px)",
             transform: isMobile ? "scale(1)": "scale(0.5)",
             opacity: isMobile ? 1 : 0.8,

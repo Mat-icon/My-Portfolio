@@ -118,7 +118,7 @@ const ContactPage = () => {
 
 
   return (
-    <div className="w-full flex justify-center h-dvh overflow-hidden bg-[#1d232a] relative">
+    <div className="w-full flex justify-center h-dvh overflow-hidden bg-[#0f0f0f] relative">
       {/* Gradient background container */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         {/* Circle 1 - Top Left (Desktop) / Left (Mobile) */}

@@ -215,15 +215,15 @@ export default function Project() {
       <div className="flex flex-col relative  rounded overflow-hidden">
         <main className="w-full header">
           <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
-            <span className="text-xs md:text-[13px] poppins mb-4 md:mb-4 text-white uppercase tracking-wider">
+            <span className="text-xs md:text-[13px] poppins mb-4 md:mb-4 text-[#494949] uppercase tracking-wider">
               Work
             </span>
-            <h1 className=" w-[94%] text-[#09090B] text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
+            <h1 className=" w-[94%] text-[#fff] text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
               A collection<br className='block md:hidden'/> of <br  className="hidden md:block"/>
               my best
               <span className=" text-[#e14f62]"> projects.</span>
             </h1>
-            <p className="w-11/12 md:w-10/12 text-white lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl mt-6  md:mt-4 our-text">
+            <p className="w-11/12 md:w-10/12 text-[#494949] lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl mt-6  md:mt-4 our-text">
               With many years in web development, I acquired extensive
               experience working on projects across multiple industries
               <br className='md:block hidden'/> and technologies. Let me show you my best creations.
