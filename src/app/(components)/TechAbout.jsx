@@ -92,12 +92,12 @@ const TechAbout = () => {
       >
         <div className="about-me-title2  px-4 py-[10px]">
           <p className="text-sm text-white tracking-[-1px]">techs</p>
-          <div className="flex items-center space-x-2 text-[#1d232a] text-xs">
+          <div className="flex items-center space-x-2 text-[#494949] text-xs">
             <FontAwesomeIcon
               icon={faMinus}
               className="hover:text-white cursor-pointer transition ease-in duration-500"
             />
-            <div className="w-2.5 h-2.5 border border-[#1d232a] rounded-sm hover:border-white cursor-pointer transition ease-in duration-500"></div>
+            <div className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer transition ease-in duration-500"></div>
             <FontAwesomeIcon
               icon={faX}
               className="hover:text-white cursor-pointer transition ease-in duration-500"

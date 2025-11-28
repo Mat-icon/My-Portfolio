@@ -56,9 +56,9 @@ const ContactForm = () => {
       <div className="mx-auto mt-0 flex justify-center">
         <LuminousBeam height="h-[170px]" color="ffd886" />
       </div>
-      <div className="tech3 backdrop-blur-md w-11/12 md:w-7/12 lg:w-7/12 xl:8/12">
-        <div className="about-me-title3 px-4 py-2">
-          <p className="text-base text-black tracking-tighter ">
+      <div className="tech backdrop-blur-md glossy-25 w-11/12 md:w-7/12 lg:w-7/12 xl:8/12">
+        <div className="about-me-title2 px-4 py-2">
+          <p className="text-base text-white tracking-tighter ">
             write-me
           </p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
@@ -83,11 +83,11 @@ const ContactForm = () => {
           className="space-y-6 py-6 px-4 flex flex-col md:ml-10"
         >
           <div className="flex items-baseline space-x-2 lg:space-x-4">
-            <span className="text-[#ffffff] text-sm lg:text-lg">01</span>
+            <span className="text-[#9d9d9d] text-sm lg:text-lg">01</span>
             <div className="w-full flex flex-col">
               <label
                 htmlFor="fullName"
-                className="block text-sm font-semibold text-black"
+                className="block text-sm font-semibold text-white"
               >
                 full-name <span className="text-red-500">*</span>
               </label>
@@ -104,11 +104,11 @@ const ContactForm = () => {
             </div>
           </div>
           <div className="flex items-baseline space-x-2 lg:space-x-4">
-            <span className="text-[#ffffff] text-sm lg:text-lg">02</span>
+            <span className="text-[#9d9d9d] text-sm lg:text-lg">02</span>
             <div className="w-full flex flex-col">
               <label
                 htmlFor="company"
-                className="block text-sm font-semibold text-black"
+                className="block text-sm font-semibold text-white"
               >
                 company
               </label>
@@ -124,11 +124,11 @@ const ContactForm = () => {
             </div>
           </div>
           <div className="flex items-baseline space-x-2 lg:space-x-4">
-            <span className="text-[#ffffff] text-sm lg:text-lg">03</span>
+            <span className="text-[#9d9d9d] text-sm lg:text-lg">03</span>
             <div className="w-full flex flex-col">
               <label
                 htmlFor="email"
-                className="block text-sm font-semibold text-black"
+                className="block text-sm font-semibold text-white"
               >
                 email <span className="text-red-500">*</span>
               </label>
@@ -145,11 +145,11 @@ const ContactForm = () => {
             </div>
           </div>
           <div className="flex items-baseline space-x-2 lg:space-x-4">
-            <span className="text-[#ffffff] text-sm lg:text-lg">04</span>
+            <span className="text-[#9d9d9d] text-sm lg:text-lg">04</span>
                 <div className="w-full flex flex-col">
             <label
               htmlFor="message"
-              className="block text-sm font-semibold text-black"
+              className="block text-sm font-semibold text-white"
             >
               your-message <span className="text-red-500">*</span>
             </label>

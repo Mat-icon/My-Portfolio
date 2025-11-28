@@ -65,14 +65,14 @@ const TestimonialCard = ({ tech, content, author, position, image, accentColor, 
   <div className={`${bgColor} mt-8 testimonial-card   b backdrop-blur-md tracking-tighter w-11/12 md:w-full transition-all duration-500`}>
     <div className="about-me-title2 px-3 py-[10px]">
       <p className="text-sm text-white">{tech}</p>
-      <div className="flex space-x-2 items-center text-[#15191E] text-xs">
+      <div className="flex space-x-2 items-center text-[#494949] text-xs">
         <FontAwesomeIcon
           icon={faMinus}
           className="hover:text-white cursor-pointer"
           style={{ transition: "ease-in 0.5s" }}
         />
         <div
-          className="w-2.5 h-2.5 border border-[#15191E] rounded-sm hover:border-white cursor-pointer"
+          className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer"
           style={{ transition: "ease-in 0.5s" }}
         ></div>
         <FontAwesomeIcon

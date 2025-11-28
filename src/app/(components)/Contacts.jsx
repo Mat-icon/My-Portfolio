@@ -213,18 +213,17 @@ export default function Contacts() {
       <div className="flex flex-col relative  rounded overflow-hidden">
         <main className="w-full header">
           <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
-            <span className="text-xs md:text-[13px] poppins mb-4 text-[#494949] uppercase tracking-wider">
+            <span className="text-xs md:text-[12px] mb-5 poppins md:mb-4 text-[#9D9D9D] uppercase tracking-wider">
               Contact
             </span>
-            <h1 className=" w-[94%] text-white text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
-              Do you want to talk <br className="hidden md:block"/> about a
-              <span className=" text-[#91d1f8]"> project </span> ?
+            <h1 className=" w-[98%] text-[45px] leading-[1] tracking-tighter poppins md:text-7xl lg:text-[88px] lg:w-9/12">
+              Do you want <br className="md:hidden block"/>to talk <br className="hidden md:block"/> about <br className="md:hidden block"/>a
+              <span className=" text-[#91d1f8]"> project </span>?
             </h1>
-            <p className="w-10/12 md:w-10/12 text-[#494949] lg:w-6/12 2xl:w-7/12 tracking-[-1px] text-[16px] text-center max-w-2xl  mt-6 md:mt-4 our-text">
+            <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">
               Whether you have a project you want to work on together or just
               want
-              <br className="hidden md:block"/>
-              to have a chat, you are in the right place: Let&#39;s get in touch
+              to have a chat, you are in the right place:<br /> Let&#39;s get in touch
             </p>
         
           </div>
