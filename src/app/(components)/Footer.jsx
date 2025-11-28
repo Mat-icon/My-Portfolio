@@ -14,28 +14,28 @@ const Footer = () => {
           accent: "#8FFF86",
           matthewColor: "#FFFFFF",
           amehColor: "#8FFF86",
-          footerColor: "#9D9D9D",
+        footerColor: "#9D9D9D",
         };
       case "/about-me":
         return {
           accent: "#4d81ee",
           matthewColor: "#FFFFFF",
           amehColor: "#4d81ee",
-          footerColor: "#000000",
+         footerColor: "#9D9D9D",
         };
       case "/projects":
         return {
           accent: "#e14f62",
           matthewColor: "#FFFFFF",
           amehColor: "#e14f62",
-          footerColor: "#000000",
+         footerColor: "#9D9D9D",
         };
       case "/contact":
         return {
           accent: "#91d1f8",
           matthewColor: "#FFFFFF",
           amehColor: "#91d1f8",
-          footerColor: "#000000",
+          footerColor: "#9D9D9D",
         };
       default:
         return {

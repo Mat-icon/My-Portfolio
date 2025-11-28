@@ -30,11 +30,11 @@ const FullScreenNav = ({ isOpen, toggleNav }) => {
           <NavItem number="01" label="home/" isActive />
         </Link>
 
-        <Link href="/About" onClick={toggleNav}>
+        <Link href="/about-me" onClick={toggleNav}>
           <NavItem number="02" label="about/" />
         </Link>
 
-        <Link href="/ProjectsPage" onClick={toggleNav}>
+        <Link href="/projects" onClick={toggleNav}>
           <NavItem number="03" label="work/" />
         </Link>
 

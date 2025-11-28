@@ -111,7 +111,7 @@ const PagesTestimonial = () => {
   const pathname = usePathname();
   const accentColor = pathname === "/projects" ? "#e14f62" : "#4d81ee";
 
-    const bgColor = pathname === "/projects" ? "glossy-20" : "glossy-15";
+    const bgColor = pathname === "/projects" ? "glossy-25" : "glossy-25";
   
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
@@ -287,10 +287,10 @@ const PagesTestimonial = () => {
         </div>
       </motion.div>
 
-      <div className={`w-11/12 md:w-[38%] backdrop-blur-md border border-[#15191E] ${bgColor} rounded-[4px] h-10 relative z-10 flex items-center`}>
+      <div className={`w-11/12 md:w-[38%] backdrop-blur-md border border-[#494949] ${bgColor} rounded-[4px] h-10 relative z-10 flex items-center`}>
         <div
           onClick={handlePrev}
-          className="w-[15%] md:w-[10%] h-full border-r-[0.5px] border-[#15191E] rounded-l-[3px] flex items-center justify-center cursor-pointer"
+          className="w-[15%] md:w-[10%] h-full border-r-[0.5px] border-[#494949] rounded-l-[3px] flex items-center justify-center cursor-pointer"
           style={{ 
             transition: "color 0.3s",
           }}
@@ -313,7 +313,7 @@ const PagesTestimonial = () => {
 
         <div
           onClick={handleNext}
-          className="w-[15%] border-l-[0.5px] border-[#15191E] md:w-[10%] h-full rounded-r-[3px] flex justify-center items-center relative z-10 cursor-pointer"
+          className="w-[15%] border-l-[0.5px] border-[#494949] md:w-[10%] h-full rounded-r-[3px] flex justify-center items-center relative z-10 cursor-pointer"
           style={{ 
             transition: "color 0.3s",
           }}
