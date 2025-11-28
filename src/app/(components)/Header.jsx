@@ -252,7 +252,7 @@ const Header = () => {
 
       <div className="absolute bottom-0 flex flex-col items-center w-full pointer-events-none">
         <motion.span 
-          className="text-xs md:text-[12px] mb-5 poppins md:mb-4 text-gray-400 uppercase tracking-wider"
+          className="text-xs md:text-[12px] mb-5 poppins md:mb-4 text-[#9D9D9D] uppercase tracking-wider"
           style={{ opacity: getHomeLabelOpacity() }}
         >
           Home

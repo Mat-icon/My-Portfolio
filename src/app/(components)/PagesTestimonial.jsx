@@ -62,9 +62,9 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ tech, content, author, position, image, accentColor, bgColor }) => (
-  <div className={`${bgColor} mt-8 testimonial-card2   b backdrop-blur-md tracking-tighter w-11/12 md:w-full transition-all duration-500`}>
-    <div className="about-me-title3 px-3 py-[10px]">
-      <p className="text-sm text-black">{tech}</p>
+  <div className={`${bgColor} mt-8 testimonial-card   b backdrop-blur-md tracking-tighter w-11/12 md:w-full transition-all duration-500`}>
+    <div className="about-me-title2 px-3 py-[10px]">
+      <p className="text-sm text-white">{tech}</p>
       <div className="flex space-x-2 items-center text-[#15191E] text-xs">
         <FontAwesomeIcon
           icon={faMinus}
@@ -95,11 +95,11 @@ const TestimonialCard = ({ tech, content, author, position, image, accentColor, 
       </div>
 
       {/* Text Section */}
-      <div className="flex flex-col text-left text-black items-start md:items-start md:justify-center mt-4 md:mt-0">
+      <div className="flex flex-col text-left text-[#fff] items-start md:items-start md:justify-center mt-4 md:mt-0">
         <p className="text-base tracking-[-1px] [word-spacing:-3px] leading-relaxed">
           {content}
         </p>
-        <p className="mt-6 text-sm  [word-spacing:-3px] text-white">
+        <p className="mt-6 text-sm  [word-spacing:-3px] text-[#9d9d9d]">
           <span style={{ color: accentColor }}>{author}</span> &#47;&#47; {position}
         </p>
       </div>
@@ -209,7 +209,7 @@ const PagesTestimonial = () => {
         }
       `}</style>
 
-       <h1 className="w-[96%] text-black poppins text-4xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center">
+       <h1 className="w-[96%] text-white poppins text-4xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center">
         Nice things <span style={{ color: accentColor }}>people<br className="md:hidden block" /> say</span>
         <br className="hidden md:block" /> about my work
       </h1>

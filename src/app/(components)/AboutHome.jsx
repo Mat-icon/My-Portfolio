@@ -27,7 +27,7 @@ const AboutHome = () => {
   useEffect(() => {
     if (circle1Ref.current && circle2Ref.current) {
       // Clear any existing animations
-      gsap.killTweensOf([circle1Ref.current, circle2Ref.current]);
+       gsap.killTweensOf([circle1Ref.current, circle2Ref.current]);
 
       if (isMobile) {
         // Mobile animations - side by side, smaller movement
@@ -88,7 +88,7 @@ const AboutHome = () => {
         });
 
         gsap.to(circle2Ref.current, {
-          scale: 2.7,
+          scale: 1.7,
           x: "-=100",
           y: "-=70",
           duration: 24,
@@ -120,21 +120,21 @@ const AboutHome = () => {
 
 
   return (
-    <div className="w-full flex justify-center h-dvh overflow-hidden bg-[#1d232a] relative">
+    <div className="w-full flex justify-center h-dvh overflow-hidden bg-[#0f0f0f] relative">
       {/* Gradient background container */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         {/* Circle 1 - Top Left (Desktop) / Left (Mobile) */}
         <div
           ref={circle1Ref}
-          className="absolute rounded-full"
+         className="absolute rounded-full"
           style={{
-             bottom: isMobile ? "15%" : "45%",
-            right: isMobile ? "-40%" : "10%",
-            width: isMobile ? "400px" : "200px",
-            height: isMobile ? "500px" : "200px",
+           top: isMobile ? "65%" : "45%",
+            left: isMobile ? "-49%" : "-8%",
+            width: isMobile ? "230px" : "400px",
+            height: isMobile ? "230px" : "400px",
              background: isMobile
-              ? "#4d80ee"
-              : "#4d80ee",
+              ? "#4d80ee86"
+              : "#4d80ee86",
            filter: isMobile ? "blur(60px)" : "blur(120px)",
             transform: isMobile ? "scale(0.1)": "scale(1)",
             opacity: 0.8,
@@ -147,16 +147,16 @@ const AboutHome = () => {
           ref={circle2Ref}
           className="absolute rounded-full"
           style={{
-           top: isMobile ? "25%" : "60%",
-            left: isMobile ? "-30%" : "10%",
-            width: isMobile ? "350px" : "200px",
-            height: isMobile ? "500px" : "200px",
+           bottom: isMobile ? "61%" : "50%",
+            right: isMobile ? "-45%" : "-10%",
+            width: isMobile ? "240px" : "400px",
+            height: isMobile ? "240px" : "400px",
             background: isMobile
               ? "#4d80ee86"
               : "#4d80ee86",
-             filter: isMobile ? "blur(60px)" : "blur(100px)",
-             transform: isMobile ? "scale(1)": "scale(1)",
-            opacity: 0.8,
+               filter: isMobile ? "blur(60px)" : "blur(100px)",
+            transform: isMobile ? "scale(1)": "scale(0.5)",
+            opacity: isMobile ? 1 : 0.8,
             willChange: "transform, opacity",
           }}
         />

@@ -262,15 +262,15 @@ export default function Project() {
       <div className="flex flex-col items-center relative  rounded overflow-hidden">
         <main className="w-full header">
           <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
-            <span className="text-xs md:text-[13px] poppins mb-4 text-white uppercase tracking-wider">
+            <span className="text-xs md:text-[13px] poppins mb-4 text-[#9D9D9D] uppercase tracking-wider">
               About
             </span>
-            <h1 className=" w-[94%] text-black text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
+            <h1 className=" w-[94%] text-white text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
               Let&#39;s get to <br />
               know
               <span className=" text-[#4d81ee]"> each other. </span>
             </h1>
-            <p className="w-10/12 md:w-10/12 text-white lg:w-6/12 2xl:w-7/12 tracking-[-1px] text-[16px] text-center max-w-2xl mt-6 md:mt-4 our-text">
+            <p className="w-10/12 md:w-10/12 text-[#9d9d9d] lg:w-6/12 2xl:w-7/12 tracking-[-1px] text-[16px] text-center max-w-2xl mt-6 md:mt-4 our-text">
               Let me introduce myself, my workflows, my collaborations,<br /> and the
               technologies I like to use to bring my projects to life.
             </p>

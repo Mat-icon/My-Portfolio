@@ -27,7 +27,7 @@ import FullNav from "./FullNav";
 const ROUTE_COLORS = {
   "/": "#8fff86", // Home - Green
   "/projects": "#fa9595", // Projects - Pink/Red
-  "/about-me": "#86d4ff", // About - Blue
+  "/about-me": "#4d81ee", // About - Blue
   "/contact": "#ffd886", // Contact - Yellow/Orange
 };
 
@@ -35,7 +35,7 @@ const ROUTE_COLORS = {
 const ROUTE_BG_COLORS = {
   "/": "#508A4C", // Home - Dark Green
   "/projects": "#8A4C4C", // Projects - Dark Red
-  "/about-me": "#4C6B8A", // About - Dark Blue
+  "/about-me": "#4d81ee", // About - Dark Blue
   "/contact": "#8A7A4C", // Contact - Dark Yellow/Orange
 };
 
@@ -172,7 +172,7 @@ export default function AboutMe() {
 
   return (
     <div
-      className="flex flex-col w-[97%] md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#101010] relative z-40 rounded"
+      className="flex flex-col w-[97%] md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}
@@ -189,21 +189,21 @@ export default function AboutMe() {
       `}</style>
 
       {/* Header */}
-      <header className="flex justify-between relative z-10 filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#101010] shrink-0">
-        <div className="flex w-[12%] border-r border-[#101010] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
+      <header className="flex justify-between relative z-50 filter  backdrop-blur-xl glossy-25 items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
+        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
             <span
-              className="w-2 h-2 border-t-4 border-l-4 border-[#101010] rotate-[-45deg] animate-none group-hover:animate-crazy1"
+              className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1"
               style={{ "--hover-color": accentColor }}
             />
-            <span className="w-1 h-3 bg-[#101010] rotate-[30deg] rounded-full animate-none group-hover:animate-crazy2" />
-            <span className="w-2 h-2 border-t-4 border-r-4 border-[#101010] rotate-[45deg] animate-none group-hover:animate-crazy3" />
+            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px] animate-none group-hover:animate-crazy2" />
+            <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3" />
           </div>
         </div>
 
         {/* Center name */}
-        <div className="flex text-lg items-center">
-          <span className="tracking-tighter text-black font-medium text-center fonts">
+        <div className="flex text-base items-center">
+          <span className="tracking-tighter text-white font-medium text-center fonts">
             matthew
             <span className="text-[#4d81ee]">&#123;ameh&#125;</span>
           </span>
@@ -232,7 +232,7 @@ export default function AboutMe() {
       {/* Main Content */}
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#101010] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#494949] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container2">
             <Link href="/">
               <FiHome
@@ -336,7 +336,7 @@ export default function AboutMe() {
           opacity: isMusicPlayerOpen ? 1 : 0,
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed bottom-14 left-4 z-50 w-64 glossy-25 backdrop-blur-2xl border border-[#101010]  rounded-[3px] p-4 "
+        className="fixed bottom-14 left-4 z-50 w-64 glossy-25 backdrop-blur-2xl border border-[#494949]  rounded-[3px] p-4 "
         style={{ backgroundColor: "rgba(10, 10, 10, 0.95)" }}
       >
         <div className="flex items-center justify-between mb-3">
@@ -389,11 +389,11 @@ export default function AboutMe() {
         </div>
       </motion.div>
 
-      <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#101010] text-gray-600 relative shrink-0">
+      <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
-          className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#101010] shrink-0 cursor-pointer hover:opacity-80 transition"
-          style={{ backgroundColor: bgColor }}
+          className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
+          style={{ backgroundColor: "#4d81ee" }}
           onClick={toggleMusicPlayer}
         >
           <div className="relative flex items-center justify-center">
@@ -404,7 +404,7 @@ export default function AboutMe() {
         <div className="hidden md:flex absolute scale-[1.02] left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
           {/* Location Section */}
           <motion.div
-            className="tracking-tighter text-[#ffffff] cursor-default flex items-baseline"
+            className="tracking-tighter text-[#9d9d9d] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
@@ -419,8 +419,8 @@ export default function AboutMe() {
               Based in{" "}
               <motion.span
                 variants={{
-                  rest: { color: "#ffffff" },
-                  hover: { color: "#000000" },
+                rest: { color: "#9d9d9d" },
+                  hover: { color: "#fff" },
                 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="transition-colors duration-300"
@@ -443,7 +443,7 @@ export default function AboutMe() {
 
           {/* Local Time Section */}
           <motion.div
-            className="tracking-[-1px] text-[#ffffff] cursor-default flex items-baseline"
+            className="tracking-[-1px] text-[#9d9d9d] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
@@ -459,8 +459,8 @@ export default function AboutMe() {
               <motion.span
                 className="time font-[600] mx-1 whitespace-nowrap"
                 variants={{
-                  rest: { color: "#ffffff" },
-                  hover: { color: "#000000" },
+                  rest: { color: "#9d9d9d" },
+                  hover: { color: "#fff" },
                 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
@@ -501,10 +501,10 @@ export default function AboutMe() {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           href="/contact"
-          style={{ background: "#1D242A" }}
-          className="hidden material-bubble2 md:block md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-3 rounded-md border-[0.5px] border-[#101010] bg-[#0f0f0f] text-center"
+          style={{ background: "#0a0a0afb" }}
+          className="hidden material-bubble2 md:block w-[55%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-2 md:mr-3 rounded-[3px] border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
           onMouseOver={(e) => (e.currentTarget.style.borderColor = accentColor)}
-          onMouseOut={(e) => (e.currentTarget.style.borderColor = "#101010")}
+          onMouseOut={(e) => (e.currentTarget.style.borderColor = "#6462628c")}
         >
           {hovered ? (
             <motion.p

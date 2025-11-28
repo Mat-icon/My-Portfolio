@@ -249,10 +249,10 @@ const PagesContactbar = ({ currentRoute }) => {
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariant}
-        className="about-me-three glossy-20 w-11/12 backdrop-blur-sm md:w-[75%]"
+        className="about-me-two glossy-25 w-11/12 backdrop-blur-sm md:w-[75%]"
       >
-        <div className="about-me-title3 px-4 py-2 flex justify-between">
-          <p className="text-sm tracking-[-1px] text-black">collaboration</p>
+        <div className="about-me-title px-4 py-2 flex justify-between">
+          <p className="text-sm tracking-[-1px] text-white">collaboration</p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
             <FontAwesomeIcon icon={faMinus} className="hover:text-white transition" />
             <div className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer transition"></div>
@@ -276,7 +276,7 @@ const PagesContactbar = ({ currentRoute }) => {
             </div>
 
             <div className="flex flex-col space-y-6">
-              <p className="text-left tracking-tighter text-black poppins lg:text-left text-4xl lg:text-6xl font-normal">
+              <p className="text-left tracking-tighter text-white poppins lg:text-left text-4xl lg:text-6xl font-normal">
                 Let&#39;s work <br className="block md:hidden"/>together on <br className="block md:hidden"/> your <br  className="md:block hidden"/>
                 next  <br className="block md:hidden"/> project.
               </p>
@@ -305,7 +305,7 @@ const PagesContactbar = ({ currentRoute }) => {
                   {renderText("let's-get-in-touch →", "btn1")}
                 </motion.p>
               ) : (
-                <p className="flex items-center text-[#000] justify-center tracking-[-1px]">
+                <p className="flex items-center text-[#fff] justify-center tracking-[-1px]">
                   let&#39;s-get-in-touch →
                 </p>
               )}
@@ -333,7 +333,7 @@ const PagesContactbar = ({ currentRoute }) => {
                   {renderText("download cv", "btn2")}
                 </motion.p>
               ) : (
-                <p className="flex items-center tracking-[-1px] text-[#000] justify-center">
+                <p className="flex items-center tracking-[-1px] text-[#fff] justify-center">
                   download cv
                 </p>
               )}

@@ -74,8 +74,8 @@ const TechAbout = () => {
   return (
     <div className="w-screen flex flex-col justify-center items-center mt-36">
       <div>
-        <h1 className="text-4xl md:text-[58px] text-black  tracking-tighter md:leading-[60px] text-center poppins">
-          Some of the techs i like to{" "}<br className="hidden md:block"/>
+        <h1 className="text-4xl md:text-[58px] text-white  tracking-tighter md:leading-[60px] text-center poppins">
+          Some of the techs <br className="block md:hidden"/>i like to<br className="hidden md:block"/>{" "}
           <span className={`text-[${spanColor}]`}>work with</span>
         </h1>
       </div>
@@ -88,10 +88,10 @@ const TechAbout = () => {
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariant}
-        className="tech3 glossy-20  backdrop-blur-sm md:w-4/5 w-11/12"
+        className="tech2 glossy-25  backdrop-blur-sm md:w-4/5 w-11/12"
       >
-        <div className="about-me-title3  px-4 py-[10px]">
-          <p className="text-sm text-black tracking-[-1px]">techs</p>
+        <div className="about-me-title2  px-4 py-[10px]">
+          <p className="text-sm text-white tracking-[-1px]">techs</p>
           <div className="flex items-center space-x-2 text-[#1d232a] text-xs">
             <FontAwesomeIcon
               icon={faMinus}

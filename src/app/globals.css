@@ -865,10 +865,10 @@
 .testimonial-card2 {
   height: auto;
   min-height: 350px;
-     background-color: color-mix(in oklab, #1e232bc9 , transparent);
+    background-color: color-mix(in oklab, #0f0f0f 25%, transparent);
   border-radius: 3px;
   color: #fff;
-  border: 0.5px solid #15191E;
+  border: 0.5px solid #9d9d9d;
   transition: all 0.3s ease-in-out;
   margin: 0 auto;
 }
