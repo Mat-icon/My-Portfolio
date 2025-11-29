@@ -72,7 +72,7 @@ const Footer = () => {
             </div>
             {/* Name */}
             <span
-              className="text-xl font-normal tracking-[-2px]"
+              className="text-xl"
               style={{ color: colors.matthewColor }}
             >
               matthew<span style={{ color: colors.amehColor }}>&#123;ameh&#125;</span>
@@ -80,7 +80,7 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex-col flex md:flex-row mt-4 md:mt-0 space-y-3 md:space-y-0 items-center md:text-left text-center md:space-x-6 text-base tracking-[-1px] ">
+          <div className="flex-col flex md:flex-row mt-4 md:mt-0 space-y-3 md:space-y-0 items-center md:text-left text-center md:space-x-6 text-base  ">
             <a
               href="/"
                className="hover:text-white"
@@ -127,13 +127,13 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="w-11/12 flex flex-col md:flex-row md:justify-between items-center">
           <div
-            className="text-center tracking-[-1px] sm:text-sm md:text-base text-sm"
+            className="text-center  sm:text-sm md:text-base text-sm"
             style={{ color: colors.footerColor }}
           >
             2024 - 2025 Matthew Ameh | Freelance Web Developer
           </div>
           <div
-            className="flex space-x-6 tracking-[-1px] sm:text-sm md:text-base text-sm mb-2"
+            className="flex space-x-6  sm:text-sm md:text-base text-sm mb-2"
             style={{ color: colors.footerColor }}
           >
             <a

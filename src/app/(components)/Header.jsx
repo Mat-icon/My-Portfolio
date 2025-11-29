@@ -252,13 +252,13 @@ const Header = () => {
 
       <div className="absolute bottom-0 flex flex-col items-center w-full pointer-events-none">
         <motion.span 
-          className="text-xs md:text-[12px] mb-5 poppins md:mb-4 text-[#9D9D9D] uppercase tracking-wider"
+          className="text-xs md:text-[12px] mb-5 fonts md:mb-4 text-[#9D9D9D] uppercase tracking-wider"
           style={{ opacity: getHomeLabelOpacity() }}
         >
           Home
         </motion.span>
         
-        <div className="w-[98%] text-[45px] leading-[1] tracking-tighter poppins md:text-7xl lg:text-[88px] lg:w-9/12">
+        <div className="w-[98%] text-[45px] leading-[1] tracking-[-2px] poppins md:text-7xl lg:text-[88px] lg:w-9/12">
           <h1 className="text-center mx-auto">
             <motion.span style={{ opacity: getHeadingWordOpacity(0, 6) }}>
               Hi<span className="font-serif">, </span>
@@ -286,7 +286,7 @@ const Header = () => {
           </h1>
         </div>
         
-        <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">
+        <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">
           {paragraphWords.map((word, index) => (
             <motion.span 
               key={index}

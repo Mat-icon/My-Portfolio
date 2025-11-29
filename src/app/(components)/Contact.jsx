@@ -214,7 +214,7 @@ const Contact = () => {
           }}
         >
           <div className="about-me-title3 bg-[#1D242A] px-4 py-2 text-white">
-            <p className="text-sm tracking-[-1px] ">where-i-work</p>
+            <p className="text-sm  ">where-i-work</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -232,7 +232,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="w-11/12 about-me-text  backdrop-blur-sm tracking-tighter p-4 rounded-lg shadow text-sm md:text-base font-normal">
+          <div className="w-11/12 about-me-text  backdrop-blur-sm  p-4 rounded-lg shadow text-sm md:text-base font-normal">
             <p className="flex  gap-2">
               <span className="text-[#c2c0c0da]">1 </span>
               <span>Currently based in Lagos, Nigeria  <NigerianFlag width={20} height={14} /></span>
@@ -259,7 +259,7 @@ const Contact = () => {
           }}
         >
           <div className="about-me-title3 bg-[#1D242A] px-4 py-2 text-white">
-            <p className="text-sm tracking-[-1px] ">about-me</p>
+            <p className="text-sm  ">about-me</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -277,7 +277,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="about-me-text  backdrop-blur-sm tracking-tighter p-4 text-[15px]">
+          <div className="about-me-text  backdrop-blur-sm  p-4 text-[15px]">
             <p>
               <span className="text-[#c2c0c0da]">1 </span>Nice to meet you!
               I&apos;m
@@ -319,7 +319,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="hobbies2  xl:absolute xl:left-25  xl:bottom-0 backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
+          className="hobbies2  xl:absolute xl:left-25  xl:bottom-0 backdrop-blur-sm w-4/5  lg:w-1/2 xl:w-1/4 h-60"
           ref={hobbiesRef}
           initial="hidden"
           animate={hobbiesVisible ? "visible" : "hidden"}
@@ -372,7 +372,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="me2 xl:absolute xl:right-4 xl:top-12 backdrop-blur-sm w-4/5 tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
+          className="me2 xl:absolute xl:right-4 xl:top-12 backdrop-blur-sm w-4/5  lg:w-1/2 xl:w-1/4 h-60"
           ref={contactRef}
           initial="hidden"
           animate={contactVisible ? "visible" : "hidden"}
@@ -403,7 +403,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="potrait-img tracking-tighter text-md flex flex-col space-y-3 p-4 shadow">
+          <div className="potrait-img  text-md flex flex-col space-y-3 p-4 shadow">
             <div className="flex space-x-2">
               <span className="text-[#c2c0c0da]">1 </span>{" "}
               <a
@@ -465,7 +465,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="me2 md:w-full xl:absolute xl:bottom-3 xl:right-0 backdrop-blur-sm tracking-tighter lg:w-4/5 xl:w-[45%] h-auto"
+          className="me2 md:w-full xl:absolute xl:bottom-3 xl:right-0 backdrop-blur-sm lg:w-4/5 xl:w-[45%] h-auto"
           ref={collabRef}
           initial="hidden"
           animate={collabVisible ? "visible" : "hidden"}
@@ -536,7 +536,7 @@ const Contact = () => {
         </motion.div>
 
         <motion.div
-          className="potrait2 xl:absolute xl:bottom-3 xl:left-3 backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4"
+          className="potrait2 xl:absolute xl:bottom-3 xl:left-3 backdrop-blur-sm w-11/12  lg:w-1/2 xl:w-1/4"
           ref={potraitRef}
           initial="hidden"
           animate={potraitVisible ? "visible" : "hidden"}

@@ -252,7 +252,7 @@ const PagesContactbar = ({ currentRoute }) => {
         className="about-me-two glossy-25 w-11/12 backdrop-blur-sm md:w-[75%]"
       >
         <div className="about-me-title px-4 py-2 flex justify-between">
-          <p className="text-sm tracking-[-1px] text-white">collaboration</p>
+          <p className="text-sm text-white">collaboration</p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
             <FontAwesomeIcon icon={faMinus} className="hover:text-white transition" />
             <div className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer transition"></div>
@@ -297,7 +297,7 @@ const PagesContactbar = ({ currentRoute }) => {
             >
               {hoveredBtn1 ? (
                 <motion.p
-                  className="flex items-center justify-center tracking-[-1px]"
+                  className="flex items-center justify-center"
                   variants={container}
                   initial="hidden"
                   animate="visible"
@@ -305,7 +305,7 @@ const PagesContactbar = ({ currentRoute }) => {
                   {renderText("let's-get-in-touch →", "btn1")}
                 </motion.p>
               ) : (
-                <p className="flex items-center text-[#fff] justify-center tracking-[-1px]">
+                <p className="flex items-center text-[#fff] justify-center">
                   let&#39;s-get-in-touch →
                 </p>
               )}

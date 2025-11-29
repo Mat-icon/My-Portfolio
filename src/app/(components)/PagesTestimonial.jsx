@@ -62,7 +62,7 @@ const testimonials = [
 ];
 
 const TestimonialCard = ({ tech, content, author, position, image, accentColor, bgColor }) => (
-  <div className={`${bgColor} mt-8 testimonial-card   b backdrop-blur-md tracking-tighter w-11/12 md:w-full transition-all duration-500`}>
+  <div className={`${bgColor} mt-8 testimonial-card   b backdrop-blur-md  w-11/12 md:w-full transition-all duration-500`}>
     <div className="about-me-title2 px-3 py-[10px]">
       <p className="text-sm text-white">{tech}</p>
       <div className="flex space-x-2 items-center text-[#494949] text-xs">
@@ -96,10 +96,10 @@ const TestimonialCard = ({ tech, content, author, position, image, accentColor, 
 
       {/* Text Section */}
       <div className="flex flex-col text-left text-[#fff] items-start md:items-start md:justify-center mt-4 md:mt-0">
-        <p className="text-base tracking-[-1px] [word-spacing:-3px] leading-relaxed">
+        <p className="text-base  leading-relaxed">
           {content}
         </p>
-        <p className="mt-6 text-sm  [word-spacing:-3px] text-[#9d9d9d]">
+        <p className="mt-6 text-sm  text-[#9d9d9d]">
           <span style={{ color: accentColor }}>{author}</span> &#47;&#47; {position}
         </p>
       </div>
@@ -299,7 +299,7 @@ const PagesTestimonial = () => {
         >
           <HiChevronLeft className="text-xl" />
         </div>
-        <div className="w-[70%] md:w-[90%] flex tracking-tighter items-center justify-center">
+        <div className="w-[70%] md:w-[90%] flex  items-center justify-center">
           <div className="relative w-10/12 h-[2px] overflow-hidden rounded">
             <div className="tracker-static-glow" />
             <div

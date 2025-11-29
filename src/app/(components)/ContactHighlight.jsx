@@ -172,7 +172,7 @@ const ContactHighlight = () => {
 
   return (
     <div className="w-full relative flex flex-col  items-center mb-0">
-      <h1 className="text-4xl md:text-[52px]  tracking-tighter md:leading-[60px] poppins text-center">
+      <h1 className="text-4xl md:text-[58px]  tracking-tighter md:leading-[60px] poppins text-center">
         Your <span className="all-text">creative</span> web developer
       </h1>
        <LuminousBeam  height="h-[130px]" color="8fff86"/>
@@ -191,7 +191,7 @@ const ContactHighlight = () => {
           }}
         >
           <div className="about-me-title bg-[#0f0f0f] px-4 py-2 text-white">
-            <p className="text-sm tracking-[-1px] ">about-me</p>
+            <p className="text-sm  ">about-me</p>
             <div className="flex items-center space-x-2 text-[#494949] text-xs">
               <FontAwesomeIcon
                 icon={faMinus}
@@ -209,7 +209,7 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="about-me-text backdrop-blur-sm tracking-tighter p-4 text-[15px] ">
+          <div className="about-me-text backdrop-blur-sm  p-4 text-[15px] ">
             <p>
               <span className="text-[#c2c0c0da]">1 </span>Nice to meet you!
               I&apos;m
@@ -251,7 +251,7 @@ const ContactHighlight = () => {
         </motion.div>
 
         <motion.div
-          className="hobbies backdrop-blur-sm w-4/5 xl:absolute xl:right-2 xl:top-4 tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
+          className="hobbies backdrop-blur-sm w-4/5 xl:absolute xl:right-2 xl:top-4 lg:w-1/2 xl:w-1/4 h-60"
           ref={hobbiesRef}
           initial="hidden"
           animate={hobbiesVisible ? "visible" : "hidden"}
@@ -304,7 +304,7 @@ const ContactHighlight = () => {
         </motion.div>
 
         <motion.div
-          className="contact-links relative left-12 backdrop-blur-sm w-4/5 xl:absolute xl:left-2  tracking-tighter lg:w-1/2 xl:w-1/4 h-60"
+          className="contact-links relative left-12 backdrop-blur-sm w-4/5 xl:absolute xl:left-2  lg:w-1/2 xl:w-1/4 h-60"
           ref={contactRef}
           initial="hidden"
           animate={contactVisible ? "visible" : "hidden"}
@@ -335,7 +335,7 @@ const ContactHighlight = () => {
               />
             </div>
           </div>
-          <div className="potrait-img tracking-tighter text-md flex flex-col space-y-3  p-4 shadow">
+          <div className="potrait-img  text-md flex flex-col space-y-3  p-4 shadow">
             <div className="flex space-x-2">
               <span className="text-[#c2c0c0da]">1  </span>{" "}
               <a
@@ -397,7 +397,7 @@ const ContactHighlight = () => {
         </motion.div>
 
         <motion.div
-          className="me md:w-full xl:absolute xl:bottom-4 xl:left-0  lg:w-4/5 xl:w-[50%]  backdrop-blur-sm tracking-tighter h-auto"
+          className="me md:w-full xl:absolute xl:bottom-4 xl:left-0  lg:w-4/5 xl:w-[50%]  backdrop-blur-sm h-auto"
           ref={collabRef}
           initial="hidden"
           animate={collabVisible ? "visible" : "hidden"}
@@ -468,7 +468,7 @@ const ContactHighlight = () => {
         </motion.div>
 
         <motion.div
-          className="potrait backdrop-blur-sm w-11/12 tracking-tighter lg:w-1/2 xl:w-1/4 xl:absolute xl:bottom-10 xl:right-4"
+          className="potrait backdrop-blur-sm w-11/12  lg:w-1/2 xl:w-1/4 xl:absolute xl:bottom-10 xl:right-4"
           ref={potraitRef}
           initial="hidden"
           animate={potraitVisible ? "visible" : "hidden"}
@@ -517,7 +517,7 @@ const ContactHighlight = () => {
       >
         {hovered ? (
           <motion.p
-            className="flex items-center  justify-center tracking-tighter"
+            className="flex items-center  justify-center "
             variants={container}
             initial="hidden"
             animate={hovered ? "visible" : "hidden"}
@@ -530,7 +530,7 @@ const ContactHighlight = () => {
             />
           </motion.p>
         ) : (
-          <p className="flex items-center text-white  justify-center tracking-tighter">
+          <p className="flex items-center text-white  justify-center ">
             <>
               about-me <FaArrowRight className="translate-x-1" />
             </>

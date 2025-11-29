@@ -20,6 +20,32 @@
     position: sticky;
   }
 
+
+  @font-face {
+  font-family: "PP Neue Machina Inktrap";
+  src: url("/fonts/PPNeueMachina-InktrapRegular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+  @font-face {
+  font-family: "Object Sans";
+  src: url("/fonts/ObjectSans-Regular.otf") format("opentype");
+   font-weight: 700;
+  font-style: normal;
+}
+
+  @font-face {
+  font-family: "Object Heavy Sans";
+  src: url("/fonts/ObjectSans-Heavy.otf") format("opentype");
+   font-weight: 700;
+  font-style: normal;
+}
+
+.object-heavy {
+  font-family: "Object Heavy Sans", sans-serif;
+}
+
   @layer utilities {
   .animate-crazy1 { animation: crazy1 1s ease-in-out infinite alternate; }
   .animate-crazy2 { animation: crazy2 1s ease-in-out infinite alternate; }
@@ -35,11 +61,11 @@
   }
 
   .fonts {
-    font-family: "Space Mono", monospace;
+   font-family: "PP Neue Machina Inktrap", sans-serif;
   }
 
   .poppins {
-    font-family: "Poppins", sans-serif;
+    font-family: "Object Sans", sans-serif;
   }
 
   .test {
@@ -523,14 +549,14 @@
 .icon-container {
   position: relative;
   display: inline-block;
-   font-family: "Poppins", sans-serif;
+  font-family: "PP Neue Machina Inktrap", sans-serif;
   text-align: center;
   z-index: 20;
 }
 .badge {
   background: white;
   position: absolute;
-  top: -10px;
+  top: -2px;
   left: 100%;
 
   border-radius: 4px;
@@ -567,14 +593,14 @@
 .icon-container2 {
   position: relative;
   display: inline-block;
-   font-family: "Poppins", sans-serif;
+   font-family: "PP Neue Machina Inktrap", sans-serif;
   text-align: center;
   z-index: 20;
 }
 .badge2 {
   background: black;
   position: absolute;
-  top: -10px;
+  top: -2px;
   left: 100%;
 
   border-radius: 4px;

@@ -272,7 +272,7 @@ export default function Home() {
 
         {/* Center name */}
         <div className="flex text-base items-center">
-          <span className="tracking-tighter font-medium text-center fonts">
+          <span className="font-medium text-center fonts">
             matthew
             <span className="all-text">&#123;ameh&#125;</span>
           </span>
@@ -474,15 +474,15 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hidden md:flex absolute scale-[1.02] left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
+        <div className="hidden md:flex absolute  left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
           {/* Location Section */}
           <motion.div
-            className="tracking-tighter text-[#9D9D9D] cursor-default flex items-baseline"
+            className=" text-[#9D9D9D] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
             <motion.span
-              className="inline-block tracking-[-1px] whitespace-nowrap"
+              className="inline-block  whitespace-nowrap"
               variants={{
                 rest: { x: 0 },
                 hover: { x: -2 },
@@ -516,7 +516,7 @@ export default function Home() {
 
           {/* Local Time Section */}
           <motion.div
-            className="tracking-[-1px] text-[#9D9D9D] cursor-default flex items-baseline"
+            className=" text-[#9D9D9D] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
@@ -569,7 +569,7 @@ export default function Home() {
         >
           {hovered ? (
             <motion.p
-              className="flex items-center justify-center tracking-[-1px]"
+              className="flex items-center justify-center "
               variants={container}
               initial="hidden"
               animate={hovered ? "visible" : "hidden"}
@@ -578,7 +578,7 @@ export default function Home() {
               <FaArrowRight className="ml-1" />
             </motion.p>
           ) : (
-            <p className="flex items-center text-white justify-center tracking-[-1px]">
+            <p className="flex items-center text-white justify-center ">
               let&#39;s-get-in-touch
               <FaArrowRight className="ml-1" />
             </p>

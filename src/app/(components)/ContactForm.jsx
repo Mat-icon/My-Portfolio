@@ -58,7 +58,7 @@ const ContactForm = () => {
       </div>
       <div className="tech backdrop-blur-md glossy-25 w-11/12 md:w-7/12 lg:w-7/12 xl:8/12">
         <div className="about-me-title2 px-4 py-2">
-          <p className="text-base text-white tracking-tighter ">
+          <p className="text-sm text-white  ">
             write-me
           </p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
@@ -87,7 +87,7 @@ const ContactForm = () => {
             <div className="w-full flex flex-col">
               <label
                 htmlFor="fullName"
-                className="block text-sm font-semibold text-white"
+                className="block text-sm  text-white"
               >
                 full-name <span className="text-red-500">*</span>
               </label>
@@ -108,7 +108,7 @@ const ContactForm = () => {
             <div className="w-full flex flex-col">
               <label
                 htmlFor="company"
-                className="block text-sm font-semibold text-white"
+                className="block text-sm  text-white"
               >
                 company
               </label>
@@ -128,7 +128,7 @@ const ContactForm = () => {
             <div className="w-full flex flex-col">
               <label
                 htmlFor="email"
-                className="block text-sm font-semibold text-white"
+                className="block text-sm  text-white"
               >
                 email <span className="text-red-500">*</span>
               </label>
@@ -149,7 +149,7 @@ const ContactForm = () => {
                 <div className="w-full flex flex-col">
             <label
               htmlFor="message"
-              className="block text-sm font-semibold text-white"
+              className="block text-sm text-white"
             >
               your-message <span className="text-red-500">*</span>
             </label>
@@ -169,7 +169,7 @@ const ContactForm = () => {
           <button
             type="submit"
             style={{ background: "#494949" }}
-            className=" w-full md:w-7/12 lg:w-5/12 tracking-tighter lg:py-3 p-4 lg:px-4 rounded-[3px] border border-[#0f0f0f] text-center text-md text-black flex items-center justify-center"
+            className=" w-full md:w-7/12 lg:w-5/12  lg:py-3 p-4 lg:px-4 rounded-[3px] border border-[#0f0f0f] text-center text-md text-white flex items-center justify-center"
           >
             submit-message <FiMail className="ml-2" />
           </button>

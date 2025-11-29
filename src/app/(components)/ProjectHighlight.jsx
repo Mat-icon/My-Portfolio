@@ -146,11 +146,11 @@ const ProjectHighlight = () => {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             style={{ background: "#101010e1" }}
-            className="material-bubble3  hover:border-[#8eff86]  w-fit md:w-4/12 lg:w-[15%] poppin mb-[50px] p-4 lg:px-4 rounded-[4px] border-[0.5px] border-[#6462628c] text-center text-sm flex items-center justify-center transition-all duration-300"
+            className="material-bubble3  hover:border-[#8eff86]  w-fit md:w-4/12 lg:w-[15%] fonts mb-[50px] p-4 lg:px-4 rounded-[4px] border-[0.5px] border-[#6462628c] text-center text-sm flex items-center justify-center transition-all duration-300"
           >
             {hovered ? (
               <motion.p
-                className="flex items-center  justify-center tracking-tighter"
+                className="flex items-center  justify-center"
                 variants={container}
                 initial="hidden"
                 animate={hovered ? "visible" : "hidden"}
@@ -163,7 +163,7 @@ const ProjectHighlight = () => {
                 />
               </motion.p>
             ) : (
-              <p className="flex items-center text-white  justify-center tracking-tighter">
+              <p className="flex items-center text-white  justify-center">
                 <>
                   all-projects <FaArrowRight className="translate-x-1" />
                 </>

@@ -89,7 +89,7 @@ const Tech = () => {
         className="tech glossy-25  backdrop-blur-md md:w-4/5 w-11/12"
       >
         <div className="about-me-title  px-4 py-2">
-          <p className="text-sm tracking-[-1px]">techs</p>
+          <p className="text-sm ">techs</p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
             <FontAwesomeIcon
               icon={faMinus}
@@ -123,7 +123,7 @@ const Tech = () => {
               className="text-5xl md:text-6xl text-gray-200 flex items-center flex-col"
             >
               {icon}
-              <span className="text-sm text-gray-200 poppins mt-2 ">
+              <span className="text-sm text-gray-200 fonts mt-2 ">
                 {label}
               </span>
             </div>

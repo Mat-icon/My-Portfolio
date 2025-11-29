@@ -220,7 +220,7 @@ export default function Contacts() {
               Do you want <br className="md:hidden block"/>to talk <br className="hidden md:block"/> about <br className="md:hidden block"/>a
               <span className=" text-[#91d1f8]"> project </span>?
             </h1>
-            <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">
+            <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">
               Whether you have a project you want to work on together or just
               want
               to have a chat, you are in the right place:<br /> Let&#39;s get in touch

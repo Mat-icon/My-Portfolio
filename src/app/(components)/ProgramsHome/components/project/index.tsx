@@ -306,7 +306,7 @@ export default function Index({
             </div>
 
             {/* Content */}
-            <h2 className="tracking-[-1px] poppins text-[26px]">
+            <h2 className="poppins text-[26px]">
               {title}
             </h2>
 
@@ -318,7 +318,7 @@ export default function Index({
               {lang.map((lan, idx) => (
                 <span
                   key={idx}
-                  className="px-4 fonts tracking-tighter py-[6px] border-[0.5px] lowercase border-[#494949] text-[12px] rounded-full bg-[#131613] text-[#9D9D9D] backdrop-blur-md"
+                  className="px-4 fonts  py-[6px] border-[0.5px] lowercase border-[#494949] text-[12px] rounded-full bg-[#131613] text-[#9D9D9D] backdrop-blur-md"
                 >
                   {lan}
                 </span>
@@ -341,7 +341,7 @@ export default function Index({
 
               <div className="ml-2 md:ml-4">
                 <h2
-                  className="tracking-[-1px] poppins text-[26px] xl:text-[40px]"
+                  className=" poppins text-[26px] xl:text-[40px]"
                   style={{
                     margin: "0px",
                     fontWeight: 400,
@@ -353,7 +353,7 @@ export default function Index({
                 </h2>
 
                 <h4
-                  className="text-[12px] des tracking-tighter fonts font-light text-[#9D9D9D] mb-2"
+                  className="text-[12px] des fonts font-light text-[#9D9D9D] mb-2"
                   style={{
                     transition: "all 0.4s",
                     transform: isHovered ? "translateX(-35px)" : "none",
@@ -372,7 +372,7 @@ export default function Index({
                   {lang.map((lan, idx) => (
                     <span
                       key={idx}
-                      className="px-4 fonts tracking-tighter py-[6px] border-[0.5px] lowercase border-[#494949] text-[12px] rounded-full bg-[#13161362] text-[#9D9D9D] backdrop-blur-md"
+                      className="px-4 fonts  py-[6px] border-[0.5px] lowercase border-[#494949] text-xs rounded-full bg-[#13161362] text-[#9D9D9D] backdrop-blur-md"
                     >
                       {lan}
                     </span>

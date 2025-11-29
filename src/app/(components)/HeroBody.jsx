@@ -142,7 +142,7 @@ const HeroBody = ({ isOpen, toggleNav, currentRoute }) => {
         {/* Background Animation */}
         <div className="fixed top-[10%]"></div>
         <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center">
-          <div className="relative flex gap-8 text-[400px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#00000044] font-mono whitespace-nowrap animate-scroll">
+          <div className="relative flex gap-8 object-heavy text-[400px] md:text-[600px] space-x-8 font-extrabold  text-[#00000044]  whitespace-nowrap animate-scroll">
             <p>code</p>
             <p>beautiful interfaces</p>
             <p>code</p>

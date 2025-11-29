@@ -91,7 +91,7 @@ const TechAbout = () => {
         className="tech2 glossy-25  backdrop-blur-sm md:w-4/5 w-11/12"
       >
         <div className="about-me-title2  px-4 py-[10px]">
-          <p className="text-sm text-white tracking-[-1px]">techs</p>
+          <p className="text-sm text-white">techs</p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
             <FontAwesomeIcon
               icon={faMinus}
@@ -128,7 +128,7 @@ const TechAbout = () => {
               className="text-5xl md:text-5xl text-white flex items-center flex-col"
             >
               {icon}
-              <span className="text-sm poppins   mt-2  text-gray-200">
+              <span className="text-sm fonts  mt-2  text-gray-200">
                 {label}
               </span>
             </div>

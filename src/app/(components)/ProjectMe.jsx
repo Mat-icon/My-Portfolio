@@ -247,7 +247,7 @@ export default function ProjectMe() {
 
         {/* Center name */}
         <div className="flex text-base items-center">
-          <span className="tracking-tighter text-white font-medium text-center fonts">
+          <span className=" text-white font-medium text-center fonts">
             matthew
             <span className="text-[#e14f62]">&#123;ameh&#125;</span>
           </span>
@@ -276,7 +276,7 @@ export default function ProjectMe() {
       {/* Main Content */}
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#494949] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#494949] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container2">
             <Link href="/">
               <FiHome
@@ -445,15 +445,15 @@ export default function ProjectMe() {
           </div>
         </div>
 
-        <div className="hidden md:flex absolute scale-[1.02] left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
+        <div className="hidden md:flex absolute left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
           {/* Location Section */}
           <motion.div
-            className="tracking-tighter text-[#ffffff] cursor-default flex items-baseline"
+            className=" text-[#ffffff] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
             <motion.span
-              className="inline-block tracking-[-1px] whitespace-nowrap"
+              className="inline-block  whitespace-nowrap"
               variants={{
                 rest: { x: 0 },
                 hover: { x: -2 },
@@ -474,7 +474,7 @@ export default function ProjectMe() {
             </motion.span>
 
             <motion.span
-              className="text-[8px] tracking-wide poppins inline-block ml-1"
+              className="text-[9px] tracking-wide  inline-block ml-1"
               variants={{
                 rest: { opacity: 0, width: 0 },
                 hover: { opacity: 1, width: "auto" },
@@ -487,7 +487,7 @@ export default function ProjectMe() {
 
           {/* Local Time Section */}
           <motion.div
-            className="tracking-[-1px] text-[#ffffff] cursor-default flex items-baseline"
+            className=" text-[#ffffff] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
@@ -540,7 +540,7 @@ export default function ProjectMe() {
         >
           {hovered ? (
             <motion.p
-              className="flex items-center justify-center tracking-[-1px]"
+              className="flex items-center justify-center "
               variants={container}
               initial="hidden"
               animate={hovered ? "visible" : "hidden"}
@@ -549,7 +549,7 @@ export default function ProjectMe() {
               <FaArrowRight className="ml-1" />
             </motion.p>
           ) : (
-            <p className="flex items-center text-white justify-center tracking-[-1px]">
+            <p className="flex items-center text-white justify-center ">
               let&#39;s-get-in-touch
               <FaArrowRight className="ml-1" />
             </p>

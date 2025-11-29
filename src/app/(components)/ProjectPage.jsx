@@ -215,7 +215,7 @@ export default function Project() {
       <div className="flex flex-col relative  rounded overflow-hidden">
         <main className="w-full header">
           <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
-            <span className="text-xs md:text-[13px] poppins mb-4 md:mb-4 text-[#9d9d9d] uppercase tracking-wider">
+            <span className="text-xs md:text-[12px] fonts  mb-4 md:mb-4 text-[#9d9d9d] uppercase tracking-wider">
               Work
             </span>
             <h1 className=" w-[94%] text-[#fff] text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
@@ -223,7 +223,7 @@ export default function Project() {
               my best
               <span className=" text-[#e14f62]"> projects.</span>
             </h1>
-            <p className="w-11/12 md:w-10/12 text-[#9d9d9d] lg:w-5/12 2xl:w-6/12 tracking-[-1px] text-[16px] text-center max-w-2xl mt-6  md:mt-4 our-text">
+            <p className="w-11/12 md:w-10/12 text-[#9d9d9d] lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl mt-6  md:mt-4 our-text">
               With many years in web development, I acquired extensive
               experience working on projects across multiple industries
               <br className='md:block hidden'/> and technologies. Let me show you my best creations.
@@ -317,7 +317,7 @@ export default function Project() {
                   }
                 `}</style>
         <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
-          <div className="relative flex gap-8 text-[560px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#0000003d] font-mono whitespace-nowrap animate-scroll">
+          <div className="relative flex gap-8  text-[560px] md:text-[700px] space-x-8 font-extrabold tracking-[-40px] text-[#0000003d] font-mono whitespace-nowrap animate-scroll">
             <p>code</p>
             <p>beautiful interfaces</p>
             <p>code</p>
