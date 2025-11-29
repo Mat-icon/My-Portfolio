@@ -401,7 +401,7 @@ export default function AboutMe() {
           </div>
         </div>
 
-        <div className="hidden md:flex absolute scale-[1.02] left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
+        <div className="hidden md:flex absolute left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
           {/* Location Section */}
           <motion.div
             className="text-[#9d9d9d] cursor-default flex items-baseline"

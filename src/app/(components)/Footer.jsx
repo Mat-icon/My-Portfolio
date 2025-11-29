@@ -62,7 +62,7 @@ const Footer = () => {
                 style={{ borderColor: colors.accent }}
               />
               <span
-                className="w-1 h-3 rotate-[30deg] rounded-full"
+                className="w-1 h-3 bg-white rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]"
                 style={{ backgroundColor: colors.accent }}
               />
               <span
@@ -75,7 +75,7 @@ const Footer = () => {
               className="text-xl"
               style={{ color: colors.matthewColor }}
             >
-              matthew<span style={{ color: colors.amehColor }}>&#123;ameh&#125;</span>
+              matthew<span style={{ color: colors.amehColor }}>&lt;ameh&gt;</span>
             </span>
           </div>
 
@@ -99,7 +99,7 @@ const Footer = () => {
                 transition: "ease-in 0.5s",
               }}
             >
-              projects
+              work
             </a>
             <a
               href="/about"

@@ -12,7 +12,7 @@ const NavItem = ({ number, label, isActive }) => (
     }`}
   >
     <span className="text-lg tracking-tighter text-[#9d9d9d]">{number}</span>
-    <span className="text-4xl poppins">{label}</span>
+    <span className="text-4xl fonts">{label}</span>
   </div>
 );
 
