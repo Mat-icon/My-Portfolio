@@ -833,7 +833,7 @@ export default function Index({
               {lang.map((lan, idx) => (
                 <span
                   key={idx}
-                  className="px-4 fonts tracking-tighter py-[6px] border-[0.5px] lowercase text-[12px] rounded-full bg-[#1E232B] text-[#fff] border-[#131613] backdrop-blur-md"
+                  className="px-4 fonts  py-[6px] border-[0.5px] lowercase text-[12px] rounded-full bg-[#1E232B] text-[#fff] border-[#131613] backdrop-blur-md"
                 >
                   {lan}
                 </span>
@@ -870,7 +870,7 @@ export default function Index({
                 </h2>
 
                 <h4
-                  className="text-[12px] des tracking-tighter fonts font-light text-[#9D9D9D] mb-2"
+                  className="text-[12px] des  fonts font-light text-[#9D9D9D] mb-2"
                   style={{
                     transition: "all 0.4s",
                     transform: isHovered ? "translateX(-35px)" : "none",
@@ -889,7 +889,7 @@ export default function Index({
                   {lang.map((lan, idx) => (
                     <span
                       key={idx}
-                      className="px-4 fonts tracking-tighter py-[6px] border-[0.5px] lowercase text-[12px] rounded-full bg-[#1E232B] text-[#fff] border-[#131613] backdrop-blur-md"
+                      className="px-4 fonts  py-[6px] border-[0.5px] lowercase text-[12px] rounded-full bg-[#1E232B] text-[#fff] border-[#131613] backdrop-blur-md"
                     >
                       {lan}
                     </span>
