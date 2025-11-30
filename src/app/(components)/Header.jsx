@@ -209,32 +209,8 @@ const Header = () => {
     return opacity;
   };
 
-  const getHeadingWordOpacity = (index, totalWords) => {
-    const wordProgress = index / totalWords;
-    const fadeStart = 0.15 + (wordProgress * 0.45);
-    const fadeEnd = fadeStart + 0.12;
-    
-    if (scrollProgress < fadeStart) return 1;
-    if (scrollProgress > fadeEnd) return 0;
-    
-    const progress = (scrollProgress - fadeStart) / (fadeEnd - fadeStart);
-    return 1 - progress;
-  };
 
-  const getParagraphWordOpacity = (index, totalWords) => {
-    const wordProgress = index / totalWords;
-    const fadeStart = 0.60 + (wordProgress * 0.30);
-    const fadeEnd = fadeStart + 0.08;
-    
-    if (scrollProgress < fadeStart) return 1;
-    if (scrollProgress > fadeEnd) return 0;
-    
-    const progress = (scrollProgress - fadeStart) / (fadeEnd - fadeStart);
-    return 1 - progress;
-  };
 
-  const paragraphText = "I bring value to web development projects by merging technical expertise with creativity and aesthetics.";
-  const paragraphWords = paragraphText.split(" ");
 
   return (
     <div ref={headerRef} className="relative h-[55vh] xl:h-[62vh] justify-center z-10 flex text-center items-center">
@@ -258,43 +234,31 @@ const Header = () => {
           Home
         </motion.span>
         
-        <div className="w-[98%] text-[45px] leading-[1] tracking-[-2px] poppins md:text-7xl lg:text-[88px] lg:w-9/12">
+        <div className="w-[98%] text-[45px] leading-[1] tracking-[-3px] md:tracking-[-6px] poppins md:text-7xl lg:text-[88px] lg:w-9/12">
           <h1 className="text-center mx-auto">
-            <motion.span style={{ opacity: getHeadingWordOpacity(0, 6) }}>
+       
               Hi<span className="font-serif">, </span>
-            </motion.span>
-            <motion.span style={{ opacity: getHeadingWordOpacity(1, 6) }}>
+          
               I<span className="font-serif">&apos;</span>m{" "}
-            </motion.span>
-            <motion.span style={{ opacity: getHeadingWordOpacity(2, 6) }}>
+          
               Matthew<span className="font-serif">,</span>{" "}
-            </motion.span>
+        
                <br className="lg:hidden block" />
-            <motion.span style={{ opacity: getHeadingWordOpacity(3, 6) }}>
               a{" "}
-            </motion.span>
             <br className="hidden xl:block" />
-            <motion.span 
+            <span 
               className="all-text"
-              style={{ opacity: getHeadingWordOpacity(4, 6) }}
             >
               creative{" "}
-            </motion.span>
-            <motion.span style={{ opacity: getHeadingWordOpacity(5, 6) }}>
+            </span>
+            
               developer
-            </motion.span>
+           
           </h1>
         </div>
         
         <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">
-          {paragraphWords.map((word, index) => (
-            <motion.span 
-              key={index}
-              style={{ opacity: getParagraphWordOpacity(index, paragraphWords.length) }}
-            >
-              {word}{index < paragraphWords.length - 1 ? " " : ""}
-            </motion.span>
-          ))}
+         I bring value to web development projects by merging <br/> technical expertise with creativity and aesthetics.
         </p>
       </div>
     </div>

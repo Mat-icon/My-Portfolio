@@ -76,7 +76,7 @@ const Contactbar = ({ currentRoute }) => {
         variants={containerVariant}
         className="about-me-two glossy-25 w-11/12 backdrop-blur-sm md:w-[75%]"
       >
-        <div className="about-me-title px-4 py-2 flex justify-between">
+        <div className="about-me-title  px-4 py-[10px] flex justify-between">
           <p className="text-sm">collaboration</p>
           <div className="flex items-center space-x-2 text-[#494949] text-xs">
             <FontAwesomeIcon icon={faMinus} className="hover:text-white transition" />

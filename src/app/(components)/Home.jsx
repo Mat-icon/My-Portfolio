@@ -140,7 +140,7 @@ const Home = () => {
             width: isMobile ? "230px" : "400px",
             height: isMobile ? "230px" : "400px",
             background: isMobile
-              ? "#8FFF86"
+              ? "#76d470"
               : "#365A34",
             filter: isMobile ? "blur(60px)" : "blur(120px)",
              transform: isMobile ? "scale(1)": "scale(0.5)",
@@ -159,7 +159,7 @@ const Home = () => {
             width: isMobile ? "240px" : "400px",
             height: isMobile ? "240px" : "400px",
             background: isMobile
-              ? "#8FFF86"
+              ? "#76d470"
               : "radial-gradient(circle, #8FFF8666 0%, #8FFF8666 50%, transparent 80%)",
             filter: isMobile ? "blur(60px)" : "blur(100px)",
             transform: isMobile ? "scale(1)": "scale(0.5)",

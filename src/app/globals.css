@@ -923,6 +923,10 @@
   border: 0.5px solid rgb(47, 230, 101);
 }
 
+.v{
+  background: #76d470;
+}
+
 .xi:hover {
   background: rgba(10, 247, 89, 0.459);
 }

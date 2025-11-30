@@ -447,7 +447,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(3)}
-                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 1, transformStyle: "preserve-3d" }}
                     />
 
@@ -455,7 +455,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(2)}
-                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 2, transformStyle: "preserve-3d" }}
                     />
 
@@ -463,7 +463,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(1)}
-                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 3, transformStyle: "preserve-3d" }}
                     />
 
@@ -471,7 +471,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(0)}
-                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 4, transformStyle: "preserve-3d" }}
                     />
                   </>
@@ -479,7 +479,7 @@ export default function Index({
 
                 <motion.div
                   variants={imageVariant}
-                  className="relative w-[400px] h-[250px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
+                  className="relative w-[400px] h-[240px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
                   style={{
                     zIndex: 5,
                     transformStyle: "preserve-3d",

@@ -271,10 +271,10 @@ export default function Home() {
         </div>
 
         {/* Center name */}
-        <div className="flex text-base items-center">
+        <div className="text-base">
           <span className="font-medium text-center fonts">
             matthew
-            <span className="all-text">&#123;ameh&#125;</span>
+            <span className="all-text">&lt;ameh&gt;</span>
           </span>
         </div>
 

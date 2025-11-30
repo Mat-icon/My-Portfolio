@@ -62,7 +62,7 @@ const testimonials = [
 
 const TestimonialCard = ({ tech, content, author, position, image }) => (
   <div className="mt-8 testimonial-card glossy-25 b backdrop-blur-md  w-11/12 md:w-full transition-all duration-500">
-    <div className="about-me-title p-2">
+    <div className="about-me-title px-4 py-[10px]">
       <p className="text-sm">{tech}</p>
       <div className="flex space-x-2 items-center text-[#494949] text-xs">
         <FontAwesomeIcon
@@ -95,7 +95,7 @@ const TestimonialCard = ({ tech, content, author, position, image }) => (
 
       {/* Text Section */}
       <div className="flex flex-col text-left items-start md:items-start md:justify-center mt-4 md:mt-0">
-        <p className="text-base  leading-relaxed">
+        <p className="text-sm md:text-base ">
           {content}
         </p>
         <p className="testimonial-author mt-6  text-gray-400">

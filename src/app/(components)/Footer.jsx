@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 const Footer = () => {
   const pathname = usePathname();
 
-  // Define colors based on pathname
   const getColors = () => {
     switch (pathname) {
       case "/":
@@ -14,21 +13,21 @@ const Footer = () => {
           accent: "#8FFF86",
           matthewColor: "#FFFFFF",
           amehColor: "#8FFF86",
-        footerColor: "#9D9D9D",
+          footerColor: "#9D9D9D",
         };
       case "/about-me":
         return {
           accent: "#4d81ee",
           matthewColor: "#FFFFFF",
           amehColor: "#4d81ee",
-         footerColor: "#9D9D9D",
+          footerColor: "#9D9D9D",
         };
       case "/projects":
         return {
           accent: "#e14f62",
           matthewColor: "#FFFFFF",
           amehColor: "#e14f62",
-         footerColor: "#9D9D9D",
+          footerColor: "#9D9D9D",
         };
       case "/contact":
         return {
@@ -50,12 +49,14 @@ const Footer = () => {
   const colors = getColors();
 
   return (
-    <footer className="w-full h-auto md:h-[70vh] glossy-25 py-6 md:py-0 px-2 xl:px-10 backdrop-blur-sm tracking-tighter mt-4 footer-content">
-      <div className="w-full flex flex-col space-y-52 relative top-1/4 items-center">
-        {/* Logo + Nav */}
-        <div className="flex flex-col sm:flex-col md:flex-row justify-between items-center md:space-x-4 w-11/12">
-          <div className="flex items-center space-x-2">
-            {/* Accent Arrow */}
+    <footer className="w-full h-auto md:h-[70vh] glossy-25 py-10 md:py-20 px-2 xl:px-10 backdrop-blur-sm tracking-tighter mt-4 footer-content">
+      <div className="w-full h-full flex flex-col md:space-y-0 space-y-10 justify-between items-center">
+
+        {/* Top Section */}
+        <div className="w-11/12 flex flex-col md:flex-row justify-between items-center">
+
+          {/* Logo */}
+          <div className="flex items-center space-x-1">
             <div className="rotate-90 gap-[1px] flex items-center">
               <span
                 className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
@@ -70,88 +71,55 @@ const Footer = () => {
                 style={{ borderColor: colors.accent }}
               />
             </div>
-            {/* Name */}
-            <span
-              className="text-xl"
-              style={{ color: colors.matthewColor }}
-            >
-              matthew<span style={{ color: colors.amehColor }}>&lt;ameh&gt;</span>
+
+            <span className="text-xl" style={{ color: colors.matthewColor }}>
+              matthew
+              <span style={{ color: colors.amehColor }}>&lt;ameh&gt;</span>
             </span>
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex-col flex md:flex-row mt-4 md:mt-0 space-y-3 md:space-y-0 items-center md:text-left text-center md:space-x-6 text-base  ">
-            <a
-              href="/"
-               className="hover:text-white"
-              style={{
-                color: colors.footerColor,
-                transition: "ease-in 0.5s",
-              }}
-            >
-              home
-            </a>
-            <a
-              href="/projects"
-           className="hover:text-white"
-              style={{
-                color: colors.footerColor,
-                transition: "ease-in 0.5s",
-              }}
-            >
-              work
-            </a>
-            <a
-              href="/about"
-              className="hover:text-white"
-              style={{
-                color: colors.footerColor,
-                transition: "ease-in 0.5s",
-              }}
-            >
-              about
-            </a>
-            <a
-              href="/contact"
-               className="hover:text-white"
-              style={{
-                color: colors.footerColor,
-                transition: "ease-in 0.5s",
-              }}
-            >
-              contact
-            </a>
-          </div>
+          {/* Navigation */}
+          <nav className="flex flex-col md:flex-row items-center mt-6 md:mt-0 space-y-3 md:space-y-0 md:space-x-6 text-base text-center md:text-left">
+            {[
+              { href: "/", label: "home" },
+              { href: "/projects", label: "work" },
+              { href: "/about", label: "about" },
+              { href: "/contact", label: "contact" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="hover:text-white transition ease-in duration-300"
+                style={{ color: colors.footerColor }}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="w-11/12 flex flex-col md:flex-row md:justify-between items-center">
+        {/* Bottom Section */}
+        <div className="w-11/12 flex flex-col md:flex-row justify-between items-center">
           <div
-            className="text-center  sm:text-sm md:text-base text-sm"
+            className="text-center sm:text-sm md:text-base text-sm"
             style={{ color: colors.footerColor }}
           >
             2024 - 2025 Matthew Ameh | Freelance Web Developer
           </div>
+
           <div
-            className="flex space-x-6  sm:text-sm md:text-base text-sm mb-2"
+            className="flex space-x-6 sm:text-sm md:text-base text-sm mt-3 md:mt-0"
             style={{ color: colors.footerColor }}
           >
-            <a
-              href="#privacy-policy"
-              className="hover:text-white"
-              style={{ transition: "ease-in 0.5s" }}
-            >
+            <a className="hover:text-white transition ease-in duration-300" href="#privacy-policy">
               privacy policy
             </a>
-            <a
-              href="#cookie-free"
-              className="hover:text-white"
-              style={{ transition: "ease-in 0.5s" }}
-            >
+            <a className="hover:text-white transition ease-in duration-300" href="#cookie-free">
               cookie-free website
             </a>
           </div>
         </div>
+
       </div>
     </footer>
   );
