@@ -249,7 +249,7 @@ export default function ProjectMe() {
         <div className="flex text-base items-center">
           <span className=" text-white font-medium text-center fonts">
             matthew
-            <span className="text-[#e14f62]">&#123;ameh&#125;</span>
+            <span className="text-[#e14f62]">&lt;ameh&gt;</span>
           </span>
         </div>
 

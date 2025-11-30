@@ -205,7 +205,7 @@ export default function AboutMe() {
         <div className="flex text-base items-center">
           <span className=" text-white font-medium text-center fonts">
             matthew
-            <span className="text-[#4d81ee]">&#123;ameh&#125;</span>
+            <span className="text-[#4d81ee]">&lt;ameh&gt;</span>
           </span>
         </div>
 

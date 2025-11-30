@@ -245,7 +245,7 @@ export default function ContactMe() {
         <div className="flex text-base items-center">
           <span className=" text-white font-medium text-center fonts">
             matthew
-            <span className="text-[#91d1f8]">&#123;ameh&#125;</span>
+            <span className="text-[#91d1f8]">&lt;ameh&gt;</span>
           </span>
         </div>
 
