@@ -160,7 +160,7 @@ const Model = ({
     }
   }, [scene]);
 
-  const responsiveScale = isMobile ? scale * 1.2 : scale;
+  const responsiveScale = isMobile ? scale * 1.5 : scale;
 
   return (
     <primitive
