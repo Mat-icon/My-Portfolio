@@ -136,7 +136,7 @@ const AboutHome = () => {
               ? "#4d81ee"
               : "#4d81ee86",
            filter: isMobile ? "blur(60px)" : "blur(120px)",
-            transform: isMobile ? "scale(0.1)": "scale(1)",
+            transform: isMobile ? "scale(1)": "scale(1)",
             opacity: 0.8,
             willChange: "transform, opacity",
           }}
