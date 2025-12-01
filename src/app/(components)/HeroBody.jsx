@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import ProjectHighlight from "./ProjectHighlight";
 import Header from "./Header";
 import Contactbar from "./Contactbar";
-import FullNav from "./FullNav";
 import LuminousBeam from './LuminousBeam';
 import Footer from "./Footer";
 
@@ -158,8 +157,6 @@ const HeroBody = ({ isOpen, toggleNav, currentRoute }) => {
           </div>
         </div>
 
-        {/* FullNav - Must be here at the top level */}
-        <FullNav isOpen={isOpen} toggleNav={toggleNav} currentRoute={currentRoute} />
 
         <Header />
 

@@ -214,7 +214,7 @@ export default function Project() {
       {/* Content */}
       <div className="flex flex-col relative  rounded overflow-hidden">
         <main className="w-full header">
-          <div className="relative z-[4] flex flex-col text-center items-center mt-32 ">
+          <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
             <span className="text-xs md:text-[12px] fonts  mb-4 md:mb-4 text-[#9d9d9d] uppercase tracking-wider">
               Work
             </span>

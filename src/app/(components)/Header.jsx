@@ -213,7 +213,7 @@ const Header = () => {
 
 
   return (
-    <div ref={headerRef} className="relative h-[55vh] xl:h-[62vh] justify-center z-[4] flex text-center items-center">
+    <div ref={headerRef} className="relative h-[55vh] xl:h-[62vh] justify-center z-10 flex text-center items-center">
       <div 
         ref={canvasRef}
         onMouseMove={handleMouseMove}
