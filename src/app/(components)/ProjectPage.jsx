@@ -223,7 +223,7 @@ export default function Project() {
               my best
               <span className=" text-[#e14f62]"> projects.</span>
             </h1>
-            <p className="w-11/12 md:w-10/12 text-[#9d9d9d] lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl mt-6  md:mt-4 our-text">
+            <p className="w-11/12 md:w-10/12 text-[#9d9d9d] lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl mt-6  our-text">
               With many years in web development, I acquired extensive
               experience working on projects across multiple industries
               <br className='md:block hidden'/> and technologies. Let me show you my best creations.

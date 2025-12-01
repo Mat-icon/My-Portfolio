@@ -39,47 +39,8 @@ const ROUTE_BG_COLORS = {
   "/contact": "#466375", // Contact - Dark Yellow/Orange
 };
 
-const RouteLoader = ({ isVisible, accentColor }) => {
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ y: "-100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "200%" }}
-          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="absolute  inset-0 z-[100] flex items-center justify-center"
-          style={{
-            background: "#1d232a",
-            backdropFilter: "blur(20px)",
-          }}
-        >
-          <motion.div
-            className="rotate-90 gap-[1px] scale-[12] flex items-center"
-            initial={{ rotate: "90deg", scale: 12 }}
-            animate={{ rotate: "270deg"}}
-            exit={{ rotate: "180deg" }}
-            transition={{duration: 0.4 }}
 
-          >
-            <span
-              className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
-              style={{ borderColor: "#91d1f8" }}
-            />
-            <span
-              className="w-1 h-3 rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]"
-              style={{ background: "#91d1f8" }}
-            />
-            <span
-              className="w-2 h-2 border-t-4 border-r-4 rotate-[45deg]"
-              style={{ borderColor: "#91d1f8" }}
-            />
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
+
 
 export default function ContactMe() {
   const [currentTime, setCurrentTime] = useState(
@@ -229,7 +190,7 @@ export default function ContactMe() {
       `}</style>
 
       {/* Header */}
-      <header className="flex justify-between relative z-10 filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
+      <header className="flex justify-between relative z-30 filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
             <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
             <span
@@ -352,20 +313,17 @@ export default function ContactMe() {
         {/* Main Content Area with padding for sidebar */}
         <div
           ref={scrollContainerRef}
-          className="flex-1 md:pl-[3.1%] relative scrollbar3 overflow-x-hidden overflow-y-auto"
+          className="flex-1 md:pl-[3.1%] relative  scrollbar3 overflow-x-hidden overflow-y-auto"
         >
-          <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
+         
           <motion.div
-            key={currentRoute}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+       
           >
-            <RouteLoader isVisible={isLoading} accentColor={accentColor} />
-            <Contacts />
+            
+            <Contacts isVisible={isLoading} accentColor={accentColor}/>
           </motion.div>
         </div>
+         <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
       </div>
 
       {/* Music Player Toaster */}
@@ -429,7 +387,7 @@ export default function ContactMe() {
         </div>
       </motion.div>
 
-      <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
+      <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative z-20 shrink-0">
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
           className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
@@ -470,7 +428,7 @@ export default function ContactMe() {
                   </motion.span>
       
                   <motion.span
-                    className="text-[8px] tracking-wide fonts inline-block ml-1"
+                    className="text-[8px] tracking-wider font-thin fonts inline-block ml-[2px]"
                     variants={{
                       rest: { opacity: 0, width: 0 },
                       hover: { opacity: 1, width: "auto" },
@@ -495,7 +453,7 @@ export default function ContactMe() {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    Localtime{" "}
+                    Local time{" "}
                     <motion.span
                       className="time font-[600] mx-1 whitespace-nowrap"
                       variants={{

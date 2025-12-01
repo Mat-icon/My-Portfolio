@@ -32,9 +32,9 @@ const FullScreenNav = ({ isOpen, toggleNav }) => {
 
   return (
     <div
-      className={`absolute inset-0 bg-[#0f0f0f]/90 h-[90dvh] py-6 flex flex-col justify-between transform transition-transform ${
-        isOpen ? "translate-y-0" : "-translate-y-full"
-      } z-50 md:hidden`}
+      className={`absolute inset-0 bg-[#0f0f0f]/95 h-[90dvh] py-6 flex flex-col justify-between transform transition-transform ${
+        isOpen ? "translate-y--20" : "-translate-y-full"
+      } z-10 md:hidden`}
       style={{ transition: "transform 1s ease-in-out" }}
     >
       {/* Navigation links */}

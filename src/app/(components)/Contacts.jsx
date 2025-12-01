@@ -4,9 +4,125 @@ import React, { useState, useEffect, useRef } from "react";
 import Footer from "./Footer";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import LuminousBeam from "./LuminousBeam";
+import { motion, AnimatePresence } from "framer-motion";
 import ContactForm from "./ContactForm";
 
+
+const RouteLoader = ({ isVisible }) => {
+
+  // Prevent scrolling while loader is active
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isVisible]);
+
+  return (
+    <AnimatePresence mode="wait">
+      {isVisible && (
+        <motion.div
+          key="route-loader"
+          className="absolute inset-0 z-[99999] flex items-center justify-center"
+          initial={{ y: "-100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "200%" }}
+          transition={{
+            y: { duration: 1, ease: [0.76, 0, 0.24, 1] }
+          }}
+          style={{
+            height: "100vh",
+            width: "100vw",
+            overflow: "hidden",
+          }}
+        >
+          {/* DARK BACKDROP */}
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              height: "100%",
+              width: "100%",
+            }}
+            initial={{ backgroundColor: "rgba(0,0,0,1)", opacity: 1 }}
+            animate={{
+              opacity: 0.9,
+              backgroundColor: "rgba(0,0,0,0.9)",
+              transition: {
+                duration: 0.8,
+                delay: 0.8, // wait for svg rotation first
+              },
+            }}
+            exit={{
+              opacity: 0.2,
+              backgroundColor: "rgba(0,0,0,0.9)",
+              transition: { duration: 0.4 },
+            }}
+          />
+
+          {/* SVG LOGO */}
+          <motion.div
+            className="relative z-10 flex items-center justify-center"
+            initial={{ rotate: 0, scale: 1.3 }}
+            animate={{
+              rotate: 180,
+              scale: 1,
+              transition: {
+                rotate: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+                scale: { duration: 0.8 }
+              }
+            }}
+            exit={{
+              rotate: 180,
+              scale: 0.9,
+              transition: { duration: 0.4 }
+            }}
+          >
+            {/* M/A LOGO */}
+            <svg width="170" height="170" viewBox="0 0 120 120" fill="none">
+              
+              {/* Left Leg (M + A) */}
+              <path
+                d="M 30 95 L 50 30"
+                stroke="#6B9FDB"
+                strokeWidth="10"
+                strokeLinecap="round"
+              />
+
+              {/* Middle V */}
+              <path
+                d="M 50 30 L 60 65 L 70 30"
+                stroke="#6B9FDB"
+                strokeWidth="10"
+                strokeLinecap="round"
+              />
+
+              {/* Right Leg */}
+              <path
+                d="M 70 30 L 90 95"
+                stroke="#6B9FDB"
+                strokeWidth="10"
+                strokeLinecap="round"
+              />
+
+              {/* A Crossbar */}
+              <path
+                d="M 45 60 L 75 60"
+                stroke="#6B9FDB"
+                strokeWidth="8"
+                strokeLinecap="round"
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 const Model = ({
   path,
@@ -164,7 +280,7 @@ const Scene = ({ mousePosition, isHovering }) => {
   );
 };
 
-export default function Contacts() {
+export default function Contacts({isVisible, accentColor}) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const headerRef = useRef(null);
@@ -213,14 +329,14 @@ export default function Contacts() {
       <div className="flex flex-col relative  rounded overflow-hidden">
         <main className="w-full header">
           <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
-            <span className="text-xs md:text-[12px] mb-5 poppins md:mb-4 text-[#9D9D9D] uppercase tracking-wider">
+            <span className="text-xs md:text-[12px] mb-5 fonts md:mb-4 text-[#9D9D9D] uppercase tracking-wider">
               Contact
             </span>
             <h1 className=" w-[98%] text-[45px] leading-[1] tracking-tighter poppins md:text-7xl lg:text-[88px] lg:w-9/12">
               Do you want <br className="md:hidden block"/>to talk <br className="hidden md:block"/> about <br className="md:hidden block"/>a
               <span className=" text-[#91d1f8]"> project </span>?
             </h1>
-            <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-4 our-text">
+            <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-6 our-text">
               Whether you have a project you want to work on together or just
               want
               to have a chat, you are in the right place:<br /> Let&#39;s get in touch
@@ -310,6 +426,8 @@ export default function Contacts() {
                       0 0 15px rgba(143, 255, 134, 0.2);
                   }
                 `}</style>
+
+                <RouteLoader  isVisible={isVisible} accentColor={accentColor} />
         <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
           <div className="relative flex gap-8 object-heavy text-[400px] md:text-[600px] space-x-8 font-extrabold  text-[#00000044]  whitespace-nowrap animate-scroll">
             <p>code</p>

@@ -499,7 +499,7 @@ export default function ProjectMe() {
                  }}
                  transition={{ duration: 0.3 }}
                >
-                 Localtime{" "}
+                 Local time{" "}
                  <motion.span
                    className="time font-[600] mx-1 whitespace-nowrap"
                    variants={{

@@ -270,7 +270,7 @@ export default function Project() {
               know
               <span className=" text-[#4d81ee]"> each other. </span>
             </h1>
-            <p className="w-10/12 md:w-10/12 text-[#9d9d9d] lg:w-6/12 2xl:w-7/12  text-[16px] text-center max-w-2xl mt-6 md:mt-4 our-text">
+            <p className="w-10/12 md:w-10/12 text-[#9d9d9d] lg:w-6/12 2xl:w-7/12  text-[16px] text-center max-w-2xl mt-6  our-text">
               Let me introduce myself, my workflows, my collaborations,<br /> and the
               technologies I like to use to bring my projects to life.
             </p>

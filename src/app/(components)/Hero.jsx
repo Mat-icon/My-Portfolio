@@ -305,7 +305,7 @@ export default function Home() {
         className="flex flex-1 min-h-0 relative"
       >
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center tracking-tight glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container">
             <Link href="/">
               <FiHome
@@ -528,7 +528,7 @@ export default function Home() {
               }}
               transition={{ duration: 0.3 }}
             >
-              Localtime{" "}
+              Local time{" "}
               <motion.span
                 className="time font-[600] mx-1 whitespace-nowrap"
                 variants={{

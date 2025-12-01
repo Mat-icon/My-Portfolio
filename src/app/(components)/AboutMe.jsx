@@ -455,7 +455,7 @@ export default function AboutMe() {
               }}
               transition={{ duration: 0.3 }}
             >
-              Localtime{" "}
+              Local time{" "}
               <motion.span
                 className="time font-[600] mx-1 whitespace-nowrap"
                 variants={{
