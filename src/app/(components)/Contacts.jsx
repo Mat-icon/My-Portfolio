@@ -47,11 +47,13 @@ const RouteLoader = ({ isVisible }) => {
             style={{
               height: "100%",
               width: "100%",
+              filter: "blur(10px)",
             }}
             initial={{ backgroundColor: "rgba(0,0,0,1)", opacity: 1 }}
             animate={{
               opacity: 0.9,
               backgroundColor: "rgba(0,0,0,0.9)",
+              
               transition: {
                 duration: 0.8,
                 delay: 0.8, // wait for svg rotation first
@@ -82,24 +84,37 @@ const RouteLoader = ({ isVisible }) => {
               transition: { duration: 0.4 }
             }}
           >
-           <svg
-  width="170"
-  height="170"
-  viewBox="0 0 200 120"
-  fill="none"
-  stroke="#6B9FDB"
-  strokeWidth="10"
-  strokeLinecap="round"
->
-  {/* < LEFT ANGLE */}
-  <path d="M 70 20 L 30 60 L 70 100" />
 
-  {/* / SLASH */}
-  <path d="M 100 20 L 80 100" strokeWidth="8" />
 
-  {/* > RIGHT ANGLE */}
-  <path d="M 130 20 L 170 60 L 130 100" />
-</svg>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[140px] h-[50px]">
+          <div 
+            className="w-full h-full bg-[#6B9FDB] rounded-full"
+            style={{
+              clipPath: 'polygon(0 0, 100% 0, 85% 100%, 15% 100%)',
+              transform: 'rotate(-25deg) translateY(20px)'
+            }}
+          ></div>
+        </div>
+
+        {/* MIDDLE DIAGONAL BAR */}
+        <div 
+          className="absolute w-[120px] h-[35px] bg-[#2B3E50]"
+          style={{
+            transform: 'rotate(-25deg)',
+            clipPath: 'polygon(10% 0, 90% 0, 100% 100%, 0% 100%)'
+          }}
+        ></div>
+
+        {/* BOTTOM CURVED BAR */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140px] h-[50px]">
+          <div 
+            className="w-full h-full bg-[#6B9FDB] rounded-full"
+            style={{
+              clipPath: 'polygon(15% 0, 85% 0, 100% 100%, 0% 100%)',
+              transform: 'rotate(-25deg) translateY(-20px)'
+            }}
+          ></div>
+        </div>
 
           </motion.div>
         </motion.div>
