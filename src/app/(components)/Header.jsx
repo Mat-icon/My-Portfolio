@@ -173,18 +173,6 @@ const Header = () => {
     setIsHovering(false);
   };
 
-  const getHomeLabelOpacity = () => {
-    const fadeStart = 0;
-    const fadeEnd = 0.15;
-    
-    if (scrollProgress < fadeStart) return 1;
-    if (scrollProgress > fadeEnd) return 0;
-    
-    const progress = (scrollProgress - fadeStart) / (fadeEnd - fadeStart);
-    const opacity = 1 - progress;
-    console.log('Home opacity:', opacity, 'scrollProgress:', scrollProgress);
-    return opacity;
-  };
 
 
 
@@ -204,12 +192,12 @@ const Header = () => {
       </div>
 
       <div className="absolute z-10 bottom-0 flex flex-col items-center w-full pointer-events-none">
-        <motion.span 
+        <span 
           className="text-xs md:text-[12px] mb-5 fonts md:mb-4 text-[#9D9D9D] uppercase tracking-wider"
-          style={{ opacity: getHomeLabelOpacity() }}
+       
         >
           Home
-        </motion.span>
+        </span>
         
         <div className="w-[98%] text-[45px] leading-[1] tracking-[-3px] md:tracking-[-6px] poppins md:text-7xl lg:text-[88px] lg:w-9/12">
           <h1 className="text-center mx-auto">
