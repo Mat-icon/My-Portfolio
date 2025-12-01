@@ -165,11 +165,11 @@ const ContactForm = () => {
             ></textarea>
             </div>
           </div>
-          <div className="flex justify-start">
+          <div className="flex justify-start ml-7 md:ml-10">
           <button
             type="submit"
-            style={{ background: "#494949" }}
-            className=" w-full md:w-7/12 lg:w-5/12  lg:py-3 p-4 lg:px-4 rounded-[3px] border border-[#0f0f0f] text-center text-md text-white flex items-center justify-center"
+ style={{ background: "#101010e1" }}
+        className="material-bubble3  hover:border-[#8eff86]  w-fit poppin  p-4 lg:px-4 rounded-[4px] border-[0.5px] border-[#6462628c] text-center text-sm flex mt-8 items-center justify-center transition-all duration-300"
           >
             submit-message <FiMail className="ml-2" />
           </button>

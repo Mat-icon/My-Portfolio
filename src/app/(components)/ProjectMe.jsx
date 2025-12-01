@@ -445,88 +445,88 @@ export default function ProjectMe() {
           </div>
         </div>
 
-        <div className="hidden md:flex absolute left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
-          {/* Location Section */}
-          <motion.div
-            className=" text-[#ffffff] cursor-default flex items-baseline"
-            initial="rest"
-            whileHover="hover"
-          >
-            <motion.span
-              className="inline-block  whitespace-nowrap"
-              variants={{
-                rest: { x: 0 },
-                hover: { x: -2 },
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              Based in{" "}
-              <motion.span
-                variants={{
-                  rest: { color: "#ffffff" },
-                  hover: { color: "#000000" },
-                }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="transition-colors duration-300"
-              >
-                Nigeria
-              </motion.span>
-            </motion.span>
-
-            <motion.span
-              className="text-[9px] tracking-wide  inline-block ml-1"
-              variants={{
-                rest: { opacity: 0, width: 0 },
-                hover: { opacity: 1, width: "auto" },
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              NG
-            </motion.span>
-          </motion.div>
-
-          {/* Local Time Section */}
-          <motion.div
-            className=" text-[#ffffff] cursor-default flex items-baseline"
-            initial="rest"
-            whileHover="hover"
-          >
-            <motion.span
-              className="inline-block whitespace-nowrap"
-              variants={{
-                rest: { x: 0 },
-                hover: { x: -3 },
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              Localtime{" "}
-              <motion.span
-                className="time font-[600] mx-1 whitespace-nowrap"
-                variants={{
-                  rest: { color: "#ffffff" },
-                  hover: { color: "#000000" },
-                }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-              >
-                {currentTime}
-              </motion.span>
-            </motion.span>
-
-            <motion.span
-              className="text-[14px] inline-block"
-              variants={{
-                rest: { opacity: 0, width: 0 },
-                hover: { opacity: 1, width: "auto" },
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              {(() => {
-                const hour = new Date().getHours();
-                return hour >= 6 && hour < 18 ? "☀️" : "🌙";
-              })()}
-            </motion.span>
-          </motion.div>
-        </div>
+    <div className="hidden md:flex absolute left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
+             {/* Location Section */}
+             <motion.div
+               className="text-[#9d9d9d] cursor-default flex items-baseline"
+               initial="rest"
+               whileHover="hover"
+             >
+               <motion.span
+                 className="inline-block  whitespace-nowrap"
+                 variants={{
+                   rest: { x: 0 },
+                   hover: { x: -2 },
+                 }}
+                 transition={{ duration: 0.3 }}
+               >
+                 Based in{" "}
+                 <motion.span
+                   variants={{
+                   rest: { color: "#9d9d9d" },
+                     hover: { color: "#fff" },
+                   }}
+                   transition={{ duration: 0.3, ease: "easeOut" }}
+                   className="transition-colors duration-300"
+                 >
+                   Nigeria
+                 </motion.span>
+               </motion.span>
+   
+               <motion.span
+                 className="text-[8px] tracking-wide fonts inline-block ml-1"
+                 variants={{
+                   rest: { opacity: 0, width: 0 },
+                   hover: { opacity: 1, width: "auto" },
+                 }}
+                 transition={{ duration: 0.3 }}
+               >
+                 NG
+               </motion.span>
+             </motion.div>
+   
+             {/* Local Time Section */}
+             <motion.div
+               className=" text-[#9d9d9d] cursor-default flex items-baseline"
+               initial="rest"
+               whileHover="hover"
+             >
+               <motion.span
+                 className="inline-block whitespace-nowrap"
+                 variants={{
+                   rest: { x: 0 },
+                   hover: { x: -3 },
+                 }}
+                 transition={{ duration: 0.3 }}
+               >
+                 Localtime{" "}
+                 <motion.span
+                   className="time font-[600] mx-1 whitespace-nowrap"
+                   variants={{
+                     rest: { color: "#9d9d9d" },
+                     hover: { color: "#fff" },
+                   }}
+                   transition={{ duration: 0.4, ease: "easeInOut" }}
+                 >
+                   {currentTime}
+                 </motion.span>
+               </motion.span>
+   
+               <motion.span
+                 className="text-[14px] inline-block"
+                 variants={{
+                   rest: { opacity: 0, width: 0 },
+                   hover: { opacity: 1, width: "auto" },
+                 }}
+                 transition={{ duration: 0.3 }}
+               >
+                 {(() => {
+                   const hour = new Date().getHours();
+                   return hour >= 6 && hour < 18 ? "☀️" : "🌙";
+                 })()}
+               </motion.span>
+             </motion.div>
+           </div>
 
         {/* Right section - Contact button (Desktop only) */}
         <Link
