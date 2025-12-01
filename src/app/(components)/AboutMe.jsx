@@ -314,7 +314,7 @@ export default function AboutMe() {
           ref={scrollContainerRef}
           className="flex-1 md:pl-[3.1%] relative scrollbar2 overflow-x-hidden overflow-y-auto"
         >
-          <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
+         
           <motion.div
             key={currentRoute}
             initial={{ opacity: 0, y: 20 }}
@@ -324,6 +324,7 @@ export default function AboutMe() {
           >
            
           <AboutPage />
+           <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
           </motion.div>
         </div>
       </div>
