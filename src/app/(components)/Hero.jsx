@@ -475,7 +475,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hidden md:flex absolute  left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
+        <div className="hidden md:flex absolute  left-[51.4%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
           {/* Location Section */}
           <motion.div
             className=" text-[#9D9D9D] cursor-default flex items-baseline"

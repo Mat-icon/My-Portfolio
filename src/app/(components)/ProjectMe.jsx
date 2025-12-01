@@ -442,7 +442,7 @@ export default function ProjectMe() {
           </div>
         </div>
 
-    <div className="hidden md:flex absolute left-[51%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
+    <div className="hidden md:flex absolute left-[51.4%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
              {/* Location Section */}
              <motion.div
                className="text-[#9d9d9d] cursor-default flex items-baseline"
@@ -471,7 +471,7 @@ export default function ProjectMe() {
                </motion.span>
    
                <motion.span
-                 className="text-[8px] tracking-wide fonts inline-block ml-1"
+                 className="text-[8px] tracking-wider font-thin fonts inline-block ml-1"
                  variants={{
                    rest: { opacity: 0, width: 0 },
                    hover: { opacity: 1, width: "auto" },

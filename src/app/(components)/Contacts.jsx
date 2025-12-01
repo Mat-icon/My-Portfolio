@@ -36,7 +36,7 @@ const RouteLoader = ({ isVisible }) => {
             y: { duration: 1, ease: [0.76, 0, 0.24, 1] }
           }}
           style={{
-            height: "100vh",
+            height: "94vh",
             width: "100vw",
             overflow: "hidden",
           }}
@@ -47,7 +47,7 @@ const RouteLoader = ({ isVisible }) => {
             style={{
               height: "100%",
               width: "100%",
-              filter: "blur(10px)",
+              
             }}
             initial={{ backgroundColor: "rgba(0,0,0,1)", opacity: 1 }}
             animate={{
