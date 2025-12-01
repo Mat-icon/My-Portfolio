@@ -82,41 +82,25 @@ const RouteLoader = ({ isVisible }) => {
               transition: { duration: 0.4 }
             }}
           >
-            {/* M/A LOGO */}
-            <svg width="170" height="170" viewBox="0 0 120 120" fill="none">
-              
-              {/* Left Leg (M + A) */}
-              <path
-                d="M 30 95 L 50 30"
-                stroke="#6B9FDB"
-                strokeWidth="10"
-                strokeLinecap="round"
-              />
+           <svg
+  width="170"
+  height="170"
+  viewBox="0 0 200 120"
+  fill="none"
+  stroke="#6B9FDB"
+  strokeWidth="10"
+  strokeLinecap="round"
+>
+  {/* < LEFT ANGLE */}
+  <path d="M 70 20 L 30 60 L 70 100" />
 
-              {/* Middle V */}
-              <path
-                d="M 50 30 L 60 65 L 70 30"
-                stroke="#6B9FDB"
-                strokeWidth="10"
-                strokeLinecap="round"
-              />
+  {/* / SLASH */}
+  <path d="M 100 20 L 80 100" strokeWidth="8" />
 
-              {/* Right Leg */}
-              <path
-                d="M 70 30 L 90 95"
-                stroke="#6B9FDB"
-                strokeWidth="10"
-                strokeLinecap="round"
-              />
+  {/* > RIGHT ANGLE */}
+  <path d="M 130 20 L 170 60 L 130 100" />
+</svg>
 
-              {/* A Crossbar */}
-              <path
-                d="M 45 60 L 75 60"
-                stroke="#6B9FDB"
-                strokeWidth="8"
-                strokeLinecap="round"
-              />
-            </svg>
           </motion.div>
         </motion.div>
       )}
