@@ -316,17 +316,14 @@ export default function AboutMe() {
         >
          
           <motion.div
-            key={currentRoute}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+     
           >
            
           <AboutPage />
-           <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
+          
           </motion.div>
         </div>
+         <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
       </div>
 
       {/* Music Player Toaster */}

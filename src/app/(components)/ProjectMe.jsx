@@ -358,18 +358,15 @@ export default function ProjectMe() {
           ref={scrollContainerRef}
           className="flex-1 md:pl-[3.1%] relative scrollbar4 overflow-x-hidden overflow-y-auto"
         >
-          <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
+         
           <motion.div
-            key={currentRoute}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+
           >
             <RouteLoader isVisible={isLoading} accentColor={accentColor} />
          <Project />
           </motion.div>
         </div>
+         <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
       </div>
 
       {/* Music Player Toaster */}
