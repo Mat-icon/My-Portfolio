@@ -149,35 +149,12 @@ const Scene = ({ mousePosition, isHovering }) => {
 };
 
 const Header = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const headerRef = useRef(null);
   const canvasRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-      const windowHeight = window.innerHeight;
-      
-      console.log('Scrolling - scrollY:', scrollY, 'windowHeight:', windowHeight);
-      
-      const maxScroll = windowHeight * 0.8;
-      const progress = Math.max(0, Math.min(1, scrollY / maxScroll));
-      
-      console.log('Scroll progress:', progress);
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  
 
   const handleMouseMove = (e) => {
     if (canvasRef.current) {
@@ -213,7 +190,7 @@ const Header = () => {
 
 
   return (
-    <div ref={headerRef} className="relative h-[55vh] xl:h-[62vh] justify-center z-10 flex text-center items-center">
+    <div ref={headerRef} className="relative h-[55vh] xl:h-[62vh] justify-center  flex text-center items-center">
       <div 
         ref={canvasRef}
         onMouseMove={handleMouseMove}
@@ -226,7 +203,7 @@ const Header = () => {
         </Canvas>
       </div>
 
-      <div className="absolute bottom-0 flex flex-col items-center w-full pointer-events-none">
+      <div className="absolute z-10 bottom-0 flex flex-col items-center w-full pointer-events-none">
         <motion.span 
           className="text-xs md:text-[12px] mb-5 fonts md:mb-4 text-[#9D9D9D] uppercase tracking-wider"
           style={{ opacity: getHomeLabelOpacity() }}

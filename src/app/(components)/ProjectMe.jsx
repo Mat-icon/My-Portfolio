@@ -233,7 +233,7 @@ export default function ProjectMe() {
       `}</style>
 
       {/* Header */}
-      <header className="flex relative z-10 justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
+      <header className="flex relative z-30 justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
     <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
             <span
