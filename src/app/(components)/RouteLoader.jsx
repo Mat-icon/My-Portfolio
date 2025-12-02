@@ -12,11 +12,11 @@ const RouteLoader = ({ isVisible }) => {
       case "/":
         return "#8fff86"; // blue-500
       case "/about-me":
-        return "#8b5cf6"; // violet-500
+        return "#4d81ee"; // violet-500
       case "/projects":
         return "#e14f62"; // pink-500
       case "/contact":
-        return "#10b981"; // emerald-500
+        return "#91d1f8"; // emerald-500
       default:
         return "#8fff86"; // default blue
     }
