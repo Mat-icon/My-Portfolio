@@ -42,7 +42,7 @@ const RouteLoader = ({ isVisible }) => {
       {isVisible && (
         <motion.div
           key="route-loader"
-          className="absolute inset-0 z-[99999] backdrop-blur-md flex items-center justify-center"
+          className="absolute inset-0 z-[99999] h-[92dvh] md:h-[94dvh] backdrop-blur-md flex items-center justify-center"
           initial={{ y: "-100%" }}
           animate={{ y: 0 }}
           exit={{ y: "200%" }}
@@ -50,7 +50,7 @@ const RouteLoader = ({ isVisible }) => {
             y: { duration: 1, ease: [0.76, 0, 0.24, 1] }
           }}
           style={{
-            height: "94vh",
+            
             width: "100%",
             overflow: "hidden",
           }}
