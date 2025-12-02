@@ -167,7 +167,7 @@ const Scene = ({ mousePosition, isHovering }) => {
   );
 };
 
-export default function Project(isVisible ,accentColor) {
+export default function Project({isVisible ,accentColor}) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const headerRef = useRef(null);
