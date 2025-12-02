@@ -324,7 +324,7 @@ export default function AboutMe() {
      
           >
            
-          <AboutPage />
+          <AboutPage isVisible={isLoading} accentColor={accentColor}/>
           
           </motion.div>
         </div>
