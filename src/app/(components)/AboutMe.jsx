@@ -191,14 +191,19 @@ export default function AboutMe() {
       {/* Header */}
       <header className="flex justify-between relative z-50 filter  backdrop-blur-xl glossy-25 items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
-          <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
-            <span
-              className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1"
-              style={{ "--hover-color": accentColor }}
-            />
-            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px] animate-none group-hover:animate-crazy2" />
-            <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3" />
-          </div>
+           <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
+              <span
+                className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
+        
+              />
+              <span
+                className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md"
+       
+              />
+              <span
+                className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]"
+              />
+            </div>
         </div>
 
         {/* Center name */}

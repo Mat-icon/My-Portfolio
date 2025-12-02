@@ -48,46 +48,6 @@ const LoaderRings = () => {
   );
 };
 
-const RouteLoader = ({ isVisible, accentColor }) => {
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ y: "-100%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "200%" }}
-          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="absolute inset-0 z-[100] flex items-center justify-center"
-          style={{
-            background: "#0f0f0f",
-            backdropFilter: "blur(20px)",
-          }}
-        >
-          <motion.div
-            className="rotate-90 gap-[1px] scale-[12] flex items-center"
-            initial={{ rotate: "90deg", scale: 12 }}
-            animate={{ rotate: "270deg" }}
-            exit={{ rotate: "180deg" }}
-            transition={{ duration: 0.4 }}
-          >
-            <span
-              className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
-              style={{ borderColor: "#8fff86" }}
-            />
-            <span
-              className="w-1 h-3 rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]"
-              style={{ background: "#8fff86" }}
-            />
-            <span
-              className="w-2 h-2 border-t-4 border-r-4 rotate-[45deg]"
-              style={{ borderColor: "#8fff86" }}
-            />
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(
@@ -260,14 +220,19 @@ export default function Home() {
         className="flex justify-between filter relative z-50 md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
       >
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
-          <div className="rotate-90 gap-[1px] flex items-center transition-transform duration-500 ease-in-out group-hover:rotate-[450deg]">
-            <span
-              className="w-2 h-2 border-t-4 border-l-4 border-white rotate-[-45deg] animate-none group-hover:animate-crazy1"
-              style={{ "--hover-color": accentColor }}
-            />
-            <span className="w-1 h-3 bg-white rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px] animate-none group-hover:animate-crazy2" />
-            <span className="w-2 h-2 border-t-4 border-r-4 border-white rotate-[45deg] animate-none group-hover:animate-crazy3" />
-          </div>
+           <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
+              <span
+                className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
+        
+              />
+              <span
+                className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md"
+       
+              />
+              <span
+                className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]"
+              />
+            </div>
         </div>
 
         {/* Center name */}
@@ -392,6 +357,7 @@ export default function Home() {
             <HeroBody
               isOpen={isNavOpen}
               currentRoute={currentRoute}
+              
               toggleNav={toggleNav}
             />
           </div>

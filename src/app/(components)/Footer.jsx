@@ -56,18 +56,18 @@ const Footer = () => {
         <div className="w-11/12 flex flex-col md:flex-row justify-between items-center">
 
           {/* Logo */}
-          <div className="flex items-center space-x-1">
-            <div className="rotate-90 gap-[1px] flex items-center">
+          <div className="flex items-center ">
+            <div className="rotate-90 scale-[.65] -space-x-[1px] flex items-center  ">
               <span
-                className="w-2 h-2 border-t-4 border-l-4 rotate-[-45deg]"
+                className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
                 style={{ borderColor: colors.accent }}
               />
               <span
-                className="w-1 h-3 bg-white rotate-[30deg] rounded-bl-[5px] rounded-tr-[4px]"
+                className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md"
                 style={{ backgroundColor: colors.accent }}
               />
               <span
-                className="w-2 h-2 border-t-4 border-r-4 rotate-[45deg]"
+                className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]"
                 style={{ borderColor: colors.accent }}
               />
             </div>
