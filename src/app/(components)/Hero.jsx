@@ -15,13 +15,14 @@ import { FaArrowRight, FaLinkedin, FaPlay, FaPause } from "react-icons/fa";
 import { LuUserRound } from "react-icons/lu";
 import { SlMusicToneAlt } from "react-icons/sl";
 import { AiOutlineLaptop } from "react-icons/ai";
-import { CiLaptop } from "react-icons/ci";
+import { CiLaptop, CiSearch } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import HeroBody from "./HeroBody";
 import { motion, AnimatePresence } from "framer-motion";
 import FullNav from "./FullNav";
+import { PiLightning } from "react-icons/pi";
 
 const ROUTE_COLORS = {
   "/": "#8fff86",
@@ -39,10 +40,11 @@ const ROUTE_BG_COLORS = {
 
 const LoaderRings = () => {
   return (
-    <div className="flex items-center justify-center">
-      <div className="relative w-8 h-8">
+    <div className="flex w-[12%] border-l border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
+          
+      <div className="relative w-5 h-5">
         <div className="absolute inset-0 border-2 border-white/20 rounded-full"></div>
-        <div className="absolute inset-0 border-2 border-transparent border-t-white rounded-full animate-spin"></div>
+        <div className="absolute inset-0 border-2 border-transparent border-t-[#8fff86] rounded-full animate-spin"></div>
       </div>
     </div>
   );
@@ -244,6 +246,7 @@ export default function Home() {
         </div>
 
         {/* Desktop controls */}
+        {showInitialLoader ? (<LoaderRings />) : (
         <div className="hidden md:flex items-center space-x-2">
           <VscChromeMinimize className="text-base text-[#494949] hover:border-white" />
           <div
@@ -251,7 +254,8 @@ export default function Home() {
             style={{ transition: "ease-in 0.5s" }}
           ></div>
           <VscChromeClose className="text-base text-[#494949] hover:border-white" />
-        </div>
+        </div>)
+}
 
         {/* Mobile menu icon */}
         <div className="flex md:hidden items-center">
@@ -327,6 +331,25 @@ export default function Home() {
             </Link>
             <span className="badge">works</span>
           </div>
+
+<div className="icon-container">
+            <Link href="/experiments">
+              <PiLightning 
+                className={`${
+                    currentRoute === "/experiments" ? "text-white" : "text-[#9D9D9D]"
+                } text-lg cursor-pointer`}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = accentColor)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color =
+                    currentRoute === "/experiments" ? "white" : "#9D9D9D")
+                }
+              />
+            </Link>
+            <span className="badge2">experiments</span>
+          </div>
+
 
           <div className="icon-container">
             <Link href="/contact">
@@ -437,7 +460,7 @@ export default function Home() {
           onClick={toggleMusicPlayer}
         >
           <div className="relative flex items-center justify-center">
-            <SlMusicToneAlt className="text-black text-lg" />
+            <CiSearch className="text-black text-2xl" />
           </div>
         </div>
 

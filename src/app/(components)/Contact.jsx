@@ -232,7 +232,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="w-11/12 about-me-text  backdrop-blur-sm  p-4 rounded-lg shadow text-sm md:text-base font-normal">
+          <div className="w-11/12 about-me-text  backdrop-blur-sm  p-4 text-sm md:text-base font-normal">
             <p className="flex  gap-2">
               <span className="text-[#c2c0c0da]">1 </span>
               <span>Currently based in Lagos, Nigeria  <NigerianFlag width={20} height={14} /></span>

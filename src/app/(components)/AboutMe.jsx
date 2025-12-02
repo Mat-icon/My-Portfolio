@@ -14,15 +14,15 @@ import { VscChromeMinimize, VscChromeClose } from "react-icons/vsc";
 
 import { FaArrowRight, FaLinkedin, FaPlay, FaPause } from "react-icons/fa";
 import { LuUserRound } from "react-icons/lu";
-import { SlMusicToneAlt } from "react-icons/sl";
-import { AiOutlineLaptop } from "react-icons/ai";
-import { CiLaptop } from "react-icons/ci";
+import { CiLaptop, CiSearch } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import AboutPage from "./AboutPage";
 import { motion, AnimatePresence } from "framer-motion";
 import FullNav from "./FullNav";
+import { BiSearch } from "react-icons/bi";
+import { PiLightning } from "react-icons/pi";
 
 const ROUTE_COLORS = {
   "/": "#8fff86", // Home - Green
@@ -296,6 +296,24 @@ export default function AboutMe() {
           </div>
 
           <div className="icon-container2">
+            <Link href="/experiments">
+              <PiLightning 
+                className={`${
+                    currentRoute === "/experiments" ? "text-black" : "text-white"
+                } text-lg cursor-pointer`}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = accentColor)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color =
+                    currentRoute === "/experiments" ? "white" : "#9D9D9D")
+                }
+              />
+            </Link>
+            <span className="badge2">experiments</span>
+          </div>
+
+          <div className="icon-container2">
             <Link href="/contact">
               <FiMail
                 className={`${
@@ -357,7 +375,7 @@ export default function AboutMe() {
             className="w-12 h-12 rounded-[3px] flex items-center justify-center"
             style={{ backgroundColor: bgColor }}
           >
-            <SlMusicToneAlt className="text-xl text-white" />
+            <BiSearch className="text-xl text-white" />
           </div>
           <div className="flex-1">
             <p className="text-sm font-medium tracking-tight">{currentSong}</p>
@@ -400,7 +418,7 @@ export default function AboutMe() {
           onClick={toggleMusicPlayer}
         >
           <div className="relative flex items-center justify-center">
-            <SlMusicToneAlt className="text-black text-lg" />
+            <CiSearch className="text-black text-2xl" />
           </div>
         </div>
 

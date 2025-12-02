@@ -16,13 +16,14 @@ import { FaArrowRight, FaLinkedin, FaPlay, FaPause } from "react-icons/fa";
 import { LuUserRound } from "react-icons/lu";
 import { SlMusicToneAlt } from "react-icons/sl";
 import { AiOutlineLaptop } from "react-icons/ai";
-import { CiLaptop } from "react-icons/ci";
+import { CiLaptop, CiSearch } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Contacts from "./Contacts";
 import { motion, AnimatePresence } from "framer-motion";
 import FullNav from "./FullNav";
+import { PiLightning } from "react-icons/pi";
 
 const ROUTE_COLORS = {
   "/": "#8fff86", // Home - Green
@@ -295,6 +296,23 @@ export default function ContactMe() {
             </Link>
             <span className="badge2">works</span>
           </div>
+<div className="icon-container2">
+            <Link href="/experiments">
+              <PiLightning 
+                className={`${
+                    currentRoute === "/experiments" ? "text-black" : "text-white"
+                } text-lg cursor-pointer`}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = accentColor)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color =
+                    currentRoute === "/experiments" ? "white" : "#9D9D9D")
+                }
+              />
+            </Link>
+            <span className="badge2">experiments</span>
+          </div>
 
           <div className="icon-container2">
             <Link href="/contact">
@@ -400,7 +418,7 @@ export default function ContactMe() {
           onClick={toggleMusicPlayer}
         >
           <div className="relative flex items-center justify-center">
-            <SlMusicToneAlt className="text-black text-lg" />
+            <CiSearch className="text-black text-2xl" />
           </div>
         </div>
 
