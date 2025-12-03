@@ -217,7 +217,7 @@ export default function ExperimentsPage({ isVisible, accentColor }) {
             <span className="text-xs md:text-[11px] fonts  mb-4 md:mb-4 text-[#9d9d9d] uppercase tracking-wider">
               Experiments
             </span>
-            <h1 className=" w-[94%] text-[rgb(255,255,255)] text-5xl tracking-tighter md:text-7xl lg:text-[95px] lg:w-9/12 poppins">
+            <h1 className=" w-[94%] text-[rgb(255,255,255)] text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
               Beyond<br className="block md:hidden"/> projects: <br /> some
               <span className=" text-[#E1B84F]"> experiments</span>
             </h1>
