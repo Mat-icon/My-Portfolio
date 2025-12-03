@@ -17,6 +17,8 @@ const RouteLoader = ({ isVisible }) => {
         return "#e14f62"; // pink-500
       case "/contact":
         return "#91d1f8"; // emerald-500
+        case "/experiments":
+        return "#E1B84F"; 
       default:
         return "#8fff86"; // default blue
     }

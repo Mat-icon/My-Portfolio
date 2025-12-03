@@ -11,6 +11,7 @@ import {
   FiX,
 } from "react-icons/fi";
 import { VscChromeMinimize, VscChromeClose } from "react-icons/vsc";
+
 import { FaArrowRight, FaLinkedin, FaPlay, FaPause } from "react-icons/fa";
 import { LuUserRound } from "react-icons/lu";
 import { SlMusicToneAlt } from "react-icons/sl";
@@ -19,39 +20,30 @@ import { CiLaptop, CiSearch } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import HeroBody from "./HeroBody";
+import AboutPage from "./AboutPage";
 import { motion, AnimatePresence } from "framer-motion";
 import FullNav from "./FullNav";
+import ExperimentsPage from "./ExperimentsPage";
 import { PiLightning } from "react-icons/pi";
 
 const ROUTE_COLORS = {
-  "/": "#8fff86",
-  "/projects": "#fa9595",
-  "/about-me": "#86d4ff",
-  "/contact": "#ffd886",
+  "/": "#8fff86", // Home - Green
+  "/projects": "#fa9595", // Projects - Pink/Red
+  "/about-me": "#86d4ff", // About - Blue
+  "/contact": "#ffd886", // Contact - Yellow/Orange
+  "/experiments": "#E1B84F",
 };
 
+// Darker shades for backgrounds
 const ROUTE_BG_COLORS = {
-  "/": "#508A4C",
-  "/projects": "#8A4C4C",
-  "/about-me": "#4C6B8A",
-  "/contact": "#8A7A4C",
+  "/": "#508A4C", // Home - Dark Green
+  "/projects": "#8A4C4C", // Projects - Dark Red
+  "/about-me": "#4C6B8A", // About - Dark Blue
+  "/contact": "#8A7A4C", // Contact - Dark Yellow/Orange
+  "/experiments": "#E1B84F",
 };
 
-const LoaderRings = () => {
-  return (
-    <div className="flex w-[8%] border-l border-[#494949] md:w-[3.15%] h-full justify-center items-center  overflow-hidden">
-          
-      <div className="relative w-5 h-5">
-        <div className="absolute inset-0 border-2 border-white/20 rounded-full"></div>
-        <div className="absolute inset-0 border-2 border-transparent border-t-[#8fff86] rounded-full animate-spin"></div>
-      </div>
-    </div>
-  );
-};
-
-
-export default function Home() {
+export default function ExperimentsMe() {
   const [currentTime, setCurrentTime] = useState(
     new Date().toLocaleTimeString([], {
       hour: "2-digit",
@@ -59,31 +51,28 @@ export default function Home() {
       hour12: false,
     })
   );
+
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const scrollContainerRef = useRef(null);
-  const [currentRoute, setCurrentRoute] = useState("/");
+  const [currentRoute, setCurrentRoute] = useState("/experiments");
   const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState("Lofi Beats");
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
-  const [showInitialLoader, setShowInitialLoader] = useState(true);
   const accentColor = ROUTE_COLORS[currentRoute];
   const bgColor = ROUTE_BG_COLORS[currentRoute];
 
   useEffect(() => {
+    // When pathname changes, show loader
     setIsLoading(true);
+
+    // Small timeout to simulate load time or wait for render
     const timeout = setTimeout(() => setIsLoading(false), 3700);
+
     return () => clearTimeout(timeout);
   }, [pathname]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowInitialLoader(false);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
 
   const container = {
     hidden: {},
@@ -146,6 +135,7 @@ export default function Home() {
     };
   }, []);
 
+  // Lenis Smooth Scroll Setup
   useEffect(() => {
     let lenis;
 
@@ -184,22 +174,8 @@ export default function Home() {
   }, []);
 
   return (
-    <motion.div
-      initial={{ height: "7dvh" }}
-      animate={
-        showInitialLoader
-          ? {
-              height: "7dvh"
-            }
-          : { 
-              height: "98dvh"
-            }
-      }
-      transition={{
-        duration: 1.5,
-        ease: [0.76, 0, 0.24, 1],
-      }}
-      className="flex flex-col w-[95.5%] md:w-[99%] my-auto overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+    <div
+      className="flex flex-col w-[95.5%] md:w-[99%] my-2 h-[98dvh] overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}
@@ -216,70 +192,58 @@ export default function Home() {
       `}</style>
 
       {/* Header */}
-      <motion.header
-        initial={{ opacity: 1 }}
-        animate={{ opacity: showInitialLoader ? 1 : 1 }}
-        className="flex justify-between filter relative z-50 md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
-      >
+      <header className="flex relative z-50 justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
-           <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
-              <span
-                className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
-        
-              />
-              <span
-                className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md"
-       
-              />
-              <span
-                className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]"
-              />
-            </div>
+          <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
+            <span className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]" />
+            <span className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md" />
+            <span className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]" />
+          </div>
         </div>
 
         {/* Center name */}
-        <div className="text-base">
-          <span className="font-medium text-center fonts">
+        <div className="flex text-base items-center">
+          <span className=" text-white font-medium text-center fonts">
             matthew
-            <span className="all-text">&lt;ameh&gt;</span>
+            <span className="text-[#E1B84F]">&lt;ameh&gt;</span>
           </span>
         </div>
 
         {/* Desktop controls */}
-        {showInitialLoader ? (<LoaderRings />) : (
         <div className="hidden md:flex items-center space-x-2">
-          <VscChromeMinimize className="text-base text-[#494949] hover:border-white" />
+          <VscChromeMinimize
+            className="text-base text-[#6e6e6e] hover:text-black"
+            style={{ transition: "ease-in 0.5s" }}
+          />
           <div
-            className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
+            className="w-2.5 h-2.5 border border-[#6e6e6e] rounded-sm hover:border-black"
             style={{ transition: "ease-in 0.5s" }}
           ></div>
-          <VscChromeClose className="text-base text-[#494949] hover:border-white" />
-        </div>)
-}
+          <VscChromeClose
+            className="text-base text-[#6e6e6e] hover:text-black"
+            style={{ transition: "ease-in 0.5s" }}
+          />
+        </div>
 
         {/* Mobile menu icon */}
-        <div className="md:hidden ">
-          {showInitialLoader ? (
-            <LoaderRings />
-          ) : isNavOpen ? (
+        <div className="flex md:hidden items-center">
+          {isNavOpen ? (
             <FiX className="text-lg cursor-pointer" onClick={toggleNav} />
           ) : (
             <FiMenu className="text-lg cursor-pointer" onClick={toggleNav} />
           )}
         </div>
-      </motion.header>
+      </header>
 
       {/* Main Content */}
-      <div
-        className="flex flex-1 min-h-0 relative"
-      >
+      <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
-          <div className="icon-container">
+        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#494949] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+          <div className="icon-container2">
             <Link href="/">
               <FiHome
                 className={`${
-                  currentRoute === "/" ? "text-white" : "text-[#c5c4c4]"
+                  currentRoute === "/" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 style={{
                   "--hover-color": accentColor,
@@ -293,14 +257,14 @@ export default function Home() {
                 }
               />
             </Link>
-            <span className="badge">home</span>
+            <span className="badge2">home</span>
           </div>
 
-          <div className="icon-container">
+          <div className="icon-container2">
             <Link href="/about-me">
               <LuUserRound
                 className={`${
-                  currentRoute === "/about-me" ? "text-white" : "text-[#9D9D9D]"
+                  currentRoute === "/about-me" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -311,15 +275,15 @@ export default function Home() {
                 }
               />
             </Link>
-            <span className="badge">about</span>
+            <span className="badge2">about</span>
           </div>
 
-          <div className="icon-container">
+          <div className="icon-container2">
             <Link href="/projects">
               <CiLaptop
                 className={`${
-                  currentRoute === "/projects" ? "text-white" : "text-[#9D9D9D]"
-                } text-base cursor-pointer`}
+                  currentRoute === "/projects" ? "text-black" : "text-white"
+                } text-lg cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
                 }
@@ -329,14 +293,14 @@ export default function Home() {
                 }
               />
             </Link>
-            <span className="badge">works</span>
+            <span className="badge2">works</span>
           </div>
 
-<div className="icon-container">
+          <div className="icon-container2">
             <Link href="/experiments">
-              <PiLightning 
+              <PiLightning
                 className={`${
-                    currentRoute === "/experiments" ? "text-white" : "text-[#9D9D9D]"
+                  currentRoute === "/experiments" ? "text-black" : "text-white"
                 } text-lg cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -347,15 +311,14 @@ export default function Home() {
                 }
               />
             </Link>
-            <span className="badge">experiments</span>
+            <span className="badge2">experiments</span>
           </div>
 
-
-          <div className="icon-container">
+          <div className="icon-container2">
             <Link href="/contact">
               <FiMail
                 className={`${
-                  currentRoute === "/contact" ? "text-white" : "text-[#9D9D9D]"
+                  currentRoute === "/contact" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -366,26 +329,20 @@ export default function Home() {
                 }
               />
             </Link>
-            <span className="badge">contact</span>
+            <span className="badge2">contact</span>
           </div>
         </aside>
 
-        {/* Main Content Area */}
+        {/* Main Content Area with padding for sidebar */}
         <div
           ref={scrollContainerRef}
-          className={`flex-1 md:pl-[3.1%] relative scrollbar overflow-x-hidden overflow-y-auto `}
+          className="flex-1 md:pl-[3.1%] relative scrollbar5 overflow-x-hidden overflow-y-auto"
         >
-         
-          <div>
-            <HeroBody
-              isOpen={isNavOpen}
-              currentRoute={currentRoute}
-              
-              toggleNav={toggleNav}
-            />
-          </div>
+          <motion.div>
+            <ExperimentsPage isVisible={isLoading} accentColor={accentColor} />
+          </motion.div>
         </div>
-         <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
+        <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
       </div>
 
       {/* Music Player Toaster */}
@@ -396,7 +353,7 @@ export default function Home() {
           opacity: isMusicPlayerOpen ? 1 : 0,
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="fixed bottom-14 left-4 z-50 w-64 glossy-25 backdrop-blur-2xl border border-[#494949] rounded-[3px] p-4"
+        className="fixed bottom-14 left-4 z-50 w-64 glossy-25 backdrop-blur-2xl border border-[#494949]  rounded-[3px] p-4 "
         style={{ backgroundColor: "rgba(10, 10, 10, 0.95)" }}
       >
         <div className="flex items-center justify-between mb-3">
@@ -449,14 +406,11 @@ export default function Home() {
         </div>
       </motion.div>
 
-      {/* Footer */}
-      <footer
-        className="flex md:glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0"
-      >
+      <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
           className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
-          style={{ backgroundColor: bgColor }}
+          style={{ backgroundColor: "#E1B84F" }}
           onClick={toggleMusicPlayer}
         >
           <div className="relative flex items-center justify-center">
@@ -464,10 +418,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hidden md:flex absolute  left-[51.4%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
+        <div className="hidden md:flex absolute left-[51.4%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
           {/* Location Section */}
           <motion.div
-            className=" text-[#9D9D9D] cursor-default flex items-baseline"
+            className="text-[#9d9d9d] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
@@ -482,8 +436,8 @@ export default function Home() {
               Based in{" "}
               <motion.span
                 variants={{
-                  rest: { color: "#9D9D9D" },
-                  hover: { color: "#ffffff" },
+                  rest: { color: "#9d9d9d" },
+                  hover: { color: "#fff" },
                 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="transition-colors duration-300"
@@ -493,7 +447,7 @@ export default function Home() {
             </motion.span>
 
             <motion.span
-              className="text-[8px] tracking-wide poppins inline-block ml-1"
+              className="text-[8px] tracking-wider font-thin fonts inline-block ml-1"
               variants={{
                 rest: { opacity: 0, width: 0 },
                 hover: { opacity: 1, width: "auto" },
@@ -506,7 +460,7 @@ export default function Home() {
 
           {/* Local Time Section */}
           <motion.div
-            className=" text-[#9D9D9D] cursor-default flex items-baseline"
+            className=" text-[#9d9d9d] cursor-default flex items-baseline"
             initial="rest"
             whileHover="hover"
           >
@@ -522,8 +476,8 @@ export default function Home() {
               <motion.span
                 className="time font-[600] mx-1 whitespace-nowrap"
                 variants={{
-                  rest: { color: "#9D9D9D" },
-                  hover: { color: "#ffffff" },
+                  rest: { color: "#9d9d9d" },
+                  hover: { color: "#fff" },
                 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
@@ -553,7 +507,7 @@ export default function Home() {
           onMouseLeave={() => setHovered(false)}
           href="/contact"
           style={{ background: "#0a0a0afb" }}
-          className="material-bubble3 w-[55%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-2 md:mr-3 rounded-[3px] border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
+          className="hidden material-bubble2 md:block w-[55%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-2 md:mr-3 rounded-[3px] border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
           onMouseOver={(e) => (e.currentTarget.style.borderColor = accentColor)}
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#6462628c")}
         >
@@ -575,6 +529,6 @@ export default function Home() {
           )}
         </Link>
       </footer>
-    </motion.div>
+    </div>
   );
 }

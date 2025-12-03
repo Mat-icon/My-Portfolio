@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, MouseEvent } from "react";
 import styles from "./style.module.scss";
-import Project from "./components/project";
+import Project from "./(components)/index";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";

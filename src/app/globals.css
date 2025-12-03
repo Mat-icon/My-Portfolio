@@ -1142,3 +1142,39 @@
 .scrollbar4::-webkit-scrollbar-button:hover {
   background-color: #e14f62; /* Optional: darker on hover */
 }
+
+.scrollbar5 {
+  scrollbar-width: thin;
+  scrollbar-color: #E1B84F transparent;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+.scrollbar5::-webkit-scrollbar {
+  width: 12px; /* Vertical scrollbar width */
+  height: 12px; /* Horizontal scrollbar height */
+}
+
+.scrollbar5::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.scrollbar5::-webkit-scrollbar-thumb {
+  background-color: #E1B84F;
+  border-radius: 6px; /* Optional: rounded corners */
+}
+
+.scrollbar5::-webkit-scrollbar-thumb:hover {
+  background-color: #E1B84F; /* Optional: slightly darker on hover */
+}
+
+/* Scrollbar buttons (arrows) */
+.scrollbar5::-webkit-scrollbar-button {
+  background-color: #E1B84F;
+  height: 12px; /* Button size */
+  width: 12px;
+}
+
+.scrollbar5::-webkit-scrollbar-button:hover {
+  background-color: #E1B84F; /* Optional: darker on hover */
+}
+

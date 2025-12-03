@@ -1,3 +1,4 @@
+
 "use client";
 import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -199,7 +200,7 @@ export default function Index({
         variants={containerVariant}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={`backdrop-blur-md items-center relative px-[20px] lg:px-[30px] ${
+        className={`backdrop-blur-md relative px-[15px] lg:px-[30px] ${
           isMobile ? "py-[20px] pb-[30px]" : "py-[50px] lg:py-[70px]"
         }`}
         style={{
@@ -208,11 +209,11 @@ export default function Index({
           width: "100%",
           justifyContent: "space-between",
           alignItems: isMobile ? "flex-start" : "center",
-          border: "0.5px solid #494949",
           marginTop: isMobile ? "60px" : "15px",
+          border: "0.5px solid #15191E",
           borderRadius: "3px",
           cursor: "pointer",
-          backgroundColor: "color-mix(in oklab, #0f0f0f 25%, transparent)",
+          backgroundColor: "color-mix(in oklab, #1E232B 25%, transparent)",
         }}
       >
         {/* ---------------- MOBILE IMAGE TOP ---------------- */}
@@ -306,9 +307,7 @@ export default function Index({
             </div>
 
             {/* Content */}
-            <h2 className="poppins text-[26px]">
-              {title}
-            </h2>
+            <h2 className="tracking-[-1px] poppins text-white text-[26px]">{title}</h2>
 
             {/* <h4 className="text-[12px] des tracking-tighter fonts font-light text-[#9D9D9D] mb-2">
               {description}
@@ -318,7 +317,7 @@ export default function Index({
               {lang.map((lan, idx) => (
                 <span
                   key={idx}
-                  className="px-4 fonts  py-[6px] border-[0.5px] lowercase border-[#494949] text-[12px] rounded-full bg-[#131613] text-[#9D9D9D] backdrop-blur-md"
+                  className="px-4 fonts  py-[6px] border-[0.5px] lowercase text-[12px] rounded-full bg-[#1E232B] text-[#fff] border-[#131613] backdrop-blur-md"
                 >
                   {lan}
                 </span>
@@ -331,7 +330,9 @@ export default function Index({
             <div className="flex items-start">
               <motion.h3
                 initial={false}
-                animate={isHovered ? "hovered" : isVisible ? "visible" : "hidden"}
+                animate={
+                  isHovered ? "hovered" : isVisible ? "visible" : "hidden"
+                }
                 variants={numberVariant}
                 className="fonts text-[#c2c0c0da] text-[15px]"
                 style={{ transition: "all 0.4s" }}
@@ -341,7 +342,7 @@ export default function Index({
 
               <div className="ml-2 md:ml-4">
                 <h2
-                  className=" poppins text-[26px] xl:text-[40px]"
+                  className="tracking-[-1px] poppins text-white text-[26px] xl:text-[40px]"
                   style={{
                     margin: "0px",
                     fontWeight: 400,
@@ -353,7 +354,7 @@ export default function Index({
                 </h2>
 
                 <h4
-                  className="text-[12px] des fonts font-light text-[#9D9D9D] mb-2"
+                  className="text-[12px] des  fonts font-light text-[#9D9D9D] mb-2"
                   style={{
                     transition: "all 0.4s",
                     transform: isHovered ? "translateX(-35px)" : "none",
@@ -372,7 +373,7 @@ export default function Index({
                   {lang.map((lan, idx) => (
                     <span
                       key={idx}
-                      className="px-4 fonts  py-[6px] border-[0.5px] lowercase border-[#494949] text-xs rounded-full bg-[#07080742] text-[#9D9D9D] backdrop-blur-sm"
+                      className="px-4 fonts  py-[6px] border-[0.5px] lowercase text-[12px] rounded-full bg-[#1E232B] text-[#fff] border-[#131613] backdrop-blur-md"
                     >
                       {lan}
                     </span>
@@ -447,7 +448,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(3)}
-                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 1, transformStyle: "preserve-3d" }}
                     />
 
@@ -455,7 +456,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(2)}
-                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 2, transformStyle: "preserve-3d" }}
                     />
 
@@ -463,7 +464,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(1)}
-                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 3, transformStyle: "preserve-3d" }}
                     />
 
@@ -471,7 +472,7 @@ export default function Index({
                       initial="hidden"
                       animate="visible"
                       variants={paperLayerVariant(0)}
-                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
+                      className={`absolute top-0 left-0 w-[400px] h-[250px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
                       style={{ zIndex: 4, transformStyle: "preserve-3d" }}
                     />
                   </>
@@ -479,7 +480,7 @@ export default function Index({
 
                 <motion.div
                   variants={imageVariant}
-                  className="relative w-[400px] h-[240px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
+                  className="relative w-[400px] h-[250px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
                   style={{
                     zIndex: 5,
                     transformStyle: "preserve-3d",

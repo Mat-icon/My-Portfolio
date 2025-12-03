@@ -109,7 +109,14 @@ const TestimonialCard = ({ tech, content, author, position, image, accentColor, 
 
 const PagesTestimonial = () => {
   const pathname = usePathname();
-  const accentColor = pathname === "/projects" ? "#e14f62" : "#4d81ee";
+const routeColors = {
+  "/projects": "#e14f62",
+  "/about-me": "#4d81ee",
+  "/experiments": "#E1B84F",
+};
+
+const accentColor = routeColors[pathname] || "#E1B84F";
+
 
     const bgColor = pathname === "/projects" ? "glossy-25" : "glossy-25";
   

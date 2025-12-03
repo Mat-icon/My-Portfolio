@@ -36,6 +36,13 @@ const Footer = () => {
           amehColor: "#91d1f8",
           footerColor: "#9D9D9D",
         };
+        case "/experiments":
+        return {
+          accent: "#E1B84F",
+          matthewColor: "#FFFFFF",
+          amehColor: "#E1B84F",
+          footerColor: "#9D9D9D",
+        };
       default:
         return {
           accent: "#8FFF86",

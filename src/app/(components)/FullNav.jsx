@@ -11,6 +11,7 @@ const routeColors = {
   "/about-me": "#4d81ee", // blue
   "/projects": "#e14f62", // red
   "/contact": "#91d1f8", // light blue
+  "/experiments": "#E1B84F",
 };
 
 const NavItem = ({ number, label, isActive, color }) => (
