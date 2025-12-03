@@ -214,7 +214,7 @@ export default function ExperimentsPage({ isVisible, accentColor }) {
       <div className="flex flex-col relative  rounded overflow-hidden">
         <main className="w-full header">
           <div className="relative z-10 flex flex-col text-center items-center mt-32 ">
-            <span className="text-xs md:text-[12px] fonts  mb-4 md:mb-4 text-[#9d9d9d] uppercase tracking-wider">
+            <span className="text-xs md:text-[11px] fonts  mb-4 md:mb-4 text-[#9d9d9d] uppercase tracking-wider">
               Experiments
             </span>
             <h1 className=" w-[94%] text-[rgb(255,255,255)] text-5xl tracking-tighter md:text-7xl lg:text-[95px] lg:w-9/12 poppins">
@@ -223,7 +223,7 @@ export default function ExperimentsPage({ isVisible, accentColor }) {
             </h1>
             <p className="w-11/12 md:w-10/12 text-[#9d9d9d] lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl mt-6  our-text">
               Not only client work: I code also for experimenting<br/> and personal
-              projects, and I'm happy to give back<br/> to the community by
+              projects, and I&apos;m happy to give back<br/> to the community by
               contributing to open-source.
             </p>
             <div className="mx-auto my-4 flex justify-center">
