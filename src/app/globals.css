@@ -561,7 +561,7 @@
 
   border-radius: 4px;
    transform: translateX(22%);
-  padding: 2px 10px;
+  padding: 3px 10px;
   font-size: 12px;
   color: #000;
   visibility: hidden;
@@ -605,7 +605,7 @@
 
   border-radius: 4px;
   transform: translateX(22%);
-    padding: 2px 10px;
+    padding: 3px 10px;
   font-size: 12px;
   color: #fff;
   visibility: hidden;

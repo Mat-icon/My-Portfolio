@@ -132,16 +132,16 @@ const ExperimentsHome = () => {
           ref={circle1Ref}
           className="absolute rounded-full"
           style={{
-            top: isMobile ? "65%" : "45%",
-            left: isMobile ? "-49%" : "-8%",
+            top: isMobile ? "65%" : "35%",
+            left: isMobile ? "-49%" : "1%",
             width: isMobile ? "230px" : "400px",
             height: isMobile ? "230px" : "400px",
             background: isMobile
               ? "#E1B84F"
               : "radial-gradient(circle, #E1B84F66 0%, #E1B84F66 50%, transparent 80%)",
             filter: isMobile ? "blur(60px)" : "blur(120px)",
-            transform: isMobile ? "scale(1)" : "scale(0.5)",
-            opacity: isMobile ? 1 : 0.8,
+            transform: isMobile ? "scale(1)" : "scale(1)",
+            opacity: isMobile ? 1 : 0.4,
             willChange: "transform, opacity",
           }}
         />
@@ -151,16 +151,16 @@ const ExperimentsHome = () => {
           ref={circle2Ref}
           className="absolute rounded-full"
           style={{
-            bottom: isMobile ? "61%" : "50%",
+            bottom: isMobile ? "61%" : "20%",
             right: isMobile ? "-45%" : "-10%",
             width: isMobile ? "240px" : "400px",
             height: isMobile ? "240px" : "400px",
             background: isMobile
               ? "#E1B84F"
-              : "radial-gradient(circle, #E1B84F66 0%, #E1B84F66 50%, transparent 80%)",
+              : "radial-gradient(circle, #E1B84F66 0%, #E1B84F66 70%, transparent 80%)",
             filter: isMobile ? "blur(60px)" : "blur(100px)",
-            transform: isMobile ? "scale(1)" : "scale(0.5)",
-            opacity: isMobile ? 1 : 0.8,
+            transform: isMobile ? "scale(1)" : "scale(1)",
+            opacity: isMobile ? 1 : 0.5,
             willChange: "transform, opacity",
           }}
         />

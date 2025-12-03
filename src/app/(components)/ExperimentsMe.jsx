@@ -193,8 +193,8 @@ export default function ExperimentsMe() {
 
       {/* Header */}
       <header className="flex relative z-50 justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
-        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
-          <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
+        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.0%] h-full justify-center items-center group overflow-hidden">
+          <div className="rotate-90 scale-[0.60] -space-x-[1px] flex items-center  ">
             <span className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]" />
             <span className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md" />
             <span className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]" />
@@ -238,7 +238,7 @@ export default function ExperimentsMe() {
       {/* Main Content */}
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#494949] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-md md:justify-center md:space-y-4 md:border-r md:border-[#494949] md:w-[3.0%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container2">
             <Link href="/">
               <FiHome
@@ -409,12 +409,12 @@ export default function ExperimentsMe() {
       <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
-          className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
+          className="w-[12%] md:w-[3.0%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
           style={{ backgroundColor: "#E1B84F" }}
           onClick={toggleMusicPlayer}
         >
           <div className="relative flex items-center justify-center">
-            <CiSearch className="text-black text-2xl" />
+            <CiSearch className="text-black text-xl" />
           </div>
         </div>
 
@@ -507,7 +507,7 @@ export default function ExperimentsMe() {
           onMouseLeave={() => setHovered(false)}
           href="/contact"
           style={{ background: "#0a0a0afb" }}
-          className="hidden material-bubble2 md:block w-[55%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-2 md:mr-3 rounded-[3px] border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
+          className="material-bubble2  w-[55%] md:w-4/12 lg:w-[14%] py-[4px] lg:px-1 text-[14px] mr-2 md:mr-3 rounded-[3px] border-[0.5px] border-[#6462628c] bg-[#0f0f0f] text-center"
           onMouseOver={(e) => (e.currentTarget.style.borderColor = accentColor)}
           onMouseOut={(e) => (e.currentTarget.style.borderColor = "#6462628c")}
         >

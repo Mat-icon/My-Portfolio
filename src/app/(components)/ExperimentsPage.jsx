@@ -222,8 +222,8 @@ export default function ExperimentsPage({ isVisible, accentColor }) {
               <span className=" text-[#E1B84F]"> experiments</span>
             </h1>
             <p className="w-11/12 md:w-10/12 text-[#9d9d9d] lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl mt-6  our-text">
-              Not only client work: I code also for experimenting<br/> and personal
-              projects, and I&apos;m happy to give back<br/> to the community by
+              Not only client work: I code also for experimenting<br className="hidden md:block"/> and personal
+              projects, and I&apos;m happy to give back<br className="hidden md:block"/> to the community by
               contributing to open-source.
             </p>
             <div className="mx-auto my-4 flex justify-center">

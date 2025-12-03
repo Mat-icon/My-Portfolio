@@ -40,7 +40,7 @@ const ROUTE_BG_COLORS = {
 
 const LoaderRings = () => {
   return (
-    <div className="flex w-[8%] border-l border-[#494949] md:w-[3.15%] h-full justify-center items-center  overflow-hidden">
+    <div className="flex w-[8%] border-l border-[#494949] md:w-[3.0%] h-full justify-center items-center  overflow-hidden">
           
       <div className="relative w-5 h-5">
         <div className="absolute inset-0 border-2 border-white/20 rounded-full"></div>
@@ -221,7 +221,7 @@ export default function Home() {
         animate={{ opacity: showInitialLoader ? 1 : 1 }}
         className="flex justify-between filter relative z-50 md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
       >
-        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
+        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.0%] h-full justify-center items-center group overflow-hidden">
            <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
               <span
                 className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
@@ -274,7 +274,7 @@ export default function Home() {
         className="flex flex-1 min-h-0 relative"
       >
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#6462628c] md:w-[3.0%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container">
             <Link href="/">
               <FiHome
@@ -455,7 +455,7 @@ export default function Home() {
       >
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
-          className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
+          className="w-[12%] md:w-[3.0%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
           style={{ backgroundColor: bgColor }}
           onClick={toggleMusicPlayer}
         >

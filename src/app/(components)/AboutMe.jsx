@@ -190,7 +190,7 @@ export default function AboutMe() {
 
       {/* Header */}
       <header className="flex justify-between relative z-50 filter  backdrop-blur-xl glossy-25 items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
-        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.15%] h-full justify-center items-center group overflow-hidden">
+        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.0%] h-full justify-center items-center group overflow-hidden">
            <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
               <span
                 className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
@@ -237,7 +237,7 @@ export default function AboutMe() {
       {/* Main Content */}
       <div className="flex flex-1 min-h-0 relative">
         {/* Sidebar */}
-        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#494949] md:w-[3.1%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
+        <aside className="hidden md:flex md:flex-col md:items-center  glossy-25 backdrop-blur-2xl md:justify-center md:space-y-4 md:border-r md:border-[#494949] md:w-[3.0%] md:absolute md:left-0 md:top-0 md:bottom-0 md:z-10">
           <div className="icon-container2">
             <Link href="/">
               <FiHome
@@ -413,7 +413,7 @@ export default function AboutMe() {
       <footer className="flex glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0">
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
-          className="w-[12%] md:w-[3.1%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
+          className="w-[12%] md:w-[3.0%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
           style={{ backgroundColor: "#4d81ee" }}
           onClick={toggleMusicPlayer}
         >
