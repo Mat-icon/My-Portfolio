@@ -90,7 +90,7 @@ const Index = ({
       variants={containerVariant}
       onMouseEnter={() => !isMobile && setIsHovered(true)}
       onMouseLeave={() => !isMobile && setIsHovered(false)}
-      className="w-full max-w-4xl mx-auto backdrop-blur-md border border-[#494949] rounded-[8px] px-8 py-8 cursor-pointer"
+      className="w-full max-w-4xl mx-auto fonts backdrop-blur-md border border-[#494949] rounded-[8px] px-8 py-8 cursor-pointer"
       style={{
         backgroundColor: "color-mix(in oklab, #0f0f0f 25%, transparent)",
       }}
@@ -175,7 +175,7 @@ const Index = ({
                   {tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-3 py-[6px] rounded-full bg-[#07080742] border border-[#494949] text-white/70"
+                      className="text-xs lowercase px-3 py-[6px] rounded-full bg-[#07080742] border border-[#494949] text-white/70"
                     >
                       {tag}
                     </span>
