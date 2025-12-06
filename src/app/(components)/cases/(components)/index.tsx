@@ -185,17 +185,17 @@ const Index = ({
             </div>
 
             {/* BUTTONS */}
-            <div className="mt-8 w-full justify-center flex gap-4 mx-auto">
+            <div className="mt-8 w-full justify-center flex md:flex-row flex-col gap-4 mx-auto">
               <a
                 href={github}
-                className="px-4 py-3 rounded-md bg-[#07080742] border border-[#494949] text-white hover:bg-white/20 transition"
+                className="px-4 py-3 text-sm rounded-md bg-[#07080742] border border-[#494949] text-white hover:bg-white/20 transition"
                 onClick={(e) => e.stopPropagation()}
               >
                 github-repository ↗
               </a>
               <a
                 href={documentation}
-                className="px-4 py-3 rounded-md bg-[#07080742] border border-[#494949] text-white hover:text-white transition"
+                className="px-4 py-3 text-sm rounded-md bg-[#07080742] border border-[#494949] text-white hover:text-white transition"
                 onClick={(e) => e.stopPropagation()}
               >
                 documentation ↗
