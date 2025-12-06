@@ -90,7 +90,7 @@ const Index = ({
       variants={containerVariant}
       onMouseEnter={() => !isMobile && setIsHovered(true)}
       onMouseLeave={() => !isMobile && setIsHovered(false)}
-      className="w-full max-w-4xl mx-auto fonts backdrop-blur-md border border-[#494949] rounded-[8px] px-3 md:px-8 py-8 cursor-pointer"
+      className="w-full max-w-4xl mx-auto fonts backdrop-blur-md border border-[#494949] rounded-[8px] px-1 md:px-8 py-8 cursor-pointer"
       style={{
         backgroundColor: "color-mix(in oklab, #0f0f0f 25%, transparent)",
       }}
