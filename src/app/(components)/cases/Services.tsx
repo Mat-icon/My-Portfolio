@@ -16,7 +16,7 @@ const projects: ProjectType[] = [
   {
     title: "Telgachain",
     subtitle: "Blockchain technology for everyone",
-    image: "brabik.png",
+    image: "/images/brabik.png",
     tags: ["React.JS", "Node.JS", "CSS"],
     description:
       "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
@@ -27,7 +27,7 @@ const projects: ProjectType[] = [
   {
     title: "Nuxt Social Share",
     subtitle: "Simple social sharing for your Nuxt Sites",
-    image: "brabik.png",
+    image: "/images/ee.png",
     tags: ["Nuxt", "Vue.js", "TypeScript", "Open-source"],
     description:
       "A Nuxt module providing a customizable social share button component with support for multiple platforms. Features include customizable styles, share counts, and easy integration.",
@@ -52,7 +52,7 @@ const projects: ProjectType[] = [
 
 export default function Home() {
   return (
-    <main className={`lg:px-[120px] my-10 md:px-[100px] px-4 poppins`}>
+    <main className={`lg:px-[120px] my-16 md:px-[100px] px-4 poppins`}>
       <div className="space-y-4">
         {projects.map((project, idx) => (
           <Index
