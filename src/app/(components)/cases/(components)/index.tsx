@@ -120,7 +120,7 @@ const Index = ({
               transform: isHovered ? "translateX(-35px)" : "none",
             }}
           >
-            <h1 className="text-5xl font-bold poppins text-white tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-bold poppins text-white tracking-tighter">
               {title}
             </h1>
             <p className="text-[#9d9d9d] fonts text-sm mt-1">{subtitle}</p>
