@@ -8,6 +8,8 @@ import { useGLTF } from "@react-three/drei";
 import LuminousBeam from "./LuminousBeam";
 import PageTestimonials from "./PagesTestimonial";
 import RouteLoader from "./RouteLoader";
+import Index from "./cases/(components)";
+import Home from "./cases/Services";
 
 const Model = ({
   path,
@@ -333,7 +335,7 @@ export default function ExperimentsPage({ isVisible, accentColor }) {
             <p>design</p>
           </div>
         </div>
-
+        <Home />
         <PageTestimonials />
         <PagesContactBar />
         <Footer />

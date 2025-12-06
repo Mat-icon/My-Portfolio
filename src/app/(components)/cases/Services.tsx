@@ -1,268 +1,73 @@
 "use client";
-import React, { useState, useEffect, useRef, MouseEvent } from "react";
-import styles from "./style.module.scss";
-import Project from "./(components)/index";
-import { motion } from "framer-motion";
-import gsap from "gsap";
-import Image from "next/image";
-import Link from "next/link";
-
+import Index from "./(components)/index";
 
 interface ProjectType {
   title: string;
-  color: string;
-  time: string;
+  subtitle: string;
   link: string;
-  lang: string[];
+  tags: string[];
   image: string;
-   bookBorder:string;
-  bookBg:string;
-
   description: string;
+  github: string;
+  documentation: string;
 }
 
 const projects: ProjectType[] = [
-   {
-    title: "Brabik Smarthomes",
-    time: "2025",
-    lang: ["Nextjs", "Zustand", "Threejs","Tailwindcss", "Typescript"],  
-    color: "#333",
-    image: "brabik.png",
-    bookBg:"bg-[#fff]",
-    bookBorder: "border-[#000]",
-    description:
-      "A minimalist e-commerce platform for smart home devices and automation solutions.",
-    link: "https://brabik.netlify.app/"
-  },
-    {
-    title: "Noirvik Fashion",
-    time: "2025",
-    image: "noirvik.png",
-
-    lang: ["Nextjs", "Tailwindcss", "Nodejs"],  
-    color: "#706D63",
-     bookBg:"bg-[#0a0a0a9a]",
-    bookBorder: "border-[white]",
-    description:
-    
-      "A minimalist e-commerce fashion store showcasing a curated selection of stylish apparel and accessories.",
-    link: "https://noirvik.netlify.app/"
-  },
-  {
-    title: "Bwintech",
-    image: "bwin.png",
-    time: "2025",
-    lang: ["Nextjs", "Tailwindcss", "Nodejs"],
-    color: "#706D63",
-     bookBg:"bg-[#fff]",
-    bookBorder: "border-[#706D63]",
-    description:
-      "Bwintech is a boutique data consultancy helping businesses make smarter decisions with their data.",
-    link: "https://bwintech.com.au/",
-  },
-
-  {
-    title: "Adelehamza Resources",
-    time: "2025",
-    image: "adele.png",
-     bookBg:"bg-[#fff]",
-    bookBorder: "border-[#000]",
-    lang: ["Nextjs", "Tailwindcss", "Nodejs"],
-    link: "https://adelehamzaresources.com/",
-    color: "#706D63",
-    description:
-      "A digital consultancy platform that simplifies Nigeria’s building construction documentation process.",
-  },
-
-  {
-    title: "Home loan hub app",
-    time: "2025",
-    bookBg:"bg-[#ffffff]",
-    bookBorder: "border-[#333]",
-    lang: ["Nextjs", "AI Integration", "Nodejs"],
-    color: "#706D63",
-    image: "calc.png",
-    description:
-      "AI-powered chatbot that helps users check loan eligibility in a conversational, friendly way.",
-    link: "https://home-loan-hub.netlify.app/",
-  },
-   {
-    title: "Tap2 member",
-    time: "2025",
-     bookBg:"bg-[#fff]",
-    bookBorder: "border-[#000]",
-    lang: ["Svelte 5", "Convex","tailwindcss", "clerk", "Sveltekit", "typeScript"],  
-    color: "#706D63",
-    image: "tap2.png",
-    description:
-      "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
-    link: "https://tap2member.netlify.app/"
-  },
-  {
-    title: "Delve Learn",
-     bookBg:"bg-[#fff]",
-    bookBorder: "border-[#03c9fa]",
-    lang: ["Tailwindcss", "Next.js", "Php"],
-    color: "#706D63",
-     image: "brabik.png",
-    time: "2024",
-    link: " https://delve.fun/",
-    description:
-      "Learning platform with interactive courses and resources for skill development.",
-  },
-  {
-    title: "Devlinks",
-     bookBg:"bg-[#fff]",
-    bookBorder: "border-[#03c9fa]",
-    lang: ["Next.js", "Tailwind.css", "Firebase"],
-    color: "#000000",
-     image: "brabik.png",
-    time: "2024",
-    link: "https://mathewlinktree.netlify.app/",
-    description:
-      "A personalized link-sharing tool to connect all your social media and portfolio links.",
-  },
-  {
-    title: "Home Loan Hub App",
-    time: "2025",
-     bookBg:"bg-[#fff]",
-    bookBorder: "border-[#03c9fa]",
-    lang: ["Next.js", "AI Integration", "Node.js"],
-    color: "#706D63",
-     image: "brabik.png",
-    description:
-      "AI-powered chatbot that helps users check loan eligibility in a conversational, friendly way.",
-    link: "https://home-loan-hub.netlify.app/",
-  },
-
   {
     title: "Telgachain",
-    color: "#706D63",
-     image: "brabik.png",
-    time: "2023",
-     bookBg:"bg-[#fff]",
-    bookBorder: "border-[#03c9fa]",
-    lang: ["React.JS", "Node.JS", "Css"],
+    subtitle: "Blockchain technology for everyone",
+    image: "brabik.png",
+    tags: ["React.JS", "Node.JS", "CSS"],
     description:
       "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
     link: "https://tegalchain.org/",
+    github: "https://github.com/yourusername/telgachain",
+    documentation: "https://docs.tegalchain.org/",
+  },
+  {
+    title: "Nuxt Social Share",
+    subtitle: "Simple social sharing for your Nuxt Sites",
+    image: "brabik.png",
+    tags: ["Nuxt", "Vue.js", "TypeScript", "Open-source"],
+    description:
+      "A Nuxt module providing a customizable social share button component with support for multiple platforms. Features include customizable styles, share counts, and easy integration.",
+    link: "https://tegalchain.org/",
+    github: "https://github.com/yourusername/nuxt-social-share",
+    documentation: "https://docs.nuxt-social-share.com/",
+  },
+  {
+    title: "React Dashboard",
+    subtitle: "Modern analytics dashboard",
+    image: "brabik.png",
+    tags: ["React.JS", "TypeScript", "Tailwind"],
+    description:
+      "A fully responsive analytics dashboard with real-time data visualization, customizable widgets, and dark mode support.",
+    link: "https://example.com/",
+    github: "https://github.com/yourusername/react-dashboard",
+    documentation: "https://docs.react-dashboard.com/",
   },
 ];
-const scaleAnimation = {
-  initial: { scale: 0, x: "-50%", y: "-50%" },
-  enter: {
-    scale: 1,
-    x: "-50%",
-    y: "-50%",
-    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
-  },
-  closed: {
-    scale: 0,
-    x: "-50%",
-    y: "-50%",
-    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
-  },
-};
 
-interface ModalState {
-  active: boolean;
-  index: number;
-}
+
 
 export default function Home() {
-  const [modal, setModal] = useState<ModalState>({ active: false, index: 0 });
-  const { active } = modal;
-  const cursor = useRef<HTMLDivElement | null>(null);
-  const cursorLabel = useRef<HTMLDivElement | null>(null);
-
-  const xMoveCursor = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
-  const yMoveCursor = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
-  const xMoveCursorLabel = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
-  const yMoveCursorLabel = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
-
-  useEffect(() => {
-    if (cursor.current && cursorLabel.current) {
-      xMoveCursor.current = gsap.quickTo(cursor.current, "left", {
-        duration: 0.5,
-        ease: "power3",
-      });
-      yMoveCursor.current = gsap.quickTo(cursor.current, "top", {
-        duration: 0.5,
-        ease: "power3",
-      });
-
-      xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "left", {
-        duration: 0.45,
-        ease: "power3",
-      });
-      yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "top", {
-        duration: 0.45,
-        ease: "power3",
-      });
-    }
-  }, []);
-
-  const moveItems = (x: number, y: number) => {
-    if (
-      xMoveCursor.current &&
-      yMoveCursor.current &&
-      xMoveCursorLabel.current &&
-      yMoveCursorLabel.current
-    ) {
-      xMoveCursor.current(x);
-      yMoveCursor.current(y);
-      xMoveCursorLabel.current(x);
-      yMoveCursorLabel.current(y);
-    }
-  };
-
-  const manageModal = (active: boolean, index: number, x: number, y: number) => {
-    moveItems(x, y);
-    setModal({ active, index });
-  };
-
-  
   return (
-    <main
-      onMouseMove={(e: MouseEvent) => moveItems(e.clientX, e.clientY)}
-      className={`lg:px-[120px] mt-8 md:px-[100px] px-4 poppins ${styles.projects}`}
-    >
-      <div className={styles.body}>
+    <main className={`lg:px-[120px] my-10 md:px-[100px] px-4 poppins`}>
+      <div className="space-y-4">
         {projects.map((project, idx) => (
-          <Project
-            manageModal={manageModal}
-            description={project.description}
-            lang={project.lang}
-            bookBorder={project.bookBorder}
-            bookBg={project.bookBg}
-            date={project.time}
-            link={project.link}
-            image={project.image}
+          <Index
             key={idx}
             index={idx}
             title={project.title}
+            subtitle={project.subtitle}
+            image={project.image}
+            description={project.description}
+            tags={project.tags}
+            github={project.github}
+            documentation={project.documentation}
           />
         ))}
       </div>
-
-      <>
-        <motion.div
-          ref={cursor}
-          className={styles.cursor}
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? "enter" : "closed"}
-        />
-        <motion.div
-          ref={cursorLabel}
-          className={styles.cursorLabel}
-          variants={scaleAnimation}
-          initial="initial"
-          animate={active ? "enter" : "closed"}
-        >
-          View
-        </motion.div>
-      </>
     </main>
   );
 }

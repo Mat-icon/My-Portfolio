@@ -75,7 +75,7 @@ const ExperimentsHome = () => {
       } else {
         // Desktop animations - diagonal, larger movement
         gsap.to(circle1Ref.current, {
-          scale: 1.6,
+          scale: 1.4,
           x: "+=120",
           y: "+=80",
           duration: 28,
@@ -93,7 +93,7 @@ const ExperimentsHome = () => {
         });
 
         gsap.to(circle2Ref.current, {
-          scale: 1.7,
+          scale: 1.4,
           x: "-=100",
           y: "-=70",
           duration: 24,
