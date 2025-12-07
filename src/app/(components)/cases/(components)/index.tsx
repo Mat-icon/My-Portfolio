@@ -140,7 +140,7 @@ const Index = ({
               <h1 className="text-3xl md:text-5xl font-bold poppins text-white tracking-tighter">
                 {title}
               </h1>
-              <p className="text-[#9d9d9d] fonts text-sm">{subtitle}</p>
+              <p className="text-[#9d9d9d] fonts text-xs md:text-sm">{subtitle}</p>
             </div>
           </div>
 
