@@ -137,7 +137,7 @@ const ExperimentsHome = () => {
             width: isMobile ? "230px" : "400px",
             height: isMobile ? "230px" : "400px",
             background: isMobile
-              ? "#E1B84F"
+              ? "#E1B84F66"
               : "radial-gradient(circle, #E1B84F66 0%, #E1B84F66 50%, transparent 80%)",
             filter: isMobile ? "blur(60px)" : "blur(120px)",
             transform: isMobile ? "scale(1)" : "scale(1)",
@@ -156,7 +156,7 @@ const ExperimentsHome = () => {
             width: isMobile ? "240px" : "400px",
             height: isMobile ? "240px" : "400px",
             background: isMobile
-              ? "#E1B84F"
+              ? "#E1B84F66"
               : "radial-gradient(circle, #E1B84F66 0%, #E1B84F66 70%, transparent 80%)",
             filter: isMobile ? "blur(60px)" : "blur(100px)",
             transform: isMobile ? "scale(1)" : "scale(1)",
