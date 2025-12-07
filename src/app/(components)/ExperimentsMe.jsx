@@ -410,7 +410,7 @@ export default function ExperimentsMe() {
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
           className="w-[12%] md:w-[3.0%] h-full flex items-center justify-center border-r border-[#494949] shrink-0 cursor-pointer hover:opacity-80 transition"
-          style={{ backgroundColor: "#E1B84F" }}
+          style={{ backgroundColor: "#e1b84fb9" }}
           onClick={toggleMusicPlayer}
         >
           <div className="relative flex items-center justify-center">
