@@ -69,7 +69,6 @@ export default function Home() {
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
   const [showInitialLoader, setShowInitialLoader] = useState(true);
-  const [hasAnimated, setHasAnimated] = useState(false); // NEW: Track if animation has run
   const accentColor = ROUTE_COLORS[currentRoute];
   const bgColor = ROUTE_BG_COLORS[currentRoute];
 
@@ -80,15 +79,11 @@ export default function Home() {
   }, [pathname]);
 
   useEffect(() => {
-    // Only run once on initial mount
-    if (!hasAnimated) {
-      const timer = setTimeout(() => {
-        setShowInitialLoader(false);
-        setHasAnimated(true); // Mark as animated
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, []); // Empty dependency array - only runs once
+    const timer = setTimeout(() => {
+      setShowInitialLoader(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const container = {
     hidden: {},
@@ -192,20 +187,21 @@ export default function Home() {
     <motion.div
       initial={{ height: "6.5dvh" }}
       animate={
-        hasAnimated // Check if animation has already run
-          ? { height: "98dvh" } // If yes, stay at full height
-          : showInitialLoader
-          ? { height: "6.5dvh" }
-          : { height: "98dvh" }
+        showInitialLoader
+          ? {
+              height: "6.5dvh"
+            }
+          : { 
+              height: "98dvh"
+            }
       }
       transition={{
         duration: 1.5,
         ease: [0.76, 0, 0.24, 1],
       }}
-      className="flex flex-col w-[95.5%] md:w-[99%] my-auto text-white border border-[#494949] relative z-40 rounded"
+      className="flex flex-col w-[95.5%] md:w-[99%] my-auto overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
-        overflow: showInitialLoader ? "hidden" : "visible", // Hide overflow during animation
       }}
     >
       <style jsx>{`
@@ -456,10 +452,6 @@ export default function Home() {
       {/* Footer */}
       <footer
         className="flex md:glossy-25 h-10 w-full justify-between items-center border-t border-[#494949] text-gray-600 relative shrink-0"
-        style={{ 
-          opacity: showInitialLoader ? 0 : 1,
-          pointerEvents: showInitialLoader ? 'none' : 'auto'
-        }}
       >
         {/* Left section - Dynamic color sidebar with music icon */}
         <div
