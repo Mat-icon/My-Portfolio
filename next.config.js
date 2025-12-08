@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    turbo: false, // FORCES WEBPACK (Fixes your Netlify + Turbopack error)
-  },
 
   webpack: (config) => {
     // Add support for loading .mov & .mp4 files
