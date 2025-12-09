@@ -340,8 +340,8 @@ export default function Index({
               </motion.h3>
 
               <div className="ml-2 md:ml-4">
-                <h2
-                  className=" poppins font-bold tracking-tighter text-[26px] xl:text-[40px]"
+                <h1
+                  className=" poppins font-bold tracking-tighter text-[26px] xl:text-5xl"
                   style={{
                     margin: "0px",
                     transition: "all 0.4s",
@@ -349,10 +349,10 @@ export default function Index({
                   }}
                 >
                   {title}
-                </h2>
+                </h1>
 
                 <h4
-                  className="text-[12px] des fonts font-light text-[#9D9D9D] mb-2"
+                  className="text-[12px] des fonts font-light text-[#9D9D9D] my-3"
                   style={{
                     transition: "all 0.4s",
                     transform: isHovered ? "translateX(-35px)" : "none",
