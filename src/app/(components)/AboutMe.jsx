@@ -71,6 +71,8 @@ export default function AboutMe() {
     return () => clearTimeout(timeout);
   }, [pathname]);
 
+  
+
   const container = {
     hidden: {},
     visible: {
@@ -328,7 +330,7 @@ export default function AboutMe() {
         <div
           ref={scrollContainerRef}
           id="app-wrapper"
-          className="flex-1 md:pl-[3.1%] relative scrollbar2 overflow-x-hidden overflow-y-auto"
+          className={`flex-1 md:pl-[3.1%] relative scrollbar2 overflow-x-hidden ${isLoading ? "overflow-y-hidden": "overflow-y-auto"}`}
         >
           <motion.div>
             <AboutPage isVisible={isLoading} accentColor={accentColor} />

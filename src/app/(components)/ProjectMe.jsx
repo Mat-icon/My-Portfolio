@@ -25,6 +25,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import FullNav from "./FullNav";
 import Project from "./ProjectPage";
 import { PiLightning } from "react-icons/pi";
+import RouteLoader from "./RouteLoader";
 
 const ROUTE_COLORS = {
   "/": "#8fff86", // Home - Green
@@ -339,14 +340,13 @@ export default function ProjectMe() {
         {/* Main Content Area with padding for sidebar */}
         <div
           ref={scrollContainerRef}
-          className="flex-1 md:pl-[3.1%] relative scrollbar4 overflow-x-hidden overflow-y-auto"
+          className={`flex-1 md:pl-[3.1%] relative scrollbar4 overflow-x-hidden  ${isLoading ? "overflow-y-hidden": "overflow-y-auto"}`}
         >
-         
           <motion.div
-
           >
            
          <Project isVisible={isLoading} accentColor={accentColor} />
+            <RouteLoader  isVisible={isLoading} accentColor={accentColor} />
           </motion.div>
         </div>
          <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
