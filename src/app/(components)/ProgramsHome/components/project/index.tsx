@@ -341,7 +341,7 @@ export default function Index({
 
               <div className="ml-2 md:ml-4">
                 <h1
-                  className=" poppins font-bold tracking-tighter text-[26px] xl:text-5xl"
+                  className=" poppins font-bold tracking-tighter text-[26px] xl:text-[42px]"
                   style={{
                     margin: "0px",
                     transition: "all 0.4s",
