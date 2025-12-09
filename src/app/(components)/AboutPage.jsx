@@ -167,7 +167,7 @@ const Scene = ({ mousePosition, isHovering }) => {
   );
 };
 
-export default function Project({isVisible ,accentColor}) {
+export default function Project() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const headerRef = useRef(null);
@@ -191,7 +191,7 @@ export default function Project({isVisible ,accentColor}) {
   };
 
   return (
-    <div ref={headerRef}>
+    <div ref={headerRef}      id="app-wrapper">
       <div
         ref={canvasRef}
         onMouseMove={handleMouseMove}
@@ -319,7 +319,7 @@ export default function Project({isVisible ,accentColor}) {
                 `}</style>
 
                 
-                                <RouteLoader  isVisible={isVisible} accentColor={accentColor} />
+                              
         <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
           <div className="relative flex gap-8 object-heavy text-[400px] md:text-[600px] space-x-8 font-extrabold  text-[#00000044]  whitespace-nowrap animate-scroll">
             <p>code</p>

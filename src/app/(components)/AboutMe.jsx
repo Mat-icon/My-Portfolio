@@ -23,6 +23,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import FullNav from "./FullNav";
 import { BiSearch } from "react-icons/bi";
 import { PiLightning } from "react-icons/pi";
+import RouteLoader from './RouteLoader';
+
 
 const ROUTE_COLORS = {
   "/": "#8fff86", // Home - Green
@@ -39,15 +41,13 @@ const ROUTE_BG_COLORS = {
   "/contact": "#8A7A4C", // Contact - Dark Yellow/Orange
 };
 
-
-
 export default function AboutMe() {
   const [currentTime, setCurrentTime] = useState(
-         new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        })
+    new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    })
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -191,19 +191,11 @@ export default function AboutMe() {
       {/* Header */}
       <header className="flex justify-between relative z-50 filter  backdrop-blur-xl glossy-25 items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
         <div className="flex w-[12%] border-r border-[#494949] md:w-[3.0%] h-full justify-center items-center group overflow-hidden">
-           <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
-              <span
-                className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
-        
-              />
-              <span
-                className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md"
-       
-              />
-              <span
-                className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]"
-              />
-            </div>
+          <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
+            <span className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]" />
+            <span className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md" />
+            <span className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]" />
+          </div>
         </div>
 
         {/* Center name */}
@@ -242,7 +234,7 @@ export default function AboutMe() {
             <Link href="/">
               <FiHome
                 className={`${
-                    currentRoute === "/" ? "text-black" : "text-white"
+                  currentRoute === "/" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 style={{
                   "--hover-color": accentColor,
@@ -263,7 +255,7 @@ export default function AboutMe() {
             <Link href="/about-me">
               <LuUserRound
                 className={`${
-                    currentRoute === "/about-me" ? "text-black" : "text-white"
+                  currentRoute === "/about-me" ? "text-black" : "text-white"
                 } text-base cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -281,7 +273,7 @@ export default function AboutMe() {
             <Link href="/projects">
               <CiLaptop
                 className={`${
-                    currentRoute === "/projects" ? "text-black" : "text-white"
+                  currentRoute === "/projects" ? "text-black" : "text-white"
                 } text-lg cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -297,9 +289,9 @@ export default function AboutMe() {
 
           <div className="icon-container2">
             <Link href="/experiments">
-              <PiLightning 
+              <PiLightning
                 className={`${
-                    currentRoute === "/experiments" ? "text-black" : "text-white"
+                  currentRoute === "/experiments" ? "text-black" : "text-white"
                 } text-lg cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -335,18 +327,16 @@ export default function AboutMe() {
         {/* Main Content Area with padding for sidebar */}
         <div
           ref={scrollContainerRef}
+          id="app-wrapper"
           className="flex-1 md:pl-[3.1%] relative scrollbar2 overflow-x-hidden overflow-y-auto"
         >
-         
-          <motion.div
-     
-          >
-           
-          <AboutPage isVisible={isLoading} accentColor={accentColor}/>
-          
+          <motion.div>
+            <AboutPage isVisible={isLoading} accentColor={accentColor} />
+              <RouteLoader  isVisible={isLoading} accentColor={accentColor} />
           </motion.div>
         </div>
-         <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
+        <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
+        
       </div>
 
       {/* Music Player Toaster */}
@@ -440,7 +430,7 @@ export default function AboutMe() {
               Based in{" "}
               <motion.span
                 variants={{
-                rest: { color: "#9d9d9d" },
+                  rest: { color: "#9d9d9d" },
                   hover: { color: "#fff" },
                 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}

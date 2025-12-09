@@ -57,7 +57,7 @@ const testimonials = [
       "Matthew is a talented developer with a great sense for design and user experience. He is highly collaborative and receptive to feedback, making the entire design-to-development process smooth and efficient. His ability to bring creative concepts to life through clean, structured code is inspiring. I admire his professionalism, consistency, and dedication to producing high-quality work that aligns perfectly with the project's vision.",
     author: "Christopher Victor",
     position: "UI/UX Designer",
-    image: "/images/a.png",
+    image: "/images/vicky.png",
   },
 ];
 

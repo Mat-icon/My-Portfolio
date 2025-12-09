@@ -336,6 +336,7 @@ export default function ContactMe() {
         {/* Main Content Area with padding for sidebar */}
         <div
           ref={scrollContainerRef}
+          id="app-wrapper"
           className="flex-1 md:pl-[3.1%] relative  scrollbar3 overflow-x-hidden overflow-y-auto"
         >
          
