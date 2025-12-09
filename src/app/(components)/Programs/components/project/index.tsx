@@ -823,7 +823,7 @@ export default function Index({
             </div>
 
             {/* Content */}
-            <h2 className="tracking-[-1px] poppins text-white text-[26px]">{title}</h2>
+            <h2 className=" font-bold tracking-tighter poppins text-white text-[26px]">{title}</h2>
 
             {/* <h4 className="text-[12px] des tracking-tighter fonts font-light text-[#9D9D9D] mb-2">
               {description}
@@ -858,10 +858,9 @@ export default function Index({
 
               <div className="ml-2 md:ml-4">
                 <h2
-                  className="tracking-[-1px] poppins text-white text-[26px] xl:text-[40px]"
+                  className="tracking-tighter poppins font-bold text-white text-[26px] xl:text-[40px]"
                   style={{
                     margin: "0px",
-                    fontWeight: 400,
                     transition: "all 0.4s",
                     transform: isHovered ? "translateX(-35px)" : "none",
                   }}
