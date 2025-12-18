@@ -72,7 +72,7 @@ const projects: ProjectType[] = [
   //   link: "https://home-loan-hub.netlify.app/",
   // },
    {
-    title: "Tap2 Member",
+    title: "Track Member",
     time: "2025",
      bookBg:"bg-[#fff]",
     bookBorder: "border-[#03c9fa]",

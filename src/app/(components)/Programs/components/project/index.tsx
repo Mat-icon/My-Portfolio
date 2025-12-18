@@ -869,7 +869,7 @@ export default function Index({
                 </h1>
 
                 <h4
-                  className="text-[12px] des  fonts font-light text-[#9D9D9D] my-3"
+                  className="text-[12px] des  fonts font-light text-[#9D9D9D] my-1"
                   style={{
                     transition: "all 0.4s",
                     transform: isHovered ? "translateX(-35px)" : "none",
