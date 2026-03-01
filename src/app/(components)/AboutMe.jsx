@@ -499,14 +499,18 @@ export default function AboutMe() {
 
         {/* Mobile - Social Icons */}
         <div className="flex md:hidden text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
-          <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
+          <Link href="https://www.linkedin.com/in/matthew-ameh-dev/">
             <FaLinkedin className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
           </Link>
-          <FiInstagram className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
+          <Link href="https://www.instagram.com/matthew_roife?igsh=MWZjYTA5aWNvZmExdQ==">
+            <FiInstagram className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
+          </Link>
           <Link href="https://github.com/Mat-icon?tab=repositories">
             <FiGithub className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
           </Link>
-          <FaXTwitter className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
+          <Link href="https://x.com/__ICyou">
+            <FaXTwitter className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
+          </Link>
         </div>
 
         {/* Right section - Contact button (Desktop only) */}

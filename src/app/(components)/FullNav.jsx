@@ -86,17 +86,21 @@ const FullScreenNav = ({ isOpen, toggleNav }) => {
 
       {/* Social Links */}
       <div className="flex text-[#fff] justify-evenly items-center space-x-6 mt-auto pb-6">
-        <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
+        <Link href="https://www.linkedin.com/in/matthew-ameh-dev/">
           <FaLinkedin className="text-xl hover:text-white cursor-pointer hover:scale-105 transition-all" />
         </Link>
 
-        <FiInstagram className="text-xl hover:text-white cursor-pointer hover:scale-105 transition-all" />
+        <Link href="https://www.instagram.com/matthew_roife?igsh=MWZjYTA5aWNvZmExdQ==">
+          <FiInstagram className="text-xl hover:text-white cursor-pointer hover:scale-105 transition-all" />
+        </Link>
 
         <Link href="https://github.com/Mat-icon?tab=repositories">
           <FiGithub className="text-xl hover:text-white cursor-pointer hover:scale-105 transition-all" />
         </Link>
 
-        <FaXTwitter className="text-xl hover:text-white cursor-pointer hover:scale-105 transition-all" />
+        <Link href="https://x.com/__ICyou">
+          <FaXTwitter className="text-xl hover:text-white cursor-pointer hover:scale-105 transition-all" />
+        </Link>
       </div>
     </div>
   );

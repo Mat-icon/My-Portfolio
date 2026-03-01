@@ -41,16 +41,13 @@ const ROUTE_BG_COLORS = {
   "/contact": "#466375", // Contact - Dark Yellow/Orange
 };
 
-
-
-
 export default function ContactMe() {
   const [currentTime, setCurrentTime] = useState(
-         new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        })
+    new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }),
   );
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -126,7 +123,7 @@ export default function ContactMe() {
           hour: "2-digit",
           minute: "2-digit",
           hour12: false,
-        })
+        }),
       );
     }, 1000);
 
@@ -193,20 +190,12 @@ export default function ContactMe() {
 
       {/* Header */}
       <header className="flex justify-between relative z-30 filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
-            <div className="flex w-[12%] border-r border-[#494949] md:w-[3.0%] h-full justify-center items-center group overflow-hidden">
+        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.0%] h-full justify-center items-center group overflow-hidden">
           <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
-              <span
-                className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
-        
-              />
-              <span
-                className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md"
-       
-              />
-              <span
-                className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]"
-              />
-            </div>
+            <span className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]" />
+            <span className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md" />
+            <span className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]" />
+          </div>
         </div>
 
         {/* Center name */}
@@ -297,11 +286,11 @@ export default function ContactMe() {
             </Link>
             <span className="badge2">works</span>
           </div>
-<div className="icon-container2">
+          <div className="icon-container2">
             <Link href="/experiments">
-              <PiLightning 
+              <PiLightning
                 className={`${
-                    currentRoute === "/experiments" ? "text-black" : "text-white"
+                  currentRoute === "/experiments" ? "text-black" : "text-white"
                 } text-lg cursor-pointer`}
                 onMouseEnter={(e) =>
                   (e.currentTarget.style.color = accentColor)
@@ -338,18 +327,14 @@ export default function ContactMe() {
         <div
           ref={scrollContainerRef}
           id="app-wrapper"
-          className={`flex-1 md:pl-[3.1%] relative  scrollbar3 overflow-x-hidden  ${isLoading ? "overflow-y-hidden": "overflow-y-auto"}`}
+          className={`flex-1 md:pl-[3.1%] relative  scrollbar3 overflow-x-hidden  ${isLoading ? "overflow-y-hidden" : "overflow-y-auto"}`}
         >
-         
-          <motion.div
-       
-          >
-            
-            <Contacts isVisible={isLoading} accentColor={accentColor}/>
-               <RouteLoader  isVisible={isLoading} accentColor={accentColor} />
+          <motion.div>
+            <Contacts isVisible={isLoading} accentColor={accentColor} />
+            <RouteLoader isVisible={isLoading} accentColor={accentColor} />
           </motion.div>
         </div>
-         <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
+        <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
       </div>
 
       {/* Music Player Toaster */}
@@ -425,99 +410,103 @@ export default function ContactMe() {
           </div>
         </div>
 
-       <div className="hidden md:flex absolute left-[51.4%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
-                {/* Location Section */}
-                <motion.div
-                  className="text-[#9d9d9d] cursor-default flex items-baseline"
-                  initial="rest"
-                  whileHover="hover"
-                >
-                  <motion.span
-                    className="inline-block  whitespace-nowrap"
-                    variants={{
-                      rest: { x: 0 },
-                      hover: { x: -2 },
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    Based in{" "}
-                    <motion.span
-                      variants={{
-                      rest: { color: "#9d9d9d" },
-                        hover: { color: "#fff" },
-                      }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="transition-colors duration-300"
-                    >
-                      Nigeria
-                    </motion.span>
-                  </motion.span>
-      
-                  <motion.span
-                    className="text-[8px] tracking-wider font-thin fonts inline-block ml-[2px]"
-                    variants={{
-                      rest: { opacity: 0, width: 0 },
-                      hover: { opacity: 1, width: "auto" },
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    NG
-                  </motion.span>
-                </motion.div>
-      
-                {/* Local Time Section */}
-                <motion.div
-                  className=" text-[#9d9d9d] cursor-default flex items-baseline"
-                  initial="rest"
-                  whileHover="hover"
-                >
-                  <motion.span
-                    className="inline-block whitespace-nowrap"
-                    variants={{
-                      rest: { x: 0 },
-                      hover: { x: -3 },
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    Local time{" "}
-                    <motion.span
-                      className="time font-[600] mx-1 whitespace-nowrap"
-                      variants={{
-                        rest: { color: "#9d9d9d" },
-                        hover: { color: "#fff" },
-                      }}
-                      transition={{ duration: 0.4, ease: "easeInOut" }}
-                    >
-                      {currentTime}
-                    </motion.span>
-                  </motion.span>
-      
-                  <motion.span
-                    className="text-[14px] inline-block"
-                    variants={{
-                      rest: { opacity: 0, width: 0 },
-                      hover: { opacity: 1, width: "auto" },
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {(() => {
-                      const hour = new Date().getHours();
-                      return hour >= 6 && hour < 18 ? "☀️" : "🌙";
-                    })()}
-                  </motion.span>
-                </motion.div>
-              </div>
+        <div className="hidden md:flex absolute left-[51.4%] transform -translate-x-1/2 space-x-5 text-sm items-baseline">
+          {/* Location Section */}
+          <motion.div
+            className="text-[#9d9d9d] cursor-default flex items-baseline"
+            initial="rest"
+            whileHover="hover"
+          >
+            <motion.span
+              className="inline-block  whitespace-nowrap"
+              variants={{
+                rest: { x: 0 },
+                hover: { x: -2 },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              Based in{" "}
+              <motion.span
+                variants={{
+                  rest: { color: "#9d9d9d" },
+                  hover: { color: "#fff" },
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="transition-colors duration-300"
+              >
+                Nigeria
+              </motion.span>
+            </motion.span>
+
+            <motion.span
+              className="text-[8px] tracking-wider font-thin fonts inline-block ml-[2px]"
+              variants={{
+                rest: { opacity: 0, width: 0 },
+                hover: { opacity: 1, width: "auto" },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              NG
+            </motion.span>
+          </motion.div>
+
+          {/* Local Time Section */}
+          <motion.div
+            className=" text-[#9d9d9d] cursor-default flex items-baseline"
+            initial="rest"
+            whileHover="hover"
+          >
+            <motion.span
+              className="inline-block whitespace-nowrap"
+              variants={{
+                rest: { x: 0 },
+                hover: { x: -3 },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              Local time{" "}
+              <motion.span
+                className="time font-[600] mx-1 whitespace-nowrap"
+                variants={{
+                  rest: { color: "#9d9d9d" },
+                  hover: { color: "#fff" },
+                }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              >
+                {currentTime}
+              </motion.span>
+            </motion.span>
+
+            <motion.span
+              className="text-[14px] inline-block"
+              variants={{
+                rest: { opacity: 0, width: 0 },
+                hover: { opacity: 1, width: "auto" },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {(() => {
+                const hour = new Date().getHours();
+                return hour >= 6 && hour < 18 ? "☀️" : "🌙";
+              })()}
+            </motion.span>
+          </motion.div>
+        </div>
 
         {/* Mobile - Social Icons */}
         <div className="flex  text-[#9D9D9D] flex-1 justify-end items-center space-x-3 min-w-0 px-2">
-          <Link href="https://www.linkedin.com/in/rex-technologies-759965238/">
+          <Link href="https://www.linkedin.com/in/matthew-ameh-dev/">
             <FaLinkedin className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
           </Link>
-          <FiInstagram className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
+          <Link href="https://www.instagram.com/matthew_roife?igsh=MWZjYTA5aWNvZmExdQ==">
+            <FiInstagram className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
+          </Link>
           <Link href="https://github.com/Mat-icon?tab=repositories">
             <FiGithub className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
           </Link>
-          <FaXTwitter className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
+          <Link href="https://x.com/__ICyou">
+            <FaXTwitter className="text-base hover:text-white cursor-pointer hover:scale-105 transition-all" />
+          </Link>
         </div>
 
         {/* Right section - Contact button (Desktop only)

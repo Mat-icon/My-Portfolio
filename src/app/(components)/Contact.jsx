@@ -407,7 +407,7 @@ const Contact = () => {
             <div className="flex space-x-2">
               <span className="text-[#c2c0c0da]">1 </span>{" "}
               <a
-                href="https://www.linkedin.com/in/rex-technologies-759965238/"
+                href="https://www.linkedin.com/in/matthew-ameh-dev/"
                 className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
@@ -418,7 +418,7 @@ const Contact = () => {
             <div className="flex space-x-2">
               <span className="text-[#c2c0c0da]">2 </span>{" "}
               <a
-                href="https://www.linkedin.com/in/rex-technologies-759965238/"
+                href="https://www.instagram.com/matthew_roife?igsh=MWZjYTA5aWNvZmExdQ=="
                 className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
@@ -440,7 +440,7 @@ const Contact = () => {
             <div className="flex space-x-2">
               <span className="text-[#c2c0c0da]">4 </span>{" "}
               <a
-                href="https://github.com/Mat-icon?tab=repositories"
+                href="https://x.com/__ICyou"
                 className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
@@ -452,7 +452,7 @@ const Contact = () => {
             <div className="flex space-x-2">
               <span className="text-[#c2c0c0da]">5 </span>{" "}
               <a
-                href="https://github.com/Mat-icon?tab=repositories"
+                href="https://x.com/__ICyou"
                 className="hover:text-[#8FFF86] decoration-inherit flex items-center"
                 style={{ transition: "0.4s ease-in" }}
                 target="_blank"
