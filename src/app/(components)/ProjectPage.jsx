@@ -51,7 +51,7 @@ export default function Project() {
         className="z-[5]"
       >
         <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-          <SymbolScene page="projects" accentColor="#e14f62" mousePosition={mousePosition} isHovering={isHovering} />
+          <SymbolScene page="projects" mousePosition={mousePosition} isHovering={isHovering} />
         </Canvas>
       </div>
 

@@ -50,7 +50,7 @@ export default function Contacts() {
         className="z-[5]"
       >
         <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-          <SymbolScene page="contact" accentColor="#91d1f8" mousePosition={mousePosition} isHovering={isHovering} />
+          <SymbolScene page="contact" mousePosition={mousePosition} isHovering={isHovering} />
         </Canvas>
       </div>
 

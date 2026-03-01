@@ -50,7 +50,7 @@ export default function ExperimentsPage() {
         className="z-[5]"
       >
         <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-          <SymbolScene page="experiments" accentColor="#E1B84F" mousePosition={mousePosition} isHovering={isHovering} />
+          <SymbolScene page="experiments" mousePosition={mousePosition} isHovering={isHovering} />
         </Canvas>
       </div>
 

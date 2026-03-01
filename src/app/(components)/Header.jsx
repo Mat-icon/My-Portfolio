@@ -44,7 +44,7 @@ const Header = () => {
         style={{ width: '100%', height: '90%', position: 'absolute', top: 0, left: 0, overflow: 'visible' }}
       >
         <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-          <SymbolScene page="home" accentColor="#8fff86" mousePosition={mousePosition} isHovering={isHovering} />
+          <SymbolScene page="home" mousePosition={mousePosition} isHovering={isHovering} />
         </Canvas>
       </div>
 
