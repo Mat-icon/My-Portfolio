@@ -4,167 +4,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import PagesContactBar from "./PagesContactBar";
 import Footer from "./Footer";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import SymbolScene from "./SymbolScene";
 import LuminousBeam from "./LuminousBeam";
 import PageTestimonials from "./PagesTestimonial";
 import Services from "../(components)/Programs/Service";
-
-const Model = ({
-  path,
-  position,
-  scale = 1,
-  seed = 0,
-  mousePosition,
-  isHovering,
-}) => {
-  const { scene } = useGLTF(path);
-  const meshRef = useRef();
-  const initialPosition = useRef(position);
-  const [isMobile, setIsMobile] = useState(false);
-  const targetOffset = useRef({ x: 0, y: 0 });
-  const currentOffset = useRef({ x: 0, y: 0 });
-
-  // Random motion offsets based on seed for unique movement per model
-  const offsetRef = useRef({
-    x: Math.sin(seed * 123) * 0.3,
-    y: Math.cos(seed * 456) * 0.3,
-    z: Math.sin(seed * 789) * 0.3,
-    speedX: 0.3 + Math.sin(seed * 234) * 0.2,
-    speedY: 0.4 + Math.cos(seed * 567) * 0.2,
-    speedZ: 0.35 + Math.sin(seed * 890) * 0.2,
-  });
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      const time = state.clock.getElapsedTime();
-      const offset = offsetRef.current;
-
-      // Calculate base position with random motion
-      const containmentRadius = 0.4;
-      const baseX =
-        Math.sin(time * offset.speedX + offset.x) * containmentRadius;
-      const baseY =
-        Math.cos(time * offset.speedY + offset.y) * containmentRadius;
-      const baseZ =
-        Math.sin(time * offset.speedZ + offset.z) * containmentRadius * 0.5;
-
-      // Calculate mouse-based repulsion
-      if (isHovering && mousePosition) {
-        // Direction from center to this object
-        const dirX = initialPosition.current[0];
-        const dirY = initialPosition.current[1];
-        const length = Math.sqrt(dirX * dirX + dirY * dirY);
-
-        // Normalize direction
-        const normalizedX = length > 0 ? dirX / length : 0;
-        const normalizedY = length > 0 ? dirY / length : 0;
-
-        // Push objects away from center based on their position (circle-like expansion)
-        const pushStrength = 1.5; // How far to push
-        targetOffset.current.x = normalizedX * pushStrength;
-        targetOffset.current.y = normalizedY * pushStrength;
-      } else {
-        // Pull back to original position
-        targetOffset.current.x = 0;
-        targetOffset.current.y = 0;
-      }
-
-      // Smooth interpolation (lerp) for gradual movement
-      const lerpSpeed = 0.03; // Lower = slower, smoother transition
-      currentOffset.current.x +=
-        (targetOffset.current.x - currentOffset.current.x) * lerpSpeed;
-      currentOffset.current.y +=
-        (targetOffset.current.y - currentOffset.current.y) * lerpSpeed;
-
-      // Apply combined position
-      meshRef.current.position.x =
-        initialPosition.current[0] + baseX + currentOffset.current.x;
-      meshRef.current.position.y =
-        initialPosition.current[1] + baseY + currentOffset.current.y;
-      meshRef.current.position.z = initialPosition.current[2] + baseZ;
-
-      // Very slow rotation
-      meshRef.current.rotation.y += 0.003;
-      meshRef.current.rotation.x += 0.002;
-    }
-  });
-
-  // Apply light gray material immediately to prevent color flash
-  useEffect(() => {
-    if (scene) {
-      scene.traverse((child) => {
-        if (child.isMesh) {
-          child.material = child.material.clone();
-          child.material.color.setHex(0x8a8a8a);
-          child.material.metalness = 0.9;
-          child.material.roughness = 0.1;
-          child.material.needsUpdate = true;
-        }
-      });
-    }
-  }, [scene]);
-
-  const responsiveScale = isMobile ? scale * 0.8 : scale;
-
-  return (
-    <primitive
-      ref={meshRef}
-      object={scene.clone()}
-      position={position}
-      scale={responsiveScale}
-    />
-  );
-};
-
-const Scene = ({ mousePosition, isHovering }) => {
-  return (
-    <>
-      <ambientLight intensity={1.5} />
-      <directionalLight position={[5, 5, 5]} intensity={2} />
-      <directionalLight position={[-5, -5, 5]} intensity={1.5} />
-      <pointLight position={[0, 5, 5]} intensity={2} color="#ffffff" />
-      <pointLight position={[-5, -5, 5]} intensity={1.5} />
-
-      {/* Objects arranged in circle-like formation */}
-      <Model
-        path="/models/python_programming_language.glb"
-        position={[-7, -0.9, 0]}
-        scale={0.7}
-        seed={1}
-        mousePosition={mousePosition}
-        isHovering={isHovering}
-      />
-
-      <Model
-        path="/models/python_programming_language.glb"
-        position={[0, -1, 0]}
-        scale={0.5}
-        seed={3}
-        mousePosition={mousePosition}
-        isHovering={isHovering}
-      />
-
-      <Model
-        path="/models/python_programming_language.glb"
-        position={[6, -1, 0]}
-        scale={0.5}
-        seed={2}
-        mousePosition={mousePosition}
-        isHovering={isHovering}
-      />
-    </>
-  );
-};
 
 export default function Project() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -207,7 +51,7 @@ export default function Project() {
         className="z-[5]"
       >
         <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-          <Scene mousePosition={mousePosition} isHovering={isHovering} />
+          <SymbolScene page="projects" accentColor="#e14f62" mousePosition={mousePosition} isHovering={isHovering} />
         </Canvas>
       </div>
 
