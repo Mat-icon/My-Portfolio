@@ -69,6 +69,7 @@ export default function Home() {
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
   const [showInitialLoader, setShowInitialLoader] = useState(true);
+  const [initialAnimated, setInitialAnimated] = useState(false);
   const accentColor = ROUTE_COLORS[currentRoute];
   const bgColor = ROUTE_BG_COLORS[currentRoute];
 
@@ -79,10 +80,17 @@ export default function Home() {
   }, [pathname]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const hasAnimated = sessionStorage.getItem("homeInitialAnimated");
+    if (hasAnimated) {
       setShowInitialLoader(false);
-    }, 3000);
-    return () => clearTimeout(timer);
+      setInitialAnimated(true);
+    } else {
+      const timer = setTimeout(() => {
+        setShowInitialLoader(false);
+        sessionStorage.setItem("homeInitialAnimated", "true");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const container = {
@@ -185,11 +193,11 @@ export default function Home() {
 
   return (
     <motion.div
-      initial={{ height: "6.5dvh" }}
+      initial={{ height: initialAnimated ? "98dvh" : "6.5dvh" }}
       animate={
         showInitialLoader
           ? {
-              height: "6.5dvh"
+              height: initialAnimated ? "98dvh" : "6.5dvh"
             }
           : { 
               height: "98dvh"

@@ -63,17 +63,23 @@ export default function ProjectMe() {
   const [currentSong, setCurrentSong] = useState("Lofi Beats");
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
+  const [showContent, setShowContent] = useState(false);
   const accentColor = ROUTE_COLORS[currentRoute];
   const bgColor = ROUTE_BG_COLORS[currentRoute];
 
   useEffect(() => {
     // When pathname changes, show loader
     setIsLoading(true);
+    setShowContent(false);
 
     // Small timeout to simulate load time or wait for render
     const timeout = setTimeout(() => setIsLoading(false), 3700);
+    const contentTimeout = setTimeout(() => setShowContent(true), 3200);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      clearTimeout(contentTimeout);
+    };
   }, [pathname]);
 
   const container = {
@@ -343,11 +349,14 @@ export default function ProjectMe() {
           className={`flex-1 md:pl-[3.1%] relative scrollbar4 overflow-x-hidden  ${isLoading ? "overflow-y-hidden": "overflow-y-auto"}`}
         >
           <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: showContent ? 1 : 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
            
-         <Project isVisible={isLoading} accentColor={accentColor} />
-            <RouteLoader  isVisible={isLoading} accentColor={accentColor} />
+         <Project accentColor={accentColor} />
           </motion.div>
+          <RouteLoader isVisible={isLoading} accentColor={accentColor} />
         </div>
          <FullNav isOpen={isNavOpen} toggleNav={toggleNav} />
       </div>
