@@ -36,7 +36,7 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        setStatus("Message sent successfully!");
+        setStatus("success");
         setFormData({
           fullName: "",
           company: "",
@@ -44,10 +44,12 @@ const ContactForm = () => {
           message: "",
         });
       } else {
-        setStatus("Failed to send message.");
+        setStatus("error");
       }
     } catch (error) {
-      setStatus("An error occurred. Please try again.");
+      setStatus("error");
+    } finally {
+      setTimeout(() => setStatus(""), 5000);
     }
   };
 
@@ -175,7 +177,25 @@ const ContactForm = () => {
           </button>
           </div>
         </form>
-        {status && <p className="text-white mt-4">{status}</p>}
+        {status && (
+          <div className="px-4 md:ml-10 pb-6">
+            <p
+              className={`text-sm poppin py-2 px-4 rounded border ${
+                status === "Sending..."
+                  ? "text-blue-400 border-blue-400/30 bg-blue-400/10 italic animate-pulse"
+                  : status === "success"
+                  ? "text-[#8FFF86] border-[#8FFF86]/30 bg-[#8FFF86]/10"
+                  : "text-red-400 border-red-400/30 bg-red-400/10"
+              } transition-all duration-500`}
+            >
+              {status === "Sending..." 
+                ? "Submitting your message..." 
+                : status === "success" 
+                ? "✓ Message received! I'll get back to you soon." 
+                : "× Failed to send. Please check your connection or try again."}
+            </p>
+          </div>
+        )}
       </div>
       <div className="mx-auto mt-0 flex justify-center">
         <LuminousBeam height="h-[170px]" color="ffd886" />
