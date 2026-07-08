@@ -137,6 +137,40 @@ const TestimonialHighlight = () => {
     visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
   };
 
+  const fadeRevealContainerVariants = {
+    hidden: {
+      transition: {
+        staggerChildren: 0.02,
+        staggerDirection: -1,
+      },
+    },
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+        staggerDirection: 1,
+      },
+    },
+  };
+
+  const fadeRevealWordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 5,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => setIsVisible(entries[0]?.isIntersecting),
@@ -203,10 +237,51 @@ const TestimonialHighlight = () => {
         }
       `}</style>
 
-      <h1 className="w-[96%] poppins text-4xl md:text-[58px]  tracking-tighter md:leading-[60px] text-center">
-        Nice things <span className="all-text">people<br className="md:hidden block" /> say</span>
-        <br className="hidden md:block" /> about my work
-      </h1>
+      <motion.h1
+        variants={fadeRevealContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
+        className="w-[96%] poppins text-4xl md:text-[58px] tracking-tighter md:leading-[60px] text-center"
+      >
+        {"Nice ".split("").map((char, i) => (
+          <motion.span key={`nice-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+        {"things ".split("").map((char, i) => (
+          <motion.span key={`things-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+        {"people".split("").map((char, i) => (
+          <motion.span key={`people-${i}`} variants={fadeRevealWordVariants} className="inline-block all-text">
+            {char}
+          </motion.span>
+        ))}
+        <br className="md:hidden block" />
+        {" say".split("").map((char, i) => (
+          <motion.span key={`say-${i}`} variants={fadeRevealWordVariants} className="inline-block all-text">
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+        <br className="hidden md:block" />
+        {" about ".split("").map((char, i) => (
+          <motion.span key={`about-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+        {"my ".split("").map((char, i) => (
+          <motion.span key={`my-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+        {"work".split("").map((char, i) => (
+          <motion.span key={`work-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+            {char}
+          </motion.span>
+        ))}
+      </motion.h1>
 
       <motion.div
         ref={cardRef}

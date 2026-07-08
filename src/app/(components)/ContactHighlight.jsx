@@ -34,6 +34,40 @@ const ContactHighlight = () => {
   const [collabVisible, setCollabVisible] = useState(false);
   const [potraitVisible, setPotraitVisible] = useState(false);
 
+  const fadeRevealContainerVariants = {
+    hidden: {
+      transition: {
+        staggerChildren: 0.02,
+        staggerDirection: -1,
+      },
+    },
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+        staggerDirection: 1,
+      },
+    },
+  };
+
+  const fadeRevealWordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 5,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
   const container = {
     hidden: {},
     visible: {
@@ -172,9 +206,34 @@ const ContactHighlight = () => {
 
   return (
     <div className="w-full relative flex flex-col  items-center mb-0">
-      <h1 className="text-4xl md:text-[58px]  tracking-tighter md:leading-[60px] poppins text-center">
-        Your <span className="all-text">creative</span> web developer
-      </h1>
+      <motion.h1
+        variants={fadeRevealContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
+        className="text-4xl md:text-[58px] tracking-tighter md:leading-[60px] poppins text-center"
+      >
+        {"Your ".split("").map((char, i) => (
+          <motion.span key={`your-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+        {"creative ".split("").map((char, i) => (
+          <motion.span key={`creative-${i}`} variants={fadeRevealWordVariants} className="inline-block all-text">
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+        {"web ".split("").map((char, i) => (
+          <motion.span key={`web-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+        {"developer".split("").map((char, i) => (
+          <motion.span key={`dev-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        ))}
+      </motion.h1>
        <LuminousBeam  height="h-[130px]" color="8fff86"/>
       <div className="contact-body relative md:h-[100vh] flex flex-col justify-center lg:flex-row flex-wrap space-x-1 gap-7 space-y-3">
         <motion.div

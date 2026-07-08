@@ -2,7 +2,6 @@
 import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 
 interface IndexProps {
   index: number;
@@ -230,66 +229,39 @@ export default function Index({
               onMouseEnter={() => setIsImageHovered(true)}
               onMouseLeave={() => setIsImageHovered(false)}
             >
-              <motion.div
-                initial="hidden"
-                animate={isImageHovered ? "visible" : "hidden"}
-                variants={bookWrapperVariant}
-                style={{
-                  transformStyle: "preserve-3d",
-                  position: "relative",
-                }}
-              >
-                {isImageHovered && (
-                  <>
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      variants={paperLayerVariant(3)}
-                      className={`absolute top-0 left-0 w-full h-[150px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
-                      style={{ zIndex: 1, transformStyle: "preserve-3d" }}
-                    />
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      variants={paperLayerVariant(2)}
-                      className={`absolute top-0 left-0 w-full h-[150px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
-                      style={{ zIndex: 2, transformStyle: "preserve-3d" }}
-                    />
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      variants={paperLayerVariant(1)}
-                      className={`absolute top-0 left-0 w-full h-[150px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
-                      style={{ zIndex: 3, transformStyle: "preserve-3d" }}
-                    />
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      variants={paperLayerVariant(0)}
-                      className={`absolute top-0 left-0 w-full h-[150px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
-                      style={{ zIndex: 4, transformStyle: "preserve-3d" }}
-                    />
-                  </>
-                )}
-
                 <motion.div
                   variants={imageVariant}
-                  className="relative w-full h-[150px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
+                  className="relative w-full h-[150px] overflow-hidden rounded-[8px] border border-[#494949] shadow-2xl flex flex-col bg-[#0f0f0f]"
                   style={{
                     zIndex: 5,
                     transformStyle: "preserve-3d",
-                    backgroundColor: "#000",
                   }}
                 >
-                  <Image
-                    src={`/images/${image as string}`}
-                    alt={title}
-                    width={600}
-                    height={700}
-                    className="object-cover w-full h-full rounded-[3px]"
-                  />
+                  {/* Mobile Browser Header */}
+                  <div className="flex items-center h-6 px-2 bg-[#1e232b] border-b border-[#2d3139] shrink-0 select-none">
+                    <div className="flex gap-1 mr-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#ef4444] opacity-80" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#eab308] opacity-80" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] opacity-80" />
+                    </div>
+                    <div className="flex-1 h-3.5 bg-[#0f1115] rounded px-1.5 flex items-center justify-center">
+                      <span className="text-[8px] text-gray-500 font-mono truncate">{link}</span>
+                    </div>
+                  </div>
+                  <div className="flex-1 w-full overflow-hidden relative">
+                    <iframe
+                      src={link}
+                      title={title}
+                      className="border-none pointer-events-none select-none absolute top-0 left-0"
+                      style={{
+                        width: "200%",
+                        height: "200%",
+                        transform: "scale(0.5)",
+                        transformOrigin: "top left",
+                      }}
+                    />
+                  </div>
                 </motion.div>
-              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -440,57 +412,42 @@ export default function Index({
                   position: "relative",
                 }}
               >
-                {isImageHovered && (
-                  <>
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      variants={paperLayerVariant(3)}
-                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
-                      style={{ zIndex: 1, transformStyle: "preserve-3d" }}
-                    />
-
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      variants={paperLayerVariant(2)}
-                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
-                      style={{ zIndex: 2, transformStyle: "preserve-3d" }}
-                    />
-
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      variants={paperLayerVariant(1)}
-                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
-                      style={{ zIndex: 3, transformStyle: "preserve-3d" }}
-                    />
-
-                    <motion.div
-                      initial="hidden"
-                      animate="visible"
-                      variants={paperLayerVariant(0)}
-                      className={`absolute top-0 left-0 w-[400px] h-[240px] rounded-[3px] ${bookBg} border-l border-t border-b ${bookBorder}`}
-                      style={{ zIndex: 4, transformStyle: "preserve-3d" }}
-                    />
-                  </>
-                )}
-
                 <motion.div
                   variants={imageVariant}
-                  className="relative w-[400px] h-[240px] overflow-hidden rounded-[3px] border border-[#646262da] shadow-2xl"
+                  className="relative w-[400px] h-[240px] overflow-hidden rounded-[8px] border border-[#494949] shadow-2xl flex flex-col bg-[#0f0f0f]"
                   style={{
                     zIndex: 5,
                     transformStyle: "preserve-3d",
                   }}
                 >
-                  <Image
-                    src={`/images/${image as string}`}
-                    alt={title}
-                    width={1450}
-                    height={250}
-                    className="object-cover h-full rounded-[3px]"
-                  />
+                  {/* Browser Header Bar */}
+                  <div className="flex items-center h-7 px-3 bg-[#1e232b] border-b border-[#2d3139] shrink-0 select-none">
+                    {/* Traffic Lights */}
+                    <div className="flex gap-1.5 mr-4">
+                      <div className="w-2 h-2 rounded-full bg-[#ef4444] opacity-80" />
+                      <div className="w-2 h-2 rounded-full bg-[#eab308] opacity-80" />
+                      <div className="w-2 h-2 rounded-full bg-[#22c55e] opacity-80" />
+                    </div>
+                    {/* URL Bar */}
+                    <div className="flex-1 max-w-[240px] h-[18px] bg-[#0f1115] border border-[#2d3139] rounded px-2 flex items-center justify-center">
+                      <span className="text-[10px] text-gray-500 font-mono truncate select-all">{link}</span>
+                    </div>
+                  </div>
+
+                  {/* Website iframe */}
+                  <div className="flex-1 w-full overflow-hidden relative">
+                    <iframe
+                      src={link}
+                      title={title}
+                      className="border-none pointer-events-none select-none absolute top-0 left-0"
+                      style={{
+                        width: "200%",
+                        height: "200%",
+                        transform: "scale(0.5)",
+                        transformOrigin: "top left",
+                      }}
+                    />
+                  </div>
                 </motion.div>
               </motion.div>
             </motion.div>

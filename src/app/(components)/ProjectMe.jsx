@@ -201,7 +201,7 @@ export default function ProjectMe() {
 
       {/* Header */}
       <header className="flex relative z-50 justify-between filter glossy-25 backdrop-blur-xl items-center h-10 pr-2 border-b bac border-[#494949] shrink-0">
-    <div className="flex w-[12%] border-r border-[#494949] md:w-[3.0%] h-full justify-center items-center group overflow-hidden">
+        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.0%] h-full justify-center items-center group overflow-hidden">
            <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
               <span
                 className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
@@ -218,8 +218,8 @@ export default function ProjectMe() {
         </div>
 
         {/* Center name */}
-        <div className="flex text-base items-center">
-          <span className=" text-white font-medium text-center fonts">
+        <div className="text-base flex-1 text-center">
+          <span className="text-white font-medium fonts">
             matthew
             <span className="text-[#e14f62]">&lt;ameh&gt;</span>
           </span>
@@ -227,12 +227,12 @@ export default function ProjectMe() {
 
         {/* Desktop controls */}
         <div className="hidden md:flex items-center space-x-2">
-          <VscChromeMinimize className="text-base text-[#6e6e6e] hover:text-black" style={{ transition: "ease-in 0.5s" }}/>
+          <VscChromeMinimize className="text-base text-[#6e6e6e] hover:text-black cursor-pointer" style={{ transition: "ease-in 0.5s" }}/>
           <div
-            className="w-2.5 h-2.5 border border-[#6e6e6e] rounded-sm hover:border-black"
+            className="w-2.5 h-2.5 border border-[#6e6e6e] rounded-sm hover:border-black cursor-pointer"
             style={{ transition: "ease-in 0.5s" }}
           ></div>
-          <VscChromeClose className="text-base text-[#6e6e6e] hover:text-black" style={{ transition: "ease-in 0.5s" }} />
+          <VscChromeClose className="text-base text-[#6e6e6e] hover:text-black cursor-pointer" style={{ transition: "ease-in 0.5s" }} />
         </div>
 
         {/* Mobile menu icon */}

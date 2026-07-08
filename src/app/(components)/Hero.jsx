@@ -38,14 +38,10 @@ const ROUTE_BG_COLORS = {
   "/contact": "#8A7A4C",
 };
 
-const LoaderRings = () => {
+const LoaderRings = ({ accentColor }) => {
   return (
-    <div className="flex w-[8%] border-l border-[#494949] md:w-[3.0%] h-full justify-center items-center  overflow-hidden">
-          
-      <div className="relative w-5 h-5">
-        <div className="absolute inset-0 border-2 border-white/20 rounded-full"></div>
-        <div className="absolute inset-0 border-2 border-transparent border-t-[#8fff86] rounded-full animate-spin"></div>
-      </div>
+    <div className="flex w-12 border-l border-[#494949] md:w-16 h-full justify-center items-center overflow-hidden shrink-0">
+      <div className="loader" style={{ color: accentColor }}></div>
     </div>
   );
 };
@@ -70,6 +66,19 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [showInitialLoader, setShowInitialLoader] = useState(true);
   const [initialAnimated, setInitialAnimated] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const accentColor = ROUTE_COLORS[currentRoute];
   const bgColor = ROUTE_BG_COLORS[currentRoute];
 
@@ -88,7 +97,7 @@ export default function Home() {
       const timer = setTimeout(() => {
         setShowInitialLoader(false);
         sessionStorage.setItem("homeInitialAnimated", "true");
-      }, 3000);
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -191,23 +200,68 @@ export default function Home() {
     };
   }, []);
 
+  const widthVal = isMobile 
+    ? "95.5%" 
+    : (showInitialLoader ? "50%" : "99%");
+
+  const heightVal = showInitialLoader 
+    ? (initialAnimated ? "98dvh" : "40px") 
+    : "98dvh";
+
+  const heightDelay = isMobile ? 0 : (showInitialLoader ? 0 : 0.8);
+
+  if (!hasMounted) {
+    return (
+      <div 
+        className="flex flex-col w-[95.5%] md:w-[50%] h-[40px] my-auto overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+        style={{
+          "--selection-bg": accentColor,
+        }}
+      >
+        <header className="flex justify-between filter relative z-50 md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0">
+          <div className="flex w-12 border-r border-[#494949] md:w-16 h-full justify-center items-center group overflow-hidden shrink-0">
+             <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
+                <span className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]" />
+                <span className="w-[4px] h-6 bg-white rotate-[14deg]  rounded-md" />
+                <span className="w-2 h-3 p-[5px] border-t-[4px] border-r-[4px]  rounded-sm rotate-[45deg]" />
+              </div>
+          </div>
+
+          <div className="text-base flex-1 text-center">
+            <span className="font-medium fonts">
+              matthew
+              <span className="all-text">&lt;ameh&gt;</span>
+            </span>
+          </div>
+
+          <LoaderRings accentColor={accentColor} />
+        </header>
+      </div>
+    );
+  }
+
   return (
     <motion.div
-      initial={{ height: initialAnimated ? "98dvh" : "6.5dvh" }}
-      animate={
-        showInitialLoader
-          ? {
-              height: initialAnimated ? "98dvh" : "6.5dvh"
-            }
-          : { 
-              height: "98dvh"
-            }
-      }
-      transition={{
-        duration: 1.5,
-        ease: [0.76, 0, 0.24, 1],
+      initial={{ 
+        width: isMobile ? "95.5%" : (initialAnimated ? "99%" : "50%"), 
+        height: initialAnimated ? "98dvh" : "40px" 
       }}
-      className="flex flex-col w-[95.5%] md:w-[99%] my-auto overflow-hidden text-white border border-[#494949] relative z-40 rounded"
+      animate={{ 
+        width: widthVal, 
+        height: heightVal 
+      }}
+      transition={{
+        width: {
+          duration: isMobile ? 0 : 0.8,
+          ease: [0.76, 0, 0.24, 1],
+        },
+        height: {
+          duration: isMobile ? 1.5 : 1.0,
+          ease: [0.76, 0, 0.24, 1],
+          delay: heightDelay
+        }
+      }}
+      className="flex flex-col my-auto overflow-hidden text-white border border-[#494949] relative z-40 rounded"
       style={{
         "--selection-bg": accentColor,
       }}
@@ -222,14 +276,15 @@ export default function Home() {
           color: white;
         }
       `}</style>
-
       {/* Header */}
       <motion.header
         initial={{ opacity: 1 }}
         animate={{ opacity: showInitialLoader ? 1 : 1 }}
         className="flex justify-between filter relative z-50 md:glossy-25 backdrop-blur-2xl items-center h-10 pr-2 border-b border-[#6462628c] shrink-0"
       >
-        <div className="flex w-[12%] border-r border-[#494949] md:w-[3.0%] h-full justify-center items-center group overflow-hidden">
+        <div className={`flex border-r border-[#494949] h-full justify-center items-center group overflow-hidden shrink-0 ${
+          showInitialLoader ? "w-12 md:w-16" : "w-[12%] md:w-[3.0%]"
+        }`}>
            <div className="rotate-90 scale-[0.65] -space-x-[1px] flex items-center  ">
               <span
                 className="w-2 h-3 p-[5px] border-t-[4px] border-l-[4px] rounded-sm rotate-[-45deg]"
@@ -246,35 +301,38 @@ export default function Home() {
         </div>
 
         {/* Center name */}
-        <div className="text-base">
-          <span className="font-medium text-center fonts">
+        <div className="text-base flex-1 text-center">
+          <span className="font-medium fonts">
             matthew
             <span className="all-text">&lt;ameh&gt;</span>
           </span>
         </div>
 
-        {/* Desktop controls */}
-        {showInitialLoader ? (<LoaderRings />) : (
-        <div className="hidden md:flex items-center space-x-2">
-          <VscChromeMinimize className="text-base text-[#494949] hover:border-white" />
-          <div
-            className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
-            style={{ transition: "ease-in 0.5s" }}
-          ></div>
-          <VscChromeClose className="text-base text-[#494949] hover:border-white" />
-        </div>)
-}
+        {/* Desktop / Mobile Controls & Spinner */}
+        {showInitialLoader ? (
+          <LoaderRings accentColor={accentColor} />
+        ) : (
+          <>
+            {/* Desktop Window Controls */}
+            <div className="hidden md:flex items-center space-x-2 shrink-0">
+              <VscChromeMinimize className="text-base text-[#494949] hover:text-white cursor-pointer" style={{ transition: "ease-in 0.5s" }} />
+              <div
+                className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer"
+                style={{ transition: "ease-in 0.5s" }}
+              ></div>
+              <VscChromeClose className="text-base text-[#494949] hover:text-white cursor-pointer" style={{ transition: "ease-in 0.5s" }} />
+            </div>
 
-        {/* Mobile menu icon */}
-        <div className="md:hidden ">
-          {showInitialLoader ? (
-            <LoaderRings />
-          ) : isNavOpen ? (
-            <FiX className="text-lg cursor-pointer" onClick={toggleNav} />
-          ) : (
-            <FiMenu className="text-lg cursor-pointer" onClick={toggleNav} />
-          )}
-        </div>
+            {/* Mobile Menu Icon */}
+            <div className="md:hidden flex items-center shrink-0">
+              {isNavOpen ? (
+                <FiX className="text-lg cursor-pointer" onClick={toggleNav} />
+              ) : (
+                <FiMenu className="text-lg cursor-pointer" onClick={toggleNav} />
+              )}
+            </div>
+          </>
+        )}
       </motion.header>
 
       {/* Main Content */}

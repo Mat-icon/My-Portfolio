@@ -79,6 +79,40 @@ const ProjectHighlight = () => {
     },
   };
 
+  const fadeRevealContainerVariants = {
+    hidden: {
+      transition: {
+        staggerChildren: 0.02,
+        staggerDirection: -1,
+      },
+    },
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+        staggerDirection: 1,
+      },
+    },
+  };
+
+  const fadeRevealWordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 5,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
   const [hovered, setHovered] = useState(false);
 
   const container = {
@@ -125,9 +159,32 @@ const ProjectHighlight = () => {
   return (
     <div className="flex flex-col items-center">
       <div className="flex flex-col items-center w-full">
-        <h1 className="text-4xl md:text-[52px]  tracking-tighter md:leading-[60px] text-center poppins">
-          Projects <span className="all-text">highlight</span>
-        </h1>
+        <motion.h1
+          variants={fadeRevealContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          className="text-4xl md:text-[52px] tracking-tighter md:leading-[60px] text-center poppins"
+        >
+          {"Projects ".split("").map((char, index) => (
+            <motion.span
+              key={`projects-${index}`}
+              variants={fadeRevealWordVariants}
+              className="inline-block text-white"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+          {"highlight".split("").map((char, index) => (
+            <motion.span
+              key={`highlight-${index}`}
+              variants={fadeRevealWordVariants}
+              className="inline-block all-text"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </motion.h1>
 
         <div className="w-full">
           <Services />

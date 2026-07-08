@@ -19,7 +19,51 @@ interface ProjectType {
 }
 
 const projects: ProjectType[] = [
-    {
+  {
+    title: "Noirvik Fashion",
+    time: "2026",
+    image: "noirvik.png",
+    lang: ["Nextjs", "Tailwindcss", "Nodejs"],  
+    color: "#706D63",
+    bookBg: "bg-[#0a0a0a9a]",
+    bookBorder: "border-[white]",
+    description: "A minimalist luxury e-commerce fashion store showcasing a curated selection of stylish apparel and accessories.",
+    link: "https://noirvik.com/"
+  },
+  {
+    title: "Paypaxe",
+    time: "2026",
+    image: "paypaxe.png",
+    lang: ["Nextjs", "Tailwindcss", "Typescript", "Nodejs"],  
+    color: "#1D242A",
+    bookBg: "bg-[#0f172a]",
+    bookBorder: "border-[#38bdf8]",
+    description: "A modern fintech platform focused on automated payroll compliance, digital group savings, and credit building tools.",
+    link: "https://paypaxe.com/"
+  },
+  {
+    title: "AMG Beauty World",
+    time: "2026",
+    image: "amgbeauty.png",
+    lang: ["Nextjs", "Tailwindcss", "Stripe","Superbase", "Nodejs"],  
+    color: "#652424",
+    bookBg: "bg-[#fdf4f5]",
+    bookBorder: "border-[#e11d48]",
+    description: "A premium e-commerce platform specializing in luxury human hair extensions, frontal wigs, and beauty accessories.",
+    link: "https://www.amgbeautyworld.com/"
+  },
+  {
+    title: "OpenLaw Live",
+    time: "2026",
+    image: "openlaw.png",
+    lang: ["Nextjs", "Tailwindcss", "AI Integration", "Typescript"],  
+    color: "#1e3a8a",
+    bookBg: "bg-[#f8fafc]",
+    bookBorder: "border-[#2563eb]",
+    description: "An AI-powered legal technology platform assisting citizens in understanding constitutional rights and automated legal documentation.",
+    link: "https://openlaw.live/"
+  },
+  {
     title: "Brabik Smarthomes",
     time: "2025",
     lang: ["Nextjs", "Zustand", "Threejs","Tailwindcss", "Typescript"],  
@@ -31,50 +75,10 @@ const projects: ProjectType[] = [
       "A minimalist e-commerce platform for smart home devices and automation solutions.",
     link: "https://brabik.netlify.app/"
   },
-    {
-    title: "Noirvik Fashion",
-    time: "2025",
-    image: "noirvik.png",
-
-    lang: ["Nextjs", "Tailwindcss", "Nodejs"],  
-    color: "#706D63",
-     bookBg:"bg-[#0a0a0a9a]",
-    bookBorder: "border-[white]",
-    description:
-    
-      "A minimalist e-commerce fashion store showcasing a curated selection of stylish apparel and accessories.",
-    link: "https://noirvik.netlify.app/"
-  },
- 
-  // {
-  //   title: "Adelehamza resources",
-  //   time: "2025",
-  //   image: "adele.png",
-  //    bookBg:"bg-[#fff]",
-  //   bookBorder: "border-yellow-700",
-  //   lang: ["Nextjs", "Tailwindcss", "Nodejs"],
-  //   link: "https://adelehamzaresources.com/",
-  //   color: "#706D63",
-  //   description:
-  //     "A digital consultancy platform that simplifies Nigeria’s building construction documentation process.",
-  // },
-
-  // {
-  //   title: "Home loan hub app",
-  //   time: "2025",
-  //   bookBg:"bg-[#ffffff]",
-  //   bookBorder: "border-[#333]",
-  //   lang: ["Nextjs", "AI Integration", "Nodejs"],
-  //   color: "#706D63",
-  //   image: "calc.png",
-  //   description:
-  //     "AI-powered chatbot that helps users check loan eligibility in a conversational, friendly way.",
-  //   link: "https://home-loan-hub.netlify.app/",
-  // },
-   {
+  {
     title: "Track Member",
     time: "2025",
-     bookBg:"bg-[#fff]",
+    bookBg:"bg-[#fff]",
     bookBorder: "border-[#03c9fa]",
     lang: ["Svelte 5", "Convex", "clerk", "Sveltekit", "typeScript", "tailwindcss"],  
     color: "#706D63",
@@ -83,19 +87,18 @@ const projects: ProjectType[] = [
       "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
     link: "https://tap2member.netlify.app/"
   },
-   {
+  {
     title: "Bwintech",
     image: "bwin.png",
     time: "2025",
     lang: ["Nextjs", "Tailwindcss", "Nodejs"],
     color: "#706D63",
-     bookBg:"bg-[#fff]",
+    bookBg:"bg-[#fff]",
     bookBorder: "border-[#706D63]",
     description:
       "Bwintech is a boutique data consultancy helping businesses make smarter decisions with their data.",
     link: "https://bwintech.com.au/",
   },
-
 ];
 
 const scaleAnimation = {

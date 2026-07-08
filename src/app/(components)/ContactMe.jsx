@@ -205,8 +205,8 @@ export default function ContactMe() {
         </div>
 
         {/* Center name */}
-        <div className="flex text-base items-center">
-          <span className=" text-white font-medium text-center fonts">
+        <div className="text-base flex-1 text-center">
+          <span className="text-white font-medium fonts">
             matthew
             <span className="text-[#91d1f8]">&lt;ameh&gt;</span>
           </span>
@@ -214,12 +214,12 @@ export default function ContactMe() {
 
         {/* Desktop controls */}
         <div className="hidden md:flex items-center space-x-2">
-          <VscChromeMinimize className="text-base text-[#494949] hover:border-white" />
+          <VscChromeMinimize className="text-base text-[#494949] hover:text-white cursor-pointer" />
           <div
-            className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white"
+            className="w-2.5 h-2.5 border border-[#494949] rounded-sm hover:border-white cursor-pointer"
             style={{ transition: "ease-in 0.5s" }}
           ></div>
-          <VscChromeClose className="text-base text-[#494949] hover:border-white" />
+          <VscChromeClose className="text-base text-[#494949] hover:text-white cursor-pointer" />
         </div>
 
         {/* Mobile menu icon */}

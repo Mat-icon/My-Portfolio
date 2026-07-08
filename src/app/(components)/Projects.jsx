@@ -5,6 +5,38 @@ import Image from "next/image";
 const projects = [
   {
     id: 1,
+    title: "Noirvik Fashion",
+    year: "2026",
+    technologies: ["nextjs", "tailwind", "node.js"],
+    image: "/images/noirvik.png",
+    link: "https://noirvik.com/",
+  },
+  {
+    id: 2,
+    title: "Paypaxe",
+    year: "2026",
+    technologies: ["nextjs", "tailwind", "node.js", "convex"],
+    image: "/images/paypaxe.png",
+    link: "https://paypaxe.com/",
+  },
+  {
+    id: 3,
+    title: "AMG Beauty World",
+    year: "2026",
+    technologies: ["nextjs", "tailwind", "node.js", "shopify"],
+    image: "/images/amgbeauty.png",
+    link: "https://www.amgbeautyworld.com/",
+  },
+  {
+    id: 4,
+    title: "OpenLaw Live",
+    year: "2026",
+    technologies: ["nextjs", "tailwind", "node.js", "AI"],
+    image: "/images/openlaw.png",
+    link: "https://openlaw.live/",
+  },
+  {
+    id: 5,
     title: "BwinTech",
     year: "2025",
     technologies: ["nextjs", "tailwind", "node.js"],
@@ -12,7 +44,7 @@ const projects = [
     link: "https://bwintech.com.au/",
   },
   {
-    id: 2,
+    id: 6,
     title: "Home Loan Hub App",
     year: "2025",
     technologies: ["nextjs", "AI", "node.js"],
@@ -20,7 +52,7 @@ const projects = [
     link: "https://home-loan-hub.netlify.app/",
   },
   {
-    id: 3,
+    id: 7,
     title: "Adelehamza Resources",
     year: "2025",
     technologies: ["nextjs", "tailwind", "node.js"],
@@ -28,7 +60,7 @@ const projects = [
     link: "https://adelehamzaresources.com/",
   },
   {
-    id: 4,
+    id: 8,
     title: "TelgaChain",
     year: "2023",
     technologies: ["node.js", "react", "css"],
@@ -36,7 +68,7 @@ const projects = [
     link: "https://tegalchain.org/",
   },
   {
-    id: 5,
+    id: 9,
     title: "Heartfelt Academy",
     year: "2022",
     technologies: ["sass", "react.js"],
@@ -44,7 +76,7 @@ const projects = [
     link: "https://heartfeltacademy.netlify.app/",
   },
   {
-    id: 6,
+    id: 10,
     title: "Music App",
     year: "2022",
     technologies: ["css", "react.js", "rapidAPI"],
@@ -52,7 +84,7 @@ const projects = [
     link: "https://web-rex-lyrics.netlify.app/",
   },
   {
-    id: 7,
+    id: 11,
     title: "Cartlo",
     year: "2023",
     technologies: ["node.js", "next.js", "css", "ant design"],
@@ -60,7 +92,7 @@ const projects = [
     link: "https://cartclo.com/",
   },
   {
-    id: 8,
+    id: 12,
     title: "Biacademy",
     year: "2023",
     technologies: ["node.js", "next.js", "css"],
@@ -68,7 +100,7 @@ const projects = [
     link: "https://biacademy.info/",
   },
   {
-    id: 9,
+    id: 13,
     title: "Poise Academy",
     year: "2023",
     technologies: ["react", "css", "email.js"],
@@ -76,7 +108,7 @@ const projects = [
     link: "https://pgcsf.org/",
   },
   {
-    id: 10,
+    id: 14,
     title: "Cloud Mall",
     year: "2023",
     technologies: ["node.js", "next.js", "tailwind"],

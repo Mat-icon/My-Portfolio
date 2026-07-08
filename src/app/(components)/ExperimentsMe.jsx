@@ -209,8 +209,8 @@ export default function ExperimentsMe() {
         </div>
 
         {/* Center name */}
-        <div className="flex text-base items-center">
-          <span className=" text-white font-medium text-center fonts">
+        <div className="text-base flex-1 text-center">
+          <span className="text-white font-medium fonts">
             matthew
             <span className="text-[#E1B84F]">&lt;ameh&gt;</span>
           </span>
@@ -218,18 +218,12 @@ export default function ExperimentsMe() {
 
         {/* Desktop controls */}
         <div className="hidden md:flex items-center space-x-2">
-          <VscChromeMinimize
-            className="text-base text-[#6e6e6e] hover:text-black"
-            style={{ transition: "ease-in 0.5s" }}
-          />
+          <VscChromeMinimize className="text-base text-[#6e6e6e] hover:text-black cursor-pointer" style={{ transition: "ease-in 0.5s" }} />
           <div
-            className="w-2.5 h-2.5 border border-[#6e6e6e] rounded-sm hover:border-black"
+            className="w-2.5 h-2.5 border border-[#6e6e6e] rounded-sm hover:border-black cursor-pointer"
             style={{ transition: "ease-in 0.5s" }}
           ></div>
-          <VscChromeClose
-            className="text-base text-[#6e6e6e] hover:text-black"
-            style={{ transition: "ease-in 0.5s" }}
-          />
+          <VscChromeClose className="text-base text-[#6e6e6e] hover:text-black cursor-pointer" style={{ transition: "ease-in 0.5s" }} />
         </div>
 
         {/* Mobile menu icon */}

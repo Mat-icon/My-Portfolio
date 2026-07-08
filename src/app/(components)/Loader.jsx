@@ -58,34 +58,9 @@ const Loader = () => {
         </div>
         <div className="w-[1px] bg-[#646464ad] h-full"></div>
         <header className="w-[15%] md:w-[10%] h-12 flex justify-center items-center relative z-10">
-          <div className="relative w-10 h-10 flex items-center justify-center">
-            <div className="absolute w-3 h-3 bg-[#8FFF86] rounded-full animate-pulse-scale"></div>
-            <div className="absolute w-3 h-3 bg-[#8FFF86] rounded-full animate-pulse-scale-delay"></div>
-          </div>
+          <div className="loader" style={{ color: '#8fff86' }}></div>
         </header>
       </div>
-
-      <style jsx>{`
-        @keyframes pulseScale {
-          0%, 100% {
-            transform: scale(0.8);
-            opacity: 1;
-          }
-          50% {
-            transform: scale(1.8);
-            opacity: 0;
-          }
-        }
-
-        .animate-pulse-scale {
-          animation: pulseScale 1.5s ease-in-out infinite;
-        }
-
-        .animate-pulse-scale-delay {
-          animation: pulseScale 1.5s ease-in-out infinite;
-          animation-delay: 0.75s;
-        }
-      `}</style>
     </div>
   );
 };

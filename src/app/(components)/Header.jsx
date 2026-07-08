@@ -11,7 +11,39 @@ const Header = () => {
   const headerRef = useRef(null);
   const canvasRef = useRef(null);
 
-  
+  const fadeRevealContainerVariants = {
+    hidden: {
+      transition: {
+        staggerChildren: 0.02,
+        staggerDirection: -1,
+      },
+    },
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+        staggerDirection: 1,
+      },
+    },
+  };
+
+  const fadeRevealWordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 5,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
 
   const handleMouseMove = (e) => {
     if (canvasRef.current) {
@@ -29,10 +61,6 @@ const Header = () => {
   const handleMouseLeave = () => {
     setIsHovering(false);
   };
-
-
-
-
 
   return (
     <div ref={headerRef} className="relative h-[55vh] xl:h-[62vh] justify-center  flex text-center items-center">
@@ -57,26 +85,52 @@ const Header = () => {
         </span>
         
         <div className="w-[98%] text-[45px] leading-[1] tracking-[-3px] md:tracking-[-6px] poppins md:text-7xl lg:text-[88px] lg:w-9/12">
-          <h1 className="text-center mx-auto">
-       
-              Hi<span className="font-serif">, </span>
-          
-              I<span className="font-serif">&apos;</span>m{" "}
-          
-              Matthew<span className="font-serif">,</span>{" "}
-        
-               <br className="lg:hidden block" />
-              a{" "}
+          <motion.h1
+            variants={fadeRevealContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.1 }}
+            className="text-center mx-auto"
+          >
+            {"Hi".split("").map((char, i) => (
+              <motion.span key={`hi-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+            ))}
+            <motion.span variants={fadeRevealWordVariants} className="inline-block font-serif text-white">,</motion.span>
+            <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+
+            {"I".split("").map((char, i) => (
+              <motion.span key={`i-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+            ))}
+            <motion.span variants={fadeRevealWordVariants} className="inline-block font-serif text-white">&apos;</motion.span>
+            {"m".split("").map((char, i) => (
+              <motion.span key={`m-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+            ))}
+            <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+
+            {"Matthew".split("").map((char, i) => (
+              <motion.span key={`matthew-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+            ))}
+            <motion.span variants={fadeRevealWordVariants} className="inline-block font-serif text-white">,</motion.span>
+            <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+
+            <br className="lg:hidden block" />
+
+            {"a".split("").map((char, i) => (
+              <motion.span key={`a-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+            ))}
+            <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+
             <br className="hidden xl:block" />
-            <span 
-              className="all-text"
-            >
-              creative{" "}
-            </span>
-            
-              developer
-           
-          </h1>
+
+            {"creative".split("").map((char, i) => (
+              <motion.span key={`creative-${i}`} variants={fadeRevealWordVariants} className="inline-block all-text">{char}</motion.span>
+            ))}
+            <motion.span variants={fadeRevealWordVariants} className="inline-block all-text">&nbsp;</motion.span>
+
+            {"developer".split("").map((char, i) => (
+              <motion.span key={`dev-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+            ))}
+          </motion.h1>
         </div>
         
         <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-6 our-text">
