@@ -8,199 +8,260 @@ import * as THREE from "three";
 // Each symbol is built from real 3D primitives (boxes, spheres, torus)
 // so they have actual depth and catch light properly.
 
-const BAR = 0.14; // bar thickness
-const DEPTH = 0.14; // bar depth
-
 const matProps = { color: "#7C7C7C", metalness: 0.7, roughness: 0.1 };
-
-const Bar = ({ args, position = [0, 0, 0], rotation = [0, 0, 0] }) => (
-  <mesh position={position} rotation={rotation} castShadow>
-    <boxGeometry args={args} />
-    <meshStandardMaterial {...matProps} />
-  </mesh>
-);
-
-const Dot = ({ position = [0, 0, 0], radius = 0.1 }) => (
-  <mesh position={position} castShadow>
-    <sphereGeometry args={[radius, 16, 16]} />
-    <meshStandardMaterial {...matProps} />
-  </mesh>
-);
 
 // ✳ Asterisk — 6 arms + center sphere
 const Asterisk3D = () => {
   const arms = 6;
-  const len = 1.2;
+  const len = 0.95;
+  const rad = 0.11;
   return (
     <group>
       {Array.from({ length: arms }).map((_, i) => (
-        <Bar key={i} args={[len, BAR, DEPTH]} rotation={[0, 0, (i / arms) * Math.PI]} />
+        <mesh key={i} rotation={[0, 0, (i / arms) * Math.PI]} castShadow>
+          <capsuleGeometry args={[rad, len, 8, 16]} />
+          <meshStandardMaterial {...matProps} />
+        </mesh>
       ))}
-      <Dot radius={0.12} />
+      <mesh castShadow>
+        <sphereGeometry args={[0.18, 16, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
     </group>
   );
 };
 
 // ＃ Hash — 2 horizontal + 2 vertical bars
 const Hash3D = () => {
-  const len = 1.1;
+  const len = 0.95;
   const gap = 0.28;
+  const rad = 0.11;
   return (
     <group>
-      <Bar args={[len, BAR, DEPTH]} position={[0, gap, 0]} />
-      <Bar args={[len, BAR, DEPTH]} position={[0, -gap, 0]} />
-      <Bar args={[BAR, len, DEPTH]} position={[gap, 0, 0]} />
-      <Bar args={[BAR, len, DEPTH]} position={[-gap, 0, 0]} />
+      <mesh position={[-gap, 0, 0]} rotation={[0, 0, -0.08]} castShadow>
+        <capsuleGeometry args={[rad, len, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[gap, 0, 0]} rotation={[0, 0, -0.08]} castShadow>
+        <capsuleGeometry args={[rad, len, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0, gap, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+        <capsuleGeometry args={[rad, len, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0, -gap, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+        <capsuleGeometry args={[rad, len, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
     </group>
   );
 };
 
 // < Left Angle Bracket — 2 angled bars
 const AngleLeft3D = () => {
-  const len = 0.7;
+  const len = 0.65;
+  const rad = 0.11;
   return (
     <group>
-      <Bar args={[len, BAR, DEPTH]} position={[0.15, 0.22, 0]} rotation={[0, 0, Math.PI * 0.2]} />
-      <Bar args={[len, BAR, DEPTH]} position={[0.15, -0.22, 0]} rotation={[0, 0, -Math.PI * 0.2]} />
+      <mesh position={[0.12, 0.20, 0]} rotation={[0, 0, Math.PI * 0.2]} castShadow>
+        <capsuleGeometry args={[rad, len, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0.12, -0.20, 0]} rotation={[0, 0, -Math.PI * 0.2]} castShadow>
+        <capsuleGeometry args={[rad, len, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
     </group>
   );
 };
 
 // > Right Angle Bracket — mirror of <
 const AngleRight3D = () => {
-  const len = 0.7;
+  const len = 0.65;
+  const rad = 0.11;
   return (
     <group>
-      <Bar args={[len, BAR, DEPTH]} position={[-0.15, 0.22, 0]} rotation={[0, 0, -Math.PI * 0.2]} />
-      <Bar args={[len, BAR, DEPTH]} position={[-0.15, -0.22, 0]} rotation={[0, 0, Math.PI * 0.2]} />
+      <mesh position={[-0.12, 0.20, 0]} rotation={[0, 0, -Math.PI * 0.2]} castShadow>
+        <capsuleGeometry args={[rad, len, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[-0.12, -0.20, 0]} rotation={[0, 0, Math.PI * 0.2]} castShadow>
+        <capsuleGeometry args={[rad, len, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
     </group>
   );
 };
 
 // / Slash — one diagonal bar
-const Slash3D = () => (
-  <group>
-    <Bar args={[1.1, BAR, DEPTH]} rotation={[0, 0, Math.PI * 0.3]} />
-  </group>
-);
+const Slash3D = () => {
+  const len = 1.0;
+  const rad = 0.11;
+  return (
+    <group>
+      <mesh rotation={[0, 0, Math.PI * 0.3]} castShadow>
+        <capsuleGeometry args={[rad, len, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+    </group>
+  );
+};
 
 // { Left Brace — top hook + middle point + bottom hook
 const BraceLeft3D = () => {
-  const h = 0.35;
-  const w = 0.22;
+  const rad = 0.09;
   return (
     <group>
-      {/* Vertical segments */}
-      <Bar args={[BAR, h, DEPTH]} position={[w * 0.5, h * 0.8, 0]} />
-      <Bar args={[BAR, h, DEPTH]} position={[w * 0.5, -h * 0.8, 0]} />
-      {/* Horizontal hooks */}
-      <Bar args={[w * 0.6, BAR, DEPTH]} position={[w * 0.8, h * 1.05, 0]} />
-      <Bar args={[w * 0.6, BAR, DEPTH]} position={[w * 0.8, -h * 1.05, 0]} />
-      {/* Middle point */}
-      <Bar args={[w * 0.4, BAR, DEPTH]} position={[0, 0, 0]} />
-      <Dot position={[-w * 0.2, 0, 0]} radius={0.06} />
+      <mesh position={[0.12, 0.32, 0]} rotation={[0, 0, 0]} castShadow>
+        <capsuleGeometry args={[rad, 0.38, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0.12, -0.32, 0]} rotation={[0, 0, 0]} castShadow>
+        <capsuleGeometry args={[rad, 0.38, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0.2, 0.51, 0]} rotation={[0, 0, Math.PI / 3]} castShadow>
+        <capsuleGeometry args={[rad, 0.22, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0.2, -0.51, 0]} rotation={[0, 0, -Math.PI / 3]} castShadow>
+        <capsuleGeometry args={[rad, 0.22, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0.02, 0.09, 0]} rotation={[0, 0, -Math.PI / 4]} castShadow>
+        <capsuleGeometry args={[rad, 0.2, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0.02, -0.09, 0]} rotation={[0, 0, Math.PI / 4]} castShadow>
+        <capsuleGeometry args={[rad, 0.2, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
     </group>
   );
 };
 
 // } Right Brace — mirror of {
 const BraceRight3D = () => {
-  const h = 0.35;
-  const w = 0.22;
+  const rad = 0.09;
   return (
     <group>
-      <Bar args={[BAR, h, DEPTH]} position={[-w * 0.5, h * 0.8, 0]} />
-      <Bar args={[BAR, h, DEPTH]} position={[-w * 0.5, -h * 0.8, 0]} />
-      <Bar args={[w * 0.6, BAR, DEPTH]} position={[-w * 0.8, h * 1.05, 0]} />
-      <Bar args={[w * 0.6, BAR, DEPTH]} position={[-w * 0.8, -h * 1.05, 0]} />
-      <Bar args={[w * 0.4, BAR, DEPTH]} position={[0, 0, 0]} />
-      <Dot position={[w * 0.2, 0, 0]} radius={0.06} />
+      <mesh position={[-0.12, 0.32, 0]} rotation={[0, 0, 0]} castShadow>
+        <capsuleGeometry args={[rad, 0.38, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[-0.12, -0.32, 0]} rotation={[0, 0, 0]} castShadow>
+        <capsuleGeometry args={[rad, 0.38, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[-0.2, 0.51, 0]} rotation={[0, 0, -Math.PI / 3]} castShadow>
+        <capsuleGeometry args={[rad, 0.22, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[-0.2, -0.51, 0]} rotation={[0, 0, Math.PI / 3]} castShadow>
+        <capsuleGeometry args={[rad, 0.22, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[-0.02, 0.09, 0]} rotation={[0, 0, Math.PI / 4]} castShadow>
+        <capsuleGeometry args={[rad, 0.2, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[-0.02, -0.09, 0]} rotation={[0, 0, -Math.PI / 4]} castShadow>
+        <capsuleGeometry args={[rad, 0.2, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
     </group>
   );
 };
 
-// @ At Sign — torus ring + inner bar
+// @ At Sign — torus ring + inner loop + dot
 const At3D = () => (
   <group>
     <mesh castShadow>
-      <torusGeometry args={[0.4, 0.07, 12, 32]} />
+      <torusGeometry args={[0.38, 0.09, 16, 48]} />
       <meshStandardMaterial {...matProps} />
     </mesh>
-    <Bar args={[0.25, BAR, DEPTH]} position={[0.1, -0.05, 0]} rotation={[0, 0, -0.3]} />
-    <Dot position={[0, 0, 0]} radius={0.08} />
+    <mesh position={[0.08, -0.04, 0]} rotation={[0, 0, -0.3]} castShadow>
+      <capsuleGeometry args={[0.08, 0.22, 8, 16]} />
+      <meshStandardMaterial {...matProps} />
+    </mesh>
+    <mesh position={[-0.04, 0.08, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+      <capsuleGeometry args={[0.08, 0.22, 8, 16]} />
+      <meshStandardMaterial {...matProps} />
+    </mesh>
+    <mesh castShadow>
+      <sphereGeometry args={[0.14, 16, 16]} />
+      <meshStandardMaterial {...matProps} />
+    </mesh>
   </group>
 );
 
-// $ Dollar — vertical bar + two horizontal bars (simplified S-like)
-const Dollar3D = () => (
-  <group>
-    <Bar args={[BAR, 1.2, DEPTH]} /> {/* vertical */}
-    <Bar args={[0.5, BAR, DEPTH]} position={[0.05, 0.22, 0]} />
-    <Bar args={[0.5, BAR, DEPTH]} position={[-0.05, -0.22, 0]} />
-    {/* S curves as angled bars */}
-    <Bar args={[0.3, BAR, DEPTH]} position={[0.15, 0, 0]} rotation={[0, 0, Math.PI * 0.35]} />
-    <Dot position={[0, 0.52, 0]} radius={0.06} />
-    <Dot position={[0, -0.52, 0]} radius={0.06} />
-  </group>
-);
+// $ Dollar — vertical bar + S curves
+const Dollar3D = () => {
+  const rad = 0.09;
+  return (
+    <group>
+      <mesh castShadow>
+        <capsuleGeometry args={[0.08, 1.0, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[-0.09, 0.32, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+        <capsuleGeometry args={[rad, 0.22, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[-0.18, 0.18, 0]} rotation={[0, 0, 0]} castShadow>
+        <capsuleGeometry args={[rad, 0.22, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0, 0, 0]} rotation={[0, 0, Math.PI / 3]} castShadow>
+        <capsuleGeometry args={[rad, 0.32, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0.18, -0.18, 0]} rotation={[0, 0, 0]} castShadow>
+        <capsuleGeometry args={[rad, 0.22, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+      <mesh position={[0.09, -0.32, 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+        <capsuleGeometry args={[rad, 0.22, 8, 16]} />
+        <meshStandardMaterial {...matProps} />
+      </mesh>
+    </group>
+  );
+};
 
 // ! Exclamation — vertical bar + dot sphere
 const Exclamation3D = () => (
   <group>
-    <Bar args={[BAR, 0.7, DEPTH]} position={[0, 0.15, 0]} />
-    <Dot position={[0, -0.35, 0]} radius={0.09} />
+    <mesh position={[0, 0.16, 0]} castShadow>
+      <capsuleGeometry args={[0.11, 0.55, 8, 16]} />
+      <meshStandardMaterial {...matProps} />
+    </mesh>
+    <mesh position={[0, -0.3, 0]} castShadow>
+      <sphereGeometry args={[0.12, 16, 16]} />
+      <meshStandardMaterial {...matProps} />
+    </mesh>
   </group>
 );
 
-// ( Left Paren — arc from small box segments
-const ParenLeft3D = () => {
-  const segments = 8;
-  const radius = 0.45;
-  const arcSpan = Math.PI * 0.7;
-  const startAngle = Math.PI / 2 + arcSpan / 2;
-  return (
-    <group>
-      {Array.from({ length: segments }).map((_, i) => {
-        const angle = startAngle - (i / (segments - 1)) * arcSpan;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
-        return (
-          <Bar
-            key={i}
-            args={[BAR * 1.2, 0.18, DEPTH]}
-            position={[x, y - radius * Math.sin(Math.PI / 2), 0]}
-            rotation={[0, 0, angle - Math.PI / 2]}
-          />
-        );
-      })}
-    </group>
-  );
-};
+// ( Left Paren — arc from torus segments
+const ParenLeft3D = () => (
+  <group>
+    <mesh position={[0.22, 0, 0]} rotation={[0, 0, Math.PI * 0.75]} castShadow>
+      <torusGeometry args={[0.45, 0.1, 16, 32, Math.PI * 0.5]} />
+      <meshStandardMaterial {...matProps} />
+    </mesh>
+  </group>
+);
 
 // ) Right Paren — mirror of (
-const ParenRight3D = () => {
-  const segments = 8;
-  const radius = 0.45;
-  const arcSpan = Math.PI * 0.7;
-  const startAngle = Math.PI / 2 - arcSpan / 2;
-  return (
-    <group>
-      {Array.from({ length: segments }).map((_, i) => {
-        const angle = startAngle + (i / (segments - 1)) * arcSpan;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
-        return (
-          <Bar
-            key={i}
-            args={[BAR * 1.2, 0.18, DEPTH]}
-            position={[x, y - radius * Math.sin(Math.PI / 2), 0]}
-            rotation={[0, 0, angle - Math.PI / 2]}
-          />
-        );
-      })}
-    </group>
-  );
-};
+const ParenRight3D = () => (
+  <group>
+    <mesh position={[-0.22, 0, 0]} rotation={[0, 0, -Math.PI * 0.25]} castShadow>
+      <torusGeometry args={[0.45, 0.1, 16, 32, Math.PI * 0.5]} />
+      <meshStandardMaterial {...matProps} />
+    </mesh>
+  </group>
+);
 
 // ── Symbol Selector ─────────────────────────────────────────────────
 const SYMBOL_MAP = {

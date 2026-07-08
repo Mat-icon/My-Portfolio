@@ -158,6 +158,7 @@ const projects: ProjectType[] = [
     bookBg:"bg-[#fff]",
     bookBorder: "border-[#03c9fa]",
     lang: ["React.JS", "Node.JS", "Css"],
+    link: "https://tegalchain.org/",
     description:
       "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
   },
