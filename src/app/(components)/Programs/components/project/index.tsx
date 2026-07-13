@@ -766,16 +766,10 @@ export default function Index({
                     </div>
                   </div>
                   <div className="flex-1 w-full overflow-hidden relative">
-                    <iframe
-                      src={link}
-                      title={title}
-                      className="border-none pointer-events-none select-none absolute top-0 left-0"
-                      style={{
-                        width: "200%",
-                        height: "200%",
-                        transform: "scale(0.5)",
-                        transformOrigin: "top left",
-                      }}
+                    <img
+                      src="/noirvik.png"
+                      alt={title}
+                      className="w-full h-full object-cover pointer-events-none select-none absolute top-0 left-0"
                     />
                   </div>
                 </motion.div>
@@ -951,18 +945,12 @@ export default function Index({
                     </div>
                   </div>
 
-                  {/* Website iframe */}
+                  {/* Website Image */}
                   <div className="flex-1 w-full overflow-hidden relative">
-                    <iframe
-                      src={link}
-                      title={title}
-                      className="border-none pointer-events-none select-none absolute top-0 left-0"
-                      style={{
-                        width: "200%",
-                        height: "200%",
-                        transform: "scale(0.5)",
-                        transformOrigin: "top left",
-                      }}
+                    <img
+                      src="/noirvik.png"
+                      alt={title}
+                      className="w-full h-full object-cover pointer-events-none select-none absolute top-0 left-0"
                     />
                   </div>
                 </motion.div>

@@ -1,8 +1,35 @@
 "use client";
 
-import React, { useRef, useMemo } from "react";
-import { useFrame } from "@react-three/fiber";
+import React, { useRef, useMemo, useEffect } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
+
+// Helper to find the scrollable parent element
+const findScrollContainer = (el) => {
+  if (!el || typeof window === "undefined") return null;
+  let parent = el;
+  while (parent) {
+    const style = window.getComputedStyle(parent);
+    if (
+      style.overflowY === "auto" ||
+      style.overflowY === "scroll" ||
+      parent.classList.contains("overflow-y-auto")
+    ) {
+      return parent;
+    }
+    parent = parent.parentElement;
+  }
+  return window;
+};
+
+// Helper to get scroll top of element or window
+const getScrollTop = (container) => {
+  if (!container) return 0;
+  if (container === window) {
+    return window.scrollY;
+  }
+  return container.scrollTop;
+};
 
 // ── 3D Symbol Geometry Builders ──────────────────────────────────────
 // Each symbol is built from real 3D primitives (boxes, spheres, torus)
@@ -280,11 +307,13 @@ const SYMBOL_MAP = {
 };
 
 // ── Floating 3D Symbol with animation ───────────────────────────────
-const Symbol3DModel = ({ char, position, scale = 1.5, seed = 0, mousePosition, isHovering }) => {
+const Symbol3DModel = ({ char, position, scale = 1.5, seed = 0, mousePosition, isHovering, scrollProgressRef }) => {
+  const { viewport } = useThree();
   const groupRef = useRef();
   const initialPosition = useRef(position);
   const targetOffset = useRef({ x: 0, y: 0 });
   const currentOffset = useRef({ x: 0, y: 0 });
+  const currentProgress = useRef(0);
 
   const offsets = useMemo(
     () => ({
@@ -304,6 +333,11 @@ const Symbol3DModel = ({ char, position, scale = 1.5, seed = 0, mousePosition, i
   useFrame((state) => {
     if (!groupRef.current) return;
     const t = state.clock.getElapsedTime();
+
+    // Lerp progress for smooth physics effect
+    const targetProgress = scrollProgressRef.current || 0;
+    currentProgress.current += (targetProgress - currentProgress.current) * 0.1;
+    const p = currentProgress.current;
 
     // Smooth sinusoidal drift
     const driftX = Math.sin(t * offsets.sX + offsets.x) * 0.35;
@@ -325,14 +359,41 @@ const Symbol3DModel = ({ char, position, scale = 1.5, seed = 0, mousePosition, i
     currentOffset.current.x += (targetOffset.current.x - currentOffset.current.x) * 0.03;
     currentOffset.current.y += (targetOffset.current.y - currentOffset.current.y) * 0.03;
 
-    groupRef.current.position.x = initialPosition.current[0] + driftX + currentOffset.current.x;
-    groupRef.current.position.y = initialPosition.current[1] + driftY + currentOffset.current.y;
-    groupRef.current.position.z = initialPosition.current[2] + driftZ;
+    // Dynamic responsive position and size scaling
+    const isMobile = viewport.width < 7.68;
+    const widthScale = Math.min(1, viewport.width / 11);
+    const responsiveScale = isMobile ? 0.7 : 1.0;
 
-    // Smooth continuous 3D rotation — the whole point of true 3D
-    groupRef.current.rotation.y += offsets.rY;
-    groupRef.current.rotation.x += offsets.rX;
-    groupRef.current.rotation.z += offsets.rZ;
+    const initX = initialPosition.current[0] * widthScale;
+    const initY = initialPosition.current[1] * (isMobile ? 0.8 : 1.0);
+    const initZ = initialPosition.current[2];
+
+    // Scroll scatter and depth zoom math
+    const zOffset = p * 12; // move towards the camera (max 12 units)
+    const scatterScale = 1 + p * 2.5; // scatter radially outwards from center (up to 3.5x initial distance)
+
+    const posX = initX * scatterScale + driftX + currentOffset.current.x;
+    const posY = initY * scatterScale + driftY + currentOffset.current.y;
+    const posZ = initZ + zOffset + driftZ;
+
+    groupRef.current.position.x = posX;
+    groupRef.current.position.y = posY;
+    groupRef.current.position.z = posZ;
+
+    // Smooth continuous 3D rotation with spin acceleration based on scroll progress
+    const rotationSpeedFactor = 1 + p * 4; // up to 5x spin speed
+    groupRef.current.rotation.y += offsets.rY * rotationSpeedFactor;
+    groupRef.current.rotation.x += offsets.rX * rotationSpeedFactor;
+    groupRef.current.rotation.z += offsets.rZ * rotationSpeedFactor;
+
+    // Prevent clipping by scaling down the symbol as it gets very close to the camera (Z=8)
+    const distanceToCamera = 8 - posZ;
+    let scaleFactor = 1;
+    if (distanceToCamera < 2.5) {
+      scaleFactor = Math.max(0, distanceToCamera / 2.5);
+    }
+    const currentScale = scale * responsiveScale * scaleFactor;
+    groupRef.current.scale.set(currentScale, currentScale, currentScale);
   });
 
   const SymbolComponent = SYMBOL_MAP[char];
@@ -398,6 +459,25 @@ const SYMBOL_CONFIGS = {
 // ── Scene Component ─────────────────────────────────────────────────
 const SymbolScene = ({ page = "home", mousePosition, isHovering }) => {
   const config = SYMBOL_CONFIGS[page] || SYMBOL_CONFIGS.home;
+  const { gl } = useThree();
+  const scrollContainerRef = useRef(null);
+  const scrollProgressRef = useRef(0);
+
+  useEffect(() => {
+    if (gl.domElement) {
+      scrollContainerRef.current = findScrollContainer(gl.domElement);
+    }
+  }, [gl.domElement]);
+
+  useFrame(() => {
+    if (!scrollContainerRef.current) return;
+    const scrollTop = getScrollTop(scrollContainerRef.current);
+    const headerHeight = gl.domElement.parentElement
+      ? gl.domElement.parentElement.clientHeight
+      : 500;
+    const progress = Math.min(Math.max(scrollTop / headerHeight, 0), 1);
+    scrollProgressRef.current = progress;
+  });
 
   return (
     <>
@@ -417,6 +497,7 @@ const SymbolScene = ({ page = "home", mousePosition, isHovering }) => {
           seed={sym.seed}
           mousePosition={mousePosition}
           isHovering={isHovering}
+          scrollProgressRef={scrollProgressRef}
         />
       ))}
     </>

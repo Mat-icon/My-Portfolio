@@ -22,7 +22,9 @@ const TechAbout = () => {
   const pathname = usePathname();
   const [hovered, setHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isHeadingVisible, setIsHeadingVisible] = useState(false);
   const cardRef = useRef(null);
+  const headingRef = useRef(null);
   // 🔹 Define which "light" background and color to use
   const lightClass = pathname === "/" ? "8fff86" : "8FFF86";
   const spanColor = pathname === "/" ? "#8FFF86" : "#4d81ee";
@@ -35,6 +37,40 @@ const TechAbout = () => {
       transition: {
         duration: 0.8,
         delay: 0,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
+  const fadeRevealContainerVariants = {
+    hidden: {
+      transition: {
+        staggerChildren: 0.02,
+        staggerDirection: -1,
+      },
+    },
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+        staggerDirection: 1,
+      },
+    },
+  };
+
+  const fadeRevealWordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 5,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
         ease: [0.25, 0.1, 0.25, 1],
       },
     },
@@ -60,13 +96,26 @@ const TechAbout = () => {
       { threshold: 0.2 }
     );
 
+    const headingObserver = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeadingVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
     if (cardRef.current) {
       observer.observe(cardRef.current);
+    }
+    if (headingRef.current) {
+      headingObserver.observe(headingRef.current);
     }
 
     return () => {
       if (cardRef.current) {
         observer.unobserve(cardRef.current);
+      }
+      if (headingRef.current) {
+        headingObserver.unobserve(headingRef.current);
       }
     };
   }, []);
@@ -74,10 +123,61 @@ const TechAbout = () => {
   return (
     <div className="w-screen flex flex-col justify-center items-center mt-36">
       <div>
-        <h1 className="text-4xl md:text-[58px] text-white  tracking-tighter md:leading-[60px] text-center poppins">
-          Some of the techs <br className="block md:hidden"/>i like to<br className="hidden md:block"/>{" "}
-          <span className={`text-[${spanColor}]`}>work with</span>
-        </h1>
+        <motion.h1 
+          ref={headingRef}
+          variants={fadeRevealContainerVariants}
+          initial="hidden"
+          animate={isHeadingVisible ? "visible" : "hidden"}
+          className="text-4xl md:text-[58px] text-white tracking-tighter md:leading-[60px] text-center poppins"
+        >
+          {"Some ".split("").map((char, i) => (
+            <motion.span key={`some-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+          {"of ".split("").map((char, i) => (
+            <motion.span key={`of-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+          {"the ".split("").map((char, i) => (
+            <motion.span key={`the-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+          {"techs".split("").map((char, i) => (
+            <motion.span key={`techs-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+              {char}
+            </motion.span>
+          ))}
+          <br className="block md:hidden" />
+          {" i ".split("").map((char, i) => (
+            <motion.span key={`i-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+          {"like ".split("").map((char, i) => (
+            <motion.span key={`like-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+          {"to".split("").map((char, i) => (
+            <motion.span key={`to-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
+              {char}
+            </motion.span>
+          ))}
+          <br className="hidden md:block" />
+          {" work ".split("").map((char, i) => (
+            <motion.span key={`work-${i}`} variants={fadeRevealWordVariants} className="inline-block text-[#4d81ee]">
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+          {"with".split("").map((char, i) => (
+            <motion.span key={`with-${i}`} variants={fadeRevealWordVariants} className="inline-block text-[#4d81ee]">
+              {char}
+            </motion.span>
+          ))}
+        </motion.h1>
       </div>
 
       {/* 🔹 Dynamic light background */}

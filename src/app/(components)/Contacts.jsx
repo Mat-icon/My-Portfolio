@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Footer from "./Footer";
 import { Canvas } from "@react-three/fiber";
 import SymbolScene from "./SymbolScene";
@@ -14,6 +15,59 @@ export default function Contacts() {
   const [isHovering, setIsHovering] = useState(false);
   const headerRef = useRef(null);
   const canvasRef = useRef(null);
+  const [isHeadingVisible, setIsHeadingVisible] = useState(false);
+  const headingRef = useRef(null);
+
+  const fadeRevealContainerVariants = {
+    hidden: {
+      transition: {
+        staggerChildren: 0.02,
+        staggerDirection: -1,
+      },
+    },
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+        staggerDirection: 1,
+      },
+    },
+  };
+
+  const fadeRevealWordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 5,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeadingVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+    return () => {
+      if (headingRef.current) {
+        observer.unobserve(headingRef.current);
+      }
+    };
+  }, []);
 
   const handleMouseMove = (e) => {
     if (canvasRef.current) {
@@ -41,7 +95,7 @@ export default function Contacts() {
         onMouseLeave={handleMouseLeave}
         style={{
           width: "100%",
-          height: "90%",
+          height: "120%",
           position: "absolute",
           top: 0,
           left: 0,
@@ -61,10 +115,52 @@ export default function Contacts() {
             <span className="text-xs md:text-[12px] mb-5 fonts md:mb-4 text-[#9D9D9D] uppercase tracking-wider">
               Contact
             </span>
-            <h1 className=" w-[98%] text-[45px] leading-[1] tracking-tighter poppins md:text-7xl lg:text-[88px] lg:w-9/12">
-              Do you want <br className="md:hidden block"/>to talk <br className="hidden md:block"/> about <br className="md:hidden block"/>a
-              <span className=" text-[#91d1f8]"> project </span>?
-            </h1>
+            <motion.h1
+              ref={headingRef}
+              variants={fadeRevealContainerVariants}
+              initial="hidden"
+              animate={isHeadingVisible ? "visible" : "hidden"}
+              className="w-[98%] text-[45px] leading-[1] tracking-tighter poppins md:text-7xl lg:text-[88px] lg:w-9/12 text-center mx-auto"
+            >
+              {"Do".split("").map((char, i) => (
+                <motion.span key={`do-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+              {"you".split("").map((char, i) => (
+                <motion.span key={`you-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+              {"want".split("").map((char, i) => (
+                <motion.span key={`want-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <br className="md:hidden block"/>
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+              {"to".split("").map((char, i) => (
+                <motion.span key={`to-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+              {"talk".split("").map((char, i) => (
+                <motion.span key={`talk-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <br className="hidden md:block"/>
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+              {"about".split("").map((char, i) => (
+                <motion.span key={`about-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <br className="md:hidden block"/>
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+              {"a".split("").map((char, i) => (
+                <motion.span key={`a-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-[#91d1f8]">&nbsp;</motion.span>
+              {"project".split("").map((char, i) => (
+                <motion.span key={`project-${i}`} variants={fadeRevealWordVariants} className="inline-block text-[#91d1f8]">{char}</motion.span>
+              ))}
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+              {"?".split("").map((char, i) => (
+                <motion.span key={`q-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+            </motion.h1>
             <p className="w-10/12 md:w-10/12 lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl text-[#9D9D9D] mt-6 our-text">
               Whether you have a project you want to work on together or just
               want

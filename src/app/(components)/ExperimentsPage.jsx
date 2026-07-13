@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import PagesContactBar from "./PagesContactBar";
 import Footer from "./Footer";
 import { Canvas } from "@react-three/fiber";
@@ -14,6 +15,59 @@ export default function ExperimentsPage() {
   const [isHovering, setIsHovering] = useState(false);
   const headerRef = useRef(null);
   const canvasRef = useRef(null);
+  const [isHeadingVisible, setIsHeadingVisible] = useState(false);
+  const headingRef = useRef(null);
+
+  const fadeRevealContainerVariants = {
+    hidden: {
+      transition: {
+        staggerChildren: 0.02,
+        staggerDirection: -1,
+      },
+    },
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+        staggerDirection: 1,
+      },
+    },
+  };
+
+  const fadeRevealWordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 5,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeadingVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+    return () => {
+      if (headingRef.current) {
+        observer.unobserve(headingRef.current);
+      }
+    };
+  }, []);
 
   const handleMouseMove = (e) => {
     if (canvasRef.current) {
@@ -41,7 +95,7 @@ export default function ExperimentsPage() {
         onMouseLeave={handleMouseLeave}
         style={{
           width: "100%",
-          height: "90%",
+          height: "120%",
           position: "absolute",
           top: 0,
           left: 0,
@@ -61,10 +115,31 @@ export default function ExperimentsPage() {
             <span className="text-xs md:text-[11px] fonts  mb-4 md:mb-4 text-[#9d9d9d] uppercase tracking-wider">
               Experiments
             </span>
-            <h1 className=" w-[94%] text-[rgb(255,255,255)] text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins">
-              Beyond<br className="block md:hidden"/> projects: <br /> some
-              <span className=" text-[#E1B84F]"> experiments</span>
-            </h1>
+            <motion.h1
+              ref={headingRef}
+              variants={fadeRevealContainerVariants}
+              initial="hidden"
+              animate={isHeadingVisible ? "visible" : "hidden"}
+              className="w-[94%] text-white text-5xl tracking-tighter md:text-7xl lg:text-[92px] lg:w-9/12 poppins text-center mx-auto"
+            >
+              {"Beyond".split("").map((char, i) => (
+                <motion.span key={`beyond-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <br className="block md:hidden"/>
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+              {"projects:".split("").map((char, i) => (
+                <motion.span key={`projects-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <br />
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
+              {"some".split("").map((char, i) => (
+                <motion.span key={`some-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
+              ))}
+              <motion.span variants={fadeRevealWordVariants} className="inline-block text-[#E1B84F]">&nbsp;</motion.span>
+              {"experiments".split("").map((char, i) => (
+                <motion.span key={`experiments-${i}`} variants={fadeRevealWordVariants} className="inline-block text-[#E1B84F]">{char}</motion.span>
+              ))}
+            </motion.h1>
             <p className="w-11/12 md:w-10/12 text-[#9d9d9d] lg:w-5/12 2xl:w-6/12  text-[16px] text-center max-w-2xl mt-6  our-text">
               Not only client work: I code also for experimenting<br className="hidden md:block"/> and personal
               projects, and I&apos;m happy to give back<br className="hidden md:block"/> to the community by

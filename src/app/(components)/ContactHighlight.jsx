@@ -24,8 +24,10 @@ const ContactHighlight = () => {
   const potraitRef = useRef(null);
   const contactRef = useRef(null);
   const collabRef = useRef(null);
+  const headingRef = useRef(null);
 
   const [hovered, setHovered] = useState(false);
+  const [isHeadingVisible, setIsHeadingVisible] = useState(false);
   
   // Visibility states for each card
   const [jobVisible, setJobVisible] = useState(false);
@@ -122,6 +124,21 @@ const ContactHighlight = () => {
   };
 
   useEffect(() => {
+    const headingObserver = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeadingVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    if (headingRef.current) {
+      headingObserver.observe(headingRef.current);
+    }
+    return () => {
+      headingObserver.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
     const draggableElements = [
       { ref: jobRef, visible: jobVisible },
       { ref: hobbiesRef, visible: hobbiesVisible },
@@ -207,10 +224,10 @@ const ContactHighlight = () => {
   return (
     <div className="w-full relative flex flex-col  items-center mb-0">
       <motion.h1
+        ref={headingRef}
         variants={fadeRevealContainerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        animate={isHeadingVisible ? "visible" : "hidden"}
         className="text-4xl md:text-[58px] tracking-tighter md:leading-[60px] poppins text-center"
       >
         {"Your ".split("").map((char, i) => (
@@ -228,6 +245,7 @@ const ContactHighlight = () => {
             {char === " " ? "\u00A0" : char}
           </motion.span>
         ))}
+         <br className="lg:hidden block" />
         {"developer".split("").map((char, i) => (
           <motion.span key={`dev-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">
             {char === " " ? "\u00A0" : char}

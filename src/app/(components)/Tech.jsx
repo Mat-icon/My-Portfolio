@@ -20,7 +20,9 @@ const Tech = () => {
   const pathname = usePathname();
   const [hovered, setHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isHeadingVisible, setIsHeadingVisible] = useState(false);
   const cardRef = useRef(null);
+  const headingRef = useRef(null);
   // 🔹 Define which "light" background and color to use
   const lightClass = pathname === "/" ? "8fff86" : "8FFF86";
   const spanColor = pathname === "/" ? "#8FFF86" : "#95bdfa";
@@ -92,13 +94,26 @@ const Tech = () => {
       { threshold: 0.2 }
     );
 
+    const headingObserver = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeadingVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
     if (cardRef.current) {
       observer.observe(cardRef.current);
+    }
+    if (headingRef.current) {
+      headingObserver.observe(headingRef.current);
     }
 
     return () => {
       if (cardRef.current) {
         observer.unobserve(cardRef.current);
+      }
+      if (headingRef.current) {
+        headingObserver.unobserve(headingRef.current);
       }
     };
   }, []);
@@ -107,10 +122,10 @@ const Tech = () => {
     <div className="w-screen flex flex-col justify-center items-center mt-36">
       <div>
         <motion.h1 
+          ref={headingRef}
           variants={fadeRevealContainerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          animate={isHeadingVisible ? "visible" : "hidden"}
           className="text-4xl md:text-[58px] tracking-tighter md:leading-[60px] text-center poppins"
         >
           {"Some ".split("").map((char, i) => (

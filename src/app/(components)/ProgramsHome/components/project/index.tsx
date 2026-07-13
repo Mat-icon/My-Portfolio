@@ -238,27 +238,21 @@ export default function Index({
                   }}
                 >
                   {/* Mobile Browser Header */}
-                  <div className="flex items-center h-6 px-2 bg-[#1e232b] border-b border-[#2d3139] shrink-0 select-none">
+                  <div className="flex items-center h-6 px-2 bg-[#000000] border-b border-[#2d3139] shrink-0 select-none">
                     <div className="flex gap-1 mr-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#ef4444] opacity-80" />
                       <div className="w-1.5 h-1.5 rounded-full bg-[#eab308] opacity-80" />
                       <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] opacity-80" />
                     </div>
                     <div className="flex-1 h-3.5 bg-[#0f1115] rounded px-1.5 flex items-center justify-center">
-                      <span className="text-[8px] text-gray-500 font-mono truncate">{link}</span>
+                      <span className="text-[7px] text-gray-600 font-mono truncate">{link}</span>
                     </div>
                   </div>
                   <div className="flex-1 w-full overflow-hidden relative">
-                    <iframe
-                      src={link}
-                      title={title}
-                      className="border-none pointer-events-none select-none absolute top-0 left-0"
-                      style={{
-                        width: "200%",
-                        height: "200%",
-                        transform: "scale(0.5)",
-                        transformOrigin: "top left",
-                      }}
+                    <img
+                      src="/images/noirvik.png"
+                      alt={title}
+                      className="w-full h-full object-cover pointer-events-none select-none absolute top-0 left-0"
                     />
                   </div>
                 </motion.div>
@@ -434,18 +428,12 @@ export default function Index({
                     </div>
                   </div>
 
-                  {/* Website iframe */}
+                  {/* Website Image */}
                   <div className="flex-1 w-full overflow-hidden relative">
-                    <iframe
-                      src={link}
-                      title={title}
-                      className="border-none pointer-events-none select-none absolute top-0 left-0"
-                      style={{
-                        width: "200%",
-                        height: "200%",
-                        transform: "scale(0.5)",
-                        transformOrigin: "top left",
-                      }}
+                    <img
+                      src="/noirvik.png"
+                      alt={title}
+                      className="w-full h-full object-cover pointer-events-none select-none absolute top-0 left-0"
                     />
                   </div>
                 </motion.div>
