@@ -144,6 +144,7 @@ export default function Project() {
               {"best".split("").map((char, i) => (
                 <motion.span key={`best-${i}`} variants={fadeRevealWordVariants} className="inline-block text-white">{char}</motion.span>
               ))}
+               <br className="lg:hidden block" />
               <motion.span variants={fadeRevealWordVariants} className="inline-block text-white">&nbsp;</motion.span>
               {"projects.".split("").map((char, i) => (
                 <motion.span key={`projects-${i}`} variants={fadeRevealWordVariants} className="inline-block text-[#e14f62]">{char}</motion.span>
