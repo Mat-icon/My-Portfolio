@@ -925,30 +925,16 @@ export default function Index({
               >
                 <motion.div
                   variants={imageVariant}
-                  className="relative w-[400px] h-[250px] overflow-hidden rounded-[8px] border border-[#494949] shadow-2xl flex flex-col bg-[#0f0f0f]"
+                  className="relative w-[400px] h-[250px] overflow-hidden rounded-[8px] border border-[#494949] flex flex-col bg-[#0f0f0f]"
                   style={{
                     zIndex: 5,
                     transformStyle: "preserve-3d",
                   }}
                 >
-                  {/* Browser Header Bar */}
-                  <div className="flex items-center h-7 px-3 bg-[#1e232b] border-b border-[#2d3139] shrink-0 select-none">
-                    {/* Traffic Lights */}
-                    <div className="flex gap-1.5 mr-4">
-                      <div className="w-2 h-2 rounded-full bg-[#ef4444] opacity-80" />
-                      <div className="w-2 h-2 rounded-full bg-[#eab308] opacity-80" />
-                      <div className="w-2 h-2 rounded-full bg-[#22c55e] opacity-80" />
-                    </div>
-                    {/* URL Bar */}
-                    <div className="flex-1 max-w-[240px] h-[18px] bg-[#0f1115] border border-[#2d3139] rounded px-2 flex items-center justify-center">
-                      <span className="text-[10px] text-gray-500 font-mono truncate select-all">{link}</span>
-                    </div>
-                  </div>
-
                   {/* Website Image */}
-                  <div className="flex-1 w-full overflow-hidden relative">
+                  <div className="w-full overflow-hidden relative">
                     <img
-                      src="/noirvik.png"
+                      src="/images/noirvik.png"
                       alt={title}
                       className="w-full h-full object-cover pointer-events-none select-none absolute top-0 left-0"
                     />

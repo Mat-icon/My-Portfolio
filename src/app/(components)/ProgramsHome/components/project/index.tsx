@@ -231,24 +231,14 @@ export default function Index({
             >
                 <motion.div
                   variants={imageVariant}
-                  className="relative w-full h-[150px] overflow-hidden rounded-[8px] border border-[#494949] shadow-2xl flex flex-col bg-[#0f0f0f]"
+                  className="relative w-full h-[170px] overflow-hidden rounded-[8px] border border-[#494949]  flex flex-col bg-[#0f0f0f]"
                   style={{
                     zIndex: 5,
                     transformStyle: "preserve-3d",
                   }}
                 >
                   {/* Mobile Browser Header */}
-                  <div className="flex items-center h-6 px-2 bg-[#000000] border-b border-[#2d3139] shrink-0 select-none">
-                    <div className="flex gap-1 mr-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#ef4444] opacity-80" />
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#eab308] opacity-80" />
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] opacity-80" />
-                    </div>
-                    <div className="flex-1 h-3.5 bg-[#0f1115] rounded px-1.5 flex items-center justify-center">
-                      <span className="text-[7px] text-gray-600 font-mono truncate">{link}</span>
-                    </div>
-                  </div>
-                  <div className="flex-1 w-full overflow-hidden relative">
+                  <div className="w-full overflow-hidden relative">
                     <img
                       src="/images/noirvik.png"
                       alt={title}
