@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useRef, useMemo, useEffect } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame, useLoader, useThree } from "@react-three/fiber";
 import * as THREE from "three";
+import { FontLoader } from "three/addons/loaders/FontLoader.js";
+import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
 
 // Helper to find the scrollable parent element
 const findScrollContainer = (el) => {
@@ -36,6 +38,32 @@ const getScrollTop = (container) => {
 // so they have actual depth and catch light properly.
 
 const matProps = { color: "#7C7C7C", metalness: 0.7, roughness: 0.1 };
+
+const SymbolGlyph = ({ char }) => {
+  const font = useLoader(FontLoader, "/fonts/helvetiker_bold.typeface.json");
+  const geometry = useMemo(() => {
+    const glyph = new TextGeometry(char, {
+      font,
+      size: 1,
+      depth: 0.28,
+      curveSegments: 12,
+      bevelEnabled: true,
+      bevelThickness: 0.045,
+      bevelSize: 0.025,
+      bevelSegments: 5,
+    });
+    glyph.center();
+    return glyph;
+  }, [char, font]);
+
+  useEffect(() => () => geometry.dispose(), [geometry]);
+
+  return (
+    <mesh geometry={geometry} castShadow receiveShadow>
+      <meshStandardMaterial {...matProps} />
+    </mesh>
+  );
+};
 
 // ✳ Asterisk — 6 arms + center sphere
 const Asterisk3D = () => {
@@ -396,12 +424,11 @@ const Symbol3DModel = ({ char, position, scale = 1.5, seed = 0, mousePosition, i
     groupRef.current.scale.set(currentScale, currentScale, currentScale);
   });
 
-  const SymbolComponent = SYMBOL_MAP[char];
-  if (!SymbolComponent) return null;
+  if (!SYMBOL_MAP[char]) return null;
 
   return (
     <group ref={groupRef} position={position} scale={[scale, scale, scale]}>
-      <SymbolComponent />
+      <SymbolGlyph char={char} />
     </group>
   );
 };

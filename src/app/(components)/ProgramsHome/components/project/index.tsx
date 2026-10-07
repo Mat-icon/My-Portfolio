@@ -240,7 +240,7 @@ export default function Index({
                   {/* Mobile Browser Header */}
                   <div className="w-full overflow-hidden relative">
                     <img
-                      src="/images/noirvik.png"
+                      src={`/images/${image}`}
                       alt={title}
                       className="w-full h-full object-cover pointer-events-none select-none absolute top-0 left-0"
                     />
@@ -421,7 +421,7 @@ export default function Index({
                   {/* Website Image */}
                   <div className="flex-1 w-full overflow-hidden relative">
                     <img
-                      src="/noirvik.png"
+                      src={`/images/${image}`}
                       alt={title}
                       className="w-full h-full object-cover pointer-events-none select-none absolute top-0 left-0"
                     />

@@ -22,7 +22,7 @@ const projects: ProjectType[] = [
   {
     title: "Noirvik Fashion",
     time: "2026",
-    image: "noirvik.png",
+    image: "www.noirvik.com_ (2).webp",
     lang: ["Nextjs", "Tailwindcss", "Nodejs"],  
     color: "#706D63",
     bookBg: "bg-[#0a0a0a9a]",
@@ -31,9 +31,31 @@ const projects: ProjectType[] = [
     link: "https://noirvik.com/"
   },
   {
+    title: "Africana Grills",
+    time: "2026",
+    image: "africana-grills-ab6i.vercel.app_.webp",
+    lang: ["Nextjs", "Tailwindcss", "Typescript"],
+    color: "#8B4513",
+    bookBg: "bg-[#1c1008]",
+    bookBorder: "border-[#f59e0b]",
+    description: "A modern African food and restaurant experience showcasing authentic grilled dishes and vibrant cuisine.",
+    link: "https://africana-grills-ab6i.vercel.app/"
+  },
+  {
+    title: "Holy Spirit Resurgence Ministry",
+    time: "2026",
+    image: "quicj.netlify.app_.webp",
+    lang: ["Nextjs", "Tailwindcss", "Typescript"],
+    color: "#f6df35",
+    bookBg: "bg-[#171717]",
+    bookBorder: "border-[#f6df35]",
+    description: "A welcoming church platform for discovering the ministry, its community, messages, and upcoming events.",
+    link: "https://quicj.netlify.app/"
+  },
+  {
     title: "Paypaxe",
     time: "2026",
-    image: "paypaxe.png",
+    image: "paypaxe.com_.webp",
     lang: ["Nextjs", "Tailwindcss", "Typescript", "Nodejs"],  
     color: "#1D242A",
     bookBg: "bg-[#0f172a]",
@@ -44,7 +66,7 @@ const projects: ProjectType[] = [
   {
     title: "AMG Beauty World",
     time: "2026",
-    image: "amgbeauty.png",
+    image: "www.amgbeautyworld.com_.webp",
     lang: ["Nextjs", "Tailwindcss", "Stripe","Superbase", "Nodejs"],  
     color: "#652424",
     bookBg: "bg-[#fdf4f5]",
@@ -55,7 +77,7 @@ const projects: ProjectType[] = [
   {
     title: "OpenLaw Live",
     time: "2026",
-    image: "openlaw.png",
+    image: "openlaw.live_.webp",
     lang: ["Nextjs", "Tailwindcss", "AI Integration", "Typescript"],  
     color: "#1e3a8a",
     bookBg: "bg-[#f8fafc]",
@@ -68,36 +90,12 @@ const projects: ProjectType[] = [
     time: "2025",
     lang: ["Nextjs", "Zustand", "Threejs","Tailwindcss", "Typescript"],  
     color: "#706D63",
-    image: "brabik.png",
+    image: "brabik.netlify.app_.webp",
     bookBg:"bg-[#fff]",
     bookBorder: "border-[#0a0a0a9a]",
     description:
       "A minimalist e-commerce platform for smart home devices and automation solutions.",
     link: "https://brabik.netlify.app/"
-  },
-  {
-    title: "Track Member",
-    time: "2025",
-    bookBg:"bg-[#fff]",
-    bookBorder: "border-[#03c9fa]",
-    lang: ["Svelte 5", "Convex", "clerk", "Sveltekit", "typeScript", "tailwindcss"],  
-    color: "#706D63",
-    image: "tap2.png",
-    description:
-      "A digital membership card platform that allows users to create, manage, and share their membership cards easily.",
-    link: "https://tap2member.netlify.app/"
-  },
-  {
-    title: "Bwintech",
-    image: "bwin.png",
-    time: "2025",
-    lang: ["Nextjs", "Tailwindcss", "Nodejs"],
-    color: "#706D63",
-    bookBg:"bg-[#fff]",
-    bookBorder: "border-[#706D63]",
-    description:
-      "Bwintech is a boutique data consultancy helping businesses make smarter decisions with their data.",
-    link: "https://bwintech.com.au/",
   },
 ];
 
