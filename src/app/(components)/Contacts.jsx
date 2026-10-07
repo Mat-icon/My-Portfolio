@@ -7,6 +7,7 @@ import { Canvas } from "@react-three/fiber";
 import SymbolScene from "./SymbolScene";
 
 import ContactForm from "./ContactForm";
+import ScrollDrivenMarquee from "./ScrollDrivenMarquee";
 
 
 
@@ -171,17 +172,6 @@ export default function Contacts() {
         </main>
 
         <style>{`
-                  @keyframes scrollWords {
-                    0% {
-                      transform: translateX(0);
-                    }
-                    100% {
-                      transform: translateX(-50%);
-                    }
-                  }
-                  .animate-scroll {
-                    animation: scrollWords 610s linear infinite;
-                  }
                      @keyframes pulse {
                     0%, 100% {
                       opacity: 1;
@@ -253,21 +243,7 @@ export default function Contacts() {
                 `}</style>
 
         <div className="fixed top-[-15%] inset-0 z-0 opacity-40 pointer-events-none flex items-center justify-center ">
-          <div className="relative flex gap-8 object-heavy text-[400px] md:text-[600px] space-x-8 font-extrabold  text-[#00000044]  whitespace-nowrap animate-scroll">
-            <p>code</p>
-            <p>beautiful interfaces</p>
-            <p>code</p>
-            <p>design</p>
-            <p>creative logic</p>
-            <p>design</p>
-            {/* Duplicate for seamless loop */}
-            <p>code</p>
-            <p>beautiful interfaces</p>
-            <p>code</p>
-            <p>design</p>
-            <p>creative logic</p>
-            <p>design</p>
-          </div>
+          <ScrollDrivenMarquee className="relative flex gap-8 object-heavy text-[400px] md:text-[600px] space-x-8 font-extrabold text-[#00000044] whitespace-nowrap" />
         </div>
        <ContactForm />
         <Footer />

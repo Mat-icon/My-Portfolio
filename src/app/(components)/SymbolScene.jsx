@@ -390,7 +390,7 @@ const Symbol3DModel = ({ char, position, scale = 1.5, seed = 0, mousePosition, i
     // Dynamic responsive position and size scaling
     const isMobile = viewport.width < 7.68;
     const widthScale = Math.min(1, viewport.width / 11);
-    const responsiveScale = isMobile ? 0.7 : 1.0;
+    const responsiveScale = isMobile ? 0.48 : 0.72;
 
     const initX = initialPosition.current[0] * widthScale;
     const initY = initialPosition.current[1] * (isMobile ? 0.8 : 1.0);

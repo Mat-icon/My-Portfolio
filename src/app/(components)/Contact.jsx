@@ -569,9 +569,9 @@ const Contact = () => {
           </div>
           <div className="w-full h-auto bg-[#8ff866] overflow-hidden">
             <img
-              src="/images/matthew.png"
+              src="/images/image.png"
               alt="img-face"
-              className="h-[275px] w-full object-cover"
+              className="h-[275px] w-full grayscale object-cover object-center"
             />
           </div>
         </motion.div>

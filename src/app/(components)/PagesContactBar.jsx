@@ -268,9 +268,9 @@ const PagesContactbar = ({ currentRoute }) => {
                 style={{ backgroundColor: accentColor }}
               >
                 <img
-                  src="/images/matthew.png"
+                  src="/images/image.png"
                   alt="me"
-                  className="absolute top-[-3.6%] left-0 w-full h-full object-cover scale-[1.05] rounded-full"
+                  className="absolute top-[-3.6%] left-0 w-full h-full grayscale object-cover scale-[1.05] rounded-full"
                 />
               </div>
             </div>
